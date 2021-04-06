@@ -1,0 +1,7 @@
+@import "styles/theme-palette.scss";
+
+.hello {
+  @include themed() {
+    background-color: t($primary);
+  }
+}

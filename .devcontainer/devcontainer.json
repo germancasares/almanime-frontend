@@ -18,7 +18,9 @@
 		"dbaeumer.vscode-eslint",
 		"mhutchie.git-graph",
 		"syler.sass-indented",
-		"pflannery.vscode-versionlens"
+		"pflannery.vscode-versionlens",
+		"firefox-devtools.vscode-firefox-debug",
+		"ms-vscode.vscode-typescript-next"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

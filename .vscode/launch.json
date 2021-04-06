@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Firefox",
+      "type": "firefox",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "pathMappings": [
+        {
+          "url": "http://localhost:3000/workspaces/almanime-frontend/src",
+          "path": "${workspaceFolder}/src"
+        }
+      ]
+    }
+  ]
+}
