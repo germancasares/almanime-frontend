@@ -1,0 +1,33 @@
+@import "styles/theme-palette.scss";
+
+.search {
+  select {
+    @include back-contrast($background-est);
+
+    option {
+      @include themed() {
+        color: findColorInvert(t($background-est));
+      }
+    }
+  }
+
+  .select:not(.is-multiple):not(.is-loading)::after {
+    @include themed() {
+      border-color: t($primary);
+    }
+  }
+
+  input {
+    @include back-contrast($background-est);
+
+    &::placeholder {
+      @include themed() {
+        color: findColorInvert(t($background-est));
+      }
+    }
+  }
+
+  .button {
+    @include back-contrast($primary);
+  }
+}

@@ -1,0 +1,10 @@
+@import "styles/theme-palette.scss";
+
+.menu {
+  .navbar-item:hover {
+    @include themed() {
+      background-color: t($background-est);
+      color: t($primary);
+    }
+  }
+}

@@ -2,4 +2,20 @@
 
 @import-normalize;
 
-@import "~bulma/bulma.sass";
+@import "~bulma/bulma";
+
+// Global rules
+@import "~bulma/sass/utilities/functions";
+@import "styles/theme-palette.scss";
+
+.button {
+  @include back-contrast($primary);
+
+  @include themed() {
+    border-color: t($border-color);
+  }
+
+  &:hover {
+    @include back-contrast($primary);
+  }
+}

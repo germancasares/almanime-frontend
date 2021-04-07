@@ -1,0 +1,14 @@
+@import "~bulma/sass/utilities/functions";
+@import "styles/theme-palette.scss";
+
+.navbar {
+  @include themed() {
+    background-color: t($background-er);
+  }
+
+  .navbar-item {
+    @include themed() {
+      color: findColorInvert(t($background-er));
+    }
+  }
+}

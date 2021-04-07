@@ -1,15 +1,27 @@
 @import "./variables";
+@import "~bulma/sass/utilities/functions";
 
 // Keys
 $primary: 'primary';
+$background-er: 'background-er';
+$background-est: 'background-est';
+$border-color: 'border-color';
 
 // Palette
 $themes: (
   light: (
     primary: #931a25,
+    background-er: #fafafa,
+    background-est: #ffffff,
+
+    border-color: #dbdbdb,
   ),
   dark: (
     primary: #ff9000,
+    background-er: #233446,
+    background-est: #30475e,
+
+    border-color: #dbdbdb,
   ),
 );
 
@@ -30,4 +42,11 @@ $themes: (
 
 @function t($key) {
   @return map-get($theme-map, $key);
+}
+
+@mixin back-contrast($color-key) {
+  @include themed() {
+    background-color: t($color-key);
+    color: findColorInvert(t($color-key));
+  }
 }

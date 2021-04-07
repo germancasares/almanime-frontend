@@ -1,0 +1,13 @@
+@import "styles/theme-palette.scss";
+
+.themeSwitch {
+  .button {
+    border: 0;
+
+    @include back-contrast($background-er);
+
+    &:hover {
+      @include back-contrast($background-er);
+    }
+  }
+}
