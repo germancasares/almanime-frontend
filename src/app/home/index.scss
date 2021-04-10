@@ -1,0 +1,12 @@
+@import "styles/theme-palette.scss";
+
+#home {
+  .title {
+    padding-bottom: .5rem;
+
+    @include themed() {
+      // background-color: t($background-er);
+      border-bottom: 3px solid t($text-color);
+    }
+  }
+}

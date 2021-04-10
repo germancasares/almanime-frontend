@@ -8,7 +8,7 @@ import './index.scss';
 type Props = ThemeSwitchProps;
 
 const Header = ({ theme, toggleTheme }: Props): JSX.Element => (
-  <nav className="navbar is-fixed-top themed">
+  <nav id="header" className="navbar is-fixed-top themed">
     <div className="container">
       <Brand />
       <Menu />

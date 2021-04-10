@@ -1,4 +1,4 @@
-@import "./variables";
+@import "./_variables";
 @import "~bulma/sass/utilities/functions";
 
 // Keys
@@ -6,6 +6,7 @@ $primary: 'primary';
 $background-er: 'background-er';
 $background-est: 'background-est';
 $border-color: 'border-color';
+$text-color: 'text-color';
 
 // Palette
 $themes: (
@@ -14,12 +15,16 @@ $themes: (
     background-er: #fafafa,
     background-est: #ffffff,
 
+    text-color: #272b38,
+
     border-color: #dbdbdb,
   ),
   dark: (
     primary: #ff9000,
     background-er: #233446,
     background-est: #30475e,
+
+    text-color: #d7dadc,
 
     border-color: #dbdbdb,
   ),

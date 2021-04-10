@@ -4,9 +4,9 @@ import {
   Route,
 } from 'react-router-dom';
 import routes from 'app/routes';
-import ConfigurationWrapper from 'contexts';
-import { Theme } from 'enums';
-import Header from 'app/header/Header';
+import Theme from 'enums/Theme';
+import Header from 'app/header';
+import './index.scss';
 
 const App = (): JSX.Element => {
   const [theme, setTheme] = useState(Theme.Light);
@@ -15,23 +15,21 @@ const App = (): JSX.Element => {
   };
 
   return (
-    <ConfigurationWrapper>
-      <Router>
-        <div className={`theme-${theme}`}>
-          <Header theme={theme} toggleTheme={toggleTheme} />
+    <Router>
+      <div className={`theme-${theme}`}>
+        <Header theme={theme} toggleTheme={toggleTheme} />
 
-          {routes.map((route) => (
-            <Route
-              key={route.path}
-              path={route.path}
-              exact
-            >
-              <route.component />
-            </Route>
-          ))}
-        </div>
-      </Router>
-    </ConfigurationWrapper>
+        {Object.values(routes).map((route) => (
+          <Route
+            key={route.path}
+            path={route.path}
+            exact
+          >
+            <route.component />
+          </Route>
+        ))}
+      </div>
+    </Router>
   );
 };
 
