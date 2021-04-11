@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Icon from '@mdi/react';
 import { mdiMagnify } from '@mdi/js';
 import './search.scss';
+import routes from 'app/routes';
 
 const Search = (): JSX.Element => (
   <div className="navbar-item search">
@@ -23,17 +24,17 @@ const Search = (): JSX.Element => (
           </div>
           <div className="dropdown-menu" id="dropdown-menu" role="menu">
             <div className="dropdown-content">
-              <Link to="/" className="dropdown-item">Item 1</Link>
-              <Link to="/" className="dropdown-item">Item 2</Link>
-              <Link to="/" className="dropdown-item">Item 3</Link>
-              <Link to="/" className="dropdown-item">Item 4</Link>
+              <Link to={routes.home.path} className="dropdown-item">Item 1</Link>
+              <Link to={routes.home.path} className="dropdown-item">Item 2</Link>
+              <Link to={routes.home.path} className="dropdown-item">Item 3</Link>
+              <Link to={routes.home.path} className="dropdown-item">Item 4</Link>
             </div>
           </div>
         </div>
       </div>
 
       <div className="control">
-        <Link to="/" className="button px-2">
+        <Link to={routes.home.path} className="button px-2">
           <Icon
             path={mdiMagnify}
             size={1}

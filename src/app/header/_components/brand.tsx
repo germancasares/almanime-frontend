@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from 'assets/logo.svg';
 import './brand.scss';
+import routes from 'app/routes';
 
 const Brand = (): JSX.Element => (
   <div className="navbar-brand brand">
-    <Link to="/" className="navbar-item">
-      <Logo width="50" height="28" />
+    <Link to={routes.home.path} className="navbar-item">
+      <Logo width="30" height="28" />
     </Link>
 
     <div className="navbar-burger">

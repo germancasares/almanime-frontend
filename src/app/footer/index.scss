@@ -1,0 +1,11 @@
+@import "styles/theme-palette.scss";
+
+#footer {
+  @include back-contrast($background-er);
+
+  strong {
+    @include themed() {
+      color: findColorInvert(t($background-er));
+    }
+  }
+}

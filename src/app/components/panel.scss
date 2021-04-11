@@ -1,0 +1,60 @@
+.panel {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  overflow: hidden;
+
+  :hover .overlay {
+    opacity: 1;
+  }
+
+  .overlay {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.4s ease-in-out 0s;
+  }
+
+  figure {
+    border-radius: 5px;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  :hover .name {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+
+  .name {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 80%;
+    left: 50%;
+    opacity: 0;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out 0s;
+
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+}

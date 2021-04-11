@@ -1,23 +1,33 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { configureStore } from '@reduxjs/toolkit';
+
 import configureFetch from 'api';
+import reducer from 'app/store';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
+
 import './index.scss';
 
 if (process.env.NODE_ENV === 'development') {
   configureFetch();
-
-  fetch('anime/year/2021/season/Winter?page=1&includeMeta=true')
-    .then((response) => response.json())
-    .then((data) => console.log(data));
 }
+
+const store = configureStore({
+  reducer,
+});
 
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </StrictMode>,
-  document.getElementById('app'),
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

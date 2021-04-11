@@ -5,9 +5,13 @@
     background-color: t($background-er);
   }
 
-  .navbar-item {
-    @include themed() {
-      color: findColorInvert(t($background-er));
+  .container {
+    // padding: 0 1.5rem;
+
+    .navbar-item {
+      @include themed() {
+        color: findColorInvert(t($background-er));
+      }
     }
   }
 }

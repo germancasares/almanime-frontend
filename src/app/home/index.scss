@@ -5,7 +5,7 @@
     padding-bottom: .5rem;
 
     @include themed() {
-      // background-color: t($background-er);
+      color: t($text-color);
       border-bottom: 3px solid t($text-color);
     }
   }
