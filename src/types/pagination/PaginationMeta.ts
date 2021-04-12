@@ -1,8 +1,8 @@
 type PaginationMeta = {
   count: number;
   first: URL;
-  previous: URL | null;
-  next: URL | null;
+  previous: URL | undefined;
+  next: URL | undefined;
   last: URL;
 };
 

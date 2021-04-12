@@ -14,8 +14,8 @@ type Anime = {
   synopsis: string;
   startDate: DateTime;
 
-  coverImage: URL | null;
-  posterImage: URL | null;
+  coverImage: URL | undefined;
+  posterImage: URL | undefined;
 };
 
 export default Anime;

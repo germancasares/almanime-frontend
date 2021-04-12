@@ -1,3 +1,4 @@
+import { pathToRegexp } from 'path-to-regexp';
 import AnimeApi from './AnimeApi';
 import { sleep } from './_helper';
 
@@ -9,10 +10,10 @@ const configureFetch = (): void => {
   const realFetch = window.fetch;
 
   window.fetch = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
-    const route = input.toString();
+    const route = input.toString().split(/[?#]/)[0];
     const method = init?.method || 'GET';
 
-    const mock = mocks.find((e) => e.method === method && e.regex.test(route));
+    const mock = mocks.find((e) => e.method === method && pathToRegexp(e.path).test(route));
 
     await sleep(500);
 

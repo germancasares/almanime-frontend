@@ -1,6 +1,6 @@
 export type Mock = {
   method: string,
-  regex: RegExp,
+  path: string,
   response: Response,
 };
 

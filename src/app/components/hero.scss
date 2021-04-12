@@ -1,0 +1,26 @@
+@import "styles/theme-palette.scss";
+
+#hero {
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+  }
+
+  .overlay {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+  
+    div {
+      position: relative;
+      top: 50%;
+      height: 50%;
+  
+      @include themed() {
+        background-image: linear-gradient(to bottom, #FF000000, t($background));
+      }
+    }
+  }
+}

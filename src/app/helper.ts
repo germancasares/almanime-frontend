@@ -33,9 +33,9 @@ const Chunk = <T>(collection: T[], columns = 2): T[][] => {
 };
 
 const ResizeImageOrDefault = (
-  image: URL | null,
+  image: URL | undefined,
   size: AnimeCoverSize | AnimePosterSize,
-): string | null => (image === null ? null : `${image.toString()}${size}.jpg`);
+): string | undefined => (image === undefined ? undefined : `${image.toString()}${size}.jpg`);
 
 const Helper = {
   GetSeason,

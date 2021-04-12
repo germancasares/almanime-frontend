@@ -1,8 +1,9 @@
 import Panel from 'app/components/panel';
-import Anime from 'types/Anime';
+import Anime from 'types/anime';
 import Helper from 'app/helper';
 import './season.scss';
 import AnimeCoverSize from 'enums/AnimeCoverSize';
+import routes from 'app/routes';
 
 type Props = {
   animes: Anime[];
@@ -22,6 +23,7 @@ const Season = ({ animes }: Props): JSX.Element => {
                 <Panel
                   name={anime.name}
                   image={Helper.ResizeImageOrDefault(anime.coverImage, AnimeCoverSize.Tiny)}
+                  to={routes.anime.to(anime.slug)}
                 />
               </div>
             ))}
