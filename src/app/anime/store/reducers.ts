@@ -4,7 +4,10 @@ import { getAnimeBySlug } from './actions';
 import { State } from './type';
 
 const initialState: State = {
-  anime: {} as Anime,
+  anime: {
+    coverImage: null,
+    posterImage: null,
+  } as Anime,
 };
 
 const animeSlice = createSlice({

@@ -1,4 +1,4 @@
-import Panel from 'app/components/panel';
+import Panel from 'components/panel';
 import Anime from 'types/anime';
 import Helper from 'app/helper';
 import './season.scss';
@@ -19,24 +19,17 @@ const Season = ({ animes }: Props): JSX.Element => {
           // eslint-disable-next-line react/no-array-index-key
           <div key={`chunk-${index}`} className="tile is-ancestor">
             {chunk.map((anime) => (
-              <div key={anime.kitsuID} className="tile is-parent">
+              <article key={anime.kitsuID} className="tile is-parent">
                 <Panel
                   name={anime.name}
                   image={Helper.ResizeImageOrDefault(anime.coverImage, AnimeCoverSize.Tiny)}
                   to={routes.anime.to(anime.slug)}
                 />
-              </div>
+              </article>
             ))}
           </div>
         ))
       }
-      {/* <div className="tile is-3 h10" />
-      <div className="tile is-3" />
-      <div className="tile is-3" />
-      <div className="tile is-3" />
-      <div className="tile is-3" />
-      <div className="tile is-3" />
-      <div className="tile is-3" /> */}
     </div>
   );
 };

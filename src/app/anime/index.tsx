@@ -1,10 +1,13 @@
 import { useParams } from 'react-router-dom';
-import Hero from 'app/components/hero';
+import Hero from 'components/hero';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from 'app/store';
 import { useEffect } from 'react';
 import Helper from 'app/helper';
 import AnimeCoverSize from 'enums/AnimeCoverSize';
+import Poster from 'components/poster';
+import AnimePosterSize from 'enums/AnimePostersize';
+import Info from './_components/info';
 import { getAnimeBySlug } from './store/actions';
 
 import './index.scss';
@@ -20,13 +23,30 @@ const Anime = (): JSX.Element => {
   }, [dispatch, slug]);
 
   return (
-    <main id="anime">
+    <div id="anime">
       <Hero
         image={Helper.ResizeImageOrDefault(anime.coverImage, AnimeCoverSize.Small)}
         season={anime.season}
       />
-      {anime.name}
-    </main>
+      <div className="container">
+        <div className="columns">
+          <aside className="column is-narrow">
+            <Poster image={Helper.ResizeImageOrDefault(anime.posterImage, AnimePosterSize.Small)} />
+            <Info anime={anime} episodes={0} />
+          </aside>
+          <main>
+            <section className="column">
+              <h1 className="title is-size-3 has-text-weight-semibold">
+                {anime.name}
+              </h1>
+              <div>
+                <p>{anime.synopsis}</p>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
   );
 };
 

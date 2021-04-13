@@ -1,0 +1,64 @@
+@import "styles/theme-palette.scss";
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 3px;
+  @include themed() {
+    border: 1px solid t($primary);
+  }
+
+  .details {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -37px;
+
+    span {
+      padding: 0 10px;
+      @include themed() {
+        color: t($primary);
+        background-color: t($background);
+      }
+    }
+  }
+
+  ul {
+    position: relative;
+    margin-top: -37px;
+
+    li {
+      min-height: 30px
+    }
+
+    span:first-of-type {
+      padding-right: 5px;
+      @include themed() {
+        color: t($primary);
+      }
+
+      + span {
+        @include themed() {
+          color: findColorInvert(t($background));
+        }
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+
+      a {
+        line-height: 0;
+
+        img {
+          height: 30px;
+          width: 30px;
+        }
+      }
+    }
+  }
+}

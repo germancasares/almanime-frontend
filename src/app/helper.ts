@@ -33,14 +33,41 @@ const Chunk = <T>(collection: T[], columns = 2): T[][] => {
 };
 
 const ResizeImageOrDefault = (
-  image: URL | undefined,
+  image: URL | null,
   size: AnimeCoverSize | AnimePosterSize,
-): string | undefined => (image === undefined ? undefined : `${image.toString()}${size}.jpg`);
+): string | undefined => (image === null ? undefined : `${image.toString()}${size}.jpg`);
+
+const StringToDateTime = (date: string): DateTime => DateTime.fromISO(date, { zone: 'utc' });
+
+// #region LocalStorage
+
+const GetLocalStorage = <T>(key: string): T | null => {
+  const item = localStorage.getItem(key);
+
+  if (item === null) {
+    return null;
+  }
+
+  return JSON.parse(item);
+};
+
+const CreateLocalStorage = (key: string, value: unknown): void => localStorage.setItem(key, JSON.stringify(value));
+
+const DeleteLocalStorage = (key: string): void => localStorage.removeItem(key);
+
+// #endregion
 
 const Helper = {
   GetSeason,
   Chunk,
   ResizeImageOrDefault,
+  StringToDateTime,
+
+  LocalStorage: {
+    Create: CreateLocalStorage,
+    Get: GetLocalStorage,
+    Delete: DeleteLocalStorage,
+  },
 };
 
 export default Helper;

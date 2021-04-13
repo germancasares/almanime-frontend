@@ -4,12 +4,19 @@ import routes from 'app/routes';
 import Theme from 'enums/Theme';
 import Header from 'app/header';
 import Footer from 'app/footer';
+import Helper from './helper';
 import './index.scss';
 
 const App = (): JSX.Element => {
-  const [theme, setTheme] = useState(Theme.Light);
+  const localTheme = Helper.LocalStorage.Get<Theme>('theme');
+  const [theme, setTheme] = useState(localTheme ?? Theme.Light);
+  Helper.LocalStorage.Create('theme', theme);
+
   const toggleTheme = () => {
-    setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
+    const newTheme = theme === Theme.Light ? Theme.Dark : Theme.Light;
+
+    setTheme(newTheme);
+    Helper.LocalStorage.Create('theme', newTheme);
   };
 
   return (

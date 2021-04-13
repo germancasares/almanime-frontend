@@ -1,8 +1,6 @@
 import AnimeStatus from 'enums/AnimeStatus';
 import Season from 'enums/Season';
 
-import { DateTime } from 'luxon';
-
 type Anime = {
   id: string;
 
@@ -12,10 +10,10 @@ type Anime = {
   season: Season;
   status: AnimeStatus;
   synopsis: string;
-  startDate: DateTime;
+  startDate: string;
 
-  coverImage: URL | undefined;
-  posterImage: URL | undefined;
+  coverImage: URL | null;
+  posterImage: URL | null;
 };
 
 export default Anime;
