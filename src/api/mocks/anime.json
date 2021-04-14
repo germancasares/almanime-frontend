@@ -1,13 +1,189 @@
 {
-  "episodes": [],
-  "id": "e06e46f4-20bd-471a-35c3-08d8f24360f8",
-  "kitsuID": 43271,
-  "slug": "ijiranaide-nagatoro-san",
-  "name": "Ijiranaide, Nagatoro-san",
+  "episodes": [
+    {
+      "id": "14904ad5-7f34-4f3a-f091-08d8fef6e693",
+      "number": 1,
+      "name": "The End of the Beginning and the Beginning of the End",
+      "aired": "2016-04-03T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "faf3c471-7723-4e28-f092-08d8fef6e693",
+      "number": 2,
+      "name": "Reunion with the Witch",
+      "aired": "2016-04-11T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "64de6238-865a-4685-f096-08d8fef6e693",
+      "number": 3,
+      "name": "Starting Life from Zero in Another World",
+      "aired": "2016-04-18T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "18436ad0-6f49-4c54-f09a-08d8fef6e693",
+      "number": 4,
+      "name": "The Happy Roswaal Mansion Family",
+      "aired": "2016-04-25T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "3a3d78bb-7fa7-4dd6-f09e-08d8fef6e693",
+      "number": 5,
+      "name": "The Morning of Our Promise Is Still Distant",
+      "aired": "2016-05-02T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "ab70c592-12c2-4303-f0a2-08d8fef6e693",
+      "number": 6,
+      "name": "The Sound of Chains",
+      "aired": "2016-05-09T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "c7002614-26eb-4cc7-f0a5-08d8fef6e693",
+      "number": 7,
+      "name": "Natsuki Subaru's Restart",
+      "aired": "2016-05-16T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "d340a79c-1ad7-4146-f0a9-08d8fef6e693",
+      "number": 8,
+      "name": "I Cried, Cried My Lungs Out, and Stopped Crying",
+      "aired": "2016-05-23T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "e4865534-b353-4902-f0ac-08d8fef6e693",
+      "number": 9,
+      "name": "The Meaning of Courage",
+      "aired": "2016-05-30T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "f7f97a44-8dc9-4ead-f0b1-08d8fef6e693",
+      "number": 10,
+      "name": "Fanatical Methods Like a Demon",
+      "aired": "2016-06-06T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "4fac4003-ebc0-41f3-f0b4-08d8fef6e693",
+      "number": 11,
+      "name": "Rem",
+      "aired": "2016-06-13T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "414737dc-4c3e-46bb-f0ba-08d8fef6e693",
+      "number": 12,
+      "name": "Return to the Capital",
+      "aired": "2016-06-20T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "bd60990d-b86f-406d-f0bf-08d8fef6e693",
+      "number": 13,
+      "name": "Self-Proclaimed Knight Natsuki Subaru",
+      "aired": "2016-06-27T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "48e08b6a-32f5-4ad7-f0c5-08d8fef6e693",
+      "number": 14,
+      "name": "The Sickness Called Despair",
+      "aired": "2016-07-04T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "00ddb241-559d-4f8f-f0c9-08d8fef6e693",
+      "number": 15,
+      "name": "The Outside of Madness",
+      "aired": "2016-07-11T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "1e8ca080-025d-449d-f0ce-08d8fef6e693",
+      "number": 16,
+      "name": "The Greed of a Pig",
+      "aired": "2016-07-18T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "0b243e29-3ec8-4454-f0d4-08d8fef6e693",
+      "number": 17,
+      "name": "Disgrace in the Extreme",
+      "aired": "2016-07-25T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "bd47dc0c-3861-490f-f0db-08d8fef6e693",
+      "number": 18,
+      "name": "From Zero",
+      "aired": "2016-08-01T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "58223970-b6e6-4218-f0dd-08d8fef6e693",
+      "number": 19,
+      "name": "Battle Against the White Whale",
+      "aired": "2016-08-08T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "ec25d444-5be9-47b3-f0e2-08d8fef6e693",
+      "number": 20,
+      "name": "Wilhelm van Astrea",
+      "aired": "2016-08-15T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "58a8c9d8-8ad2-47ad-f0e7-08d8fef6e693",
+      "number": 21,
+      "name": "A Wager That Defies Despair",
+      "aired": "2016-08-22T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "66ad03fa-81a5-4ea8-f0ea-08d8fef6e693",
+      "number": 22,
+      "name": "A Flash of Sloth",
+      "aired": "2016-08-29T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "f3dc0371-ecdd-4cf6-f0ee-08d8fef6e693",
+      "number": 23,
+      "name": "Nefarious Sloth",
+      "aired": "2016-09-05T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "bf4bc451-eab8-487f-f0f6-08d8fef6e693",
+      "number": 24,
+      "name": "The Self-Proclaimed Knight and the Greatest Knight",
+      "aired": "2016-09-12T00:00:00",
+      "duration": 25
+    },
+    {
+      "id": "8a3f53dc-6f1f-4c48-f0fa-08d8fef6e693",
+      "number": 25,
+      "name": "That's All This Story Is About",
+      "aired": "2016-09-19T00:00:00",
+      "duration": 25
+    }
+  ],
+  "id": "5d58d1f3-a5bd-4c01-e5e7-08d8fef6e693",
+  "kitsuID": 11209,
+  "slug": "re-zero-kara-hajimeru-isekai-seikatsu",
+  "name": "Re:Zero kara Hajimeru Isekai Seikatsu",
   "season": "Spring",
-  "status": "Upcoming",
-  "synopsis": "Our nameless—and spineless—hero (only known as \"Senpai\") is a second year high school student and loner who spends his afternoons at the Arts Club room. He attracts the attention of one of his schoolmates, a sadistic freshman girl named Nagatoro. However, in between the bullying and teasing, something else begins to blossom. A lovey dovey(...?) story between a shy nerd and an S-Dere (Sadistic Tsundere) begins.\n\n(Source: MangaDex)",
-  "startDate": "2021-04-10T00:00:00",
-  "coverImage": "https://media.kitsu.io/anime/cover_images/43271/",
-  "posterImage": "https://media.kitsu.io/anime/poster_images/43271/"
+  "status": "Finished",
+  "synopsis": "When Subaru Natsuki leaves the convenience store, the last thing he expects is to be wrenched from his everyday life and dropped into a fantasy world. Things aren't looking good for the bewildered teenager; however, not long after his arrival, he is attacked by some thugs. Armed with only a bag of groceries and a now useless cell phone, he is quickly beaten to a pulp. Fortunately, a mysterious beauty named Satella, in hot pursuit after the one who stole her insignia, happens upon Subaru and saves him. In order to thank the honest and kindhearted girl, Subaru offers to help in her search, and later that night, he even finds the whereabouts of that which she seeks. But unbeknownst to them, a much darker force stalks the pair from the shadows, and just minutes after locating the insignia, Subaru and Satella are brutally murdered.\n\nHowever, Subaru immediately reawakens to a familiar scene—confronted by the same group of thugs, meeting Satella all over again—the enigma deepens as history inexplicably repeats itself.\n\n(Source: MAL Rewrite)",
+  "startDate": "2016-04-04T00:00:00",
+  "coverImage": "https://media.kitsu.io/anime/cover_images/11209/",
+  "posterImage": "https://media.kitsu.io/anime/poster_images/11209/"
 }

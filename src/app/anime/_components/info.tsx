@@ -1,14 +1,13 @@
 import Formatter from 'app/formatter';
-import Anime from 'types/anime';
+import { AnimeWithEpisodes } from 'types/anime';
 import Kitsu from 'assets/kitsu.png';
 import './info.scss';
 
 type Props = {
-  anime: Anime,
-  episodes: number,
+  anime: AnimeWithEpisodes,
 };
 
-const Info = ({ anime, episodes }: Props): JSX.Element => (
+const Info = ({ anime }: Props): JSX.Element => (
   <div className="info">
     <div className="details">
       <span className="is-size-5 has-text-weight-semibold">
@@ -18,10 +17,10 @@ const Info = ({ anime, episodes }: Props): JSX.Element => (
 
     <ul>
       {
-        episodes > 0 && (
+        anime.episodes.length > 0 && (
           <li>
             <span className="has-text-weight-bold">Episodes:</span>
-            <span>{episodes}</span>
+            <span>{anime.episodes.length}</span>
           </li>
         )
       }

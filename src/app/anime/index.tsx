@@ -9,6 +9,7 @@ import Poster from 'components/poster';
 import AnimePosterSize from 'enums/AnimePostersize';
 import Info from './_components/info';
 import { getAnimeBySlug } from './store/actions';
+import Episodes from './_components/episodes';
 
 import './index.scss';
 
@@ -32,16 +33,18 @@ const Anime = (): JSX.Element => {
         <div className="columns">
           <aside className="column is-narrow">
             <Poster image={Helper.ResizeImageOrDefault(anime.posterImage, AnimePosterSize.Small)} />
-            <Info anime={anime} episodes={0} />
+            <Info anime={anime} />
           </aside>
           <main>
             <section className="column">
               <h1 className="title is-size-3 has-text-weight-semibold">
                 {anime.name}
               </h1>
-              <div>
-                <p>{anime.synopsis}</p>
-              </div>
+              <p>{anime.synopsis}</p>
+              {
+                anime.episodes.length > 0
+                && (<Episodes episodes={anime.episodes} />)
+              }
             </section>
           </main>
         </div>

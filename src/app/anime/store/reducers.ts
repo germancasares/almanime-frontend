@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import Anime from 'types/anime';
+import { AnimeWithEpisodes } from 'types/anime';
+import Episode from 'types/episode';
 import { getAnimeBySlug } from './actions';
 import { State } from './type';
 
@@ -7,7 +8,8 @@ const initialState: State = {
   anime: {
     coverImage: null,
     posterImage: null,
-  } as Anime,
+    episodes: [] as Episode[],
+  } as AnimeWithEpisodes,
 };
 
 const animeSlice = createSlice({

@@ -1,5 +1,6 @@
 import AnimeStatus from 'enums/AnimeStatus';
 import Season from 'enums/Season';
+import Episode from './episode';
 
 type Anime = {
   id: string;
@@ -14,6 +15,10 @@ type Anime = {
 
   coverImage: URL | null;
   posterImage: URL | null;
+};
+
+export type AnimeWithEpisodes = Anime & {
+  episodes: Episode[];
 };
 
 export default Anime;

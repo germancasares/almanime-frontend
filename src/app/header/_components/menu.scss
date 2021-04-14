@@ -1,10 +1,23 @@
 @import "styles/theme-palette.scss";
 
 .menu {
-  .navbar-item:hover {
+  .navbar-item {
     @include themed() {
-      background-color: t($background-est);
-      color: t($primary);
+      color: findColorInvert(t($background-er));
+    }
+
+    &:hover {
+      @include themed() {
+        background-color: t($background-est);
+        color: t($primary);
+      }
+    }
+
+    &:focus {
+      @include themed() {
+        background-color: t($background-est);
+        color: t($primary);
+      }
     }
   }
 }
