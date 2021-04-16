@@ -3,7 +3,7 @@ type Episode = {
 
   number: number;
   name: string;
-  aired: string;
+  aired: string | null;
   duration: number | null;
 };
 

@@ -11,7 +11,7 @@ type Anime = {
   season: Season;
   status: AnimeStatus;
   synopsis: string;
-  startDate: string;
+  startDate: string | null;
 
   coverImage: URL | null;
   posterImage: URL | null;

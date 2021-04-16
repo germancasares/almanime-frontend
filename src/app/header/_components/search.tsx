@@ -56,6 +56,11 @@ const Search = (): JSX.Element => {
     })();
   }, [query, type, location]);
 
+  const clearSearch = () => {
+    setQuery('');
+    setDocuments([]);
+  };
+
   return (
     <div className="navbar-item search">
       <div className="field has-addons">
@@ -78,6 +83,7 @@ const Search = (): JSX.Element => {
                 className="input"
                 placeholder="Search for..."
                 onChange={(event) => setQuery(Helper.Event.GetValue(event))}
+                onBlur={clearSearch}
               />
             </div>
             <div className="dropdown-menu" role="menu">
@@ -88,7 +94,7 @@ const Search = (): JSX.Element => {
                       key={doc.kitsuID}
                       to={routes.anime.to(doc.slug)}
                       className="dropdown-item"
-                      onClick={() => setQuery('')}
+                      onClick={clearSearch}
                     >
                       {doc.name}
                     </Link>

@@ -10,6 +10,7 @@
 
   main {
     padding-left: 20px;
+    width: 100%;
 
     @include themed() {
       color: findColorInvert(t($background));

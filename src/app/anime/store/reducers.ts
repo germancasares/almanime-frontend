@@ -16,7 +16,9 @@ const animeSlice = createSlice({
   name: 'anime',
   initialState,
   reducers: {
-
+    clearAnime: (state) => {
+      state.anime = initialState.anime;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -26,4 +28,5 @@ const animeSlice = createSlice({
   },
 });
 
+export const { clearAnime } = animeSlice.actions;
 export default animeSlice.reducer;

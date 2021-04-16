@@ -9,6 +9,7 @@ import Poster from 'components/poster';
 import AnimePosterSize from 'enums/AnimePostersize';
 import Info from './_components/info';
 import { getAnimeBySlug } from './store/actions';
+import { clearAnime } from './store/reducers';
 import Episodes from './_components/episodes';
 
 import './index.scss';
@@ -21,6 +22,10 @@ const Anime = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getAnimeBySlug(slug));
+
+    return () => {
+      dispatch(clearAnime());
+    };
   }, [dispatch, slug]);
 
   return (

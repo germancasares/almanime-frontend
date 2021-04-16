@@ -14,8 +14,12 @@ const Home = (): JSX.Element => {
   const [current, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(loadSeason(1));
-  }, [dispatch]);
+    dispatch(loadSeason(current));
+  }, [current, dispatch]);
+
+  // const updatePagination = (page: number) => {
+  //   setPage(page);
+  // };
 
   return (
     <main id="home" className="container fh">

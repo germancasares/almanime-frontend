@@ -11,9 +11,7 @@ import reportWebVitals from './reportWebVitals';
 
 import './index.scss';
 
-if (process.env.NODE_ENV === 'development') {
-  configureFetch();
-}
+configureFetch();
 
 const store = configureStore({
   reducer,

@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon';
 import Helper from './helper';
 
-const DateFull = (date: string): string | undefined => (
-  date === undefined
+const DateFull = (date: string | null): string => (
+  date === null
     ? ''
     : Helper.StringToDateTime(date).toLocaleString(DateTime.DATE_FULL)
 );
