@@ -23,7 +23,7 @@ const Home = (): JSX.Element => {
         <Pagination
           total={200}
           perPage={8}
-          steps={5}
+          steps={1}
           current={current}
           onChange={(page) => setPage(page)}
         />

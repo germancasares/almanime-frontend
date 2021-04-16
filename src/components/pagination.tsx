@@ -1,3 +1,5 @@
+import './pagination.scss';
+
 type Props = {
   total: number;
   perPage: number;
@@ -35,8 +37,8 @@ const Pagination = ({
 }: Props): JSX.Element => {
   const totalPages = Math.ceil(total / perPage);
 
-  const prePages = current - steps;
-  const postPages = totalPages - current - steps + 1;
+  const prePages = current - 2;
+  const postPages = totalPages - current - 1;
 
   return (
     <nav className="pagination is-right" role="navigation" aria-label="pagination">
@@ -73,7 +75,7 @@ const Pagination = ({
         {
           postPages > 0 && postPages <= steps && (
             Array.from(Array(postPages).keys()).map(
-              (page) => <Page page={page + current + 1} onChange={onChange} key={page} />,
+              (page) => <Page page={current + page + 1} onChange={onChange} key={page} />,
             )
           )
         }

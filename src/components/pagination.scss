@@ -1,3 +1,26 @@
+@import "styles/theme-palette.scss";
+
 .pagination {
-  
+  .pagination-link {
+    border-width: 2px;
+    @include themed() { 
+      border-color: t($border-color);
+    }
+
+    &:not(.is-current) {
+      @include back-contrast($background);
+      @include themed() {
+        color: t($primary);
+      }
+
+      cursor: pointer;
+    }
+
+    &.is-current {
+      @include themed() {
+        background-color: t($primary);
+        border-color: t($primary);
+      }
+    }
+  }
 }

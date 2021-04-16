@@ -3,6 +3,7 @@
 
 // Keys
 $primary: 'primary';
+$secondary: 'secondary';
 $background: 'background';
 $background-er: 'background-er';
 $background-est: 'background-est';
@@ -13,6 +14,7 @@ $text-color: 'text-color';
 $themes: (
   light: (
     primary: #931a25,
+    secondary: #5D737E,
     background: #f5f5f5,
     background-er: #fafafa,
     background-est: #ffffff,
@@ -23,13 +25,14 @@ $themes: (
   ),
   dark: (
     primary: #ff9000,
+    secondary: #4ECDC4,
     background: #17212d,
     background-er: #233446,
     background-est: #30475e,
 
     text-color: #d7dadc,
 
-    border-color: #dbdbdb,
+    border-color: #5e6d6f,
   ),
 );
 
