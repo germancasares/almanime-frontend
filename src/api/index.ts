@@ -1,9 +1,11 @@
 import { pathToRegexp } from 'path-to-regexp';
 import AnimeApi from './AnimeApi';
+import SearchApi from './SearchApi';
 import { sleep } from './_helper';
 
 const mocks = [
   ...AnimeApi.Mocks,
+  ...SearchApi.Mocks,
 ];
 
 const configureFetch = (): void => {
@@ -17,11 +19,7 @@ const configureFetch = (): void => {
 
     await sleep(500);
 
-    if (mock) {
-      return mock.response;
-    }
-
-    return realFetch(input, init);
+    return mock ? mock.response.clone() : realFetch(input, init);
   };
 };
 

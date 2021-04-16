@@ -20,26 +20,8 @@ class AnimeApi {
     },
   ];
 
-  // public static async GetBySlug(slug: string): Promise<AnimeWithEpisodes> {
-  //   const anime = (await Axios.get(`anime/slug/${slug}`)).data;
-
-  //   // anime.startDate is string even though is defined as DateTime in Typescript.
-  //   anime.startDate = Helper.StringToDateTime(anime.startDate.toString());
-
-  //   // The same for the episode.aired DateTimes.
-  //   anime.episodes.forEach(
-  //     (episode: Episode) => episode.aired = episode.aired !== null
-  //       ? Helper.StringToDateTime(episode.aired.toString())
-  //       : episode.aired,
-  //   );
-
-  //   return anime;
-  // }
-
   public static async GetBySlug(slug: string): Promise<AnimeWithEpisodes> {
-    const anime: AnimeWithEpisodes = await (await fetch(`anime/slug/${slug}`)).json();
-
-    return anime;
+    return (await fetch(`anime/slug/${slug}`)).json();
   }
 
   public static async GetSeason(

@@ -15,7 +15,7 @@ const Episodes = ({ episodes }: Props): JSX.Element => (
       <Header />
     </tfoot>
     <tbody>
-      {episodes.map((episode) => <Row episode={episode} />)}
+      {episodes.map((episode) => <Row episode={episode} key={episode.id} />)}
     </tbody>
   </table>
 );

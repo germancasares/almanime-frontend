@@ -2,6 +2,7 @@ import AnimeCoverSize from 'enums/AnimeCoverSize';
 import AnimePosterSize from 'enums/AnimePostersize';
 import Season from 'enums/Season';
 import { DateTime } from 'luxon';
+import { ChangeEvent } from 'react';
 
 const GetSeason = (month: number | DateTime): Season => {
   if (month instanceof DateTime) {
@@ -57,6 +58,16 @@ const DeleteLocalStorage = (key: string): void => localStorage.removeItem(key);
 
 // #endregion
 
+// #region Event
+
+const GetValue = ({
+  target: {
+    value,
+  },
+}: ChangeEvent<HTMLInputElement | HTMLSelectElement>): string => value;
+
+// #endregion
+
 const Helper = {
   GetSeason,
   Chunk,
@@ -67,6 +78,10 @@ const Helper = {
     Create: CreateLocalStorage,
     Get: GetLocalStorage,
     Delete: DeleteLocalStorage,
+  },
+
+  Event: {
+    GetValue,
   },
 };
 

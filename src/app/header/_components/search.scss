@@ -3,6 +3,9 @@
 .search {
   select {
     @include back-contrast($background-est);
+    @include themed() {
+      border-color: t($border-color);
+    }
 
     option {
       @include themed() {
@@ -17,17 +20,51 @@
     }
   }
 
-  input {
-    @include back-contrast($background-est);
-
-    &::placeholder {
+  .dropdown {
+    input {
+      @include back-contrast($background-est);
       @include themed() {
-        color: findColorInvert(t($background-est));
+        border-color: t($border-color);
+      }
+  
+      &::placeholder {
+        @include themed() {
+          color: findColorInvert(t($background-est));
+        }
+      }
+    }
+
+    .dropdown-menu {
+      min-width: 100%;
+
+      .dropdown-content {
+        @include themed() {
+          background-color: t($background-est);
+          border: 1px solid t($border-color);
+        }
+  
+        .dropdown-item {
+          @include back-contrast($background-est);
+          @include themed() {
+            color: findColorInvert(t($background-est));
+          }
+  
+          &:hover, &:focus {
+            @include back-contrast($primary);
+          }
+        }
       }
     }
   }
 
   .button {
     @include back-contrast($primary);
+
+    &.is-loading::after {
+      @include themed() {
+        border-bottom-color: findColorInvert(t($primary));
+        border-left-color: findColorInvert(t($primary));
+      }
+    }
   }
 }

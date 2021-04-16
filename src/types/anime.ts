@@ -21,4 +21,12 @@ export type AnimeWithEpisodes = Anime & {
   episodes: Episode[];
 };
 
+export type AnimeIndex = {
+  kitsuID: number;
+  slug: string;
+  name: string;
+  season: Season;
+  status: AnimeStatus;
+};
+
 export default Anime;
