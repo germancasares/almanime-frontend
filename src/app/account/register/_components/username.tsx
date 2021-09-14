@@ -32,7 +32,7 @@ const Username = ({
           setInFlight(true);
           onChange(event);
 
-          useCallback(debounce(check, 500), []);
+          // useCallback(debounce(check, 500), []);
 
           // checkDebounced(event.target.value);
         }}
