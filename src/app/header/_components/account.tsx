@@ -11,7 +11,7 @@ const Register = (): JSX.Element => (
   <div className="navbar-item account">
     <div className="field is-grouped">
       <p className="control">
-        <Link className="button" to={routes.home.path}>Register</Link>
+        <Link className="button" to={routes.register.path}>Register</Link>
       </p>
       <p className="control">
         <Link className="button" to={routes.home.path}>Login</Link>

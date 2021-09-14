@@ -1,0 +1,13 @@
+@import "styles/theme-palette.scss";
+
+#register {
+  @include themed() {
+    background-image: get-linear-gradient(t($background));
+  }
+
+  h1 {
+    @include themed() {
+      color: findColorInvert(t($background));
+    }
+  }
+}

@@ -61,3 +61,10 @@ $themes: (
     color: findColorInvert(t($color-key));
   }
 }
+
+@function get-linear-gradient($color) {
+  $gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%);
+  $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%);
+
+  @return linear-gradient(to bottom right, $gradient-top-left 0%, $color 71%, $gradient-bottom-right 100%);
+}

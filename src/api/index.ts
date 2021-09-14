@@ -1,9 +1,11 @@
 import { pathToRegexp } from 'path-to-regexp';
+import AccountApi from './AccountApi';
 import AnimeApi from './AnimeApi';
 import SearchApi from './SearchApi';
 import { sleep } from './_helper';
 
 const mocks = [
+  ...AccountApi.Mocks,
   ...AnimeApi.Mocks,
   ...SearchApi.Mocks,
 ];
