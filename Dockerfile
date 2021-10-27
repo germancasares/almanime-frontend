@@ -10,6 +10,7 @@ COPY . ./
 
 RUN DISABLE_ESLINT_PLUGIN=true npm run build
 
+# ------------------------------------------------
 
 FROM nginx:stable-alpine
 
