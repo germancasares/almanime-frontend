@@ -22,7 +22,7 @@ const Season = ({ animes }: Props): JSX.Element => {
               <article key={anime.kitsuID} className="tile is-parent">
                 <Panel
                   name={anime.name}
-                  image={Helper.ResizeImageOrDefault(anime.coverImage, AnimeCoverSize.Tiny)}
+                  image={anime.coverImage?.toString() ?? undefined}
                   to={routes.anime.to(anime.slug)}
                 />
               </article>

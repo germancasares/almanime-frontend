@@ -6,20 +6,18 @@ import Pagination from 'components/pagination';
 import Helper from 'app/helper';
 import { loadSeason } from './store/actions';
 import Season from './_components/season';
+import { DateTime } from 'luxon';
 
 const Home = (): JSX.Element => {
   const dispatch = useDispatch();
-  const season = Helper.GetSeason(new Date(Date.now()).getMonth());
+  const season = Helper.GetSeason(DateTime.now());
   const animes = useSelector((state: State) => state.home.animes);
-  const [current, setPage] = useState(1);
+  const animesCount = useSelector((state: State) => state.home.meta.count);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(loadSeason(current));
-  }, [current, dispatch]);
-
-  // const updatePagination = (page: number) => {
-  //   setPage(page);
-  // };
+    dispatch(loadSeason(page));
+  }, [page, dispatch]);
 
   return (
     <main id="home" className="container fh">
@@ -29,11 +27,11 @@ const Home = (): JSX.Element => {
         </h1>
         <Season animes={animes} />
         <Pagination
-          total={200}
+          total={animesCount}
           perPage={8}
           steps={1}
-          current={current}
-          onChange={(page) => setPage(page)}
+          current={page}
+          onChange={(newPage) => setPage(newPage)}
         />
       </section>
     </main>

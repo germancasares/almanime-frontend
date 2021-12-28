@@ -4,6 +4,9 @@ import { State } from './type';
 
 const initialState: State = {
   animes: [],
+  meta: {
+    count: -1,
+  },
 };
 
 // Then, handle actions in your reducers:
@@ -16,7 +19,8 @@ const homeSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(loadSeason.fulfilled, (state, action) => {
-        state.animes = action.payload;
+        state.animes = action.payload.models;
+        state.meta.count = action.payload.meta.count;
       });
   },
 });

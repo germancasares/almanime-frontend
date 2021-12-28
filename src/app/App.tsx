@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import routes from 'app/routes';
 import Theme from 'enums/Theme';
 import Header from 'app/header';
@@ -24,15 +24,11 @@ const App = (): JSX.Element => {
       <div id="app">
         <Header theme={theme} toggleTheme={toggleTheme} />
 
-        {Object.values(routes).map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            exact
-          >
-            <route.component />
-          </Route>
-        ))}
+        <Routes>
+          {Object.values(routes).map(({ path, component: Component }) => (
+            <Route key={path} path={path} element={<Component                                                 />} />
+          ))}
+        </Routes>
 
         <Footer />
       </div>

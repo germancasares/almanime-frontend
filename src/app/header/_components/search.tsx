@@ -16,7 +16,7 @@ import './search.scss';
 const search = async (
   type: string,
   query: string,
-  location: Location<Record<string, never>>,
+  location: Location,
 ): Promise<AnimeIndex[]> => {
   if (query.trim() === '') return [];
 

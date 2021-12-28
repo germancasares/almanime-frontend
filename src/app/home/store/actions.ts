@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import AnimeApi from 'api/AnimeApi';
 import Helper from 'app/helper';
+import { DateTime } from 'luxon';
 
 export const loadSeason = createAsyncThunk('LOAD_SEASON', async (page: number) => {
-  const now = new Date(Date.now());
-  const year = now.getFullYear();
-  const season = Helper.GetSeason(now.getMonth());
+  const now = DateTime.now();
+  const season = Helper.GetSeason(now);
 
-  return (await AnimeApi.GetSeason(year, season, page)).models;
+  return AnimeApi.GetSeason(now.year, season, page, true);
 });
 
 const actions = '';

@@ -21,6 +21,8 @@ const Anime = (): JSX.Element => {
   const anime = useSelector((state: State) => state.anime.anime);
 
   useEffect(() => {
+    if (slug === undefined) return;
+
     dispatch(getAnimeBySlug(slug));
 
     return () => {
