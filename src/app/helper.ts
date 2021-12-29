@@ -1,9 +1,6 @@
-import AnimeCoverSize from 'enums/AnimeCoverSize';
-import AnimePosterSize from 'enums/AnimePostersize';
 import Season from 'enums/Season';
 import { DateTime } from 'luxon';
 import { ChangeEvent } from 'react';
-
 
 const GetSeason = (date: DateTime): Season => {
   const spring = DateTime.local(date.year, 3, 1);
@@ -33,11 +30,6 @@ const Chunk = <T>(collection: T[], columns = 2): T[][] => {
 
   return chunks;
 };
-
-const ResizeImageOrDefault = (
-  image: URL | null,
-  size: AnimeCoverSize | AnimePosterSize,
-): string | undefined => (image === null ? undefined : `${image.toString()}${size}.jpg`);
 
 const StringToDateTime = (date: string): DateTime => DateTime.fromISO(date, { zone: 'utc' });
 
@@ -72,7 +64,6 @@ const GetValue = ({
 const Helper = {
   GetSeason,
   Chunk,
-  ResizeImageOrDefault,
   StringToDateTime,
 
   LocalStorage: {

@@ -3,14 +3,10 @@ import Hero from 'components/hero';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from 'app/store';
 import { useEffect } from 'react';
-import Helper from 'app/helper';
-import AnimeCoverSize from 'enums/AnimeCoverSize';
 import Poster from 'components/poster';
-import AnimePosterSize from 'enums/AnimePostersize';
 import Info from './_components/info';
 import { getAnimeBySlug } from './store/actions';
 import { clearAnime } from './store/reducers';
-import Episodes from './_components/episodes';
 
 import './index.scss';
 
@@ -33,13 +29,13 @@ const Anime = (): JSX.Element => {
   return (
     <div id="anime">
       <Hero
-        image={Helper.ResizeImageOrDefault(anime.coverImage, AnimeCoverSize.Small)}
+        image={anime.coverImages?.small}
         season={anime.season}
       />
       <div className="container">
         <div className="columns">
           <aside className="column is-narrow">
-            <Poster image={Helper.ResizeImageOrDefault(anime.posterImage, AnimePosterSize.Small)} />
+            <Poster image={anime.posterImages?.small} />
             <Info anime={anime} />
           </aside>
           <main>
@@ -48,10 +44,10 @@ const Anime = (): JSX.Element => {
                 {anime.name}
               </h1>
               <p>{anime.synopsis}</p>
-              {
+              {/* {
                 anime.episodes.length > 0
                 && (<Episodes episodes={anime.episodes} />)
-              }
+              } */}
             </section>
           </main>
         </div>

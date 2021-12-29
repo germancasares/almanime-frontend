@@ -1,8 +1,9 @@
 import AnimeStatus from 'enums/AnimeStatus';
 import Season from 'enums/Season';
 import Episode from './episode';
+import { SizedImage } from './sizedImage';
 
-type Anime = {
+export type Anime = {
   id: string;
 
   kitsuID: number;
@@ -13,8 +14,8 @@ type Anime = {
   synopsis: string;
   startDate: string | null;
 
-  coverImage: URL | null;
-  posterImage: URL | null;
+  coverImages?: SizedImage;
+  posterImages?: SizedImage;
 };
 
 export type AnimeWithEpisodes = Anime & {
@@ -28,5 +29,3 @@ export type AnimeIndex = {
   season: Season;
   status: AnimeStatus;
 };
-
-export default Anime;

@@ -1,5 +1,5 @@
 import Season from 'enums/Season';
-import Anime, { AnimeWithEpisodes } from 'types/anime';
+import { Anime } from 'types/anime';
 import ModelWithMeta from 'types/pagination/ModelWithMeta';
 import { Mock, ResponseHelper } from './_helper';
 
@@ -20,7 +20,7 @@ class AnimeApi {
     },
   ];
 
-  public static async GetBySlug(slug: string): Promise<AnimeWithEpisodes> {
+  public static async GetBySlug(slug: string): Promise<Anime> {
     return (await fetch(`anime/slug/${slug}`)).json();
   }
 

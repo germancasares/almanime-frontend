@@ -1,5 +1,5 @@
-import { AnimeWithEpisodes } from 'types/anime';
+import { Anime } from 'types/anime';
 
 export type State = {
-  anime: AnimeWithEpisodes,
+  anime: Anime,
 };
