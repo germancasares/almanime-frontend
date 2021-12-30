@@ -1,0 +1,79 @@
+[
+  {
+    "id": "a8e6aeb1-61c1-48f1-15a5-08d9cb57f1e0",
+    "number": 1,
+    "name": "Sound Hashira Tengen Uzui",
+    "aired": "2021-12-05T00:00:00",
+    "duration": 47
+  },
+  {
+    "id": "ff906a5d-910d-4516-15a6-08d9cb57f1e0",
+    "number": 2,
+    "name": "Infiltrating the Entertainment District",
+    "aired": "2021-12-12T00:00:00",
+    "duration": 23
+  },
+  {
+    "id": "81108d09-9f9e-43fb-15a7-08d9cb57f1e0",
+    "number": 3,
+    "name": "What Are You?",
+    "aired": "2021-12-19T00:00:00",
+    "duration": 23
+  },
+  {
+    "id": "3195fcb2-c0b5-45cf-15a8-08d9cb57f1e0",
+    "number": 4,
+    "name": "Tonight",
+    "aired": "2021-12-26T00:00:00",
+    "duration": 23
+  },
+  {
+    "id": "816da9ce-8c2a-491d-15a9-08d9cb57f1e0",
+    "number": 5,
+    "name": "Things Are Gonna Get Real Flashy!!",
+    "aired": null,
+    "duration": null
+  },
+  {
+    "id": "7743a15e-89ee-43d3-eca1-08d9cb58e9f3",
+    "number": 6,
+    "name": null,
+    "aired": null,
+    "duration": null
+  },
+  {
+    "id": "809180dd-7be3-4f08-eca2-08d9cb58e9f3",
+    "number": 7,
+    "name": null,
+    "aired": null,
+    "duration": null
+  },
+  {
+    "id": "dc4a630e-0561-4ec9-eca3-08d9cb58e9f3",
+    "number": 8,
+    "name": null,
+    "aired": null,
+    "duration": null
+  },
+  {
+    "id": "d079c0c7-fbc2-41ad-eca4-08d9cb58e9f3",
+    "number": 9,
+    "name": null,
+    "aired": null,
+    "duration": null
+  },
+  {
+    "id": "9b3bc5d1-fdf8-4ddf-eca5-08d9cb58e9f3",
+    "number": 10,
+    "name": null,
+    "aired": null,
+    "duration": null
+  },
+  {
+    "id": "194c4084-b697-4e54-eca6-08d9cb58e9f3",
+    "number": 11,
+    "name": null,
+    "aired": null,
+    "duration": null
+  }
+]

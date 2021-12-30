@@ -5,9 +5,10 @@ import './info.scss';
 
 type Props = {
   anime: Anime,
+  episodesCount: number,
 };
 
-const Info = ({ anime }: Props): JSX.Element => (
+const Info = ({ anime, episodesCount }: Props): JSX.Element => (
   <div className="info">
     <div className="details">
       <span className="is-size-5 has-text-weight-semibold">
@@ -16,14 +17,14 @@ const Info = ({ anime }: Props): JSX.Element => (
     </div>
 
     <ul>
-      {/* {
-        anime.episodes.length > 0 && (
+      {
+        episodesCount > 0 && (
           <li>
             <span className="has-text-weight-bold">Episodes:</span>
-            <span>{anime.episodes.length}</span>
+            <span>{episodesCount}</span>
           </li>
         )
-      } */}
+      }
       <li>
         <span className="has-text-weight-bold">Status:</span>
         <span>{anime.status}</span>

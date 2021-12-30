@@ -5,24 +5,28 @@ import { State } from 'app/store';
 import { useEffect } from 'react';
 import Poster from 'components/poster';
 import Info from './_components/info';
-import { getAnimeBySlug } from './store/actions';
-import { clearAnime } from './store/reducers';
+import { getAnimeBySlug, getEpisodesByAnimeSlug } from './store/actions';
+import { clearAnime, clearEpisodes } from './store/reducers';
 
 import './index.scss';
+import Episodes from './_components/episodes';
 
 const Anime = (): JSX.Element => {
   const { slug } = useParams<{ slug: string }>();
 
   const dispatch = useDispatch();
   const anime = useSelector((state: State) => state.anime.anime);
+  const episodes = useSelector((state: State) => state.anime.episodes);
 
   useEffect(() => {
     if (slug === undefined) return;
 
     dispatch(getAnimeBySlug(slug));
+    dispatch(getEpisodesByAnimeSlug(slug));
 
     return () => {
       dispatch(clearAnime());
+      dispatch(clearEpisodes());
     };
   }, [dispatch, slug]);
 
@@ -36,7 +40,7 @@ const Anime = (): JSX.Element => {
         <div className="columns">
           <aside className="column is-narrow">
             <Poster image={anime.posterImages?.small} />
-            <Info anime={anime} />
+            <Info anime={anime} episodesCount={episodes.length} />
           </aside>
           <main>
             <section className="column">
@@ -44,10 +48,9 @@ const Anime = (): JSX.Element => {
                 {anime.name}
               </h1>
               <p>{anime.synopsis}</p>
-              {/* {
-                anime.episodes.length > 0
-                && (<Episodes episodes={anime.episodes} />)
-              } */}
+              {
+                episodes.length > 0 && (<Episodes episodes={episodes} />)
+              }
             </section>
           </main>
         </div>
