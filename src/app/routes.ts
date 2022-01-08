@@ -1,11 +1,15 @@
 import homeRoutes from './home/routes';
 import animeRoutes from './anime/routes';
-import accountRoutes from './account/routes';
+import profileRoutes from './profile/routes';
+import settingsRoutes from './settings/routes';
+import fansubRoutes from './fansub/routes';
 
 const routes = {
   ...homeRoutes,
   ...animeRoutes,
-  ...accountRoutes,
+  ...profileRoutes,
+  ...settingsRoutes,
+  ...fansubRoutes,
 };
 
 export default routes;

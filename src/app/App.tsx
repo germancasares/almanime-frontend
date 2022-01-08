@@ -7,7 +7,7 @@ import Footer from 'app/footer';
 import Helper from './helper';
 import './index.scss';
 
-const App = (): JSX.Element => {
+const App = () => {
   const localTheme = Helper.LocalStorage.Get<Theme>('theme');
   const [theme, setTheme] = useState(localTheme ?? Theme.Light);
   Helper.LocalStorage.Create('theme', theme);
@@ -26,7 +26,7 @@ const App = (): JSX.Element => {
 
         <Routes>
           {Object.values(routes).map(({ path, component: Component }) => (
-            <Route key={path} path={path} element={<Component                                                 />} />
+            <Route key={path} path={path} element={<Component />} />
           ))}
         </Routes>
 

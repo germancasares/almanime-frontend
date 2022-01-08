@@ -2,21 +2,21 @@ import Season from 'enums/Season';
 import { DateTime } from 'luxon';
 import { ChangeEvent } from 'react';
 
-const GetSeason = (date: DateTime): Season => {
-  const spring = DateTime.local(date.year, 3, 1);
-  const summer = DateTime.local(date.year, 6, 1);
-  const fall = DateTime.local(date.year, 9, 1);
-  const winter = DateTime.local(date.year, 12, 1);
+const GetSeason = (month: number | DateTime): Season => {
+  if (month instanceof DateTime) {
+    // eslint-disable-next-line no-param-reassign
+    month = month.month;
+  }
 
   switch (true) {
-    case date >= spring && date < summer:
-      return Season.Spring;
-    case date >= summer && date < fall:
-      return Season.Summer;
-    case date >= fall && date < winter:
-      return Season.Fall;
-    case date >= winter && date < spring.plus({ years: 1 }):
+    case month === 12 || month <= 2:
       return Season.Winter;
+    case month >= 3 && month <= 5:
+      return Season.Spring;
+    case month >= 6 && month <= 8:
+      return Season.Summer;
+    case month >= 9 && month <= 11:
+      return Season.Fall;
     default: throw new RangeError('Month out of valid range.');
   }
 };

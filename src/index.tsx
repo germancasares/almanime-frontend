@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 import configureFetch from 'api';
 import reducer from 'app/store';
@@ -19,11 +20,21 @@ const store = configureStore({
 
 ReactDOM.render(
   <StrictMode>
-    <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>
+    <Auth0Provider
+      domain="almanime.us.auth0.com"
+      clientId="kofffbDvo0gJ9BW1U9Hj7UNsrJuMAO9Y"
+      redirectUri={window.location.origin}
+      audience="https://almani.me"
+      useRefreshTokens={true}
+      cacheLocation="localstorage"
+      scope="read:current_user update:current_user_metadata"
+    >
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    </Auth0Provider>
   </StrictMode>,
   document.getElementById('root'),
 );

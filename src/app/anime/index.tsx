@@ -11,7 +11,7 @@ import { clearAnime, clearEpisodes } from './store/reducers';
 import './index.scss';
 import Episodes from './_components/episodes';
 
-const Anime = (): JSX.Element => {
+const Anime = () => {
   const { slug } = useParams<{ slug: string }>();
 
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const Anime = (): JSX.Element => {
   }, [dispatch, slug]);
 
   return (
-    <div id="anime">
+    <main id="anime">
       <Hero
         image={anime.coverImages?.small}
         season={anime.season}
@@ -42,20 +42,20 @@ const Anime = (): JSX.Element => {
             <Poster image={anime.posterImages?.small} />
             <Info anime={anime} episodesCount={episodes.length} />
           </aside>
-          <main>
-            <section className="column">
-              <h1 className="title is-size-3 has-text-weight-semibold">
-                {anime.name}
-              </h1>
-              <p>{anime.synopsis}</p>
-              {
-                episodes.length > 0 && (<Episodes episodes={episodes} />)
-              }
-            </section>
-          </main>
+          <section className="column">
+            <h1 className="title is-size-3 has-text-weight-semibold">
+              {anime.name}
+            </h1>
+            <p>
+              {anime.synopsis}
+            </p>
+            {
+              episodes.length > 0 && (<Episodes episodes={episodes} />)
+            }
+          </section>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

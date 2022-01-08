@@ -8,7 +8,7 @@ import { loadSeason } from './store/actions';
 import Season from './_components/season';
 import { DateTime } from 'luxon';
 
-const Home = (): JSX.Element => {
+const Home = () => {
   const dispatch = useDispatch();
   const season = Helper.GetSeason(DateTime.now());
   const animes = useSelector((state: State) => state.home.animes);

@@ -34,7 +34,7 @@ const Pagination = ({
   current,
   steps,
   onChange,
-}: Props): JSX.Element => {
+}: Props) => {
   const totalPages = Math.ceil(total / perPage);
 
   const prePages = current - 2;

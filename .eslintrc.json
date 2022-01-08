@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
+    "es6": true,
     "jest": true
   },
   "extends": [
@@ -26,6 +26,7 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "indent": ["error", 2],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",

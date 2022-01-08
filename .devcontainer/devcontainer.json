@@ -18,6 +18,9 @@
 		"editor.bracketPairColorization.enabled": true,
 		"editor.guides.bracketPairs": "active",
 		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"eslint.format.enable": true,
+		"window.autoDetectColorScheme": true,
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [

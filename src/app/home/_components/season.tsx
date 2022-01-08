@@ -8,7 +8,7 @@ type Props = {
   animes: Anime[];
 };
 
-const Season = ({ animes }: Props): JSX.Element => {
+const Season = ({ animes }: Props) => {
   const chunks = Helper.Chunk(animes, 4);
 
   return (
@@ -17,17 +17,14 @@ const Season = ({ animes }: Props): JSX.Element => {
         chunks.map((chunk, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <div key={`chunk-${index}`} className="tile is-ancestor">
-            {chunk.map((anime) => {
-              console.log({ anime });
-              return (
-                <article key={anime.kitsuID} className="tile is-parent">
-                  <Panel
-                    name={anime.name}
-                    image={anime.coverImages?.tiny}
-                    to={routes.anime.to(anime.slug)} />
-                </article>
-              );
-            })}
+            {chunk.map((anime) => (
+              <article key={anime.kitsuID} className="tile is-parent">
+                <Panel
+                  name={anime.name}
+                  image={anime.coverImages?.tiny}
+                  to={routes.anime.to(anime.slug)} />
+              </article>
+            ))}
           </div>
         ))
       }

@@ -1,6 +1,6 @@
 import './index.scss';
 
-const Footer = (): JSX.Element => (
+const Footer = () => (
   <footer id="footer" className="footer">
     <div className="container">
       <div className="content has-text-centered">

@@ -1,0 +1,30 @@
+@import "styles/theme-palette.scss";
+
+#profile {
+  .navbar-link {
+    @include back-contrast($background-er);
+  }
+
+  .navbar-dropdown {
+    @include themed() {
+      background-color: t($background-er);
+      border-top-color: t($primary);
+    }
+
+    .navbar-item {
+      @include themed() {
+        color: findColorInvert(t($background-er));
+      }
+
+      &:hover {
+        @include back-contrast($primary);
+      }
+    }
+
+    .navbar-divider {
+      @include themed() {
+        background-color: t($primary);
+      }
+    }
+  }
+}

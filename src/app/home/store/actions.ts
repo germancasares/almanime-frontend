@@ -6,8 +6,11 @@ import { DateTime } from 'luxon';
 export const loadSeason = createAsyncThunk('LOAD_SEASON', async (page: number) => {
   const now = DateTime.now();
   const season = Helper.GetSeason(now);
+  let year = now.year;
 
-  return AnimeApi.GetSeason(now.year, season, page, true);
+  if (now.month === 1 || now.month === 2) year--;
+
+  return AnimeApi.GetSeason(year, season, page, true);
 });
 
 const actions = '';

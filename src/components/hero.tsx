@@ -29,7 +29,7 @@ const defaultImage = (season?: Season): string => {
 const Hero = ({
   season,
   image = defaultImage(season),
-}: Props): JSX.Element => (
+}: Props) => (
   <div id="hero" className="hero is-medium">
     <figure className="image">
       <img src={image} alt="" />

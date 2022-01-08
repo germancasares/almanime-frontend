@@ -14,7 +14,7 @@ const Panel = ({
   to,
   image = cover,
   imageRes = 'is-16by9',
-}: Props): JSX.Element => (
+}: Props) => (
   <div className="panel">
     <Link to={to}>
       <div className="overlay" />

@@ -31,9 +31,9 @@ const fetchMock = async (input: RequestInfo, init?: RequestInit): Promise<Respon
 const fetchAbsolute = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
   const route = input.toString();
 
-  const path = route.startsWith('/') ? route : `${process.env.REACT_APP_API}/${route}`;
+  if (route.startsWith('http') || route.startsWith('/')) return realFetch(route, init);
 
-  return realFetch(path, init);
+  return realFetch(`${process.env.REACT_APP_API}/${route}`, init);
 };
 
 export default configureFetch;

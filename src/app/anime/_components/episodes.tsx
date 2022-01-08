@@ -6,7 +6,7 @@ type Props = {
   episodes: Episode[]
 };
 
-const Episodes = ({ episodes }: Props): JSX.Element => (
+const Episodes = ({ episodes }: Props) => (
   <table id="episodes" className="table is-fullwidth">
     <thead>
       <Header />

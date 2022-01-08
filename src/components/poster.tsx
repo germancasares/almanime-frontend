@@ -5,7 +5,7 @@ type Props = {
   image?: string,
 };
 
-const Poster = ({ image = poster }: Props): JSX.Element => (
+const Poster = ({ image = poster }: Props) => (
   <figure className="poster image is-clipped">
     <img src={image} alt="" />
   </figure>

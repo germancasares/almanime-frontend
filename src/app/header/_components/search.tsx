@@ -40,7 +40,7 @@ const search = async (
   return [];
 };
 
-const Search = (): JSX.Element => {
+const Search = () => {
   const location = useLocation();
   const [query, setQuery] = useState('');
   const [documents, setDocuments] = useState<AnimeIndex[]>([]);

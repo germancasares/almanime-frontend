@@ -8,7 +8,7 @@ type Props = {
   episodesCount: number,
 };
 
-const Info = ({ anime, episodesCount }: Props): JSX.Element => (
+const Info = ({ anime, episodesCount }: Props) => (
   <div className="info">
     <div className="details">
       <span className="is-size-5 has-text-weight-semibold">
