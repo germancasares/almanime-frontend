@@ -10,7 +10,7 @@ export const withMemberRequired = <T extends object>(
 
     useEffect(() => {
       
-    })
+    });
 
     // props comes afterwards so the can override the default ones.
     return <WrappedComponent {...themeProps} {...(props as T)} />;

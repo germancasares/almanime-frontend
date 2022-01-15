@@ -17,7 +17,7 @@ export default class SubtitleApi {
         body: formData,
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          'Content-Type': 'multipart/form-data',
         },
       })).json();
     },
