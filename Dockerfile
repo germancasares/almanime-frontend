@@ -5,7 +5,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN yarn install --prod
 COPY . ./
 
 RUN DISABLE_ESLINT_PLUGIN=true npm run build

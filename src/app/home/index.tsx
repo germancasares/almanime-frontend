@@ -20,7 +20,7 @@ const Home = () => {
   }, [page, dispatch]);
 
   return (
-    <main id="home" className="container fh">
+    <main id="home" className="container">
       <section className="section">
         <h1 className="title">
           {`${season} Season`}

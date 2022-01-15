@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { loadSeason } from './actions';
-import { State } from './type';
+import { State } from './state';
 
 const initialState: State = {
   animes: [],
@@ -16,13 +16,11 @@ const homeSlice = createSlice({
   reducers: {
     // standard reducer logic, with auto-generated action types per reducer
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(loadSeason.fulfilled, (state, action) => {
-        state.animes = action.payload.models;
-        state.meta.count = action.payload.meta.count;
-      });
-  },
+  extraReducers: (builder) => builder
+    .addCase(loadSeason.fulfilled, (state, action) => {
+      state.animes = action.payload.models;
+      state.meta.count = action.payload.meta.count;
+    }),
 });
 
 export default homeSlice.reducer;

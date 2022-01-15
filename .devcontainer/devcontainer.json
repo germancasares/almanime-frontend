@@ -21,6 +21,8 @@
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
 		"eslint.format.enable": true,
 		"window.autoDetectColorScheme": true,
+		"typescript.preferences.quoteStyle": "single",
+		"typescript.updateImportsOnFileMove.enabled": "always"
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [

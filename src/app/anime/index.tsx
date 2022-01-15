@@ -7,9 +7,9 @@ import Poster from 'components/poster';
 import Info from './_components/info';
 import { getAnimeBySlug, getEpisodesByAnimeSlug } from './store/actions';
 import { clearAnime, clearEpisodes } from './store/reducers';
+import Episodes from './_components/episodes';
 
 import './index.scss';
-import Episodes from './_components/episodes';
 
 const Anime = () => {
   const { slug } = useParams<{ slug: string }>();

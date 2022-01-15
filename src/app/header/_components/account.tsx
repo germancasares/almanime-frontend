@@ -5,13 +5,21 @@ import UserAvatar from 'react-user-avatar';
 import routes from 'app/routes';
 
 import './account.scss';
+import { useEffect } from 'react';
 
 
 const Profile = () => {
   const { 
     user, 
-    logout, 
+    logout,
+    getAccessTokenSilently,
   } = useAuth0();
+
+  useEffect(() => {
+    (async () => {
+      console.log(await getAccessTokenSilently());
+    })();
+  });
 
   return (
     <div id="profile" className="navbar-item has-dropdown is-hoverable">

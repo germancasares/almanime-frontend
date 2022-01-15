@@ -1,12 +1,11 @@
-import './index.scss';
 import Form from './_components/form';
 
 const Create = () => {
   return (
-    <main id="fansub-create" className="container">
+    <main id="subtitle-create" className="container">
       <section className="section">
         <h1 className="title">
-          Create a new fansub
+          Create a new subtitle
         </h1>
         <Form />
       </section>

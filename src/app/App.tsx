@@ -7,6 +7,11 @@ import Footer from 'app/footer';
 import Helper from './helper';
 import './index.scss';
 
+
+// https://reactrouter.com/docs/en/v6/api#useroutes
+// https://reactrouter.com/docs/en/v6/getting-started/concepts#defining-routes
+
+
 const App = () => {
   const localTheme = Helper.LocalStorage.Get<Theme>('theme');
   const [theme, setTheme] = useState(localTheme ?? Theme.Light);

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Anime } from 'types/anime';
 import { getAnimeBySlug, getEpisodesByAnimeSlug } from './actions';
-import { State } from './type';
+import { State } from './state';
 
 const initialState: State = {
   anime: {} as Anime,
@@ -19,15 +19,13 @@ const animeSlice = createSlice({
       state.episodes = initialState.episodes;
     },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(getAnimeBySlug.fulfilled, (state, action) => {
-        state.anime = action.payload;
-      })
-      .addCase(getEpisodesByAnimeSlug.fulfilled, (state, action) => {
-        state.episodes = action.payload;
-      });
-  },
+  extraReducers: (builder) => builder
+    .addCase(getAnimeBySlug.fulfilled, (state, action) => {
+      state.anime = action.payload;
+    })
+    .addCase(getEpisodesByAnimeSlug.fulfilled, (state, action) => {
+      state.episodes = action.payload;
+    }),
 });
 
 export const { clearAnime, clearEpisodes } = animeSlice.actions;

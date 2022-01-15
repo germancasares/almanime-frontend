@@ -8,7 +8,7 @@ export const loadSeason = createAsyncThunk('LOAD_SEASON', async (page: number) =
   const season = Helper.GetSeason(now);
   let year = now.year;
 
-  if (now.month === 1 || now.month === 2) year--;
+  if (now.month === 12) year++;
 
   return AnimeApi.GetSeason(year, season, page, true);
 });

@@ -9,7 +9,7 @@ type Props = {
 };
 
 const Info = ({ anime, episodesCount }: Props) => (
-  <div className="info">
+  <div id="info">
     <div className="details">
       <span className="is-size-5 has-text-weight-semibold">
         Details:
