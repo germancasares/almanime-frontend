@@ -17,7 +17,7 @@ const Profile = () => {
 
   useEffect(() => {
     (async () => {
-      console.log(await getAccessTokenSilently());
+      console.debug(await getAccessTokenSilently());
     })();
   });
 

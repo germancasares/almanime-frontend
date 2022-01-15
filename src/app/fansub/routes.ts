@@ -1,6 +1,7 @@
 import Create from './create';
 import View from './view';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
+import { withToken } from 'app/utils';
 
 const toFansub = (acronym: string): string => `/fansub/${acronym}`;
 
@@ -12,7 +13,7 @@ const routes = {
   fansubView: {
     path: toFansub(':acronym'),
     to: toFansub,
-    component: View,
+    component: withToken(View),
   },
 };
 

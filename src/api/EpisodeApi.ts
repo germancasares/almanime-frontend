@@ -1,20 +1,18 @@
+import { Duration } from 'luxon';
+import { useQuery } from 'react-query';
 import Episode from 'types/episode';
-import { Mock, ResponseHelper } from './_helper';
 
-import EpisodesMock from './mocks/episodes.json';
+export default class EpisodeApi {
 
-class EpisodeApi {
-  static readonly Mocks: Mock[] = [
+  public static GetByAnimeSlug = (
+    animeSlug?: string,
+  ) => useQuery<Episode[]>(
+    ['episodes', animeSlug],
+    async () => (await fetch(`episode/anime/${animeSlug}`)).json(),
     {
-      method: 'GET',
-      path: 'episode/animeSlug/:animeSlug',
-      response: ResponseHelper.Ok(EpisodesMock),
+      enabled: !!animeSlug,
+      staleTime: Duration.fromObject({ weeks: 1 }).toMillis(),
     },
-  ];
+  );
 
-  public static async GetByAnimeSlug(animeSlug: string): Promise<Episode[]> {
-    return (await fetch(`episode/anime/${animeSlug}`)).json();
-  }
 }
-
-export default EpisodeApi;

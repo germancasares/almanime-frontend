@@ -1,22 +1,35 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { configureStore } from '@reduxjs/toolkit';
 import { Auth0Provider } from '@auth0/auth0-react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { persistQueryClient } from 'react-query/persistQueryClient-experimental';
+import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 import configureFetch from 'api';
-import reducer from 'app/store';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 
 import './index.scss';
+import { Duration } from 'luxon';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: Duration.fromObject({ days: 1 }).toMillis(),
+    },
+  },
+});
+
+const persistor = createWebStoragePersistor({ storage: window.localStorage });
+
+persistQueryClient({
+  queryClient,
+  persistor,
+});
 
 configureFetch();
-
-const store = configureStore({
-  reducer,
-});
 
 ReactDOM.render(
   <StrictMode>
@@ -29,11 +42,12 @@ ReactDOM.render(
       cacheLocation="localstorage"
       scope="read:current_user update:current_user_metadata"
     >
-      <Provider store={store}>
-        <Router>
+      <Router>
+        <QueryClientProvider client={queryClient}>
           <App />
-        </Router>
-      </Provider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </Router>
     </Auth0Provider>
   </StrictMode>,
   document.getElementById('root'),

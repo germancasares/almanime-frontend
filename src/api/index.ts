@@ -1,39 +1,24 @@
-import { pathToRegexp } from 'path-to-regexp';
-import AccountApi from './AccountApi';
-import AnimeApi from './AnimeApi';
-import SearchApi from './SearchApi';
-import { sleep } from './_helper';
-
-const mocks = [
-  ...AccountApi.Mocks,
-  ...AnimeApi.Mocks,
-  ...SearchApi.Mocks,
-];
-
 const realFetch = window.fetch;
 
 const configureFetch = (): void => {
-  window.fetch = process.env.REACT_APP_MOCK_FETCH === 'true' ? fetchMock : fetchAbsolute;
+  window.fetch = fetchAbsolute;
 };
 
-const fetchMock = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
-  const route = input.toString().split(/[?#]/)[0];
-  const method = init?.method || 'GET';
-
-  // TODO: import { matchPath } from "react-router";
-  const mock = mocks.find((e) => e.method === method && pathToRegexp(e.path).test(route));
-
-  await sleep(500);
-
-  return mock ? mock.response.clone() : realFetch(input, init);
-};
-
-const fetchAbsolute = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
+const fetchAbsolute = async (input: RequestInfo, init?: RequestInit) => {
   const route = input.toString();
 
-  if (route.startsWith('http') || route.startsWith('/')) return realFetch(route, init);
+  let response;
+  if (route.startsWith('http') || route.startsWith('/')) {
+    response = await realFetch(route, init);
+  } else {
+    response = await realFetch(`${process.env.REACT_APP_API}/${route}`, init);
+  } 
 
-  return realFetch(`${process.env.REACT_APP_API}/${route}`, init);
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+
+  return response;
 };
 
 export default configureFetch;

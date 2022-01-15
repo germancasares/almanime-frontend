@@ -1,5 +1,5 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import FansubApi from 'api/FansubApi';
 import { Fansub } from 'types/fansub';
@@ -8,19 +8,19 @@ import './form.scss';
 
 const Form = () => {
   const [fansub, setFansub] = useState({} as Fansub);
-  const { 
-    getAccessTokenSilently,
-  } = useAuth0();
-
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = event;
-
     setFansub(values => ({ ...values, [name]: value === '' ? undefined : value }));
   };
 
+  const { getAccessTokenSilently } = useAuth0();
+  const { mutateAsync } = FansubApi.Post();
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await FansubApi.Post(fansub, await getAccessTokenSilently());
+    await mutateAsync({
+      fansub,
+      token: await getAccessTokenSilently(),
+    });
   };
 
   return (

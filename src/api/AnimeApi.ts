@@ -1,39 +1,34 @@
 import Season from 'enums/Season';
+import { Duration } from 'luxon';
+import { useQuery } from 'react-query';
 import { Anime } from 'types/anime';
 import ModelWithMeta from 'types/pagination/ModelWithMeta';
-import { Mock, ResponseHelper } from './_helper';
 
-import AnimeSeasonMock from './mocks/animeSeason.json';
-import AnimeMock from './mocks/anime.json';
+export default class AnimeApi {
 
-class AnimeApi {
-  static readonly Mocks: Mock[] = [
+  public static GetBySlug = (
+    slug?: string,
+  ) => useQuery<Anime>(
+    ['anime', slug],
+    async () => (await fetch(`anime/slug/${slug}`)).json(),
     {
-      method: 'GET',
-      path: 'anime/year/:year/season/:season',
-      response: ResponseHelper.Ok(AnimeSeasonMock),
+      enabled: !!slug,
+      staleTime: Duration.fromObject({ weeks: 1 }).toMillis(),
     },
-    {
-      method: 'GET',
-      path: 'anime/slug/:slug',
-      response: ResponseHelper.Ok(AnimeMock),
-    },
-  ];
+  );
 
-  public static async GetBySlug(slug: string): Promise<Anime> {
-    return (await fetch(`anime/slug/${slug}`)).json();
-  }
-
-  public static async GetSeason(
+  public static GetSeason = (
     year: number,
     season: Season,
     page: number,
     includeMeta = false,
-  ): Promise<ModelWithMeta<Anime[]>> {
-    return (
-      await fetch(`anime/year/${year}/season/${season}?page=${page}&includeMeta=${includeMeta}`)
-    ).json();
-  }
-}
+  ) => useQuery<ModelWithMeta<Anime[]>>(
+    ['animeSeason', year, season, page, includeMeta],
+    async () => (await fetch(`anime/year/${year}/season/${season}?page=${page}&includeMeta=${includeMeta}`)).json(),
+    { 
+      keepPreviousData: true, 
+      staleTime: Duration.fromObject({ days: 1 }).toMillis(),
+    },
+  );
 
-export default AnimeApi;
+}
