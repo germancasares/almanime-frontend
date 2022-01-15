@@ -1,4 +1,5 @@
-import { ComponentType, useEffect } from 'react';
+import { ComponentType, FunctionComponent, useEffect, useMemo, useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const withMemberRequired = <T extends object>(
   WrappedComponent: ComponentType<T>,
@@ -15,3 +16,15 @@ export const withMemberRequired = <T extends object>(
     return <WrappedComponent {...themeProps} {...(props as T)} />;
   };
 };
+
+export const withToken = <P extends object>(
+  Component: ComponentType<P>,
+): FunctionComponent<P> => (props: P) => {
+    const [token, setToken] = useState<string>();
+    const { getAccessTokenSilently } = useAuth0();
+    useMemo(async () => setToken(await getAccessTokenSilently()), [getAccessTokenSilently]);
+
+    return (
+      <Component {...props} token={token} />
+    );
+  };

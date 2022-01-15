@@ -8,7 +8,6 @@
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
-    "react-app/jest",
     "react-app"
   ],
   "parser": "@typescript-eslint/parser",

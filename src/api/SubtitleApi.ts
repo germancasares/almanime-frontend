@@ -1,24 +1,26 @@
+import { useMutation } from 'react-query';
 import { SubtitleDTO } from 'types/subtitle';
 
-class SubtitleApi {
+export default class SubtitleApi {
 
-  public static async Post(subtitle: SubtitleDTO, accessToken: string): Promise<void> {
-    const formData = new FormData(); // Currently empty
+  public static Post = () => useMutation(
+    async ({ subtitle, token } : { subtitle: SubtitleDTO, token?: string }) => {
+      const formData = new FormData();
 
-    formData.append('animeSlug', subtitle.animeSlug);
-    formData.append('episodeNumber', subtitle.episodeNumber.toString());
-    formData.append('fansubAcronym', subtitle.fansubAcronym);
-    formData.append('file', subtitle.file);
+      formData.append('animeSlug', subtitle.animeSlug);
+      formData.append('episodeNumber', subtitle.episodeNumber.toString());
+      formData.append('fansubAcronym', subtitle.fansubAcronym);
+      formData.append('file', subtitle.file);
 
-    fetch('subtitle', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-      },
-    });
-  }
+      return (await fetch('subtitle', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      })).json();
+    },
+  );
 
 }
-
-export default SubtitleApi;

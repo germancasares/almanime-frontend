@@ -1,31 +1,30 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { SubtitleDTO } from 'types/subtitle';
-import { mdiFileUploadOutline } from '@mdi/js'; 
-import Icon from '@mdi/react';
-import SubtitleApi from 'api/SubtitleApi';
-import { useAuth0 } from '@auth0/auth0-react';
 import { useParams } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import { mdiFileUploadOutline } from '@mdi/js'; 
+
+import SubtitleApi from 'api/SubtitleApi';
+import { SubtitleDTO } from 'types/subtitle';
+
+import Icon from '@mdi/react';
 
 const Form = () => {
   const { fansubAcronym } = useParams<{ fansubAcronym: string }>();
 
-  const [subtitle, setSubtitle] = useState({
-    fansubAcronym: fansubAcronym,
-  } as SubtitleDTO);
-  const { 
-    getAccessTokenSilently,
-  } = useAuth0();
-
+  const [subtitle, setSubtitle] = useState({ fansubAcronym: fansubAcronym } as SubtitleDTO);
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = event;
-
     setSubtitle(values => ({ ...values, [name]: value === '' ? undefined : value }));
   };
 
+  const { getAccessTokenSilently } = useAuth0();
+  const { mutateAsync } = SubtitleApi.Post();
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
-    await SubtitleApi.Post(subtitle, await getAccessTokenSilently());
+    await mutateAsync({
+      subtitle,
+      token: await getAccessTokenSilently(),
+    });
   };
 
   return (

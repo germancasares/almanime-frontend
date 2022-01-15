@@ -1,19 +1,16 @@
+import { useState } from 'react';
 import { useLocation, useParams, useNavigate, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
 import { mdiFilePlusOutline } from '@mdi/js'; 
-import { clear } from '../store/reducers';
-import { getFansubByAcronym, getIsMember } from '../store/actions';
-import { State } from 'app/store';
-
 import Icon from '@mdi/react';
+
+import routes from 'app/routes';
+import FansubApi from 'api/FansubApi';
+
 import Tabs from './_components/tabs';
 import MembersPage from './_components/members';
+import SubtitlesPage from './_components/subtitles';
 
 import './index.scss';
-import routes from 'app/routes';
-import SubtitlesPage from './_components/subtitles';
-import { useAuth0 } from '@auth0/auth0-react';
 
 export enum TabName {
   Newest = 'Newest',
@@ -31,48 +28,34 @@ const NewSubtitleButton = ({ acronym } : { acronym: string }) => (
   </Link>
 );
 
-const View = () => {
-  const { acronym } = useParams<{ acronym: string }>();
-
-  const navigate = useNavigate();
+const useInitialTab = () => {
   const { hash } = useLocation();
-
   const urlTab = hash.replace('#', '');
   let initialTab = TabName.Newest;
   if ((urlTab in TabName)) initialTab = urlTab as TabName;
-  const [activeTab, setActiveTab] = useState<TabName>(initialTab);
+  return useState<TabName>(initialTab);
+};
 
+const View = ({ token }: { token?: string }) => {
+  const { acronym } = useParams<{ acronym: string }>();
+  const [activeTab, setActiveTab] = useInitialTab();
+
+  const navigate = useNavigate();
   const changeTab = (newTab : TabName) => {
     setActiveTab(newTab);
     navigate(`#${newTab}`, { replace: true });
   };
 
-  const { getAccessTokenSilently } = useAuth0();
+  const { data: fansub } = FansubApi.GetByAcronym(acronym);
+  const { data: isMember } = FansubApi.IsMember(acronym, token);
 
-  const dispatch = useDispatch();
-  const fansub = useSelector((state: State) => state.fansub.fansub);
-  const isMember = useSelector((state: State) => state.fansub.isMember);
-
-  useEffect(() => {
-    return () => {
-      dispatch(clear());
-    };
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (acronym === undefined) return;
-
-
-    dispatch(getFansubByAcronym(acronym));
-    getAccessTokenSilently().then(token => dispatch((getIsMember({ acronym, token }))));
-  }, [dispatch, acronym, getAccessTokenSilently]);
+  if (!fansub) return null;
 
   return (
     <main id="fansub-view" className="container">
       <section className="section">
         <h1 className="title">
           { fansub.name }
-          {/* Show button if user is member of fansub */}
           { acronym && isMember && <NewSubtitleButton acronym={acronym} /> }
         </h1>
         <Tabs activeTab={activeTab} changeTab={changeTab} />

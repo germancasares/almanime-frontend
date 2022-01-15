@@ -1,43 +1,72 @@
+import { Duration } from 'luxon';
+import { useMutation, useQuery } from 'react-query';
 import { Fansub } from 'types/fansub';
 import { Member } from 'types/member';
 import { Subtitle } from 'types/subtitle';
 
-class FansubApi {
+export default class FansubApi {
 
-  public static async GetByAcronym(acronym: string): Promise<Fansub> {
-    return (await fetch(`fansub/acronym/${acronym}`)).json();
-  }
+  public static GetByAcronym = (
+    acronym?: string,
+  ) => useQuery<Fansub>(
+    ['fansub', acronym],
+    async () => (await fetch(`fansub/acronym/${acronym}`)).json(),
+    {
+      enabled: !!acronym,
+      staleTime: Duration.fromObject({ hours: 1 }).toMillis(),
+    },
+  );
 
-  public static async GetMembers(acronym: string): Promise<Member[]> {
-    return (await fetch(`fansub/acronym/${acronym}/members`)).json();
-  }
-
-  public static async GetSubtitles(acronym: string): Promise<Subtitle[]> {
-    return (await fetch(`fansub/acronym/${acronym}/subtitles`)).json();
-  }
-
-  public static async IsMember(acronym: string, accessToken: string): Promise<boolean> {
-    return (await fetch(
-      `fansub/acronym/${acronym}/isMember`, 
-      { 
-        headers: { 
-          'Authorization': `Bearer ${accessToken}`,
+  public static IsMember = (
+    acronym?: string,
+    token?: string,
+  ) => useQuery<boolean>(
+    ['isMember', acronym],
+    async () => (await fetch(
+      `fansub/acronym/${acronym}/isMember`,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`,
         },
       },
-    )).json();
-  }
+    )).json(),
+    {
+      enabled: !!acronym && !!token,
+      staleTime: Duration.fromObject({ hours: 1 }).toMillis(),
+    },
+  );
 
-  public static async Post(fansub: Fansub, accessToken: string): Promise<void> {
-    fetch('fansub', {
+  public static GetMembers = (
+    acronym?: string,
+  ) => useQuery<Member[]>(
+    ['members', acronym],
+    async () => (await fetch(`fansub/acronym/${acronym}/members`)).json(),
+    {
+      enabled: !!acronym,
+      staleTime: Duration.fromObject({ hours: 1 }).toMillis(),
+    },
+  );
+
+  public static GetSubtitles = (
+    acronym?: string,
+  ) => useQuery<Subtitle[]>(
+    ['subtitles', acronym],
+    async () => (await fetch(`fansub/acronym/${acronym}/subtitles`)).json(),
+    {
+      enabled: !!acronym,
+      staleTime: Duration.fromObject({ minutes: 30 }).toMillis(),
+    },
+  );
+
+  public static Post = () => useMutation(
+    async ({ fansub, token } : { fansub: Fansub, token?: string }) =>  (await fetch('fansub', {
       method: 'POST',
       body: JSON.stringify(fansub),
       headers: {
-        'Authorization': `Bearer ${accessToken}`,
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-    });
-  }
+    })).json(),
+  );
 
 }
-
-export default FansubApi;
