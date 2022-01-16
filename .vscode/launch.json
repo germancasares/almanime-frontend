@@ -5,12 +5,15 @@
       "name": "Launch Firefox",
       "type": "firefox",
       "request": "launch",
-      "url": "http://localhost:3000",
+      "profile": "dev-edition-default",
+      "keepProfileChanges": true,
+      "url": "https://localhost:3000",
+      "webRoot": "${workspaceFolder}/src",
       "pathMappings": [
         {
-          "url": "http://localhost:3000/workspaces/almanime-frontend/src",
+          "url": "https://localhost:3000/workspaces/almanime-frontend-react/src",
           "path": "${workspaceFolder}/src"
-        }
+        },
       ]
     }
   ]
