@@ -8,6 +8,7 @@ import Helper from 'app/helper';
 import Season from './_components/season';
 
 import './index.scss';
+import Loader from 'components/loader';
 
 const Home = () => {
   const now = DateTime.now();
@@ -17,15 +18,17 @@ const Home = () => {
   const [page, setPage] = useState(1);
   const { data } = AnimeApi.GetSeason(year, season, page, true);
 
+  if (!data) return (<Loader />);
+
   return (
     <main id="home" className="container">
       <section className="section">
         <h1 className="title">
           {`${season} Season`}
         </h1>
-        <Season animes={data?.models ?? []} />
+        <Season animes={data.models ?? []} />
         <Pagination
-          total={data?.meta.count ?? 0}
+          total={data.meta.count ?? 0}
           perPage={8}
           steps={1}
           current={page}

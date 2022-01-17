@@ -1,6 +1,6 @@
 import { Duration } from 'luxon';
 import { useQuery } from 'react-query';
-import Episode from 'types/episode';
+import { Episode, EpisodeFansubs } from 'types/episode';
 
 export default class EpisodeApi {
 
@@ -12,6 +12,17 @@ export default class EpisodeApi {
     {
       enabled: !!animeSlug,
       staleTime: Duration.fromObject({ weeks: 1 }).toMillis(),
+    },
+  );
+
+  public static GetFansubs = (
+    animeSlug?: string,
+  ) => useQuery<EpisodeFansubs>(
+    ['episodeFansubs', animeSlug],
+    async () => (await fetch(`episode/anime/${animeSlug}/fansubs`)).json(),
+    {
+      enabled: !!animeSlug,
+      staleTime: Duration.fromObject({ hours: 1 }).toMillis(),
     },
   );
 

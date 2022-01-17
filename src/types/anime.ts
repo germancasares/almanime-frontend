@@ -1,6 +1,6 @@
 import AnimeStatus from 'enums/AnimeStatus';
 import Season from 'enums/Season';
-import Episode from './episode';
+import { Episode } from './episode';
 import { SizedImage } from './sizedImage';
 
 export type Anime = {
@@ -16,6 +16,15 @@ export type Anime = {
 
   coverImages?: SizedImage;
   posterImages?: SizedImage;
+};
+
+export type AnimeWithExtra = {
+  slug: string;
+  name: string;
+  season: Season;
+  status: AnimeStatus;
+  episodes: number;
+  coverImages?: SizedImage;
 };
 
 export type AnimeWithEpisodes = Anime & {

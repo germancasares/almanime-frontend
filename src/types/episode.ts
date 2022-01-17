@@ -1,4 +1,4 @@
-type Episode = {
+export type Episode = {
   id: string;
 
   number: number;
@@ -7,4 +7,10 @@ type Episode = {
   duration: number | null;
 };
 
-export default Episode;
+export type FansubSubtitles = {
+  [fansub: string]: string
+};
+
+export type EpisodeFansubs = {
+  [episode: number]: FansubSubtitles
+};

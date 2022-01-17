@@ -1,0 +1,19 @@
+@import "styles/theme-palette.scss";
+
+.loader-wrapper {
+  width: 100%;
+  height: calc(100vh - 3.25rem - 9rem - 24px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+
+  .loader {
+    height: 80px;
+    width: 80px;
+    @include themed() {
+      border-bottom-color: t($primary);
+      border-left-color: t($primary);
+    }
+  }
+}

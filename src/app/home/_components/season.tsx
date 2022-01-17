@@ -22,7 +22,7 @@ const Season = ({ animes }: Props) => {
                 <Panel
                   name={anime.name}
                   image={anime.coverImages?.tiny}
-                  to={routes.anime.to(anime.slug)} />
+                  to={routes.animeView.to(anime.slug)} />
               </article>
             ))}
           </div>

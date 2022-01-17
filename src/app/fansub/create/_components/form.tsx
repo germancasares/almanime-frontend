@@ -1,13 +1,16 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
+import routes from 'app/routes';
+
 import FansubApi from 'api/FansubApi';
-import { Fansub } from 'types/fansub';
+import { FansubDTO } from 'types/fansub';
 
 import './form.scss';
 
 const Form = () => {
-  const [fansub, setFansub] = useState({} as Fansub);
+  const [fansub, setFansub] = useState({} as FansubDTO);
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = event;
     setFansub(values => ({ ...values, [name]: value === '' ? undefined : value }));
@@ -15,12 +18,15 @@ const Form = () => {
 
   const { getAccessTokenSilently } = useAuth0();
   const { mutateAsync } = FansubApi.Post();
+  const navigate = useNavigate();
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await mutateAsync({
       fansub,
       token: await getAccessTokenSilently(),
     });
+
+    navigate(routes.fansubView.to(fansub.acronym));
   };
 
   return (

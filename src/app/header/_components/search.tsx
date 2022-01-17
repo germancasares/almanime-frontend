@@ -26,7 +26,7 @@ const search = async (
       docs = await SearchApi.Anime(query.trim());
 
       // eslint-disable-next-line no-case-declarations
-      const matchResult = match(routes.anime.path, { decode: decodeURIComponent })(location.pathname);
+      const matchResult = match(routes.animeView.path, { decode: decodeURIComponent })(location.pathname);
       if (matchResult) {
         const { slug } = matchResult.params as { slug: string };
         docs = docs.filter((r) => r.slug !== slug);
@@ -92,7 +92,7 @@ const Search = () => {
                   documents.map((doc) => (
                     <Link
                       key={doc.kitsuID}
-                      to={routes.anime.to(doc.slug)}
+                      to={routes.animeView.to(doc.slug)}
                       className="dropdown-item"
                       onClick={clearSearch}
                     >

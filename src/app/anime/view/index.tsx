@@ -9,14 +9,16 @@ import Info from './_components/info';
 import Episodes from './_components/episodes';
 
 import './index.scss';
+import Loader from 'components/loader';
 
-const Anime = () => {
+const View = () => {
   const { slug } = useParams<{ slug: string }>();
 
   const { data: anime } = AnimeApi.GetBySlug(slug);
   const { data: episodes } = EpisodeApi.GetByAnimeSlug(slug);
+  const { data: episodeFansubs } = EpisodeApi.GetFansubs(slug);
 
-  if (!anime || !episodes) return null;
+  if (!anime || !episodes || !episodeFansubs) return (<Loader />);
 
   return (
     <main id="anime">
@@ -38,7 +40,7 @@ const Anime = () => {
               {anime.synopsis}
             </p>
             {
-              episodes.length > 0 && (<Episodes episodes={episodes} />)
+              episodes.length > 0 && (<Episodes episodes={episodes} episodeFansubs={episodeFansubs} />)
             }
           </section>
         </div>
@@ -47,4 +49,4 @@ const Anime = () => {
   );
 };
 
-export default Anime;
+export default View;

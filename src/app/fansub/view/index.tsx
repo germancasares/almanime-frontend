@@ -11,6 +11,7 @@ import MembersPage from './_components/members';
 import SubtitlesPage from './_components/subtitles';
 
 import './index.scss';
+import Loader from 'components/loader';
 
 export enum TabName {
   Newest = 'Newest',
@@ -49,7 +50,7 @@ const View = ({ token }: { token?: string }) => {
   const { data: fansub } = FansubApi.GetByAcronym(acronym);
   const { data: isMember } = FansubApi.IsMember(acronym, token);
 
-  if (!fansub) return null;
+  if (!fansub) return (<Loader />);
 
   return (
     <main id="fansub-view" className="container">

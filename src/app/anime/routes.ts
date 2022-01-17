@@ -1,12 +1,17 @@
-import Anime from '.';
+import List from './list';
+import View from './view';
 
-const toAnime = (slug: string): string => `/anime/${slug}`;
+const toAnime = (slug: string): string => `/animes/${slug}`;
 
 const routes = {
-  anime: {
+  animeView: {
     path: toAnime(':slug'),
     to: toAnime,
-    component: Anime,
+    component: View,
+  },
+  animeList: {
+    path: '/animes',
+    component: List,
   },
 };
 

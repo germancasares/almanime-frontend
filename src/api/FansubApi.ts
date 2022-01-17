@@ -1,10 +1,19 @@
 import { Duration } from 'luxon';
 import { useMutation, useQuery } from 'react-query';
-import { Fansub } from 'types/fansub';
+import { Fansub, FansubDTO } from 'types/fansub';
 import { Member } from 'types/member';
 import { Subtitle } from 'types/subtitle';
 
 export default class FansubApi {
+
+  public static Get = (
+  ) => useQuery<Fansub[]>(
+    ['fansubs'],
+    async () => (await fetch('fansub')).json(),
+    {
+      staleTime: Duration.fromObject({ hours: 1 }).toMillis(),
+    },
+  );
 
   public static GetByAcronym = (
     acronym?: string,
@@ -59,7 +68,7 @@ export default class FansubApi {
   );
 
   public static Post = () => useMutation(
-    async ({ fansub, token } : { fansub: Fansub, token?: string }) =>  (await fetch('fansub', {
+    async ({ fansub, token } : { fansub: FansubDTO, token?: string }) =>  (await fetch('fansub', {
       method: 'POST',
       body: JSON.stringify(fansub),
       headers: {

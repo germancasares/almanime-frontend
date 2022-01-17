@@ -1,10 +1,19 @@
 import Season from 'enums/Season';
 import { Duration } from 'luxon';
 import { useQuery } from 'react-query';
-import { Anime } from 'types/anime';
+import { Anime, AnimeWithExtra } from 'types/anime';
 import ModelWithMeta from 'types/pagination/ModelWithMeta';
 
 export default class AnimeApi {
+
+  public static Get = (
+  ) => useQuery<AnimeWithExtra[]>(
+    ['animes'],
+    async () => (await fetch('anime')).json(),
+    {
+      staleTime: Duration.fromObject({ weeks: 1 }).toMillis(),
+    },
+  );
 
   public static GetBySlug = (
     slug?: string,
