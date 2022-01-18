@@ -13,7 +13,7 @@ COPY package*.json ./
 RUN yarn install --prod
 COPY . ./
 
-RUN DISABLE_ESLINT_PLUGIN=true npm run build
+RUN DISABLE_ESLINT_PLUGIN=true yarn run build
 
 # ------------------------------------------------
 
