@@ -5,6 +5,7 @@ ARG SASS_PATH
 ARG REACT_APP_API
 
 ENV HTTPS=$HTTPS SASS_PATH=$SASS_PATH REACT_APP_API=$REACT_APP_API
+ENV DISABLE_ESLINT_PLUGIN=true
 ENV PATH /app/node_modules/.bin:$PATH
 
 WORKDIR /app
@@ -13,7 +14,7 @@ COPY package*.json ./
 RUN yarn install --prod
 COPY . ./
 
-RUN DISABLE_ESLINT_PLUGIN=true yarn run build
+RUN yarn run build
 
 # ------------------------------------------------
 
