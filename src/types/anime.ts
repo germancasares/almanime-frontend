@@ -1,5 +1,6 @@
 import AnimeStatus from 'enums/AnimeStatus';
 import Season from 'enums/Season';
+import { DateTime } from 'luxon';
 import { Episode } from './episode';
 import { SizedImage } from './sizedImage';
 
@@ -37,4 +38,11 @@ export type AnimeIndex = {
   name: string;
   season: Season;
   status: AnimeStatus;
+};
+
+export type AnimeDocument = {
+  id: string;
+  creationDate: DateTime;
+  slug: string;
+  name: string;
 };

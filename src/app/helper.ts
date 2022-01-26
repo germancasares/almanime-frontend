@@ -1,6 +1,6 @@
 import Season from 'enums/Season';
 import { DateTime } from 'luxon';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 const GetSeason = (month: number | DateTime): Season => {
   if (month instanceof DateTime) {
@@ -33,6 +33,23 @@ const Chunk = <T>(collection: T[], columns = 2): T[][] => {
 
 const StringToDateTime = (date: string): DateTime => DateTime.fromISO(date, { zone: 'utc' });
 
+const useDebounce = (value: string, delay = 500) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler: NodeJS.Timeout = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    // Cancel the timeout if value changes (also on delay change or unmount)
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
+
 // #region LocalStorage
 
 const GetLocalStorage = <T>(key: string): T | null => {
@@ -61,10 +78,13 @@ const GetValue = ({
 
 // #endregion
 
+
+
 const Helper = {
   GetSeason,
   Chunk,
   StringToDateTime,
+  useDebounce,
 
   LocalStorage: {
     Create: CreateLocalStorage,

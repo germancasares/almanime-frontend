@@ -13,3 +13,10 @@ export type Fansub = {
   creationDate: DateTime;
   members: number;
 };
+
+export type FansubDocument = {
+  id: string;
+  creationDate: DateTime;
+  acronym: string;
+  name: string;
+};

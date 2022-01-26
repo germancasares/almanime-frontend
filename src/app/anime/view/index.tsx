@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom';
 import AnimeApi from 'api/AnimeApi';
 import EpisodeApi from 'api/EpisodeApi';
 
+import Loader from 'components/loader';
 import Hero from 'components/hero';
 import Poster from 'components/poster';
 import Info from './_components/info';
 import Episodes from './_components/episodes';
 
 import './index.scss';
-import Loader from 'components/loader';
 
 const View = () => {
   const { slug } = useParams<{ slug: string }>();

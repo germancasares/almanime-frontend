@@ -13,6 +13,7 @@ import reportWebVitals from './reportWebVitals';
 
 import './index.scss';
 import { Duration } from 'luxon';
+import routes from 'app/routes';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,7 +37,7 @@ ReactDOM.render(
     <Auth0Provider
       domain="almanime.us.auth0.com"
       clientId="kofffbDvo0gJ9BW1U9Hj7UNsrJuMAO9Y"
-      redirectUri={window.location.origin}
+      redirectUri={`${window.location.origin}${routes.userCreate.path}`}
       audience="https://almani.me"
       useRefreshTokens={true}
       cacheLocation="localstorage"

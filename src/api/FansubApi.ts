@@ -1,6 +1,6 @@
 import { Duration } from 'luxon';
 import { useMutation, useQuery } from 'react-query';
-import { Fansub, FansubDTO } from 'types/fansub';
+import { Fansub, FansubDocument, FansubDTO } from 'types/fansub';
 import { Member } from 'types/member';
 import { Subtitle } from 'types/subtitle';
 
@@ -12,6 +12,20 @@ export default class FansubApi {
     async () => (await fetch('fansub')).json(),
     {
       staleTime: Duration.fromObject({ hours: 1 }).toMillis(),
+    },
+  );
+
+  public static Search = (
+    fansubName?: string,
+  ) => useQuery<FansubDocument[]>(
+    ['search', fansubName],
+    async () => {
+      if (fansubName === '') return [];
+      return (await fetch(`fansub/search/${fansubName}`)).json();
+    },
+    {
+      staleTime: 0,
+      enabled: !!fansubName,
     },
   );
 
