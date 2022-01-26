@@ -18,7 +18,7 @@ const Form = () => {
   };
 
   const { getAccessTokenSilently } = useAuth0();
-  const { mutateAsync } = SubtitleApi.Post();
+  const { mutateAsync, isLoading } = SubtitleApi.Post();
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await mutateAsync({
@@ -80,7 +80,7 @@ const Form = () => {
       </div>
 
       <div className="control">
-        <button type="submit" className="button is-link">Submit</button>
+        <button type="submit" className={`button is-link${isLoading ? ' is-loading' : ''}`}>Submit</button>
       </div>
     </form>
   );

@@ -8,7 +8,7 @@ import { User } from 'types/user';
 const Create = ({ token }: { token?: string }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({} as User);
-  const { mutateAsync } = UserApi.Post();
+  const { mutateAsync, isLoading } = UserApi.Post();
 
   const { data: me, isFetched } = UserApi.Me(token);
 
@@ -47,7 +47,7 @@ const Create = ({ token }: { token?: string }) => {
           </div>
 
           <div className="control">
-            <button type="submit" className="button is-link">Submit</button>
+            <button type="submit" className={`button is-link${isLoading ? ' is-loading' : ''}`}>Submit</button>
           </div>
         </form>
       </section>
