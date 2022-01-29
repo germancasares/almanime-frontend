@@ -1,3 +1,5 @@
+@import "styles/theme-palette.scss";
+
 .panel {
   position: relative;
   width: 100%;
@@ -56,5 +58,18 @@
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+  }
+
+  .star {
+    cursor: pointer;
+    line-height: 0;
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+    z-index: 3;
+    transform: (-50%, -50%);
+    @include themed() {
+      color: t($primary);
+    }
   }
 }

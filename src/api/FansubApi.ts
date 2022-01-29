@@ -44,7 +44,7 @@ export default class FansubApi {
     acronym?: string,
     token?: string,
   ) => useQuery<boolean>(
-    ['isMember', acronym],
+    ['isMember', acronym, token],
     async () => (await fetch(
       `fansub/acronym/${acronym}/isMember`,
       {

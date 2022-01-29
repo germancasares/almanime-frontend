@@ -9,16 +9,18 @@ import Season from './_components/season';
 
 import './index.scss';
 import Loader from 'components/loader';
+import BookmarkApi from 'api/BookmarkApi';
 
-const Home = () => {
+const Home = ({ token }: { token?: string }) => {
   const now = DateTime.now();
   const year = now.month === 12 ? now.year + 1 : now.year;
   const season = Helper.GetSeason(now);
 
   const [page, setPage] = useState(1);
-  const { data } = AnimeApi.GetSeason(year, season, page, true);
+  const { data: animes } = AnimeApi.GetSeason(year, season, page, true);
+  const { data: bookmarks } = BookmarkApi.Get(token);
 
-  if (!data) return (<Loader />);
+  if (!animes) return (<Loader />);
 
   return (
     <main id="home" className="container">
@@ -26,9 +28,9 @@ const Home = () => {
         <h1 className="title">
           {`${season} Season`}
         </h1>
-        <Season animes={data.models ?? []} />
+        <Season animes={animes.models} bookmarks={bookmarks} token={token} />
         <Pagination
-          total={data.meta.count ?? 0}
+          total={animes.meta.count}
           perPage={8}
           steps={1}
           current={page}

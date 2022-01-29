@@ -1,9 +1,10 @@
+import { withToken } from 'app/utils';
 import Home from '.';
 
 const routes = {
   home: {
     path: '/',
-    component: Home,
+    component: withToken(Home),
   },
 };
 
