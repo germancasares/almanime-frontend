@@ -5,7 +5,7 @@ import routes from 'app/routes';
 
 const Brand = () => (
   <div className="navbar-brand brand">
-    <Link to={routes.home.home.path} className="navbar-item">
+    <Link to={routes.home.view.path} className="navbar-item">
       <Logo width="30" height="28" />
     </Link>
 

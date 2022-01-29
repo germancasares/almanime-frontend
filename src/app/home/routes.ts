@@ -2,7 +2,7 @@ import { withToken } from 'app/utils';
 import Home from '.';
 
 const routes = {
-  home: {
+  view: {
     path: '/',
     component: withToken(Home),
   },

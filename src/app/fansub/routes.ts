@@ -8,7 +8,7 @@ import List from './list';
 const toFansub = (acronym: string): string => `/fansubs/${acronym}`;
 
 const routes = {
-  fansubCreate: {
+  create: {
     path: '/fansubs/create',
     component: withAuthenticationRequired(Create),
   },
