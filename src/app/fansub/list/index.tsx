@@ -14,7 +14,7 @@ const List = () => {
       {
         fansubs && fansubs.map((fansub) => (
           <div key={fansub.acronym}>
-            <Link to={routes.fansubView.to(fansub.acronym)}>
+            <Link to={routes.fansub.view.to(fansub.acronym)}>
               {fansub.acronym} {fansub.name} {fansub.webpage} {fansub.creationDate} {fansub.members}
             </Link>
           </div>

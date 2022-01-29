@@ -66,8 +66,8 @@ const Search = () => {
                       key={doc.id}
                       to={
                         type === 'Anime' ? 
-                          routes.animeView.to((doc as AnimeDocument).slug) 
-                          : routes.fansubView.to((doc as FansubDocument).acronym)
+                          routes.anime.view.to((doc as AnimeDocument).slug) 
+                          : routes.fansub.view.to((doc as FansubDocument).acronym)
                       }
                       className="dropdown-item"
                       onClick={() => setQuery('')}

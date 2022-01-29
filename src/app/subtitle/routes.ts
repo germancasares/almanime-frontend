@@ -4,7 +4,7 @@ import Create from './create';
 const toCreateSubtitle = (fansubAcronym: string): string => `/subtitle/${fansubAcronym}/create`;
 
 const routes = {
-  subtitleCreate: {
+  create: {
     path: toCreateSubtitle(':fansubAcronym'),
     to: toCreateSubtitle,
     component: withAuthenticationRequired(Create),

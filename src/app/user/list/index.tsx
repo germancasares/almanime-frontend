@@ -1,5 +1,7 @@
 import UserApi from 'api/UserApi';
+import routes from 'app/routes';
 import Loader from 'components/loader';
+import { Link } from 'react-router-dom';
 
 const List = () => {
 
@@ -11,9 +13,9 @@ const List = () => {
     <>
       {
         users && users.map((user) => (
-          <div key={user.name}>
+          <Link key={user.name} to={routes.user.view.to(user.name)}>
             {user.name}
-          </div>
+          </Link>
         ))
       }
     </>

@@ -15,7 +15,7 @@ export default class UserApi {
 
   public static Me = (
     token?: string,
-  ) => useQuery(
+  ) => useQuery<User>(
     ['me', token],
     async () => (await fetch(
       'user/me',

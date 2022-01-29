@@ -26,7 +26,7 @@ const Form = () => {
       token: await getAccessTokenSilently(),
     });
 
-    navigate(routes.fansubView.to(fansub.acronym));
+    navigate(routes.fansub.view.to(fansub.acronym));
   };
 
   return (

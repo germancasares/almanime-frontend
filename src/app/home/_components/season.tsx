@@ -27,7 +27,7 @@ const Season = ({ animes, bookmarks, token }: Props) => {
                 <Panel
                   name={anime.name}
                   image={anime.coverImages?.tiny}
-                  to={routes.animeView.to(anime.slug)}
+                  to={routes.anime.view.to(anime.slug)}
                   star={{
                     shouldShow: !!bookmarks,
                     isSelected: !!bookmarks?.includes(anime.slug),

@@ -32,9 +32,9 @@ const Profile = () => {
       </div>
 
       <div className="navbar-dropdown is-right">
-        <Link className="navbar-item" to={routes.profile.path}>Profile</Link>
+        <Link className="navbar-item" to={routes.user.edit.path}>Profile</Link>
         <a className="navbar-item" href="/#">Favourites</a>
-        <Link className="navbar-item" to={routes.settings.path}>Setttings</Link>
+        <Link className="navbar-item" to={routes.settings.settings.path}>Setttings</Link>
         <hr className="navbar-divider" />
         <a className="navbar-item" href="/#" onClick={() => logout()}>Logout</a>
       </div>

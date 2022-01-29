@@ -13,7 +13,7 @@ const Create = ({ token }: { token?: string }) => {
   const { data: me, isFetched } = UserApi.Me(token);
 
   useEffect(() => {
-    if (me) navigate(routes.home.path);
+    if (me) navigate(routes.home.home.path);
   }, [me, navigate]);
 
   if (!isFetched) return (<Loader />);
@@ -25,7 +25,7 @@ const Create = ({ token }: { token?: string }) => {
       token,
     });
 
-    navigate(routes.home.path);
+    navigate(routes.home.home.path);
   };
 
   return (

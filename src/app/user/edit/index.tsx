@@ -1,6 +1,6 @@
-const Profile = () => {
+const Edit = () => {
   return (
-    <main id="profile" className="container">
+    <main id="edit" className="container">
       <section className="column is-narrow">
         <h3 className="title">Profile</h3>
       </section>
@@ -8,4 +8,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Edit;

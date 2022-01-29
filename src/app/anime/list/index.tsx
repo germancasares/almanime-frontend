@@ -14,7 +14,7 @@ const List = () => {
       {
         animes && animes.map((anime) => (
           <div key={anime.slug}>
-            <Link to={routes.animeView.to(anime.slug)}>
+            <Link to={routes.anime.view.to(anime.slug)}>
               {anime.name} {anime.season} {anime.status} {anime.episodes}
             </Link>
           </div>

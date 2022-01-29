@@ -21,7 +21,7 @@ export enum TabName {
 }
 
 const NewSubtitleButton = ({ acronym } : { acronym: string }) => (
-  <Link className="button is-primary is-rounded" to={routes.subtitleCreate.to(acronym)}>
+  <Link className="button is-primary is-rounded" to={routes.subtitle.create.to(acronym)}>
     <span className="icon">
       <Icon path={mdiFilePlusOutline} size={1} />
     </span>

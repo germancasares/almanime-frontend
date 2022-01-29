@@ -12,14 +12,14 @@ const routes = {
     path: '/fansubs/create',
     component: withAuthenticationRequired(Create),
   },
-  fansubView: {
+  list: {
+    path: '/fansubs',
+    component: List,
+  },
+  view: {
     path: toFansub(':acronym'),
     to: toFansub,
     component: withToken(View),
-  },
-  fansubList: {
-    path: '/fansubs',
-    component: List,
   },
 };
 

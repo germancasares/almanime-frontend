@@ -30,9 +30,13 @@ const App = () => {
         <Header theme={theme} toggleTheme={toggleTheme} />
 
         <Routes>
-          {Object.values(routes).map(({ path, component: Component }) => (
-            <Route key={path} path={path} element={<Component />} />
-          ))}
+          {
+            Object.values(routes).map((pages) => 
+              Object.values(pages).map(({ path, component: Component }) => (
+                <Route key={path} path={path} element={<Component />} />
+              )),
+            )
+          }
         </Routes>
 
         <Footer />
