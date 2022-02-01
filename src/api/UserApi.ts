@@ -31,14 +31,25 @@ export default class UserApi {
     },
   );
 
-  public static Post = () => useMutation(
-    async ({ user, token } : { user: User, token?: string }) =>  (await fetch('user', {
+  public static Create = () => useMutation(
+    async ({ user, token } : { user: User, token?: string }) =>  (fetch('user', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-    })).json(),
+    })),
+  );
+
+  public static Update = () => useMutation(
+    async ({ user, token } : { user: User, token?: string }) =>  (fetch('user', {
+      method: 'PATCH',
+      body: JSON.stringify(user),
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })),
   );
 }

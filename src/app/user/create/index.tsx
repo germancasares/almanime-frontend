@@ -8,7 +8,7 @@ import { User } from 'types/user';
 const Create = ({ token }: { token?: string }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({} as User);
-  const { mutateAsync, isLoading } = UserApi.Post();
+  const { mutateAsync, isLoading } = UserApi.Create();
 
   const { data: me, isFetched } = UserApi.Me(token);
 

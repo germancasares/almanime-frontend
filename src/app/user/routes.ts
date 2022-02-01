@@ -14,7 +14,7 @@ const routes = {
   },
   edit: {
     path: '/profile',
-    component: withAuthenticationRequired(Edit),
+    component: withAuthenticationRequired(withToken(Edit)),
   },
   list: {
     path: '/users',
