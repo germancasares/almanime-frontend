@@ -1,26 +1,37 @@
-import Panel from 'components/panel';
-import { Anime } from 'types/anime';
-import Helper from 'app/helper';
-import './season.scss';
-import routes from 'app/routes';
+import { useState } from 'react';
+
+import AnimeApi from 'api/AnimeApi';
 import BookmarkApi from 'api/BookmarkApi';
+import Helper from 'app/helper';
+import routes from 'app/routes';
+import Loader from 'components/loader';
+import Pagination from 'components/pagination';
+import Panel from 'components/panel';
+import Season from 'enums/Season';
+
+import './season.scss';
 
 type Props = {
-  animes: Anime[];
+  year: number;
+  season: Season;
   bookmarks?: string[];
   token?: string;
 };
 
-const Season = ({ animes, bookmarks, token }: Props) => {
-  const chunks = Helper.Chunk(animes, 4);
+const SeasonPage = ({ bookmarks, token, season, year }: Props) => {
+  const [page
+    , setPage] = useState(1);
+  const { data: animes } = AnimeApi.GetSeason(year, season, page, true);
 
   const { mutateAsync: createAsync } = BookmarkApi.Create();
   const { mutateAsync: deleteAsync } = BookmarkApi.Delete();
 
+  if (!animes) return (<Loader />);
+
   return (
-    <div id="season">
+    <div id={`season-${season.toLocaleLowerCase()}`}>
       {
-        chunks.map((chunk, index) => (
+        Helper.Chunk(animes.models, 4).map((chunk, index) => (
           <div key={`chunk-${index}`} className="tile is-ancestor">
             {chunk.map((anime) => (
               <article key={anime.kitsuID} className="tile is-parent">
@@ -48,8 +59,15 @@ const Season = ({ animes, bookmarks, token }: Props) => {
           </div>
         ))
       }
+      <Pagination
+        total={animes.meta.count}
+        perPage={8}
+        steps={1}
+        current={page}
+        onChange={(newPage) => setPage(newPage)}
+      />
     </div>
   );
 };
 
-export default Season;
+export default SeasonPage;
