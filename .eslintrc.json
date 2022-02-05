@@ -5,6 +5,7 @@
     "jest": true
   },
   "extends": [
+    "plugin:storybook/recommended",
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
@@ -15,7 +16,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
@@ -44,5 +45,16 @@
         ]
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.stories.tsx"
+      ],
+      "rules": {
+        "import/no-anonymous-default-export": "off",
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ]
 }

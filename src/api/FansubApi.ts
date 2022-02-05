@@ -92,4 +92,14 @@ export default class FansubApi {
     })).json(),
   );
 
+  public static Join = () => useMutation(
+    async ({ acronym, token } : { acronym: string, token?: string }) =>  fetch(`fansub/acronym/${acronym}/join`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    }),
+  );
+
 }

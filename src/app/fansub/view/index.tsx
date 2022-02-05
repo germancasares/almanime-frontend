@@ -12,6 +12,7 @@ import SubtitlesPage from './_components/subtitles';
 
 import './index.scss';
 import Loader from 'components/loader';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export enum TabName {
   Newest = 'Newest',
@@ -27,6 +28,15 @@ const NewSubtitleButton = ({ acronym } : { acronym: string }) => (
     </span>
     <span>New Subtitle</span>
   </Link>
+);
+
+const JoinFansubButton = ({ onClick, isLoading } : { onClick: () => void, isLoading: boolean }) => (
+  <button
+    className={`button is-primary is-rounded${isLoading ? ' is-loading' : ''}`}
+    onClick={onClick}
+  >
+    Join
+  </button>
 );
 
 const useInitialTab = () => {
@@ -48,7 +58,19 @@ const View = ({ token }: { token?: string }) => {
   };
 
   const { data: fansub } = FansubApi.GetByAcronym(acronym);
-  const { data: isMember } = FansubApi.IsMember(acronym, token);
+  const { data: isMember, isSuccess } = FansubApi.IsMember(acronym, token);
+  console.log({ isSuccess });
+
+  const { getAccessTokenSilently } = useAuth0();
+  const { mutateAsync, isLoading } = FansubApi.Join();
+  const joinFansub = async () => {
+    if (!acronym) return;
+
+    await mutateAsync({
+      acronym,
+      token: await getAccessTokenSilently(),
+    });
+  };
 
   if (!fansub) return (<Loader />);
 
@@ -57,7 +79,11 @@ const View = ({ token }: { token?: string }) => {
       <section className="section">
         <h1 className="title">
           { fansub.name }
-          { acronym && isMember && <NewSubtitleButton acronym={acronym} /> }
+          { acronym && isSuccess && (
+            isMember ? 
+              <NewSubtitleButton acronym={acronym} /> : 
+              <JoinFansubButton onClick={joinFansub} isLoading={isLoading} />
+          ) }
         </h1>
         <Tabs activeTab={activeTab} changeTab={changeTab} />
         <>
