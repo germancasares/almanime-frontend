@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useParams, useNavigate, Link } from 'react-router-dom';
-import { mdiFilePlusOutline } from '@mdi/js'; 
+import { mdiFilePlusOutline, mdiCog } from '@mdi/js'; 
 import Icon from '@mdi/react';
 
 import routes from 'app/routes';
@@ -13,6 +13,9 @@ import SubtitlesPage from './_components/subtitles';
 import './index.scss';
 import Loader from 'components/loader';
 import { useAuth0 } from '@auth0/auth0-react';
+import UserApi from 'api/UserApi';
+import Permission from 'enums/Permission';
+import Helper from 'app/helper';
 
 export enum TabName {
   Newest = 'Newest',
@@ -27,6 +30,14 @@ const NewSubtitleButton = ({ acronym } : { acronym: string }) => (
       <Icon path={mdiFilePlusOutline} size={1} />
     </span>
     <span>New Subtitle</span>
+  </Link>
+);
+
+const EditFansubButton = ({ acronym } : { acronym: string }) => (
+  <Link className="button is-primary is-rounded" to={routes.fansub.edit.to(acronym)}>
+    <span className="icon">
+      <Icon path={mdiCog} size={1} />
+    </span>
   </Link>
 );
 
@@ -59,7 +70,7 @@ const View = ({ token }: { token?: string }) => {
 
   const { data: fansub } = FansubApi.GetByAcronym(acronym);
   const { data: isMember, isSuccess } = FansubApi.IsMember(acronym, token);
-  console.log({ isSuccess });
+  const { data: me } = UserApi.Me(token);
 
   const { getAccessTokenSilently } = useAuth0();
   const { mutateAsync, isLoading } = FansubApi.Join();
@@ -72,18 +83,28 @@ const View = ({ token }: { token?: string }) => {
     });
   };
 
-  if (!fansub) return (<Loader />);
+  if (!fansub || !acronym) return (<Loader />);
 
   return (
     <main id="fansub-view" className="container">
       <section className="section">
         <h1 className="title">
           { fansub.name }
-          { acronym && isSuccess && (
-            isMember ? 
-              <NewSubtitleButton acronym={acronym} /> : 
+          {
+            Helper.HasPermission(Permission.EditPermissions, acronym, me) && (
+              <EditFansubButton acronym={acronym} />
+            )
+          }
+          {
+            isSuccess && !isMember && (
               <JoinFansubButton onClick={joinFansub} isLoading={isLoading} />
-          ) }
+            )
+          }
+          {
+            Helper.HasPermission(Permission.CreateSubtitle, acronym, me) && (
+              <NewSubtitleButton acronym={acronym} />
+            )
+          }
         </h1>
         <Tabs activeTab={activeTab} changeTab={changeTab} />
         <>

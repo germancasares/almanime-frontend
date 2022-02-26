@@ -25,10 +25,10 @@ const queryClient = new QueryClient({
 
 const persistor = createWebStoragePersistor({ storage: window.localStorage });
 
-persistQueryClient({
-  queryClient,
-  persistor,
-});
+// persistQueryClient({
+//   queryClient,
+//   persistor,
+// });
 
 configureFetch();
 

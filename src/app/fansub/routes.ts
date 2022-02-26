@@ -4,8 +4,10 @@ import { withToken } from 'app/utils';
 import Create from './create';
 import View from './view';
 import List from './list';
+import Edit from './edit';
 
 const toFansub = (acronym: string): string => `/fansubs/${acronym}`;
+const toEditFansub = (acronym: string): string => `/fansubs/${acronym}/edit`;
 
 const routes = {
   create: {
@@ -20,6 +22,11 @@ const routes = {
     path: toFansub(':acronym'),
     to: toFansub,
     component: withToken(View),
+  },
+  edit: {
+    path: toEditFansub(':acronym'),
+    to: toEditFansub,
+    component: withAuthenticationRequired(withToken(Edit)),
   },
 };
 
