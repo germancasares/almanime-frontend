@@ -44,7 +44,7 @@ export default class UserApi {
 
   public static Update = () => useMutation(
     async ({ user, token } : { user: User, token?: string }) =>  (fetch('user', {
-      method: 'PATCH',
+      method: 'PUT',
       body: JSON.stringify(user),
       headers: {
         'Authorization': `Bearer ${token}`,

@@ -1,6 +1,12 @@
+import Permission from 'enums/Permission';
 import Season from 'enums/Season';
 import { DateTime } from 'luxon';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { User } from 'types/user';
+
+const StringToDateTime = (date: string) => DateTime.fromISO(date, { zone: 'utc' });
+const HasPermission = (permission: Permission, fansub: string, user?: User) => 
+  user && user.permissions[fansub]?.includes(permission);
 
 const GetSeason = (month: number | DateTime): Season => {
   if (month instanceof DateTime) {
@@ -30,8 +36,6 @@ const Chunk = <T>(collection: T[], columns = 2): T[][] => {
 
   return chunks;
 };
-
-const StringToDateTime = (date: string): DateTime => DateTime.fromISO(date, { zone: 'utc' });
 
 const useDebounce = (value: string, delay = 500) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -68,21 +72,12 @@ const DeleteLocalStorage = (key: string): void => localStorage.removeItem(key);
 
 // #endregion
 
-// #region Event
-
-const GetValue = ({
-  target: {
-    value,
-  },
-}: ChangeEvent<HTMLInputElement | HTMLSelectElement>): string => value;
-
-// #endregion
-
 
 
 const Helper = {
-  GetSeason,
   Chunk,
+  GetSeason,
+  HasPermission,
   StringToDateTime,
   useDebounce,
 
@@ -90,10 +85,6 @@ const Helper = {
     Create: CreateLocalStorage,
     Get: GetLocalStorage,
     Delete: DeleteLocalStorage,
-  },
-
-  Event: {
-    GetValue,
   },
 };
 

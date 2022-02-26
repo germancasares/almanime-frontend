@@ -1,7 +1,8 @@
 import { Duration } from 'luxon';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { Fansub, FansubDocument, FansubDTO } from 'types/fansub';
 import { Member } from 'types/member';
+import { Roles, RolesDTO } from 'types/role';
 import { Subtitle } from 'types/subtitle';
 
 export default class FansubApi {
@@ -81,8 +82,19 @@ export default class FansubApi {
     },
   );
 
+  public static GetRoles = (
+    acronym?: string,
+  ) => useQuery<Roles>(
+    ['roles', acronym],
+    async () => (await fetch(`fansub/acronym/${acronym}/roles`)).json(),
+    {
+      enabled: !!acronym,
+      staleTime: Duration.fromObject({ minutes: 30 }).toMillis(),
+    },
+  );
+
   public static Post = () => useMutation(
-    async ({ fansub, token } : { fansub: FansubDTO, token?: string }) =>  (await fetch('fansub', {
+    async ({ fansub, token } : { fansub: FansubDTO, token?: string }) => (await fetch('fansub', {
       method: 'POST',
       body: JSON.stringify(fansub),
       headers: {
@@ -91,6 +103,41 @@ export default class FansubApi {
       },
     })).json(),
   );
+
+  public static UpdateRoles = (acronym?: string) => {
+    const queryClient = useQueryClient();
+
+    return useMutation(
+      async ({ roles, token }: RolesDTO) => fetch(`fansub/acronym/${acronym}/roles`, {
+        method: 'PUT',
+        body: JSON.stringify(roles),
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      }),
+      {
+        onMutate: async (newRoles: RolesDTO) => {
+          await queryClient.cancelQueries(['roles', acronym]);
+          const roles = queryClient.getQueryData<Roles>(['roles', acronym]);
+
+          if (roles) {
+            queryClient.setQueryData<Roles>(
+              ['roles', acronym],
+              newRoles.roles,
+            );
+          }
+
+          return { roles };
+        },
+        onError: (err, newRoles, context) => {
+          if (context?.roles) {
+            queryClient.setQueryData<Roles>(['roles', acronym], context.roles);
+          }
+        },
+      },
+    );
+  };
 
   public static Join = () => useMutation(
     async ({ acronym, token } : { acronym: string, token?: string }) =>  fetch(`fansub/acronym/${acronym}/join`, {

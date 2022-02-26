@@ -41,7 +41,7 @@ const Create = ({ token }: { token?: string }) => {
                 className="input" 
                 type="text" 
                 placeholder="Example no Fansub" 
-                onChange={({ target: { value } }) => setUser({ name: value })} 
+                onChange={({ target: { value } }) => setUser({ name: value, permissions: {} })} 
               />
             </div>
           </div>
