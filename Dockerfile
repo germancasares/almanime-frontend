@@ -11,8 +11,12 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 WORKDIR /app
 
+RUN mkdir -p public/scripts
+COPY copy-dep.js ./
 COPY package*.json ./
-RUN yarn install --prod
+
+RUN yarn install --prod --frozen-lockfile
+ 
 COPY . ./
 
 RUN yarn run build
