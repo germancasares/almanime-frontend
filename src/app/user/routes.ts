@@ -10,7 +10,7 @@ const toUser = (name: string): string => `/users/${name}`;
 const routes = {
   create: {
     path: '/users/create',
-    component: withToken(Create),
+    component: withAuthenticationRequired(withToken(Create)),
   },
   edit: {
     path: '/profile',

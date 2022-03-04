@@ -15,6 +15,7 @@ export default class UserApi {
 
   public static Me = (
     token?: string,
+    retry: boolean | number = 3,
   ) => useQuery<User>(
     ['me', token],
     async () => (await fetch(
@@ -26,6 +27,7 @@ export default class UserApi {
       },
     )).json(),
     {
+      retry,
       enabled: !!token,
       staleTime: Duration.fromObject({ day: 1 }).toMillis(),
     },

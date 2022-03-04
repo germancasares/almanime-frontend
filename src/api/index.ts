@@ -15,7 +15,7 @@ const fetchAbsolute = async (input: RequestInfo, init?: RequestInit) => {
   } 
 
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    throw new Error(`Network response: ${response.statusText}`);
   }
 
   return response;

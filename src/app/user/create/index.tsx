@@ -1,7 +1,7 @@
 import UserApi from 'api/UserApi';
 import routes from 'app/routes';
 import Loader from 'components/loader';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User } from 'types/user';
 
@@ -10,12 +10,9 @@ const Create = ({ token }: { token?: string }) => {
   const [user, setUser] = useState({} as User);
   const { mutateAsync, isLoading } = UserApi.Create();
 
-  const { data: me, isFetched } = UserApi.Me(token);
+  const { isFetched, isSuccess } = UserApi.Me(token, false);
 
-  useEffect(() => {
-    if (me) navigate(routes.home.view.path);
-  }, [me, navigate]);
-
+  if (isSuccess) navigate(routes.home.view.path);
   if (!isFetched) return (<Loader />);
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
