@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import * as Sentry from '@sentry/react';
 import routes from 'app/routes';
 import Theme from 'enums/Theme';
 import Header from 'app/header';
@@ -45,4 +46,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Sentry.withProfiler(App);

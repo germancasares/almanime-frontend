@@ -1,5 +1,7 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
+import * as Sentry from '@sentry/react';
+import { BrowserTracing } from '@sentry/tracing';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -15,6 +17,14 @@ import './index.scss';
 import { Duration } from 'luxon';
 import routes from 'app/routes';
 
+Sentry.init({
+  dsn: process.env.REACT_APP_SENTRY_DNS,
+  integrations: [new BrowserTracing()],
+  tracesSampleRate: 1.0,
+  environment: process.env.NODE_ENV,
+  release: process.env.REACT_APP_RELEASE,
+});
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -25,10 +35,10 @@ const queryClient = new QueryClient({
 
 const persistor = createWebStoragePersistor({ storage: window.localStorage });
 
-// persistQueryClient({
-//   queryClient,
-//   persistor,
-// });
+persistQueryClient({
+  queryClient,
+  persistor,
+});
 
 configureFetch();
 

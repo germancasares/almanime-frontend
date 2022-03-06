@@ -31,13 +31,13 @@ const Create = ({ token }: { token?: string }) => {
         <h3 className="title">Finish Account Setup</h3>
         <form onSubmit={onSubmit}>
           <div className="field">
-            <label className="label" htmlFor="name">Name</label>
+            <label className="label" htmlFor="name">Username</label>
             <div className="control">
               <input 
                 name="name" 
                 className="input" 
                 type="text" 
-                placeholder="Example no Fansub" 
+                placeholder="Luffy" 
                 onChange={({ target: { value } }) => setUser({ name: value, permissions: {} })} 
               />
             </div>
