@@ -19,7 +19,7 @@ import routes from 'app/routes';
 
 Sentry.init({
   enabled: process.env.NODE_ENV !== 'development',
-  dsn: process.env.REACT_APP_SENTRY_DNS,
+  dsn: process.env.REACT_APP_SENTRY_DSN,
   environment: process.env.NODE_ENV,
   release: process.env.REACT_APP_RELEASE,
   integrations: [new BrowserTracing()],
