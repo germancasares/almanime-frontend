@@ -18,11 +18,12 @@ import { Duration } from 'luxon';
 import routes from 'app/routes';
 
 Sentry.init({
+  enabled: process.env.NODE_ENV !== 'development',
   dsn: process.env.REACT_APP_SENTRY_DNS,
-  integrations: [new BrowserTracing()],
-  tracesSampleRate: 1.0,
   environment: process.env.NODE_ENV,
   release: process.env.REACT_APP_RELEASE,
+  integrations: [new BrowserTracing()],
+  tracesSampleRate: 1.0,
 });
 
 const queryClient = new QueryClient({
