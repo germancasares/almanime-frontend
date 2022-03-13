@@ -48,7 +48,7 @@ const Row = ({
     <td>{episode.duration}</td>
     <td>{Formatter.DateFull(episode.aired)}</td>
     <td>{Object.entries(fansubs).map(([fansub, subtitle]) => (
-      <a href={subtitle} key={fansub}>
+      <a href={`${process.env.REACT_APP_API}${subtitle}`} key={fansub}>
         {fansub}
       </a>
     ))}</td>

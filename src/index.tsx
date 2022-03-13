@@ -34,12 +34,13 @@ const queryClient = new QueryClient({
   },
 });
 
-const persistor = createWebStoragePersistor({ storage: window.localStorage });
-
-persistQueryClient({
-  queryClient,
-  persistor,
-});
+if (process.env.REACT_APP_SHOULD_PERSIST_QUERIES !== 'false') {
+  const persistor = createWebStoragePersistor({ storage: window.localStorage });
+  persistQueryClient({
+    queryClient,
+    persistor,
+  });
+}
 
 configureFetch();
 
