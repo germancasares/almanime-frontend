@@ -7,8 +7,9 @@ import {
   mdiInformationVariant,
 } from '@mdi/js';
 
-import './tabs.scss';
 import { TabName } from '..';
+
+import './tabs.scss';
 
 const Tab = (
   { name, activeTab, iconPath, changeTab }:
@@ -32,7 +33,7 @@ const Tabs = (
 
   return (
     <div id="tabs">
-      <div className="tabs is-centered is-toggle is-fullwidth is-primary">
+      <div className="tabs is-centered is-toggle is-fullwidth is-error">
         <ul>
           <Tab 
             name={TabName.Newest} 

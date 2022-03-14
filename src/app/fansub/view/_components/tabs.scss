@@ -1,0 +1,19 @@
+@import "styles/theme-palette.scss";
+
+#tabs {
+  li {
+    a {
+      @include themed() {
+        color: findColorInvert(t($background));
+      }
+    }
+
+    &.is-active a {
+      @include back-contrast($primary);
+
+      @include themed() {
+        border-color: t($primary);
+      }
+    }
+  }
+}
