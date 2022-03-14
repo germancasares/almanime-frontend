@@ -3,6 +3,12 @@
 #profile {
   .navbar-link {
     @include back-contrast($background-er);
+
+    &::after {
+      @include themed() {
+        border-color: t($primary);
+      }
+    }
   }
 
   .navbar-dropdown {
