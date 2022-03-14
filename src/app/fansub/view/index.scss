@@ -1,7 +1,12 @@
+@import "styles/theme-palette.scss";
 
 #fansub-view {
   .title {
     display: flex;
+
+    @include themed() {
+      color: findColorInvert(t($background));
+    }
 
     a, button {
       margin-left: auto;
