@@ -7,13 +7,17 @@
 	"workspaceFolder": "/workspace",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"files.autoSave": "afterDelay",
-		"editor.tabSize": 2,
+		"diffEditor.codeLens": true,
 		"editor.bracketPairColorization.enabled": true,
-		"editor.guides.bracketPairs": "active",
-		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"editor.formatOnSave": true,
+		"editor.guides.bracketPairs": "active",
+		"editor.tabSize": 2,
 		"eslint.format.enable": true,
+		"explorer.confirmDragAndDrop": false,
+		"files.autoSave": "afterDelay",
+		"git.confirmSync": false,
+		"git.enableSmartCommit": true,
 		"window.autoDetectColorScheme": true,
 		"typescript.preferences.quoteStyle": "single",
 		"typescript.updateImportsOnFileMove.enabled": "always",
@@ -28,7 +32,25 @@
 				"savePassword": false,
 				"profileName": "mssql-container"
 			}
-		]
+		],
+		"[json]": {
+			"editor.defaultFormatter": "vscode.json-language-features"
+		},
+		"[jsonc]": {
+			"editor.defaultFormatter": "vscode.json-language-features"
+		},
+		// Automatic linting of SCSS
+		"css.validate": false,
+		"less.validate": false,
+		"scss.validate": false,
+		"stylelint.configBasedir": "/usr/local/share/npm-global/lib",
+		"stylelint.validate": [
+			"css",
+			"scss"
+		],
+		"[scss]": {
+			"editor.defaultFormatter": "stylelint.vscode-stylelint"
+		}
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
@@ -36,8 +58,9 @@
 		"dbaeumer.vscode-eslint",
 		"mhutchie.git-graph",
 		"zaaack.markdown-editor",
+		"stylelint.vscode-stylelint",
 		"pflannery.vscode-versionlens",
-		"firefox-devtools.vscode-firefox-debug",
+		"firefox-devtools.vscode-firefox-debug"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
