@@ -1,12 +1,12 @@
-@import "styles/theme-palette.scss";
+@import 'styles/theme-palette.scss';
 
 .loader-wrapper {
-  width: 100%;
-  height: calc(100vh - 3.25rem - 9rem - 24px);
-  display: flex;
-  justify-content: center;
   align-items: center;
   border-radius: 6px;
+  display: flex;
+  height: calc(100vh - 3.25rem - 9rem - 24px);
+  justify-content: center;
+  width: 100%;
 
   .loader {
     height: 80px;

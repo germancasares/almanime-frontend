@@ -66,6 +66,8 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.5.6",
     "storybook-dark-mode": "^1.0.8",
+    "stylelint": "^14.8.5",
+    "stylelint-config-sass-guidelines": "^9.0.1",
     "webpack": "^5.68.0"
   },
   "browserslist": {

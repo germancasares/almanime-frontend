@@ -1,4 +1,4 @@
-@import "styles/theme-palette.scss";
+@import 'styles/theme-palette.scss';
 
 .search {
   select {
@@ -49,7 +49,8 @@
             color: findColorInvert(t($background-est));
           }
   
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             @include back-contrast($primary);
           }
         }

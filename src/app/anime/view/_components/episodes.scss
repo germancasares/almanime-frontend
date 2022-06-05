@@ -1,14 +1,15 @@
-@import "styles/theme-palette.scss";
+@import 'styles/theme-palette.scss';
 
 #episodes {
-  margin-top: 50px;
   border-radius: 3px;
+  margin-top: 50px;
 
   @include themed() {
     background-color: t($background-est);
   }
 
-  td, th {
+  td,
+  th {
     @include themed() {
       color: findColorInvert(t($background-est));
     }

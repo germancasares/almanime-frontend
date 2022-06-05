@@ -1,4 +1,4 @@
-@import "styles/theme-palette.scss";
+@import 'styles/theme-palette.scss';
 
 .pagination {
   .pagination-link {
@@ -9,11 +9,11 @@
 
     &:not(.is-current) {
       @include back-contrast($background);
+
+      cursor: pointer;
       @include themed() {
         color: t($primary);
       }
-
-      cursor: pointer;
     }
 
     &.is-current {

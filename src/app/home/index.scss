@@ -1,12 +1,12 @@
-@import "styles/theme-palette.scss";
+@import 'styles/theme-palette.scss';
 
 #home {
   .title {
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
 
     @include themed() {
-      color: t($text-color);
       border-bottom: 3px solid t($text-color);
+      color: t($text-color);
     }
   }
 }

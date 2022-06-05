@@ -1,10 +1,10 @@
-@import "styles/theme-palette.scss";
+@import 'styles/theme-palette.scss';
 
 .themeSwitch {
   .button {
-    border: 0;
 
     @include back-contrast($background-er);
+    border: 0;
 
     &:hover {
       @include back-contrast($background-er);

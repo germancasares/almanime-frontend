@@ -5,10 +5,10 @@
 $body-overflow-y: auto;
 $navbar-item-img-max-height: 2.75rem;
 
-@import "~bulma/bulma";
+@import '~bulma/bulma';
 
 // Global rules
-@import "styles/theme-palette.scss";
+@import 'styles/theme-palette.scss';
 
 .button {
   @include back-contrast($primary);

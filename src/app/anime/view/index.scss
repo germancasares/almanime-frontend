@@ -1,4 +1,4 @@
-@import "styles/theme-palette.scss";
+@import 'styles/theme-palette.scss';
 
 #anime {
   min-height: 100vh;
@@ -17,8 +17,8 @@
     }
 
     .title {
-      display: flex;
       align-items: center;
+      display: flex;
       height: 150px;
 
       @include themed() {

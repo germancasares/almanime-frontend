@@ -1,11 +1,11 @@
-@import "styles/theme-palette.scss";
+@import 'styles/theme-palette.scss';
 
 .panel {
+  margin: auto;
+  max-width: 400px;
+  overflow: hidden;
   position: relative;
   width: 100%;
-  max-width: 400px;
-  margin: auto;
-  overflow: hidden;
 
   :hover .overlay {
     opacity: 1;
@@ -13,17 +13,17 @@
 
   .overlay {
     background: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    height: 100%;
-    width: 100%;
     border-radius: 5px;
-    left: 0;
-    top: 0;
     bottom: 0;
-    right: 0;
+    height: 100%;
+    left: 0;
     opacity: 0;
-    z-index: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
     transition: all 0.4s ease-in-out 0s;
+    width: 100%;
+    z-index: 1;
   }
 
   figure {
@@ -36,38 +36,38 @@
   }
 
   :hover .name {
-    top: 50%;
     left: 50%;
     opacity: 1;
+    top: 50%;
   }
 
   .name {
-    position: absolute;
-    text-align: center;
-    padding-left: 1em;
-    padding-right: 1em;
-    width: 100%;
-    top: 80%;
-    left: 50%;
-    opacity: 0;
-    z-index: 2;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease-in-out 0s;
 
     color: #fff;
     font-weight: 500;
+    left: 50%;
     letter-spacing: 0.15em;
+    opacity: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+    position: absolute;
+    text-align: center;
     text-transform: uppercase;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out 0s;
+    width: 100%;
+    z-index: 2;
   }
 
   .star {
+    bottom: 4px;
     cursor: pointer;
     line-height: 0;
     position: absolute;
-    bottom: 4px;
     right: 8px;
-    z-index: 3;
     transform: (-50%, -50%);
+    z-index: 3;
     @include themed() {
       color: t($primary);
     }

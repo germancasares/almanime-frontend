@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/typescript-node
 {
-	"name": "Node.js & MS SQL",
+	"name": "Node.js & PostgreSQL",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "alm_ui",
 	"workspaceFolder": "/workspace",
@@ -21,18 +21,6 @@
 		"window.autoDetectColorScheme": true,
 		"typescript.preferences.quoteStyle": "single",
 		"typescript.updateImportsOnFileMove.enabled": "always",
-		"mssql.connections": [
-			{
-				"server": "localhost,1433",
-				"database": "",
-				"authenticationType": "SqlLogin",
-				"user": "sa",
-				"password": "P@ssw0rd",
-				"emptyPasswordInput": false,
-				"savePassword": false,
-				"profileName": "mssql-container"
-			}
-		],
 		"[json]": {
 			"editor.defaultFormatter": "vscode.json-language-features"
 		},
@@ -50,11 +38,13 @@
 		],
 		"[scss]": {
 			"editor.defaultFormatter": "stylelint.vscode-stylelint"
+		},
+		"editor.codeActionsOnSave": {
+			"source.fixAll.stylelint": true
 		}
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-mssql.mssql",
 		"dbaeumer.vscode-eslint",
 		"mhutchie.git-graph",
 		"zaaack.markdown-editor",
@@ -65,7 +55,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bash .devcontainer/mssql/postCreateCommand.sh 'P@ssw0rd' './bin/Debug/' './.devcontainer/mssql/' && yarn install",
+	"postCreateCommand": "yarn install",
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node",
 	"features": {

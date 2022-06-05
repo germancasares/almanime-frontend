@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   alm_ui:
@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        VARIANT: "16-bullseye"
+        VARIANT: "18"
     volumes:
       - ..:/workspace:cached
     command: sleep infinity
@@ -39,17 +39,18 @@ services:
 
   alm_db:
     container_name: alm_db
-    image: mcr.microsoft.com/azure-sql-edge:latest
+    image: postgres:latest
     volumes:
-      - db-data:/var/opt/mssql
+      - postgres-data:/var/lib/postgresql/data
     ports:
-      - 1433:1433
+      - 5432:5432
     environment:
-      MSSQL_SA_PASSWORD: P@ssw0rd
-      ACCEPT_EULA: Y
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: Almanime
     restart: unless-stopped
 
 volumes:
-  kibana-data:
-  search-data:
-  db-data:
+  postgres-data:
+  # kibana-data:
+  # search-data:
