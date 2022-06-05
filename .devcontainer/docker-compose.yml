@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 
 services:
   alm_ui:
@@ -39,18 +39,17 @@ services:
 
   alm_db:
     container_name: alm_db
-    image: postgres:latest
+    image: mcr.microsoft.com/azure-sql-edge:latest
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - db-data:/var/opt/mssql
     ports:
-      - 5432:5432
+      - 1433:1433
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: Almanime
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: P@ssw0rd
     restart: unless-stopped
 
 volumes:
-  postgres-data:
+  db-data:
   # kibana-data:
   # search-data:
