@@ -88,7 +88,9 @@
     ]
   },
   "resolutions": {
-    "mini-css-extract-plugin": "2.4.5"
+    "trim": "1.0.1",
+    "nth-check": "2.1.1",
+    "glob-parent": "6.0.2"
   },
   "eslintConfig": {
     "overrides": [
