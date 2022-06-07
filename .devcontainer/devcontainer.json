@@ -50,7 +50,8 @@
 		"zaaack.markdown-editor",
 		"stylelint.vscode-stylelint",
 		"pflannery.vscode-versionlens",
-		"firefox-devtools.vscode-firefox-debug"
+		"firefox-devtools.vscode-firefox-debug",
+		"Orta.vscode-jest"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
