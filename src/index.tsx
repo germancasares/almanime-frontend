@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import * as Sentry from '@sentry/react';
 import { BrowserTracing } from '@sentry/tracing';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -44,7 +44,10 @@ if (process.env.REACT_APP_SHOULD_PERSIST_QUERIES !== 'false') {
 
 configureFetch();
 
-ReactDOM.render(
+createRoot(
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  document.getElementById('root')!,
+).render(
   <StrictMode>
     <Auth0Provider
       domain="almanime.us.auth0.com"
@@ -63,7 +66,6 @@ ReactDOM.render(
       </Router>
     </Auth0Provider>
   </StrictMode>,
-  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
