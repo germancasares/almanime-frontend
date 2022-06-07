@@ -4,7 +4,7 @@ const configureFetch = (): void => {
   window.fetch = fetchAbsolute;
 };
 
-const fetchAbsolute = async (input: RequestInfo, init?: RequestInit) => {
+const fetchAbsolute = async (input: RequestInfo | URL, init?: RequestInit) => {
   const route = input.toString();
 
   let response;

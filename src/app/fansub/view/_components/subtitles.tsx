@@ -9,7 +9,9 @@ const Subtitles = ({ acronym }: { acronym?: string }) => {
         subtitles && subtitles.map((subtitle) => (
           <div key={subtitle.id}>
             <a href={`${process.env.REACT_APP_API}${subtitle.url}`}>
-              {subtitle.user} {subtitle.anime} {subtitle.episode} {subtitle.format} {subtitle.creationDate}
+              <>
+                {subtitle.user} {subtitle.anime} {subtitle.episode} {subtitle.format} {subtitle.creationDate}
+              </>
             </a>
           </div>
         ))
