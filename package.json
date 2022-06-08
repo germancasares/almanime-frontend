@@ -104,5 +104,15 @@
         }
       }
     ]
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 4,
+        "lines": 20,
+        "statements": 20
+      }
+    }
   }
 }
