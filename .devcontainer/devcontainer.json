@@ -8,11 +8,13 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"diffEditor.codeLens": true,
-		"editor.bracketPairColorization.enabled": true,
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
-		"editor.formatOnSave": true,
-		"editor.guides.bracketPairs": "active",
-		"editor.tabSize": 2,
+		"editor": {
+			"bracketPairColorization.enabled": true,
+			"defaultFormatter": "dbaeumer.vscode-eslint",
+			"formatOnSave": true,
+			"guides.bracketPairs": "active",
+			"tabSize": 2
+		},
 		"eslint.format.enable": true,
 		"explorer.confirmDragAndDrop": false,
 		"files.autoSave": "afterDelay",
@@ -31,16 +33,24 @@
 		"css.validate": false,
 		"less.validate": false,
 		"scss.validate": false,
-		"stylelint.configBasedir": "/usr/local/share/npm-global/lib",
-		"stylelint.validate": [
-			"css",
-			"scss"
-		],
+		"stylelint": {
+			"configBasedir": "/usr/local/share/npm-global/lib",
+			"validate": [
+				"css",
+				"scss"
+			]
+		},
 		"[scss]": {
 			"editor.defaultFormatter": "stylelint.vscode-stylelint"
 		},
 		"editor.codeActionsOnSave": {
 			"source.fixAll.stylelint": true
+		},
+		// Jest
+		"jest": {
+			"showTerminalOnLaunch": false,
+			"showCoverageOnLoad": true,
+			"coverageFormatter": "GutterFormatter"
 		}
 	},
 	// Add the IDs of extensions you want installed when the container is created.

@@ -7,22 +7,6 @@ type Props = {
   episodeFansubs: EpisodeFansubs,
 };
 
-const Episodes = ({ episodes, episodeFansubs }: Props) => (
-  <table id="episodes" className="table is-fullwidth">
-    <thead>
-      <Header />
-    </thead>
-    <tfoot>
-      <Header />
-    </tfoot>
-    <tbody>
-      {episodes.map((episode) => {
-        return <Row episode={episode} key={episode.id} fansubs={episodeFansubs[episode.number]} />;
-      })}
-    </tbody>
-  </table>
-);
-
 const Header = () => (
   <tr>
     <th><abbr title="Number">#</abbr></th>
@@ -53,6 +37,22 @@ const Row = ({
       </a>
     ))}</td>
   </tr>
+);
+
+const Episodes = ({ episodes, episodeFansubs }: Props) => (
+  <table id="episodes" className="table is-fullwidth">
+    <thead>
+      <Header />
+    </thead>
+    <tfoot>
+      <Header />
+    </tfoot>
+    <tbody>
+      {episodes.map((episode) => {
+        return <Row episode={episode} key={episode.id} fansubs={episodeFansubs[episode.number]} />;
+      })}
+    </tbody>
+  </table>
 );
 
 export default Episodes;
