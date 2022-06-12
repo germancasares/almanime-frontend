@@ -1,4 +1,4 @@
-@import 'styles/theme-palette.scss';
+@import '~bulma/sass/utilities/functions';
 
 #anime {
   min-height: 100vh;
@@ -9,21 +9,15 @@
   }
 
   section {
+    color: findColorInvert(var(--background-color));
     padding-left: 20px;
     width: 100%;
 
-    @include themed() {
-      color: findColorInvert(t($background));
-    }
-
     .title {
       align-items: center;
+      color: findColorInvert(var(--background-color));
       display: flex;
       height: 150px;
-
-      @include themed() {
-        color: findColorInvert(t($background));
-      }
     }
   }
 }

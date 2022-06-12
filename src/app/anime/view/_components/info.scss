@@ -1,15 +1,13 @@
-@import 'styles/theme-palette.scss';
+@import '~bulma/sass/utilities/functions';
 
 #info {
+  border: 1px solid var(--primary-color);
   border-radius: 3px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 20px;
   padding: 20px;
-  @include themed() {
-    border: 1px solid t($primary);
-  }
 
   .details {
     display: flex;
@@ -18,11 +16,9 @@
     top: -37px;
 
     span {
+      background-color: var(--background-color);
+      color: var(--primary-color);
       padding: 0 10px;
-      @include themed() {
-        background-color: t($background);
-        color: t($primary);
-      }
     }
   }
 
@@ -35,15 +31,11 @@
     }
 
     span:first-of-type {
+      color: var(--primary-color);
       padding-right: 5px;
-      @include themed() {
-        color: t($primary);
-      }
 
       + span {
-        @include themed() {
-          color: findColorInvert(t($background));
-        }
+        color: findColorInvert(var(--primary-color));
       }
     }
 

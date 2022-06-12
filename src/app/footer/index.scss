@@ -1,11 +1,10 @@
-@import 'styles/theme-palette.scss';
+@import '~bulma/sass/utilities/functions';
+@import 'styles/mixins';
 
 #footer {
-  @include back-contrast($background-er);
+  @include back-contrast(var(--background-er-color));
 
   strong {
-    @include themed() {
-      color: findColorInvert(t($background-er));
-    }
+    color: findColorInvert(var(--background-er-color));
   }
 }

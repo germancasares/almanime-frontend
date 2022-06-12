@@ -1,26 +1,19 @@
-@import 'styles/theme-palette.scss';
+@import 'styles/mixins';
 
 .pagination {
   .pagination-link {
+    border-color: var(--border-color);
     border-width: 2px;
-    @include themed() { 
-      border-color: t($border-color);
-    }
 
     &:not(.is-current) {
-      @include back-contrast($background);
-
+      @include back-contrast(var(--background-color));
+      color: var(--primary-color);
       cursor: pointer;
-      @include themed() {
-        color: t($primary);
-      }
     }
 
     &.is-current {
-      @include themed() {
-        background-color: t($primary);
-        border-color: t($primary);
-      }
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
     }
   }
 }

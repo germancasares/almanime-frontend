@@ -1,7 +1,7 @@
-@import 'styles/theme-palette.scss';
+#header {
+  background-color: var(--background-er-color);
 
-.navbar {
-  @include themed() {
-    background-color: t($background-er);
+  .navbar {
+    background-color: var(--background-er-color);
   }
 }

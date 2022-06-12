@@ -1,13 +1,16 @@
-@import 'styles/theme-palette.scss';
+@import 'styles/mixins';
 
 .themeSwitch {
   .button {
-
-    @include back-contrast($background-er);
+    @include back-contrast(var(--background-er-color));
     border: 0;
 
     &:hover {
-      @include back-contrast($background-er);
+      @include back-contrast(var(--background-er-color));
+    }
+
+    &:focus {
+      color: findColorInvert(var(--background-er-color));
     }
   }
 }

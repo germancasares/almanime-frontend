@@ -1,36 +1,29 @@
-@import 'styles/theme-palette.scss';
+@import '~bulma/sass/utilities/functions';
+@import 'styles/mixins';
 
 .search {
-  select {
-    @include back-contrast($background-est);
-    @include themed() {
-      border-color: t($border-color);
-    }
-
-    option {
-      @include themed() {
-        color: findColorInvert(t($background-est));
+  .select {
+    select {
+      @include back-contrast(var(--background-est-color));
+      border-color: var(--border-color);
+  
+      option {
+        color: findColorInvert(var(--background-est-color));
       }
     }
   }
 
   .select:not(.is-multiple):not(.is-loading)::after {
-    @include themed() {
-      border-color: t($primary);
-    }
+    border-color: var(--primary-color);
   }
 
   .dropdown {
     input {
-      @include back-contrast($background-est);
-      @include themed() {
-        border-color: t($border-color);
-      }
+      @include back-contrast(var(--background-est-color));
+      border-color: var(--border-color);
   
       &::placeholder {
-        @include themed() {
-          color: findColorInvert(t($background-est));
-        }
+        color: findColorInvert(var(--background-est-color));
       }
     }
 
@@ -38,20 +31,16 @@
       min-width: 100%;
 
       .dropdown-content {
-        @include themed() {
-          background-color: t($background-est);
-          border: 1px solid t($border-color);
-        }
-  
+        background-color: var(--background-est-color);
+        border: 1px solid var(--border-color);
+
         .dropdown-item {
-          @include back-contrast($background-est);
-          @include themed() {
-            color: findColorInvert(t($background-est));
-          }
+          @include back-contrast(var(--background-est-color));
+          color: findColorInvert(var(--background-est-color));
   
           &:hover,
           &:focus {
-            @include back-contrast($primary);
+            @include back-contrast(var(--primary-color));
           }
         }
       }
@@ -59,13 +48,9 @@
   }
 
   .button {
-    @include back-contrast($primary);
-
     &.is-loading::after {
-      @include themed() {
-        border-bottom-color: findColorInvert(t($primary));
-        border-left-color: findColorInvert(t($primary));
-      }
+      border-bottom-color: findColorInvert(var(--primary-color));
+      border-left-color: findColorInvert(var(--primary-color));
     }
   }
 }

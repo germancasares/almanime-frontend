@@ -1,36 +1,29 @@
-@import 'styles/theme-palette.scss';
+@import '~bulma/sass/utilities/functions';
+@import 'styles/mixins';
 
 #profile {
   .navbar-link {
-    @include back-contrast($background-er);
+    @include back-contrast(var(--background-er-color));
 
     &::after {
-      @include themed() {
-        border-color: t($primary);
-      }
+      border-color: var(--primary-color);
     }
   }
 
   .navbar-dropdown {
-    @include themed() {
-      background-color: t($background-er);
-      border-top-color: t($primary);
-    }
+    background-color: var(--background-er-color);
+    border-top-color: var(--primary-color);
 
     .navbar-item {
-      @include themed() {
-        color: findColorInvert(t($background-er));
-      }
+      color: findColorInvert(var(--background-er-color));
 
       &:hover {
-        @include back-contrast($primary);
+        @include back-contrast(var(--primary-color));
       }
     }
 
     .navbar-divider {
-      @include themed() {
-        background-color: t($primary);
-      }
+      background-color: var(--primary-color);
     }
   }
 }

@@ -1,12 +1,9 @@
-@import 'styles/theme-palette.scss';
+@import '~bulma/sass/utilities/functions';
 
 #fansub-view {
   .title {
+    color: findColorInvert(var(--background-color));
     display: flex;
-
-    @include themed() {
-      color: findColorInvert(t($background));
-    }
 
     a,
     button {

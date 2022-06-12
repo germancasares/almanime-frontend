@@ -26,22 +26,20 @@ const App = () => {
   };
 
   return (
-    <div className={`theme-${theme}`}>
-      <div id="app">
-        <Header theme={theme} toggleTheme={toggleTheme} />
+    <div id="app" data-theme={theme}>
+      <Header theme={theme} toggleTheme={toggleTheme} />
 
-        <Routes>
-          {
-            Object.values(routes).map((pages) => 
-              Object.values(pages).map(({ path, component: Component }) => (
-                <Route key={path} path={path} element={<Component />} />
-              )),
-            )
-          }
-        </Routes>
+      <Routes>
+        {
+          Object.values(routes).map((pages) => 
+            Object.values(pages).map(({ path, component: Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            )),
+          )
+        }
+      </Routes>
 
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

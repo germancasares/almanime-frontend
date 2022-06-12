@@ -1,23 +1,22 @@
 @charset "utf-8";
 
 @import-normalize;
-
-$body-overflow-y: auto;
-$navbar-item-img-max-height: 2.75rem;
-
+@import 'styles/variables';
 @import '~bulma/bulma';
+@import 'styles/palette';
+@import 'styles/mixins';
+
+// * {
+//   transition: all 0.3s ease-in-out 0s;
+// }
 
 // Global rules
-@import 'styles/theme-palette.scss';
-
 .button {
-  @include back-contrast($primary);
+  @include back-contrast(var(--primary-color));
 
-  @include themed() {
-    border-color: t($border-color);
-  }
+  border-color: var(--border-color);
 
   &:hover {
-    @include back-contrast($primary);
+    @include back-contrast(var(--primary-color));
   }
 }

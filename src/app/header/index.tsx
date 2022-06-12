@@ -8,11 +8,11 @@ import './index.scss';
 type Props = ThemeSwitchProps;
 
 const Header = ({ theme, toggleTheme }: Props) => (
-  <nav id="header" className="navbar is-fixed-top themed">
+  <nav id="header" className="navbar is-fixed-top">
     <div className="container">
       <Brand />
       <Menu />
-      <div className="navbar themed">
+      <div className="navbar">
         <Search />
         <ThemeSwitch theme={theme} toggleTheme={toggleTheme} />
         <Account />
