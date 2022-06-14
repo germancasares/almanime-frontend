@@ -9,13 +9,13 @@
   }
 
   section {
-    color: findColorInvert(var(--background-color));
+    color: var(--font-color);
     padding-left: 20px;
     width: 100%;
 
     .title {
       align-items: center;
-      color: findColorInvert(var(--background-color));
+      color: var(--font-color);
       display: flex;
       height: 150px;
     }

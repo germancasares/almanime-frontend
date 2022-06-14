@@ -12,11 +12,12 @@
 
 // Global rules
 .button {
-  @include back-contrast(var(--primary-color));
-
+  background-color: var(--primary-color);
   border-color: var(--border-color);
+  color: var(--font-color__white);
 
   &:hover {
-    @include back-contrast(var(--primary-color));
+    background-color: var(--primary-color);
+    color: var(--font-color__white);
   }
 }

@@ -1,16 +1,23 @@
+/* stylelint-disable selector-no-qualifying-type */
 @import '~bulma/sass/utilities/functions';
 @import 'styles/mixins';
 
 #tabs {
+  background-color: var(--background-er-color);
+
   li {
     a {
-      color: findColorInvert(var(--background-color));
+      color: var(--font-color);
+
+      &:hover {
+        background-color: var(--background-color);
+      }
     }
 
     &.is-active a {
-      @include back-contrast(var(--primary-color));
-
-      border-color: var(--primary-color);
+      background-color: var(--primary-color__main);
+      border-color: var(--primary-color__main);
+      color: var(--font-color__white);
     }
   }
 }

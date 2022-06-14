@@ -4,11 +4,12 @@
 .search {
   .select {
     select {
-      @include back-contrast(var(--background-est-color));
+      background-color: var(--background-est-color);
       border-color: var(--border-color);
+      color: var(--font-color);
   
       option {
-        color: findColorInvert(var(--background-est-color));
+        color: var(--font-color);
       }
     }
   }
@@ -19,11 +20,12 @@
 
   .dropdown {
     input {
-      @include back-contrast(var(--background-est-color));
+      background-color: var(--background-est-color);
       border-color: var(--border-color);
+      color: var(--font-color);
   
       &::placeholder {
-        color: findColorInvert(var(--background-est-color));
+        color: var(--font-color);
       }
     }
 
@@ -35,22 +37,16 @@
         border: 1px solid var(--border-color);
 
         .dropdown-item {
-          @include back-contrast(var(--background-est-color));
-          color: findColorInvert(var(--background-est-color));
+          background-color: var(--background-est-color);
+          color: var(--font-color);
   
           &:hover,
           &:focus {
-            @include back-contrast(var(--primary-color));
+            background-color: var(--primary-color);
+            color: var(--font-color);
           }
         }
       }
-    }
-  }
-
-  .button {
-    &.is-loading::after {
-      border-bottom-color: findColorInvert(var(--primary-color));
-      border-left-color: findColorInvert(var(--primary-color));
     }
   }
 }

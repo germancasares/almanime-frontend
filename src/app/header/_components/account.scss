@@ -3,7 +3,8 @@
 
 #profile {
   .navbar-link {
-    @include back-contrast(var(--background-er-color));
+    background-color: var(--background-er-color);
+    color: var(--font-color);
 
     &::after {
       border-color: var(--primary-color);
@@ -15,10 +16,11 @@
     border-top-color: var(--primary-color);
 
     .navbar-item {
-      color: findColorInvert(var(--background-er-color));
+      color: var(--font-color);
 
       &:hover {
-        @include back-contrast(var(--primary-color));
+        background-color: var(--primary-color);
+        color: var(--font-color__white);
       }
     }
 

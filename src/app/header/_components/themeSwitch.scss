@@ -1,16 +1,22 @@
 @import 'styles/mixins';
 
-.themeSwitch {
+.navbar-item.themeSwitch {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+
   .button {
-    @include back-contrast(var(--background-er-color));
+    background-color: var(--background-er-color);
     border: 0;
+    color: var(--font-color);
 
     &:hover {
-      @include back-contrast(var(--background-er-color));
+      background-color: var(--background-er-color);
+      color: var(--font-color);
     }
 
     &:focus {
-      color: findColorInvert(var(--background-er-color));
+      background-color: var(--background-er-color);
+      color: var(--font-color);
     }
   }
 }

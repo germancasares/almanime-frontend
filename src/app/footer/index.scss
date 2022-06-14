@@ -5,6 +5,6 @@
   @include back-contrast(var(--background-er-color));
 
   strong {
-    color: findColorInvert(var(--background-er-color));
+    color: var(--font-color);
   }
 }

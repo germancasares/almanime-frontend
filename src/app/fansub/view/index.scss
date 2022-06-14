@@ -2,7 +2,7 @@
 
 #fansub-view {
   .title {
-    color: findColorInvert(var(--background-color));
+    color: var(--font-color);
     display: flex;
 
     a,

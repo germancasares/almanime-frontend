@@ -35,7 +35,7 @@
       padding-right: 5px;
 
       + span {
-        color: findColorInvert(var(--primary-color));
+        color: var(--font-color);
       }
     }
 

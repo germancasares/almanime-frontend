@@ -7,6 +7,6 @@
 
   td,
   th {
-    color: findColorInvert(var(--background-est-color));
+    color: var(--font-color);
   }
 }
