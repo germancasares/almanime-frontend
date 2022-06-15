@@ -12,7 +12,7 @@ const Info = ({ anime, episodesCount }: Props) => (
   <div id="info">
     <div className="details">
       <span className="is-size-5 has-text-weight-semibold">
-        Details:
+        Details
       </span>
     </div>
 

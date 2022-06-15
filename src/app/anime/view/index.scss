@@ -1,3 +1,4 @@
+/* stylelint-disable selector-max-compound-selectors */
 @import '~bulma/sass/utilities/functions';
 
 #anime {
@@ -9,15 +10,22 @@
   }
 
   section {
-    color: var(--font-color);
+    color: var(--on-background);
     padding-left: 20px;
     width: 100%;
 
     .title {
       align-items: center;
-      color: var(--font-color);
       display: flex;
       height: 150px;
+
+      .tag {
+        background-color: var(--background);
+        color: var(--on-background);
+        font-size: 2rem;
+        height: auto;
+        white-space: break-spaces;
+      }
     }
   }
 }

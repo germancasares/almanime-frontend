@@ -5,6 +5,8 @@ import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User } from 'types/user';
 
+import './index.scss';
+
 const Create = ({ token }: { token?: string }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({} as User);

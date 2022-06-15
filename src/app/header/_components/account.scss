@@ -2,30 +2,41 @@
 @import 'styles/mixins';
 
 #profile {
+  &.navbar-item.has-dropdown:hover .navbar-link {
+    background-color: var(--primary__variant);
+    color: var(--on-primary__variant);
+  }
+
   .navbar-link {
-    background-color: var(--background-er-color);
-    color: var(--font-color);
+    padding-left: 3.75rem;
 
     &::after {
-      border-color: var(--primary-color);
+      border-color: var(--on-primary);
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+      background-color: var(--primary__variant);
+      color: var(--on-primary__variant);
     }
   }
 
   .navbar-dropdown {
-    background-color: var(--background-er-color);
-    border-top-color: var(--primary-color);
+    background-color: var(--primary);
+    border-top-color: var(--primary);
 
     .navbar-item {
-      color: var(--font-color);
+      color: var(--on-primary);
 
       &:hover {
-        background-color: var(--primary-color);
-        color: var(--font-color__white);
+        background-color: var(--primary__variant);
+        color: var(--on-primary__variant);
       }
     }
 
     .navbar-divider {
-      background-color: var(--primary-color);
+      background-color: var(--on-primary);
     }
   }
 }

@@ -3,21 +3,29 @@
 @import 'styles/mixins';
 
 #tabs {
-  background-color: var(--background-er-color);
-
   li {
     a {
-      color: var(--font-color);
+      background-color: var(--surface);
+      border-color: var(--on-background);
+      color: var(--on-surface);
 
       &:hover {
-        background-color: var(--background-color);
+        background-color: var(--surface);
+        border-color: var(--primary);
+        color: var(--primary);
       }
     }
 
     &.is-active a {
-      background-color: var(--primary-color__main);
-      border-color: var(--primary-color__main);
-      color: var(--font-color__white);
+      background-color: var(--primary);
+      border-color: var(--on-background);
+      color: var(--on-primary);
+
+      &:hover {
+        background-color: var(--surface);
+        border-color: var(--primary);
+        color: var(--primary);
+      }
     }
   }
 }

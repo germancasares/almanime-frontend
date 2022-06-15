@@ -1,5 +1,23 @@
 #fansub-edit {
+  .title {
+    color: var(--on-background);
+  }
+
   input[type=checkbox] {
     transform: scale(1.5);
+  }
+
+  .table {
+    background-color: var(--surface);
+
+    td,
+    th {
+      color: var(--on-surface);
+    }
+  }
+
+  .button {
+    background-color: var(--primary);
+    color: var(--on-primary);
   }
 }

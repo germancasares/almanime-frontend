@@ -1,12 +1,12 @@
 @import '~bulma/sass/utilities/functions';
 
 #episodes {
-  background-color: var(--background-color);
+  background-color: var(--surface);
   border-radius: 3px;
   margin-top: 50px;
 
   td,
   th {
-    color: var(--font-color);
+    color: var(--on-surface);
   }
 }

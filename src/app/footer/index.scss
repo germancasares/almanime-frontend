@@ -2,9 +2,10 @@
 @import 'styles/mixins';
 
 #footer {
-  @include back-contrast(var(--background-er-color));
+  background-color: var(--surface);
+  color: var(--on-surface);
 
   strong {
-    color: var(--font-color);
+    color: inherit;
   }
 }

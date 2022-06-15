@@ -1,49 +1,53 @@
+/* stylelint-disable selector-max-compound-selectors */
 @import '~bulma/sass/utilities/functions';
 @import 'styles/mixins';
 
-.search {
+.navbar-item.search {
+  padding-left: 0;
+  padding-right: 0;
+
   .select {
     select {
-      background-color: var(--background-est-color);
-      border-color: var(--border-color);
-      color: var(--font-color);
-  
-      option {
-        color: var(--font-color);
-      }
+      background-color: var(--primary);
+      border-color: var(--on-primary);
+      color: var(--on-primary);
     }
   }
 
+  .select:not(.is-multiple):not(.is-loading):hover::after {
+    border-color: var(--on-primary);
+  }
+
   .select:not(.is-multiple):not(.is-loading)::after {
-    border-color: var(--primary-color);
+    border-color: var(--on-primary);
   }
 
   .dropdown {
     input {
-      background-color: var(--background-est-color);
-      border-color: var(--border-color);
-      color: var(--font-color);
+      background-color: transparent;
+      border-color: var(--on-primary);
+      color: var(--on-primary);
   
       &::placeholder {
-        color: var(--font-color);
+        color: var(--on-primary);
       }
     }
 
     .dropdown-menu {
-      min-width: 100%;
+      width: 100%;
 
       .dropdown-content {
-        background-color: var(--background-est-color);
-        border: 1px solid var(--border-color);
+        background-color: var(--primary);
+        border: 1px solid var(--on-primary);
 
         .dropdown-item {
-          background-color: var(--background-est-color);
-          color: var(--font-color);
+          background-color: transparent;
+          color: var(--on-primary);
   
           &:hover,
           &:focus {
-            background-color: var(--primary-color);
-            color: var(--font-color);
+            background-color: var(--primary__variant);
+            color: var(--on-primary__variant);
           }
         }
       }

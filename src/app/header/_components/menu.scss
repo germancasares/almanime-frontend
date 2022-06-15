@@ -2,16 +2,12 @@
 
 .menu {
   .navbar-item {
-    color: var(--font-color);
+    color: var(--on-primary);
 
-    &:hover {
-      background-color: var(--background-est-color);
-      color: var(--primary-color);
-    }
-
+    &:hover,
     &:focus {
-      background-color: var(--background-est-color);
-      color: var(--primary-color);
+      background-color: var(--primary__variant);
+      color: var(--on-primary__variant);
     }
   }
 }

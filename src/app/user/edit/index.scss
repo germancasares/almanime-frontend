@@ -1,4 +1,8 @@
-#subtitle-create {
+#edit {
+  .title {
+    color: var(--on-background);
+  }
+
   .label {
     color: var(--on-background);
   }
@@ -10,16 +14,6 @@
     &::placeholder {
       color: var(--on-surface);
     }
-  }
-
-  .file-cta {
-    background-color: var(--primary);
-    color: var(--on-primary);
-  }
-
-  .file-name {
-    background-color: var(--surface);
-    color: var(--on-surface);
   }
 
   .button {
