@@ -18,13 +18,13 @@ const GetSeason = (month: number | DateTime): Season => {
   }
 
   switch (true) {
-    case month === 12 || month <= 2:
+    case month >= 1 && month <= 3:
       return Season.Winter;
-    case month >= 3 && month <= 5:
+    case month >= 4 && month <= 6:
       return Season.Spring;
-    case month >= 6 && month <= 8:
+    case month >= 7 && month <= 9:
       return Season.Summer;
-    case month >= 9 && month <= 11:
+    case month >= 10 && month <= 12:
       return Season.Fall;
     default: throw new RangeError('Month out of valid range.');
   }
