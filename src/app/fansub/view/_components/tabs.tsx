@@ -22,7 +22,7 @@ const Tab = (
   { name: TabName, activeTab: string, iconPath: string, changeTab: (newTab: TabName) => void },
 ) => (
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-  <div
+  <li
     role="tab"
     className={activeTab === name ? 'is-active' : ''}
     onClick={() => changeTab(name)}
@@ -33,7 +33,7 @@ const Tab = (
       <Icon className="icon" path={iconPath} size={1} />
       <span>{name}</span>
     </a>
-  </div>
+  </li>
 );
 
 const Tabs = (
@@ -41,7 +41,7 @@ const Tabs = (
   { activeTab : TabName, changeTab: (newTab: TabName) => void },
 ) => (
   <div id="tabs">
-    <div className="tabs is-centered is-toggle is-fullwidth is-error">
+    <div className="tabs is-centered is-toggle is-fullwidth">
       <ul>
         <Tab
           name={TabName.Newest}
