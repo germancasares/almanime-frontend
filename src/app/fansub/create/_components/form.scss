@@ -1,0 +1,19 @@
+#fansub-create {
+  .label {
+    color: var(--on-background);
+  }
+
+  .input {
+    background-color: var(--surface);
+    color: var(--on-surface);
+
+    &::placeholder {
+      color: var(--on-surface);
+    }
+  }
+
+  .button {
+    background-color: var(--primary);
+    color: var(--on-primary);
+  }
+}

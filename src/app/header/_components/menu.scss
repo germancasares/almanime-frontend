@@ -1,23 +1,13 @@
-@import 'styles/theme-palette.scss';
+@import '~bulma/sass/utilities/functions';
 
 .menu {
   .navbar-item {
-    @include themed() {
-      color: findColorInvert(t($background-er));
-    }
+    color: var(--on-primary);
 
-    &:hover {
-      @include themed() {
-        background-color: t($background-est);
-        color: t($primary);
-      }
-    }
-
+    &:hover,
     &:focus {
-      @include themed() {
-        background-color: t($background-est);
-        color: t($primary);
-      }
+      background-color: var(--primary__variant);
+      color: var(--on-primary__variant);
     }
   }
 }

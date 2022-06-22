@@ -34,7 +34,9 @@ const View = () => {
           </aside>
           <section className="column">
             <h1 className="title is-size-3 has-text-weight-semibold">
-              {anime.name}
+              <span className="tag is-rounded">
+                {anime.name}
+              </span>
             </h1>
             <p>
               {anime.synopsis}

@@ -1,13 +1,25 @@
-@import 'styles/theme-palette.scss';
+@import 'styles/mixins';
 
-.themeSwitch {
+.navbar-item.themeSwitch {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0;
+
+  &:hover {
+    background-color: var(--primary__variant);
+    color: var(--on-primary__variant);
+  }
+
   .button {
-
-    @include back-contrast($background-er);
+    background-color: inherit;
     border: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0.75rem 0.5rem;
 
+    &:focus,
     &:hover {
-      @include back-contrast($background-er);
+      color: var(--on-primary__variant);
     }
   }
 }

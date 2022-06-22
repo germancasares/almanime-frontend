@@ -1,5 +1,7 @@
 import Form from './_components/form';
 
+import './index.scss';
+
 const Create = () => {
   return (
     <main id="subtitle-create" className="container">

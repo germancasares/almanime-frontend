@@ -3,6 +3,8 @@ import Loader from 'components/loader';
 import { FormEvent, useEffect, useState } from 'react';
 import { User } from 'types/user';
 
+import './index.scss';
+
 const Edit = ({ token }: { token?: string }) => {
   const { data: me } = UserApi.Me(token);
   const [user, setUser] = useState({ name: '' } as User);

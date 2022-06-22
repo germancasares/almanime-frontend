@@ -1,7 +1,3 @@
-@import 'styles/theme-palette.scss';
-
 .brand {
-  @include themed() {
-    fill: t($primary);
-  }
+  fill: var(--on-primary);
 }

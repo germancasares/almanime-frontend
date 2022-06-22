@@ -25,7 +25,7 @@ export enum TabName {
 }
 
 const NewSubtitleButton = ({ acronym } : { acronym: string }) => (
-  <Link className="button is-primary is-rounded" to={routes.subtitle.create.to(acronym)}>
+  <Link className="button is-rounded" to={routes.subtitle.create.to(acronym)}>
     <span className="icon">
       <Icon path={mdiFilePlusOutline} size={1} />
     </span>
@@ -34,7 +34,7 @@ const NewSubtitleButton = ({ acronym } : { acronym: string }) => (
 );
 
 const EditFansubButton = ({ acronym } : { acronym: string }) => (
-  <Link className="button is-primary is-rounded" to={routes.fansub.edit.to(acronym)}>
+  <Link className="button is-rounded" to={routes.fansub.edit.to(acronym)}>
     <span className="icon">
       <Icon path={mdiCog} size={1} />
     </span>
@@ -43,7 +43,7 @@ const EditFansubButton = ({ acronym } : { acronym: string }) => (
 
 const JoinFansubButton = ({ onClick, isLoading } : { onClick: () => void, isLoading: boolean }) => (
   <button
-    className={`button is-primary is-rounded${isLoading ? ' is-loading' : ''}`}
+    className={`button is-rounded${isLoading ? ' is-loading' : ''}`}
     onClick={onClick}
   >
     Join

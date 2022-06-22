@@ -1,4 +1,5 @@
-@import 'styles/theme-palette.scss';
+/* stylelint-disable selector-max-compound-selectors */
+@import '~bulma/sass/utilities/functions';
 
 #anime {
   min-height: 100vh;
@@ -9,20 +10,21 @@
   }
 
   section {
+    color: var(--on-background);
     padding-left: 20px;
     width: 100%;
-
-    @include themed() {
-      color: findColorInvert(t($background));
-    }
 
     .title {
       align-items: center;
       display: flex;
       height: 150px;
 
-      @include themed() {
-        color: findColorInvert(t($background));
+      .tag {
+        background-color: var(--background);
+        color: var(--on-background);
+        font-size: 2rem;
+        height: auto;
+        white-space: break-spaces;
       }
     }
   }

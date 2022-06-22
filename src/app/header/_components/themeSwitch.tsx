@@ -9,10 +9,10 @@ export type Props = {
 };
 
 const ThemeSwitch = ({ theme, toggleTheme }: Props) => (
-  <div className="navbar-item themeSwitch px-0">
+  <div className="navbar-item themeSwitch">
     <button
       type="button"
-      className="button p-0"
+      className="button"
       onClick={toggleTheme}
     >
       <Icon

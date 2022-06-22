@@ -1,9 +1,4 @@
-@import 'styles/theme-palette.scss';
-
 #app {
+  background-color: var(--background);
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-
-  @include themed() {
-    background-color: t($background);
-  }
 }

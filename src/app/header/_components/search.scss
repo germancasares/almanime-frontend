@@ -1,70 +1,55 @@
-@import 'styles/theme-palette.scss';
+/* stylelint-disable selector-max-compound-selectors */
+@import '~bulma/sass/utilities/functions';
+@import 'styles/mixins';
 
-.search {
-  select {
-    @include back-contrast($background-est);
-    @include themed() {
-      border-color: t($border-color);
-    }
+.navbar-item.search {
+  padding-left: 0;
+  padding-right: 0;
 
-    option {
-      @include themed() {
-        color: findColorInvert(t($background-est));
-      }
+  .select {
+    select {
+      background-color: var(--primary);
+      border-color: var(--on-primary);
+      color: var(--on-primary);
     }
   }
 
+  .select:not(.is-multiple):not(.is-loading):hover::after {
+    border-color: var(--on-primary);
+  }
+
   .select:not(.is-multiple):not(.is-loading)::after {
-    @include themed() {
-      border-color: t($primary);
-    }
+    border-color: var(--on-primary);
   }
 
   .dropdown {
     input {
-      @include back-contrast($background-est);
-      @include themed() {
-        border-color: t($border-color);
-      }
+      background-color: transparent;
+      border-color: var(--on-primary);
+      color: var(--on-primary);
   
       &::placeholder {
-        @include themed() {
-          color: findColorInvert(t($background-est));
-        }
+        color: var(--on-primary);
       }
     }
 
     .dropdown-menu {
-      min-width: 100%;
+      width: 100%;
 
       .dropdown-content {
-        @include themed() {
-          background-color: t($background-est);
-          border: 1px solid t($border-color);
-        }
-  
+        background-color: var(--primary);
+        border: 1px solid var(--on-primary);
+
         .dropdown-item {
-          @include back-contrast($background-est);
-          @include themed() {
-            color: findColorInvert(t($background-est));
-          }
+          background-color: transparent;
+          color: var(--on-primary);
   
           &:hover,
           &:focus {
-            @include back-contrast($primary);
+            background-color: var(--primary__variant);
+            color: var(--on-primary__variant);
           }
         }
-      }
-    }
-  }
-
-  .button {
-    @include back-contrast($primary);
-
-    &.is-loading::after {
-      @include themed() {
-        border-bottom-color: findColorInvert(t($primary));
-        border-left-color: findColorInvert(t($primary));
       }
     }
   }

@@ -8,6 +8,8 @@ import { SubtitleDTO } from 'types/subtitle';
 
 import Icon from '@mdi/react';
 
+import './form.scss';
+
 const Form = () => {
   const { fansubAcronym } = useParams<{ fansubAcronym: string }>();
 
@@ -55,7 +57,7 @@ const Form = () => {
         </div>
       </div>
 
-      <div className="file is-primary has-name is-fullwidth">
+      <div className="field file is-primary has-name is-fullwidth">
         <label className="file-label">
           <input 
             name="file"
