@@ -7,7 +7,7 @@ declare module 'libass-wasm' {
 
     /**
      *  The canvas to render the subtitles to.
-     *  If none is given it will create a new canvas and insert 
+     *  If none is given it will create a new canvas and insert
      * it as a sibling of the video element (only if the video element exists)
      */
     canvas?: HTMLCanvasElement,
@@ -63,7 +63,6 @@ declare module 'libass-wasm' {
      */
     onError?: () => void
 
-
     /**
      * Enable Fast Render Mode (Lossy)
      *
@@ -94,15 +93,11 @@ declare module 'libass-wasm' {
      */
     setCurrentTime(time: number): void;
 
-
-
     /**
      * Works the same as the {@link subUrl} option. It will set the subtitle to display by its URL.
      * @param url
      */
     setTrackByUrl(url: string): void;
-
-
 
     /**
      * Works the same as the {@link subContent} option. It will set the subtitle to display by its content.
@@ -110,15 +105,11 @@ declare module 'libass-wasm' {
      */
     setTrack(content: string): void;
 
-
-
     /**
      * This simply removes the subtitles.
      * You can use {@link setTrackByUrl} or {@link setTrack} methods to set a new subtitle file to be displayed.
      */
     freeTrack(): void;
-
-
 
     /**
      * Destroy instance

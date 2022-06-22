@@ -4,7 +4,6 @@ import Loader from 'components/loader';
 import { Link } from 'react-router-dom';
 
 const List = () => {
-
   const { data: animes } = AnimeApi.Get();
 
   if (!animes) return (<Loader />);
@@ -12,10 +11,12 @@ const List = () => {
   return (
     <main>
       {
-        animes && animes.map((anime) => (
-          <div key={anime.slug}>
-            <Link to={routes.anime.view.to(anime.slug)}>
-              {anime.name} {anime.season} {anime.status} {anime.episodes}
+        animes && animes.map(({
+          slug, name, season, status, episodes,
+        }) => (
+          <div key={slug}>
+            <Link to={routes.anime.view.to(slug)}>
+              {`${name} ${season} ${status} ${episodes}`}
             </Link>
           </div>
         ))

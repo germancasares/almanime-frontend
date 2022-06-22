@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 // eslint-disable-next-line storybook/story-exports
 import { Story } from '@storybook/react/types-6-0';
 
@@ -42,7 +43,7 @@ DefaultWithSubtitles.args = {
   subtitleOptions: {
     subUrl: '/OuterScienceSubs.ass',
     fonts: [
-      'http://fonts.cdnfonts.com/css/gisha', 
+      'http://fonts.cdnfonts.com/css/gisha',
       'http://fonts.cdnfonts.com/css/aharoni',
     ],
     onReady: () => console.log('Hola'),

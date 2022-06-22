@@ -8,14 +8,14 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { persistQueryClient } from 'react-query/persistQueryClient-experimental';
 import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { Duration } from 'luxon';
+import routes from 'app/routes';
 
 import configureFetch from 'api';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 
 import './index.scss';
-import { Duration } from 'luxon';
-import routes from 'app/routes';
 
 Sentry.init({
   enabled: process.env.NODE_ENV !== 'development',
@@ -54,7 +54,7 @@ createRoot(
       clientId="kofffbDvo0gJ9BW1U9Hj7UNsrJuMAO9Y"
       redirectUri={`${window.location.origin}${routes.user.create.path}`}
       audience="https://almani.me"
-      useRefreshTokens={true}
+      useRefreshTokens
       cacheLocation="localstorage"
       scope="read:current_user update:current_user_metadata"
     >

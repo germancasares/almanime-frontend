@@ -7,10 +7,9 @@ import routes from 'app/routes';
 import './account.scss';
 import { useEffect } from 'react';
 
-
 const Profile = () => {
-  const { 
-    user, 
+  const {
+    user,
     logout,
     getAccessTokenSilently,
   } = useAuth0();
@@ -24,9 +23,9 @@ const Profile = () => {
   return (
     <div id="profile" className="navbar-item has-dropdown is-hoverable">
       <div className="navbar-link">
-        <UserAvatar 
+        <UserAvatar
           size={40}
-          name={user?.name} 
+          name={user?.name}
           src={user?.picture}
         />
       </div>
@@ -49,13 +48,13 @@ const Login = () => {
     <div className="navbar-item profile">
       <div className="field is-grouped">
         <p className="control">
-          <button className="button" onClick={loginWithRedirect}>Login</button>
+          <button type="button" className="button" onClick={loginWithRedirect}>Login</button>
         </p>
       </div>
     </div>
   );
 };
 
-const Account = () => useAuth0().isAuthenticated ? <Profile /> : <Login />;
+const Account = () => (useAuth0().isAuthenticated ? <Profile /> : <Login />);
 
 export default Account;

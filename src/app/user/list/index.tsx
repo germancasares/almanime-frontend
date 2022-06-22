@@ -4,7 +4,6 @@ import Loader from 'components/loader';
 import { Link } from 'react-router-dom';
 
 const List = () => {
-
   const { data: users } = UserApi.Get();
 
   if (!users) return (<Loader />);
@@ -12,9 +11,9 @@ const List = () => {
   return (
     <>
       {
-        users && users.map((user) => (
-          <Link key={user.name} to={routes.user.view.to(user.name)}>
-            {user.name}
+        users.map(({ name }) => (
+          <Link key={name} to={routes.user.view.to(name)}>
+            {name}
           </Link>
         ))
       }

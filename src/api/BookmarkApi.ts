@@ -1,24 +1,20 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { BookmarkDTO } from 'types/bookmark';
 
-
 export default class BookmarkApi {
-
   public static Get = (
     token?: string,
   ) => useQuery<string[]>(
     ['bookmarks', token],
     async () => (await fetch('bookmark', {
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     })).json(),
     {
       enabled: !!token,
     },
   );
-
-
 
   public static Create = () => {
     const queryClient = useQueryClient();
@@ -28,7 +24,7 @@ export default class BookmarkApi {
         fetch(`bookmark/animeSlug/${slug}`, {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
         })
@@ -40,7 +36,7 @@ export default class BookmarkApi {
 
           if (bookmarks) {
             queryClient.setQueryData<string[]>(
-              ['bookmarks', newBookmark.token], 
+              ['bookmarks', newBookmark.token],
               [...bookmarks, newBookmark.slug],
             );
           }
@@ -64,7 +60,7 @@ export default class BookmarkApi {
         fetch(`bookmark/animeSlug/${slug}`, {
           method: 'DELETE',
           headers: {
-            'Authorization': `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
         })
@@ -76,8 +72,8 @@ export default class BookmarkApi {
 
           if (bookmarks) {
             queryClient.setQueryData<string[]>(
-              ['bookmarks', newBookmark.token], 
-              bookmarks.filter(bookmark => bookmark !== newBookmark.slug),
+              ['bookmarks', newBookmark.token],
+              bookmarks.filter((bookmark) => bookmark !== newBookmark.slug),
             );
           }
 
@@ -91,5 +87,4 @@ export default class BookmarkApi {
       },
     );
   };
-
 }

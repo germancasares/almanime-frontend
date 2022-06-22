@@ -3,9 +3,7 @@ import { useMutation, useQuery } from 'react-query';
 import { User } from 'types/user';
 
 export default class UserApi {
-
-  public static Get = (
-  ) => useQuery<User[]>(
+  public static Get = () => useQuery<User[]>(
     ['users'],
     async () => (await fetch('user')).json(),
     {
@@ -22,7 +20,7 @@ export default class UserApi {
       'user/me',
       {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       },
     )).json(),
@@ -34,22 +32,22 @@ export default class UserApi {
   );
 
   public static Create = () => useMutation(
-    async ({ user, token } : { user: User, token?: string }) =>  (fetch('user', {
+    async ({ user, token } : { user: User, token?: string }) => (fetch('user', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     })),
   );
 
   public static Update = () => useMutation(
-    async ({ user, token } : { user: User, token?: string }) =>  (fetch('user', {
+    async ({ user, token } : { user: User, token?: string }) => (fetch('user', {
       method: 'PUT',
       body: JSON.stringify(user),
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     })),

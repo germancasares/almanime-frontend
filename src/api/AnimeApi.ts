@@ -5,9 +5,7 @@ import { Anime, AnimeDocument, AnimeWithExtra } from 'types/anime';
 import ModelWithMeta from 'types/pagination/ModelWithMeta';
 
 export default class AnimeApi {
-
-  public static Get = (
-  ) => useQuery<AnimeWithExtra[]>(
+  public static Get = () => useQuery<AnimeWithExtra[]>(
     ['animes'],
     async () => (await fetch('anime')).json(),
     {
@@ -45,10 +43,9 @@ export default class AnimeApi {
   ) => useQuery<ModelWithMeta<Anime[]>>(
     ['animeSeason', year, season, page, includeMeta],
     async () => (await fetch(`anime/year/${year}/season/${season}?page=${page}&includeMeta=${includeMeta}`)).json(),
-    { 
-      keepPreviousData: true, 
+    {
+      keepPreviousData: true,
       staleTime: Duration.fromObject({ days: 1 }).toMillis(),
     },
   );
-
 }

@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import Edit from './';
+import Edit from '.';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

@@ -4,7 +4,7 @@ import Episodes from './episodes';
 it('renders without crashing', () => {
   const div = document.createElement('div');
   createRoot(div).render(
-    <Episodes 
+    <Episodes
       episodes={[]}
       episodeFansubs={{}}
     />,

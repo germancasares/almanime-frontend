@@ -5,8 +5,11 @@ import { useEffect, useState } from 'react';
 import { User } from 'types/user';
 
 const StringToDateTime = (date: string) => DateTime.fromISO(date, { zone: 'utc' });
-const HasPermission = (permission: Permission, fansub: string, user?: User) => 
-  user && user.permissions[fansub]?.includes(permission);
+const HasPermission = (
+  permission: Permission,
+  fansub: string,
+  user?: User,
+) => user && user.permissions[fansub]?.includes(permission);
 
 const GetSeason = (month: number | DateTime): Season => {
   if (month instanceof DateTime) {
@@ -71,8 +74,6 @@ const CreateLocalStorage = (key: string, value: unknown): void => localStorage.s
 const DeleteLocalStorage = (key: string): void => localStorage.removeItem(key);
 
 // #endregion
-
-
 
 const Helper = {
   Chunk,

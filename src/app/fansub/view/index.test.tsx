@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import View from './';
+import View from '.';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

@@ -11,11 +11,11 @@ export type PlayerProps = {
   onReady?: (player: VideoJsPlayer) => void,
 };
 
-const Player  = ({ 
-  playerOptions, 
+const Player = ({
+  playerOptions,
   subtitleOptions,
-  onReady, 
-}: PlayerProps ) => {
+  onReady,
+}: PlayerProps) => {
   const videoRef = useRef(null);
   const playerRef = useRef<VideoJsPlayer | null>(null);
   const subtitleRef = useRef<SubtitlesOctopus | null>(null);
@@ -26,7 +26,7 @@ const Player  = ({
       const videoElement = videoRef.current;
       if (!videoElement) return;
 
-      const player = playerRef.current = videojs(videoElement, playerOptions, () => {
+      const player = videojs(videoElement, playerOptions, () => {
         console.log('player is ready');
         onReady && onReady(player);
 
@@ -36,12 +36,14 @@ const Player  = ({
               ...subtitleOptions,
               workerUrl: '/scripts/subtitles-octopus-worker.js',
               video: videoElement,
-            }); 
+            });
           } else {
             // Modify current instance of subtitleRef
           }
         }
       });
+
+      playerRef.current = player;
     } else {
       // you can update player here [update player through props]
       // const player = playerRef.current;
@@ -64,6 +66,7 @@ const Player  = ({
 
   return (
     <div data-vjs-player>
+      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <video ref={videoRef} className="video-js vjs-theme-forest" />
     </div>
   );

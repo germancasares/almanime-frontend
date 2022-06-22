@@ -8,13 +8,11 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"diffEditor.codeLens": true,
-		"editor": {
-			"bracketPairColorization.enabled": true,
-			"defaultFormatter": "dbaeumer.vscode-eslint",
-			"formatOnSave": true,
-			"guides.bracketPairs": "active",
-			"tabSize": 2
-		},
+		"editor.bracketPairColorization.enabled": true,
+		"editor.defaultFormatter":"dbaeumer.vscode-eslint",
+		"editor.formatOnSave": true,
+		"editor.guides.bracketPairs": true,
+		"editor.tabSize": 2,
 		"eslint.format.enable": true,
 		"explorer.confirmDragAndDrop": false,
 		"files.autoSave": "afterDelay",
@@ -49,6 +47,7 @@
 		},
 		// Jest
 		"jest": {
+			"autoRun": "off",
 			"showTerminalOnLaunch": false,
 			"showCoverageOnLoad": true,
 			"coverageFormatter": "GutterFormatter"

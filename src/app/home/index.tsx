@@ -1,12 +1,11 @@
 import { DateTime } from 'luxon';
 
 import BookmarkApi from 'api/BookmarkApi';
-
 import Helper from 'app/helper';
+import SeasonType from 'enums/Season';
 import Season from './_components/season';
 
 import './index.scss';
-import SeasonType from 'enums/Season';
 
 const Home = ({ token }: { token?: string }) => {
   const now = DateTime.now();
@@ -21,22 +20,22 @@ const Home = ({ token }: { token?: string }) => {
         <h1 className="title">
           {`${season} Season`}
         </h1>
-        <Season 
+        <Season
           year={year}
           season={season}
-          bookmarks={bookmarks} 
-          token={token} 
+          bookmarks={bookmarks}
+          token={token}
         />
       </section>
       <section className="section">
         <h1 className="title">
-          {'Fall Season'}
+          Fall Season
         </h1>
-        <Season 
+        <Season
           year={2021}
           season={SeasonType.Fall}
-          bookmarks={bookmarks} 
-          token={token} 
+          bookmarks={bookmarks}
+          token={token}
         />
       </section>
     </main>

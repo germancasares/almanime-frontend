@@ -13,7 +13,7 @@ const Form = () => {
   const [fansub, setFansub] = useState({} as FansubDTO);
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = event;
-    setFansub(values => ({ ...values, [name]: value === '' ? undefined : value }));
+    setFansub((values) => ({ ...values, [name]: value === '' ? undefined : value }));
   };
 
   const { getAccessTokenSilently } = useAuth0();
@@ -32,6 +32,7 @@ const Form = () => {
   return (
     <form onSubmit={onSubmit}>
       <div className="field">
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label className="label" htmlFor="name">Name</label>
         <div className="control">
           <input name="name" className="input" type="text" placeholder="Example no Fansub" onChange={onChange} />
@@ -39,6 +40,7 @@ const Form = () => {
       </div>
 
       <div className="field">
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label className="label" htmlFor="acronym">Acronym</label>
         <div className="control">
           <input name="acronym" className="input" type="text" placeholder="EnF" onChange={onChange} />
@@ -46,9 +48,10 @@ const Form = () => {
       </div>
 
       <div className="field">
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label className="label">Webpage</label>
         <div className="control">
-          <input name="webpage" className="input" type="url" placeholder="www.example.com" onChange={onChange}/>
+          <input name="webpage" className="input" type="url" placeholder="www.example.com" onChange={onChange} />
         </div>
       </div>
 
@@ -60,4 +63,3 @@ const Form = () => {
 };
 
 export default Form;
-

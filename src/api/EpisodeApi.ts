@@ -3,7 +3,6 @@ import { useQuery } from 'react-query';
 import { Episode, EpisodeFansubs } from 'types/episode';
 
 export default class EpisodeApi {
-
   public static GetByAnimeSlug = (
     animeSlug?: string,
   ) => useQuery<Episode[]>(
@@ -25,5 +24,4 @@ export default class EpisodeApi {
       staleTime: Duration.fromObject({ hours: 1 }).toMillis(),
     },
   );
-
 }

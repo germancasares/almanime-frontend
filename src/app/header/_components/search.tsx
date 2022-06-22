@@ -19,14 +19,16 @@ const Search = () => {
   let documents: AnimeDocument[] | FansubDocument[] = [];
   let isLoading = false;
 
+  let animeSearch;
+  let fansubSearch;
   switch (type) {
-    case 'Anime': 
-      const animeSearch = AnimeApi.Search(debouncedSearchQuery.trim());
+    case 'Anime':
+      animeSearch = AnimeApi.Search(debouncedSearchQuery.trim());
       documents = animeSearch.data ?? [];
       isLoading = animeSearch.isLoading;
       break;
     case 'Fansub':
-      const fansubSearch = FansubApi.Search(debouncedSearchQuery.trim());
+      fansubSearch = FansubApi.Search(debouncedSearchQuery.trim());
       documents = fansubSearch.data ?? [];
       isLoading = fansubSearch.isLoading;
       break;
@@ -65,8 +67,8 @@ const Search = () => {
                     <Link
                       key={doc.id}
                       to={
-                        type === 'Anime' ? 
-                          routes.anime.view.to((doc as AnimeDocument).slug) 
+                        type === 'Anime'
+                          ? routes.anime.view.to((doc as AnimeDocument).slug)
                           : routes.fansub.view.to((doc as FansubDocument).acronym)
                       }
                       className="dropdown-item"

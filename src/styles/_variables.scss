@@ -1,2 +1,10 @@
+// Defined in @import-normalize;
+$line-height: 24px;
 $body-overflow-y: auto;
 $navbar-item-img-max-height: 2.75rem;
+$navbar-height: 3.5rem;
+
+$footer-top-padding: 3rem;
+$footer-sides-padding: 1.5rem;
+$footer-bottom-padding: 6rem;
+$footer-padding: $footer-top-padding $footer-sides-padding $footer-bottom-padding;
