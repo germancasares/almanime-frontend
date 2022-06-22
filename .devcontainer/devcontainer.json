@@ -20,6 +20,7 @@
 		"files.autoSave": "afterDelay",
 		"git.confirmSync": false,
 		"git.enableSmartCommit": true,
+		"git-graph.repository.fetchAndPrune": true,
 		"window.autoDetectColorScheme": true,
 		"typescript.preferences.quoteStyle": "single",
 		"typescript.updateImportsOnFileMove.enabled": "always",
