@@ -4,7 +4,6 @@ import Loader from 'components/loader';
 import { Link } from 'react-router-dom';
 
 const List = () => {
-
   const { data: fansubs } = FansubApi.Get();
 
   if (!fansubs) return (<Loader />);
@@ -12,12 +11,12 @@ const List = () => {
   return (
     <main>
       {
-        fansubs && fansubs.map((fansub) => (
-          <div key={fansub.acronym}>
-            <Link to={routes.fansub.view.to(fansub.acronym)}>
-              <>
-                {fansub.acronym} {fansub.name} {fansub.webpage} {fansub.creationDate} {fansub.members}
-              </>
+        fansubs && fansubs.map(({
+          acronym, name, webpage, creationDate, members,
+        }) => (
+          <div key={acronym}>
+            <Link to={routes.fansub.view.to(acronym)}>
+              {`${acronym} ${name} ${webpage} ${creationDate} ${members}`}
             </Link>
           </div>
         ))

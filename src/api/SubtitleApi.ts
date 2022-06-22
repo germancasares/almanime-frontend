@@ -2,7 +2,6 @@ import { useMutation } from 'react-query';
 import { SubtitleDTO } from 'types/subtitle';
 
 export default class SubtitleApi {
-
   public static Post = () => useMutation(
     async ({ subtitle, token } : { subtitle: SubtitleDTO, token?: string }) => {
       const formData = new FormData();
@@ -16,10 +15,9 @@ export default class SubtitleApi {
         method: 'POST',
         body: formData,
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       })).json();
     },
   );
-
 }

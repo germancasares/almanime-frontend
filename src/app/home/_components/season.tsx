@@ -18,9 +18,11 @@ type Props = {
   token?: string;
 };
 
-const SeasonPage = ({ bookmarks, token, season, year }: Props) => {
-  const [page
-    , setPage] = useState(1);
+const SeasonPage = ({
+  bookmarks, token, season, year,
+}: Props) => {
+  const [page,
+    setPage] = useState(1);
   const { data: animes } = AnimeApi.GetSeason(year, season, page, true);
 
   const { mutateAsync: createAsync } = BookmarkApi.Create();
@@ -31,8 +33,8 @@ const SeasonPage = ({ bookmarks, token, season, year }: Props) => {
   return (
     <div id={`season-${season.toLocaleLowerCase()}`}>
       {
-        Helper.Chunk(animes.models, 4).map((chunk, index) => (
-          <div key={`chunk-${index}`} className="tile is-ancestor">
+        Helper.Chunk(animes.models, 4).map((chunk) => (
+          <div key={`chunk-${chunk[0].slug}`} className="tile is-ancestor">
             {chunk.map((anime) => (
               <article key={anime.kitsuID} className="tile is-parent">
                 <Panel
@@ -47,9 +49,9 @@ const SeasonPage = ({ bookmarks, token, season, year }: Props) => {
 
                       const isThere = bookmarks?.includes(anime.slug);
                       if (isThere) {
-                        deleteAsync({ slug: anime.slug, token: token });
+                        deleteAsync({ slug: anime.slug, token });
                       } else {
-                        createAsync({ slug: anime.slug, token: token });
+                        createAsync({ slug: anime.slug, token });
                       }
                     },
                   }}

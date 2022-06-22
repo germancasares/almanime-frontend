@@ -1,7 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import ThemeSwitch from './themeSwitch';
-
 import Theme from 'enums/Theme';
+import ThemeSwitch from './themeSwitch';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

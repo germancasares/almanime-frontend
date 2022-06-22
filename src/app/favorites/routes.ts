@@ -1,5 +1,5 @@
-import Favorites from '.';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
+import Favorites from '.';
 
 const routes = {
   view: {

@@ -6,9 +6,7 @@ import { Roles, RolesDTO } from 'types/role';
 import { Subtitle } from 'types/subtitle';
 
 export default class FansubApi {
-
-  public static Get = (
-  ) => useQuery<Fansub[]>(
+  public static Get = () => useQuery<Fansub[]>(
     ['fansubs'],
     async () => (await fetch('fansub')).json(),
     {
@@ -50,7 +48,7 @@ export default class FansubApi {
       `fansub/acronym/${acronym}/isMember`,
       {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       },
     )).json(),
@@ -98,7 +96,7 @@ export default class FansubApi {
       method: 'POST',
       body: JSON.stringify(fansub),
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     })).json(),
@@ -112,7 +110,7 @@ export default class FansubApi {
         method: 'PUT',
         body: JSON.stringify(roles),
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       }),
@@ -140,13 +138,12 @@ export default class FansubApi {
   };
 
   public static Join = () => useMutation(
-    async ({ acronym, token } : { acronym: string, token?: string }) =>  fetch(`fansub/acronym/${acronym}/join`, {
+    async ({ acronym, token } : { acronym: string, token?: string }) => fetch(`fansub/acronym/${acronym}/join`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     }),
   );
-
 }

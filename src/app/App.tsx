@@ -8,10 +8,8 @@ import Footer from 'app/footer';
 import Helper from './helper';
 import './index.scss';
 
-
 // https://reactrouter.com/docs/en/v6/api#useroutes
 // https://reactrouter.com/docs/en/v6/getting-started/concepts#defining-routes
-
 
 const App = () => {
   const localTheme = Helper.LocalStorage.Get<Theme>('theme');
@@ -31,11 +29,9 @@ const App = () => {
 
       <Routes>
         {
-          Object.values(routes).map((pages) => 
-            Object.values(pages).map(({ path, component: Component }) => (
-              <Route key={path} path={path} element={<Component />} />
-            )),
-          )
+          Object.values(routes).map((pages) => Object.values(pages).map(({ path, component: Component }) => (
+            <Route key={path} path={path} element={<Component />} />
+          )))
         }
       </Routes>
 

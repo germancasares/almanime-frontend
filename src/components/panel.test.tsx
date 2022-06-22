@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   createRoot(div).render(
     <Router>
-      <Panel 
+      <Panel
         name="Test"
         to="/"
         star={{

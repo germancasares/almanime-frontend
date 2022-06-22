@@ -6,6 +6,7 @@
   },
   "extends": [
     "plugin:storybook/recommended",
+    "airbnb",
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
@@ -27,9 +28,18 @@
   ],
   "rules": {
     "indent": ["error", 2, { "SwitchCase": 1, "VariableDeclarator": 1 } ],
+    "no-console": "off",
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
+    "react/function-component-definition": [2, {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }],
     "max-len": [
       "error",
       {

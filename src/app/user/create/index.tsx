@@ -33,14 +33,15 @@ const Create = ({ token }: { token?: string }) => {
         <h3 className="title">Finish Account Setup</h3>
         <form onSubmit={onSubmit}>
           <div className="field">
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label className="label" htmlFor="name">Username</label>
             <div className="control">
-              <input 
-                name="name" 
-                className="input" 
-                type="text" 
-                placeholder="Luffy" 
-                onChange={({ target: { value } }) => setUser({ name: value, permissions: {} })} 
+              <input
+                name="name"
+                className="input"
+                type="text"
+                placeholder="Luffy"
+                onChange={({ target: { value } }) => setUser({ name: value, permissions: {} })}
               />
             </div>
           </div>
@@ -52,7 +53,6 @@ const Create = ({ token }: { token?: string }) => {
       </section>
     </main>
   );
-
 };
 
 export default Create;

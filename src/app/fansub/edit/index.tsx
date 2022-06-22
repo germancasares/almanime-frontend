@@ -33,7 +33,7 @@ const Edit = () => {
     <main id="fansub-edit" className="container">
       <section className="column is-narrow">
         <h3 className="title">
-          Edit {acronym}
+          {`Edit ${acronym}`}
         </h3>
         <form onSubmit={onSubmit}>
           <table className="table">
@@ -53,14 +53,14 @@ const Edit = () => {
                     {
                       permissionArray.map((permission) => (
                         <td key={permission}>
-                          <input 
+                          <input
                             type="checkbox"
                             disabled={role === 'Admin' && permission === Permission.EditPermissions}
                             checked={permissions.includes(permission)}
                             onChange={({ target: { checked } }) => {
-                              const newPermissions = checked ?
-                                permissions.concat(permission) :
-                                permissions.filter(p => p !== permission);
+                              const newPermissions = checked
+                                ? permissions.concat(permission)
+                                : permissions.filter((p) => p !== permission);
 
                               setRoles({
                                 ...roles,

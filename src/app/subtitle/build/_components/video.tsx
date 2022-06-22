@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
-import videojs from 'video.js';
-import { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js';
+import videojs, { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js';
 import 'video.js/dist/video-js.css';
 
 const Video = ({
-  options, 
+  options,
 }: {
   options: VideoJsPlayerOptions,
 }) => {
@@ -29,18 +28,17 @@ const Video = ({
   }, [options, videoRef]);
 
   // Dispose the Video.js player when the functional component unmounts
-  useEffect(() => {
-    return () => {
-      const player = playerRef.current;
-      if (player) {
-        player.dispose();
-        playerRef.current = null;
-      }
-    };
+  useEffect(() => () => {
+    const player = playerRef.current;
+    if (player) {
+      player.dispose();
+      playerRef.current = null;
+    }
   }, [playerRef]);
 
   return (
     <div data-vjs-player>
+      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <video ref={videoRef} className="video-js vjs-big-play-centered" />
     </div>
   );

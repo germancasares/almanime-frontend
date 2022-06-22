@@ -29,15 +29,16 @@ const Edit = ({ token }: { token?: string }) => {
         <h3 className="title">Profile</h3>
         <form onSubmit={onSubmit}>
           <div className="field">
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label className="label" htmlFor="name">Name</label>
             <div className="control">
-              <input 
-                name="name" 
-                className="input" 
-                type="text" 
+              <input
+                name="name"
+                className="input"
+                type="text"
                 value={user.name}
-                placeholder="Luffy" 
-                onChange={({ target: { value } }) => setUser({ name: value, permissions: me.permissions })} 
+                placeholder="Luffy"
+                onChange={({ target: { value } }) => setUser({ name: value, permissions: me.permissions })}
               />
             </div>
           </div>

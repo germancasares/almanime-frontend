@@ -4,7 +4,7 @@ import Video from './video';
 it('renders without crashing', () => {
   const div = document.createElement('div');
   createRoot(div).render(
-    <Video 
+    <Video
       options={{}}
     />,
   );
