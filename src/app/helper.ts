@@ -1,6 +1,6 @@
 import Permission from 'enums/Permission';
 import Season from 'enums/Season';
-import { DateTime } from 'luxon';
+import { DateTime, Duration, DurationLikeObject } from 'luxon';
 import { useEffect, useState } from 'react';
 import { User } from 'types/user';
 
@@ -57,6 +57,21 @@ const useDebounce = (value: string, delay = 500) => {
   return debouncedValue;
 };
 
+// https://github.com/moment/luxon/issues/1134#issue-1128331010
+const toHuman = (dur: Duration, smallestUnit: keyof DurationLikeObject = 'seconds'): string => {
+  const units: (keyof DurationLikeObject)[] = [
+    'years', 'months', 'days', 'hours', 'minutes', 'seconds', 'milliseconds',
+  ];
+  const smallestIdx = units.indexOf(smallestUnit);
+  const entries = Object.entries(
+    dur.shiftTo(...units).normalize().toObject(),
+  ).filter(([_unit, amount], idx) => amount > 0 && idx <= smallestIdx);
+  const dur2 = Duration.fromObject(
+    entries.length === 0 ? { [smallestUnit]: 0 } : Object.fromEntries(entries),
+  );
+  return dur2.toHuman();
+};
+
 // #region LocalStorage
 
 const GetLocalStorage = <T>(key: string): T | null => {
@@ -81,6 +96,7 @@ const Helper = {
   HasPermission,
   StringToDateTime,
   useDebounce,
+  toHuman,
 
   LocalStorage: {
     Create: CreateLocalStorage,

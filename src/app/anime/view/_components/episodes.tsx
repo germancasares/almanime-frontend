@@ -1,5 +1,8 @@
+import { Duration } from 'luxon';
+
 import { Episode, EpisodeFansubs, FansubSubtitles } from 'types/episode';
 import Formatter from 'app/formatter';
+import Helper from 'app/helper';
 import './episodes.scss';
 
 type Props = {
@@ -35,7 +38,7 @@ const Row = ({
     <th>{number}</th>
     <td>{name}</td>
     <td>
-      {`${duration}'`}
+      {Helper.toHuman(Duration.fromObject({ minutes: duration ?? undefined }))}
     </td>
     <td>{Formatter.DateFull(aired)}</td>
     <td>
