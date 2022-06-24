@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import Loader from './loader';
 
 it('renders without crashing', () => {

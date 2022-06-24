@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import Poster from './poster';
 
 it('renders without crashing', () => {

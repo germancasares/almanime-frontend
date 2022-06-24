@@ -1,22 +1,25 @@
 import { useState } from 'react';
 import {
-  useLocation, useParams, useNavigate, Link,
+  Link,
+  useLocation, useNavigate, useParams,
 } from 'react-router-dom';
-import { mdiFilePlusOutline, mdiCog } from '@mdi/js';
+import { useAuth0 } from '@auth0/auth0-react';
+import { mdiCog, mdiFilePlusOutline } from '@mdi/js';
 import Icon from '@mdi/react';
 
-import routes from 'app/routes';
 import FansubApi from 'api/FansubApi';
+import UserApi from 'api/UserApi';
+import Helper from 'app/helper';
+import routes from 'app/routes';
+import Permission from 'enums/Permission';
+
+import Loader from 'components/loader';
+
+import MembersPage from './_components/members';
+import SubtitlesPage from './_components/subtitles';
+import Tabs, { TabName } from './_components/tabs';
 
 import './index.scss';
-import Loader from 'components/loader';
-import { useAuth0 } from '@auth0/auth0-react';
-import UserApi from 'api/UserApi';
-import Permission from 'enums/Permission';
-import Helper from 'app/helper';
-import SubtitlesPage from './_components/subtitles';
-import MembersPage from './_components/members';
-import Tabs, { TabName } from './_components/tabs';
 
 const NewSubtitleButton = ({ acronym } : { acronym: string }) => (
   <Link className="button is-primary is-rounded" to={routes.subtitle.create.to(acronym)}>

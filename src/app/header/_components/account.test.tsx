@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import Account from './account';
 
 it('renders without crashing', () => {

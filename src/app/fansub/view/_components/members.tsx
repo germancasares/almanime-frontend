@@ -1,4 +1,5 @@
 import FansubApi from 'api/FansubApi';
+
 import Loader from 'components/loader';
 
 const Members = ({ acronym }: { acronym?: string }) => {

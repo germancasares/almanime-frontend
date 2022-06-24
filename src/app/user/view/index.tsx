@@ -1,7 +1,9 @@
+import { Link, useParams } from 'react-router-dom';
+
 import UserApi from 'api/UserApi';
 import routes from 'app/routes';
+
 import Loader from 'components/loader';
-import { Link, useParams } from 'react-router-dom';
 
 const View = ({ token }: { token?: string }) => {
   const { name } = useParams<{ name: string }>();

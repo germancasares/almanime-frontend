@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
+
 import FansubApi from 'api/FansubApi';
 import routes from 'app/routes';
+
 import Loader from 'components/loader';
-import { Link } from 'react-router-dom';
 
 const List = () => {
   const { data: fansubs } = FansubApi.Get();

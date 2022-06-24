@@ -1,10 +1,11 @@
 import { withAuthenticationRequired } from '@auth0/auth0-react';
+
 import { withToken } from 'app/utils';
 
 import Create from './create';
-import View from './view';
-import List from './list';
 import Edit from './edit';
+import List from './list';
+import View from './view';
 
 const toFansub = (acronym: string): string => `/fansubs/${acronym}`;
 const toEditFansub = (acronym: string): string => `/fansubs/${acronym}/edit`;

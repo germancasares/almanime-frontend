@@ -1,6 +1,8 @@
+import { mdiWeatherNight, mdiWhiteBalanceSunny } from '@mdi/js';
 import Icon from '@mdi/react';
-import { mdiWhiteBalanceSunny, mdiWeatherNight } from '@mdi/js';
+
 import Theme from 'enums/Theme';
+
 import './themeSwitch.scss';
 
 export type Props = {

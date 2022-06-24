@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import Brand from './brand';
 
 it('renders without crashing', () => {

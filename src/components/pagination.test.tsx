@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import Pagination from './pagination';
 
 it('renders without crashing', () => {

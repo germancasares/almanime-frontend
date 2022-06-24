@@ -1,5 +1,6 @@
-import './index.scss';
 import Form from './_components/form';
+
+import './index.scss';
 
 const Create = () => (
   <main id="fansub-create" className="container">

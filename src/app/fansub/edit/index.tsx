@@ -1,8 +1,10 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import FansubApi from 'api/FansubApi';
-import Permission from 'enums/Permission';
 import { FormEvent, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+
+import FansubApi from 'api/FansubApi';
+import Permission from 'enums/Permission';
+
 import './index.scss';
 
 const Edit = () => {

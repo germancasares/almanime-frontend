@@ -1,6 +1,8 @@
+import Kitsu from 'assets/kitsu.png';
+
 import Formatter from 'app/formatter';
 import { Anime } from 'types/anime';
-import Kitsu from 'assets/kitsu.png';
+
 import './info.scss';
 
 type Props = {

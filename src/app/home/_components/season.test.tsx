@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client';
+
 import Season from 'enums/Season';
+
 import SeasonPage from './season';
 
 it('renders without crashing', () => {

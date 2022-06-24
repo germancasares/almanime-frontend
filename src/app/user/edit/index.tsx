@@ -1,7 +1,9 @@
-import UserApi from 'api/UserApi';
-import Loader from 'components/loader';
 import { FormEvent, useEffect, useState } from 'react';
+
+import UserApi from 'api/UserApi';
 import { User } from 'types/user';
+
+import Loader from 'components/loader';
 
 import './index.scss';
 

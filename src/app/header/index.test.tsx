@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client';
+
 import Theme from 'enums/Theme';
+
 import Header from '.';
 
 it('renders without crashing', () => {

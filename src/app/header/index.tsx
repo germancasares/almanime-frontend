@@ -1,8 +1,9 @@
+import Account from './_components/account';
 import Brand from './_components/brand';
 import Menu from './_components/menu';
 import Search from './_components/search';
-import Account from './_components/account';
 import ThemeSwitch, { Props as ThemeSwitchProps } from './_components/themeSwitch';
+
 import './index.scss';
 
 type Props = ThemeSwitchProps;

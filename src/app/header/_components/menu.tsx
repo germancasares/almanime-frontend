@@ -1,5 +1,7 @@
-import routes from 'app/routes';
 import { Link } from 'react-router-dom';
+
+import routes from 'app/routes';
+
 import './menu.scss';
 
 const Menu = () => (

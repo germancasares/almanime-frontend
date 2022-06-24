@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import Home from '.';
 
 it('renders without crashing', () => {

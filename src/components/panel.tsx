@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import cover from 'assets/default-cover.jpg';
-import './panel.scss';
-import Icon from '@mdi/react';
 import { mdiStar, mdiStarOutline } from '@mdi/js';
+import Icon from '@mdi/react';
+import cover from 'assets/default-cover.jpg';
+
+import './panel.scss';
 
 type Props = {
   name: string,

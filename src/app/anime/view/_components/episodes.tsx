@@ -1,8 +1,9 @@
 import { Duration } from 'luxon';
 
-import { Episode, EpisodeFansubs, FansubSubtitles } from 'types/episode';
 import Formatter from 'app/formatter';
 import Helper from 'app/helper';
+import { Episode, EpisodeFansubs, FansubSubtitles } from 'types/episode';
+
 import './episodes.scss';
 
 type Props = {

@@ -2,11 +2,10 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { mdiFileUploadOutline } from '@mdi/js';
+import Icon from '@mdi/react';
 
 import SubtitleApi from 'api/SubtitleApi';
 import { SubtitleDTO } from 'types/subtitle';
-
-import Icon from '@mdi/react';
 
 import './form.scss';
 

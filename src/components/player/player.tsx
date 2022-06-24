@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
+import SubtitlesOctopus, { Options } from 'libass-wasm';
 import videojs, { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js';
+
 import 'video.js/dist/video-js.css';
 import '@videojs/themes/dist/forest/index.css';
-
-import SubtitlesOctopus, { Options } from 'libass-wasm';
 
 export type PlayerProps = {
   playerOptions: VideoJsPlayerOptions,

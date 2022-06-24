@@ -1,11 +1,12 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { mdiMagnify } from '@mdi/js';
 import { Icon } from '@mdi/react';
+
 import AnimeApi from 'api/AnimeApi';
 import FansubApi from 'api/FansubApi';
 import Helper from 'app/helper';
 import routes from 'app/routes';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { AnimeDocument } from 'types/anime';
 import { FansubDocument } from 'types/fansub';
 

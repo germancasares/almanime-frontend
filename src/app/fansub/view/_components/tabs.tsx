@@ -1,10 +1,10 @@
-import Icon from '@mdi/react';
 import {
-  mdiDecagram,
-  mdiLibraryShelves,
   mdiAccountGroup,
+  mdiDecagram,
   mdiInformationVariant,
+  mdiLibraryShelves,
 } from '@mdi/js';
+import Icon from '@mdi/react';
 
 import './tabs.scss';
 
