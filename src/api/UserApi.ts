@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from 'react-query';
 import { Duration } from 'luxon';
 
-import { User } from 'types/user';
+import { User, UserDocument } from 'types/user';
 
 export default class UserApi {
   public static Get = () => useQuery<User[]>(
@@ -9,6 +9,17 @@ export default class UserApi {
     async () => (await fetch('user')).json(),
     {
       staleTime: Duration.fromObject({ days: 1 }).toMillis(),
+    },
+  );
+
+  public static Search = (
+    userName?: string,
+  ) => useQuery<UserDocument[]>(
+    ['search', userName],
+    async () => (await fetch(`user/search/${userName}`)).json(),
+    {
+      staleTime: 0,
+      enabled: !!userName,
     },
   );
 

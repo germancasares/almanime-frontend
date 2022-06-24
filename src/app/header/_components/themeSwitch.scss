@@ -1,9 +1,12 @@
-@import 'styles/mixins';
+@import '~bulma/sass/utilities/mixins.sass';
 
-.navbar-item.themeSwitch {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+.navbar-item.theme-switch {
+  display: none;
   padding: 0;
+
+  @include from($tablet) {
+    display: inherit;
+  }
 
   &:hover {
     background-color: var(--primary__variant);

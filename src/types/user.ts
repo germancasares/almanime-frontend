@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 import Permission from 'enums/Permission';
 
 export type User = {
@@ -5,4 +7,10 @@ export type User = {
   permissions: {
     [fansub: string]: Permission
   }
+};
+
+export type UserDocument = {
+  id: string;
+  creationDate: DateTime;
+  name: string;
 };

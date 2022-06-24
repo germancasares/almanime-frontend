@@ -10,8 +10,11 @@ export type Props = {
   toggleTheme: () => void;
 };
 
-const ThemeSwitch = ({ theme, toggleTheme }: Props) => (
-  <div className="navbar-item themeSwitch">
+const ThemeSwitch = ({
+  theme,
+  toggleTheme,
+}: Props) => (
+  <div className="navbar-item theme-switch">
     <button
       type="button"
       className="button"

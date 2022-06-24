@@ -5,33 +5,38 @@ import { Icon } from '@mdi/react';
 
 import AnimeApi from 'api/AnimeApi';
 import FansubApi from 'api/FansubApi';
+import UserApi from 'api/UserApi';
 import Helper from 'app/helper';
 import routes from 'app/routes';
 import { AnimeDocument } from 'types/anime';
 import { FansubDocument } from 'types/fansub';
+import { UserDocument } from 'types/user';
 
 import './search.scss';
 
 const Search = () => {
   const [type, setType] = useState('Anime');
   const [query, setQuery] = useState('');
-  const debouncedSearchQuery = Helper.useDebounce(query, 600);
+  const debouncedSearchQuery = Helper.useDebounce(query, 600).trim();
 
-  let documents: AnimeDocument[] | FansubDocument[] = [];
+  const animeSearch = AnimeApi.Search(type === 'Anime' ? debouncedSearchQuery : undefined);
+  const fansubSearch = FansubApi.Search(type === 'Fansub' ? debouncedSearchQuery : undefined);
+  const userSearch = UserApi.Search(type === 'User' ? debouncedSearchQuery : undefined);
+
   let isLoading = false;
-
-  let animeSearch;
-  let fansubSearch;
+  let documents: AnimeDocument[] | FansubDocument[] | UserDocument[] = [];
   switch (type) {
     case 'Anime':
-      animeSearch = AnimeApi.Search(debouncedSearchQuery.trim());
-      documents = animeSearch.data ?? [];
       isLoading = animeSearch.isLoading;
+      documents = animeSearch.data ?? [];
       break;
     case 'Fansub':
-      fansubSearch = FansubApi.Search(debouncedSearchQuery.trim());
-      documents = fansubSearch.data ?? [];
       isLoading = fansubSearch.isLoading;
+      documents = fansubSearch.data ?? [];
+      break;
+    case 'User':
+      isLoading = userSearch.isLoading;
+      documents = userSearch.data ?? [];
       break;
     default:
       break;
