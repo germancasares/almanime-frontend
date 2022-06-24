@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import Tabs, { TabName } from './tabs';
 
 it('renders without crashing', () => {

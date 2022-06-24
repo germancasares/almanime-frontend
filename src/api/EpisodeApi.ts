@@ -1,5 +1,6 @@
-import { Duration } from 'luxon';
 import { useQuery } from 'react-query';
+import { Duration } from 'luxon';
+
 import { Episode, EpisodeFansubs } from 'types/episode';
 
 export default class EpisodeApi {

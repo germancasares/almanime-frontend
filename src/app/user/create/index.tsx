@@ -1,9 +1,11 @@
-import UserApi from 'api/UserApi';
-import routes from 'app/routes';
-import Loader from 'components/loader';
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import UserApi from 'api/UserApi';
+import routes from 'app/routes';
 import { User } from 'types/user';
+
+import Loader from 'components/loader';
 
 import './index.scss';
 

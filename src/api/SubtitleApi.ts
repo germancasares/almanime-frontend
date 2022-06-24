@@ -1,4 +1,5 @@
 import { useMutation } from 'react-query';
+
 import { SubtitleDTO } from 'types/subtitle';
 
 export default class SubtitleApi {

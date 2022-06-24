@@ -3,6 +3,7 @@ import { DateTime } from 'luxon';
 import BookmarkApi from 'api/BookmarkApi';
 import Helper from 'app/helper';
 import SeasonType from 'enums/Season';
+
 import Season from './_components/season';
 
 import './index.scss';

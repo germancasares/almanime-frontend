@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client';
+
 import Theme from 'enums/Theme';
+
 import ThemeSwitch from './themeSwitch';
 
 it('renders without crashing', () => {

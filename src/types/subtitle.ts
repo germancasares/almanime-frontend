@@ -1,5 +1,6 @@
-import SubtitleFormat from 'enums/SubtitleFormat';
 import { DateTime } from 'luxon';
+
+import SubtitleFormat from 'enums/SubtitleFormat';
 
 export type SubtitleDTO = {
   fansubAcronym: string;

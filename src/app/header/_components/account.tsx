@@ -1,11 +1,11 @@
-import { useAuth0 } from '@auth0/auth0-react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import UserAvatar from 'react-user-avatar';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import routes from 'app/routes';
 
 import './account.scss';
-import { useEffect } from 'react';
 
 const Profile = () => {
   const {

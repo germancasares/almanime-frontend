@@ -4,10 +4,11 @@ import AnimeApi from 'api/AnimeApi';
 import BookmarkApi from 'api/BookmarkApi';
 import Helper from 'app/helper';
 import routes from 'app/routes';
+import Season from 'enums/Season';
+
 import Loader from 'components/loader';
 import Pagination from 'components/pagination';
 import Panel from 'components/panel';
-import Season from 'enums/Season';
 
 import './season.scss';
 

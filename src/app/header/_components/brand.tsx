@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from 'assets/logo.svg';
-import './brand.scss';
+
 import routes from 'app/routes';
+
+import './brand.scss';
 
 const Brand = () => (
   <div className="navbar-brand brand">

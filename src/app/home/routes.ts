@@ -1,4 +1,5 @@
 import { withToken } from 'app/utils';
+
 import Home from '.';
 
 const routes = {

@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
+
 import { BookmarkDTO } from 'types/bookmark';
 
 export default class BookmarkApi {

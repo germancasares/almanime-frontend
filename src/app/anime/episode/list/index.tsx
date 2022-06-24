@@ -1,7 +1,9 @@
+import { Link, useParams } from 'react-router-dom';
+
 import EpisodeApi from 'api/EpisodeApi';
 import routes from 'app/routes';
+
 import Loader from 'components/loader';
-import { Link, useParams } from 'react-router-dom';
 
 const List = () => {
   const { slug } = useParams<{ slug: string }>();

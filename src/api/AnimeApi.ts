@@ -1,6 +1,7 @@
-import Season from 'enums/Season';
-import { Duration } from 'luxon';
 import { useQuery } from 'react-query';
+import { Duration } from 'luxon';
+
+import Season from 'enums/Season';
 import { Anime, AnimeDocument, AnimeWithExtra } from 'types/anime';
 import ModelWithMeta from 'types/pagination/ModelWithMeta';
 

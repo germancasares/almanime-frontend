@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import * as Sentry from '@sentry/react';
+
+import Footer from 'app/footer';
+import Header from 'app/header';
 import routes from 'app/routes';
 import Theme from 'enums/Theme';
-import Header from 'app/header';
-import Footer from 'app/footer';
+
 import Helper from './helper';
+
 import './index.scss';
 
 // https://reactrouter.com/docs/en/v6/api#useroutes

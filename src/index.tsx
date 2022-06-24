@@ -1,17 +1,18 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import * as Sentry from '@sentry/react';
-import { BrowserTracing } from '@sentry/tracing';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Auth0Provider } from '@auth0/auth0-react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { persistQueryClient } from 'react-query/persistQueryClient-experimental';
 import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { persistQueryClient } from 'react-query/persistQueryClient-experimental';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
+import * as Sentry from '@sentry/react';
+import { BrowserTracing } from '@sentry/tracing';
 import { Duration } from 'luxon';
-import routes from 'app/routes';
 
 import configureFetch from 'api';
+import routes from 'app/routes';
+
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 

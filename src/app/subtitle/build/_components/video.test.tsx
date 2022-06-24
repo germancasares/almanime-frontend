@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+
 import Video from './video';
 
 it('renders without crashing', () => {

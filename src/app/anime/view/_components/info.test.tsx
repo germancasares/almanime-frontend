@@ -1,6 +1,8 @@
 import { createRoot } from 'react-dom/client';
-import Season from 'enums/Season';
+
 import AnimeStatus from 'enums/AnimeStatus';
+import Season from 'enums/Season';
+
 import Info from './info';
 
 it('renders without crashing', () => {
