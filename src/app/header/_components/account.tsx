@@ -45,12 +45,8 @@ const Login = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <div className="navbar-item profile">
-      <div className="field is-grouped">
-        <p className="control">
-          <button type="button" className="button" onClick={loginWithRedirect}>Login</button>
-        </p>
-      </div>
+    <div id="profile" className="navbar-item">
+      <button type="button" className="button is-fullwidth" onClick={loginWithRedirect}>Login</button>
     </div>
   );
 };
