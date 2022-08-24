@@ -1,4 +1,6 @@
-import Video from './_components/video';
+import Player from 'components/player/player';
+
+import WaveForm from './_components/waveform';
 
 const Build = () => (
   <>
