@@ -36,16 +36,15 @@ const Player = ({
   useEffect(() => {
     // make sure Video.js player is only initialized once
     if (!playerRef.current) {
-      const videoElement = videoRef.current;
-      if (!videoElement) return;
+      if (!videoRef.current) return;
 
-      const player = videojs(videoElement, playerOptions, () => {
+      const player = videojs(videoRef.current, playerOptions, () => {
         if (subtitleOptions) {
-          if (!subtitleRef.current) {
+          if (!subtitleRef.current && videoRef.current) {
             subtitleRef.current = new SubtitlesOctopus({
               ...subtitleOptions,
               workerUrl: '/scripts/subtitles-octopus-worker.js',
-              video: videoElement,
+              video: videoRef.current,
             });
           } else {
             // Modify current instance of subtitleRef

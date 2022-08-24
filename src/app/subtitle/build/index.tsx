@@ -1,11 +1,12 @@
-import { useRef } from 'react';
-
+import { useRef, useState } from 'react';
 import Player from 'components/player/player';
+import WaveForm from './_components/waveform';
 
 import './index.scss';
 
 const Build = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isReady, setReady] = useState(false);
   return (
     <div id="subtitle-build">
       <div className="video-editor-wrapper">
@@ -13,8 +14,10 @@ const Build = () => {
         <div className="video-wrapper">
           <Player
             videoRef={videoRef}
+            onReady={() => setReady(true)}
             playerOptions={{
               controls: true,
+              fill: true,
               // fluid: true,
               responsive: true,
               sources: [{
@@ -32,7 +35,9 @@ const Build = () => {
           />
         </div>
       </div>
-      <div className="waveform-wrapper" />
+      {
+        isReady && (<WaveForm mediaElement={videoRef} />)
+      }
     </div>
   );
 };
