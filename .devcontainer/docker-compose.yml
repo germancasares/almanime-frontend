@@ -12,6 +12,18 @@ services:
       - ..:/workspace:cached
     command: sleep infinity
 
+  alm_blob:
+    image: mcr.microsoft.com/azure-blob-storage:1.4.2-linux-amd64
+    container_name: alm_blob
+    volumes:
+      - blob-data:/blobroot
+    ports:
+      - 11002:11002
+    environment:
+      - LOCAL_STORAGE_ACCOUNT_NAME=almanimeblobs
+      - LOCAL_STORAGE_ACCOUNT_KEY=FHYQ3nx4PwPg2HttNV8qQGa3KGozH39JG2SbsnGJIToXvkALzw==
+    restart: unless-stopped
+
   # alm_kibana:
   #   image: kibana:7.16.3
   #   container_name: alm_kibana
@@ -37,19 +49,20 @@ services:
   #     - discovery.type=single-node
   #   restart: unless-stopped
 
-  # alm_db:
-  #   container_name: alm_db
-  #   image: mcr.microsoft.com/azure-sql-edge:latest
-  #   volumes:
-  #     - db-data:/var/opt/mssql
-  #   ports:
-  #     - 1433:1433
-  #   environment:
-  #     ACCEPT_EULA: Y
-  #     MSSQL_SA_PASSWORD: P@ssw0rd
-  #   restart: unless-stopped
+  alm_db:
+    container_name: alm_db
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    volumes:
+      - db-data:/var/opt/mssql
+    ports:
+      - 1433:1433
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: P@ssw0rd
+    restart: unless-stopped
 
-# volumes:
-  # db-data:
+volumes:
+  blob-data:
+  db-data:
   # kibana-data:
   # search-data:
