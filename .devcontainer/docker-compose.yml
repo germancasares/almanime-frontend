@@ -21,7 +21,7 @@ services:
       - 11002:11002
     environment:
       - LOCAL_STORAGE_ACCOUNT_NAME=almanimeblobs
-      - LOCAL_STORAGE_ACCOUNT_KEY=FHYQ3nx4PwPg2HttNV8qQGa3KGozH39JG2SbsnGJIToXvkALzw==
+      - LOCAL_STORAGE_ACCOUNT_KEY=m1Bmfyca0IzUz8AdiBoXyUMukmj1eXOZO5A/NnfvcVJLlc3enGgHZiaWJesGFidjz5yaQcWD2WUYUs6dg7f0bw==
     restart: unless-stopped
 
   # alm_kibana:
