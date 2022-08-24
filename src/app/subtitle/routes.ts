@@ -1,5 +1,7 @@
 import { withAuthenticationRequired } from '@auth0/auth0-react';
+
 import { Routes } from 'types/typescript/routes';
+
 import Build from './build';
 import Create from './create';
 

@@ -1,6 +1,8 @@
 import { withAuthenticationRequired } from '@auth0/auth0-react';
-import { Routes } from 'types/typescript/routes';
+
 import { withToken } from 'app/utils';
+import { Routes } from 'types/typescript/routes';
+
 import Create from './create';
 import Edit from './edit';
 import List from './list';

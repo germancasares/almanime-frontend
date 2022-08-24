@@ -1,5 +1,5 @@
-import { Routes } from 'types/typescript/routes';
 import { withToken } from 'app/utils';
+import { Routes } from 'types/typescript/routes';
 
 import Home from '.';
 

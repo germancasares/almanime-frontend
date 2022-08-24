@@ -1,4 +1,4 @@
-import { useRef, useEffect, RefObject } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 
 export type WaveFormProps = {

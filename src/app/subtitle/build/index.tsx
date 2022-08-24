@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react';
+
 import Player from 'components/player/player';
+
 import WaveForm from './_components/waveform';
 
 import './index.scss';
