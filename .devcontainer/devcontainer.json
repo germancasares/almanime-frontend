@@ -20,6 +20,7 @@
 		"git.enableSmartCommit": true,
 		"git-graph.repository.fetchAndPrune": true,
 		"window.autoDetectColorScheme": true,
+		"workbench.iconTheme": "vscode-icons",
 		"typescript.preferences.quoteStyle": "single",
 		"typescript.updateImportsOnFileMove.enabled": "always",
 		"[json]": {
@@ -61,7 +62,8 @@
 		"stylelint.vscode-stylelint",
 		"pflannery.vscode-versionlens",
 		"firefox-devtools.vscode-firefox-debug",
-		"Orta.vscode-jest"
+		"Orta.vscode-jest",
+		"vscode-icons-team.vscode-icons"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
