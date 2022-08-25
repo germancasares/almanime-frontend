@@ -1,6 +1,9 @@
+// eslint-disable-next-line simple-import-sort/imports
 import { useRef, useState } from 'react';
+import { useQuery } from 'react-query';
 
 import Player from 'components/player/player';
+import ssaParser from 'lib/ssa-utils';
 
 import WaveForm from './_components/waveform';
 
@@ -9,6 +12,20 @@ import './index.scss';
 const Build = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isReady, setReady] = useState(false);
+  const url = '/OuterScienceSubs.ass';
+
+  const subContent = useQuery<string>(
+    ['subtitle', url],
+    async () => (await fetch(url)).text(),
+    {
+      enabled: !!url,
+    },
+  );
+
+  if (subContent.data) {
+    console.log({ ssa: ssaParser(subContent.data) });
+  }
+
   return (
     <div id="subtitle-build">
       <div className="video-editor-wrapper">
