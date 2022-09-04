@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 
 import Player from 'components/player/player';
-import ssaParser from 'lib/ssa-utils';
+import ssaParser from 'lib/ssa-utils/parser';
 
 import WaveForm from './_components/waveform';
 
@@ -23,7 +23,8 @@ const Build = () => {
   );
 
   if (subContent.data) {
-    console.log({ ssa: ssaParser(subContent.data) });
+    // console.log(ssaParser(subContent.data));
+    ssaParser(subContent.data).toString();
   }
 
   return (

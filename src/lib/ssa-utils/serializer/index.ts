@@ -11,8 +11,7 @@ const serializer = (ssaSubtitle: SSASubtitle) => {
   subtitle += V4PlusStylesSerializer(ssaSubtitle['V4+ Styles']);
   subtitle += eventsSerializer(ssaSubtitle.Events);
 
-  console.log(subtitle);
-  return '';
+  return subtitle;
 };
 
 export default serializer;

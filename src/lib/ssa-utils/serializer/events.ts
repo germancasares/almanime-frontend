@@ -14,7 +14,7 @@ const dialogueSerializer = (
     let value: string = dialogue[header]?.toString() ?? '';
 
     if (DIALOGUE_DURATION_FIELD.includes(header)) {
-      value = ((dialogue[header] as unknown) as Duration).toFormat('h:mm:ss:SS');
+      value = ((dialogue[header] as unknown) as Duration).toFormat('h:mm:ss.SS');
     } else if (DIALOGUE_NUMBER_FIELD.includes(header) && header !== 'Layer') {
       value = value.padStart(4, '0');
     }
