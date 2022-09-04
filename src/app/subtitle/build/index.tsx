@@ -22,9 +22,8 @@ const Build = () => {
     },
   );
 
-  if (subContent.data) {
-    // console.log(ssaParser(subContent.data));
-    ssaParser(subContent.data).toString();
+  if (!subContent.data) {
+    return null;
   }
 
   return (
@@ -46,7 +45,7 @@ const Build = () => {
               }],
             }}
             subtitleOptions={{
-              subUrl: '/OuterScienceSubs.ass',
+              subContent: ssaParser(subContent.data).toString(),
               fonts: [
                 'http://fonts.cdnfonts.com/css/gisha',
                 'http://fonts.cdnfonts.com/css/aharoni',
