@@ -28,7 +28,7 @@ const dialogueSerializer = (
 };
 
 export const eventsSerializer = (dialogues: Dialogue[]) => {
-  const paddings: any = {
+  const paddings: { [key: string]: number } = {
     Layer: -1,
     Start: 10,
     End: 10,
