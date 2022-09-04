@@ -1,35 +1,6 @@
-const STYLE_BOOLEAN_FIELDS = ['Bold', 'Italic', 'Underline', 'StrikeOut'];
-const STYLE_NUMBER_FIELDS = [
-  'Fontsize', 'ScaleX', 'ScaleY', 'Spacing', 'Angle', 'BorderStyle', 'Outline', 'Shadow', 'Alignment',
-  'MarginL', 'MarginR', 'MarginV', 'Encoding',
-];
-export type V4PlusStyle = {
-  Name: string;
-  Fontname: string;
-  Fontsize: number;
-  PrimaryColour: string;
-  SecondaryColour: string;
-  OutlineColour: string;
-  BackColour: string;
-  Bold: boolean;
-  Italic: boolean;
-  Underline: boolean;
-  StrikeOut: boolean;
-  ScaleX: number;
-  ScaleY: number;
-  Spacing: number;
-  Angle: number;
-  BorderStyle: number;
-  Outline: number;
-  Shadow: number;
-  Alignment: number;
-  MarginL: number;
-  MarginR: number;
-  MarginV: number;
-  Encoding: number;
-};
+import { STYLE_BOOLEAN_FIELDS, STYLE_NUMBER_FIELDS, V4PlusStyle } from '../SSASubtitle';
 
-const parseV4Styles = (lines: string[]) => {
+const V4StylesParser = (lines: string[]) => {
   const splitLines = lines.map((line) => /^\s*(?<key>[^:]+):\s*(?<value>.*)(\r?\n)?$/.exec(line)?.groups ?? {});
 
   const columns = splitLines.find((line) => line.key === 'Format')?.value.split(/\s*,\s*/g);
@@ -46,7 +17,7 @@ const parseV4Styles = (lines: string[]) => {
       let value: string | number | boolean = styleArray[col].trim();
 
       if (STYLE_BOOLEAN_FIELDS.includes(key)) {
-        value = !!value;
+        value = value === '-1';
       } else if (STYLE_NUMBER_FIELDS.includes(key)) {
         value = parseInt(value, 10);
       }
@@ -58,4 +29,4 @@ const parseV4Styles = (lines: string[]) => {
   });
 };
 
-export default parseV4Styles;
+export default V4StylesParser;
