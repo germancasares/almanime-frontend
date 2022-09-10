@@ -1,3 +1,4 @@
+/* stylelint-disable selector-max-compound-selectors */
 /* stylelint-disable max-nesting-depth */
 @import 'styles/variables';
 
@@ -12,31 +13,19 @@
     height: calc(100vh - $navbar-height - 12.5vh);
 
     .editor-wrapper {
-      background-color: #f00;
+      background-color: var(--surface);
       display: flex;
-      flex-grow: 1;
+      overflow-y: scroll;
+      width: 34%;
     }
 
     .video-wrapper {
       background-color: #00f;
       display: flex;
-      flex-grow: 2;
+      width: 66%;
     }
   }
 
   .waveform-wrapper {
-    background-image:
-      linear-gradient(to right, #808080 1px, transparent 1px),
-      linear-gradient(to bottom, #808080 1px, transparent 1px);
-    background-size: 100% 25%;
-    display: flex;
-    height: 12.5vh;
-    width: 100%;
-
-    > wave {
-      display: flex !important;
-      flex-grow: 1;
-      height: auto !important;
-    }
   }
 }

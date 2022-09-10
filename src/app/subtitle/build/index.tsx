@@ -2,10 +2,12 @@
 import { useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 
-import Player from 'components/player/player';
+import Player from 'app/subtitle/build/_components/player';
 import ssaParser from 'lib/ssa-utils/parser';
+import SSASubtitle from 'lib/ssa-utils/SSASubtitle';
 
 import WaveForm from './_components/waveform';
+import Editor from './_components/editor';
 
 import './index.scss';
 
@@ -14,9 +16,9 @@ const Build = () => {
   const [isReady, setReady] = useState(false);
   const url = '/OuterScienceSubs.ass';
 
-  const subContent = useQuery<string>(
+  const subContent = useQuery<SSASubtitle>(
     ['subtitle', url],
-    async () => (await fetch(url)).text(),
+    async () => ssaParser(await (await fetch(url)).text()),
     {
       enabled: !!url,
     },
@@ -29,7 +31,11 @@ const Build = () => {
   return (
     <div id="subtitle-build">
       <div className="video-editor-wrapper">
-        <div className="editor-wrapper" />
+        <div className="editor-wrapper">
+          <Editor
+            subtitle={subContent.data}
+          />
+        </div>
         <div className="video-wrapper">
           <Player
             videoRef={videoRef}
@@ -45,7 +51,7 @@ const Build = () => {
               }],
             }}
             subtitleOptions={{
-              subContent: ssaParser(subContent.data).toString(),
+              subContent: subContent.data.toString(),
               fonts: [
                 'http://fonts.cdnfonts.com/css/gisha',
                 'http://fonts.cdnfonts.com/css/aharoni',
@@ -55,7 +61,11 @@ const Build = () => {
         </div>
       </div>
       {
-        isReady && (<WaveForm mediaElement={videoRef} />)
+        isReady && (
+          <div className="waveform-wrapper">
+            <WaveForm mediaElement={videoRef} />
+          </div>
+        )
       }
     </div>
   );

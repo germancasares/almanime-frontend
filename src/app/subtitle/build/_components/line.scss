@@ -1,0 +1,12 @@
+.line {
+  // background-color: #ffa500;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5em 1em -0.125em var(--background), 0 0 0 1px var(--background);
+  color: var(--on-surface);
+  max-width: 100%;
+  position: relative;
+
+  .card-content {
+    padding: 0.5rem;
+  }
+}
