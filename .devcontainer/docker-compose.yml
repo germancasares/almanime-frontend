@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  alm_ui:
-    container_name: alm_ui
+  alm-ui:
+    container_name: alm-ui
     build: 
       context: .
       dockerfile: Dockerfile
@@ -12,9 +12,9 @@ services:
       - ..:/workspace:cached
     command: sleep infinity
 
-  alm_blob:
+  alm-blob:
     image: mcr.microsoft.com/azure-blob-storage:1.4.2-linux-amd64
-    container_name: alm_blob
+    container_name: alm-blob
     volumes:
       - blob-data:/blobroot
     ports:
@@ -49,8 +49,8 @@ services:
   #     - discovery.type=single-node
   #   restart: unless-stopped
 
-  alm_db:
-    container_name: alm_db
+  alm-db:
+    container_name: alm-db
     image: mcr.microsoft.com/azure-sql-edge:latest
     volumes:
       - db-data:/var/opt/mssql

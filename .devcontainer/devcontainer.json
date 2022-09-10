@@ -3,7 +3,7 @@
 {
 	"name": "Node.js & Azure SQL Edge",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "alm_ui",
+	"service": "alm-ui",
 	"workspaceFolder": "/workspace",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
