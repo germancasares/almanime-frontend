@@ -53,6 +53,7 @@ const Player = ({
 
         onReady && onReady(player);
       });
+      player.muted(true);
       playerRef.current = player;
     } else {
       // you can update player here [update player through props]
