@@ -8,6 +8,8 @@
   height: calc(100vh - $navbar-height);
   width: 100vw;
 
+
+
   .video-editor-wrapper {
     display: flex;
     height: calc(100vh - $navbar-height - 12.5vh);
@@ -23,9 +25,16 @@
       background-color: #00f;
       display: flex;
       width: 66%;
+
+      * {
+        transition: none;
+      }
     }
   }
 
   .waveform-wrapper {
+    * {
+      transition: none;
+    }
   }
 }

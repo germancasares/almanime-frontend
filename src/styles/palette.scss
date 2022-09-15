@@ -14,7 +14,8 @@
   --surface: #fff;
   --on-surface: #000;
 
-  --surface-2: #141726;
+  --over-surface-1: #e0e0e0;
+  --over-surface-2: #909090;
 }
 
 [data-theme='dark'] {
@@ -28,6 +29,6 @@
   --surface: #222;
   --on-surface: #fff;
 
-  --surface-2: #141726;
-
+  --over-surface-1: #141726;
+  --over-surface-2: #494b56;
 }

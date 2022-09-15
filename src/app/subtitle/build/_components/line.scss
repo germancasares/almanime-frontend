@@ -9,4 +9,8 @@
   .card-content {
     padding: 0.5rem;
   }
+
+  &.active {
+    background-color: var(--primary);
+  }
 }

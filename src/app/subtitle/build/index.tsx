@@ -14,6 +14,7 @@ import './index.scss';
 const Build = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isReady, setReady] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
   const url = '/OuterScienceSubs.ass';
 
   const subContent = useQuery<SSASubtitle>(
@@ -34,6 +35,7 @@ const Build = () => {
         <div className="editor-wrapper">
           <Editor
             subtitle={subContent.data}
+            videoRef={videoRef}
           />
         </div>
         <div className="video-wrapper">

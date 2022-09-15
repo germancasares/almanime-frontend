@@ -10,7 +10,7 @@ const dialogueSerializer = (
   dialogue: { [key: string]: string | number | boolean | Duration | undefined },
   paddings: { [header: string]: number },
 ) => {
-  let styleLine = HEADER_ORDER.reduce((str, header) => {
+  let dialogueLine = HEADER_ORDER.reduce((str, header) => {
     let value: string = dialogue[header]?.toString() ?? '';
 
     if (DIALOGUE_DURATION_FIELD.includes(header)) {
@@ -22,9 +22,8 @@ const dialogueSerializer = (
     return `${str}${value.padEnd(paddings[header], ' ')},`;
   }, '');
 
-  styleLine = `${styleLine.slice(0, -1)}\n`;
-
-  return `Dialogue: ${styleLine}`;
+  dialogueLine = `${dialogueLine.slice(0, -1)}\n`;
+  return `Dialogue: ${dialogueLine}`;
 };
 
 export const eventsSerializer = (dialogues: Dialogue[]) => {
