@@ -16,6 +16,7 @@
 		"eslint.format.enable": true,
 		"explorer.confirmDragAndDrop": false,
 		"files.autoSave": "afterDelay",
+		"git.autofetch": true,
 		"git.confirmSync": false,
 		"git.enableSmartCommit": true,
 		"git-graph.repository.fetchAndPrune": true,
