@@ -13,7 +13,7 @@ const durationParser = (text: string) => {
       hours,
       minutes,
       seconds,
-      milliseconds,
+      milliseconds: milliseconds * 10,
     });
   }
   return Duration.invalid('unparsable');

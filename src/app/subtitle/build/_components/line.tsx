@@ -1,4 +1,5 @@
-import { Dialogue } from 'lib/ssa-utils/SSASubtitle';
+import { useMemo } from 'react';
+import { Dialogue } from 'ass-compiler';
 
 import './line.scss';
 
@@ -11,25 +12,28 @@ const Line = ({
   currentTime: number,
   onClick: () => void,
 }) => {
-  const { Text, Start, End } = dialogue;
-  const isAfterStart = Start.toMillis() / 1000 <= (currentTime ?? 0);
-  const isBeforeEnd = End.toMillis() / 1000 >= (currentTime ?? 0);
-
-  if (Text === '"What loathsome tales."') {
-    console.log({
-      Start: Start.toMillis() / 1000,
-      End: End.toMillis() / 1000,
-      currentTime,
-      isAfterStart,
-      isBeforeEnd,
-    });
-  }
+  const { start, end } = dialogue;
+  const isAfterStart = start <= (currentTime ?? 0);
+  const isBeforeEnd = end > (currentTime ?? 0);
+  const text = useMemo(() => dialogue.slices.reduce(
+    (line, slice) => line + slice.fragments.reduce(
+      (subline, frag) => subline + frag.text,
+      '',
+    ),
+    '',
+  ), [dialogue.slices]);
 
   return (
-    <button type="button" className={`line${(isAfterStart && isBeforeEnd) ? ' active' : ''}`} onClick={onClick}>
+    <div
+      role="button"
+      tabIndex={0}
+      className={`line${(isAfterStart && isBeforeEnd) ? ' active' : ''}`}
+      onClick={onClick}
+      onKeyUp={() => {}}
+    >
       <div className="card-content">
         <div className="content">
-          {Text}
+          {text}
         </div>
       </div>
       {/* <footer className="card-footer">
@@ -37,7 +41,7 @@ const Line = ({
           <a href="#" className="card-footer-item">Edit</a>
           <a href="#" className="card-footer-item">Delete</a>
         </footer> */}
-    </button>
+    </div>
   );
 };
 

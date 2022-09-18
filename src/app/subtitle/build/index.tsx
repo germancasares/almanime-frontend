@@ -3,8 +3,7 @@ import { useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 
 import Player from 'app/subtitle/build/_components/player';
-import ssaParser from 'lib/ssa-utils/parser';
-import SSASubtitle from 'lib/ssa-utils/SSASubtitle';
+import { compile, CompiledASS, decompile } from 'ass-compiler';
 
 import WaveForm from './_components/waveform';
 import Editor from './_components/editor';
@@ -14,12 +13,12 @@ import './index.scss';
 const Build = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isReady, setReady] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
+  // const [currentTime, setCurrentTime] = useState(0);
   const url = '/OuterScienceSubs.ass';
 
-  const subContent = useQuery<SSASubtitle>(
+  const subContent = useQuery<CompiledASS>(
     ['subtitle', url],
-    async () => ssaParser(await (await fetch(url)).text()),
+    async () => compile(await (await fetch(url)).text(), { }),
     {
       enabled: !!url,
     },
@@ -53,11 +52,12 @@ const Build = () => {
               }],
             }}
             subtitleOptions={{
-              subContent: subContent.data.toString(),
+              subContent: decompile(subContent.data),
               fonts: [
                 'http://fonts.cdnfonts.com/css/gisha',
                 'http://fonts.cdnfonts.com/css/aharoni',
               ],
+              lossyRender: true,
             }}
           />
         </div>

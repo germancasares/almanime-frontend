@@ -4337,6 +4337,11 @@ asn1.js@^5.2.0:
     minimalistic-assert "^1.0.0"
     safer-buffer "^2.1.0"
 
+ass-compiler@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/ass-compiler/-/ass-compiler-0.1.4.tgz#c4617cb5bd7e839ba9dbeff2a42d9ef00628c06e"
+  integrity sha512-d4HWB6OwPjbtGBmBucMxUKA2z6qnannNopSPowQ/VvvEYwngQlLJ1FFk6yUtw2MRmBKvJOHAIYvX5iLoDKwauQ==
+
 assert@^1.1.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/assert/-/assert-1.5.0.tgz#55c109aaf6e0aefdb3dc4b71240c70bf574b18eb"
