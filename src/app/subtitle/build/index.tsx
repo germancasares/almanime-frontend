@@ -1,19 +1,17 @@
-// eslint-disable-next-line simple-import-sort/imports
 import { useRef, useState } from 'react';
 import { useQuery } from 'react-query';
-
-import Player from 'app/subtitle/build/_components/player';
 import { compile, CompiledASS, decompile } from 'ass-compiler';
 
-import WaveForm from './_components/waveform';
+import Player from 'app/subtitle/build/_components/player';
+
 import Editor from './_components/editor';
+import WaveForm from './_components/waveform';
 
 import './index.scss';
 
 const Build = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isReady, setReady] = useState(false);
-  // const [currentTime, setCurrentTime] = useState(0);
   const url = '/OuterScienceSubs.ass';
 
   const subContent = useQuery<CompiledASS>(
