@@ -1,0 +1,37 @@
+@import 'styles/variables';
+
+#subtitle-build {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - $navbar-height);
+  width: 100vw;
+
+  .video-editor-wrapper {
+    display: flex;
+    height: calc(100vh - $navbar-height - 12.5vh);
+
+    .editor-wrapper {
+      background-color: var(--surface);
+      display: flex;
+      overflow-y: scroll;
+      width: 34%;
+    }
+
+    .video-wrapper {
+      background-color: #00f;
+      display: flex;
+      width: 66%;
+
+      /* stylelint-disable-next-line selector-max-compound-selectors */
+      * {
+        transition: none;
+      }
+    }
+  }
+
+  .waveform-wrapper {
+    * {
+      transition: none;
+    }
+  }
+}

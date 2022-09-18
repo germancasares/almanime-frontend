@@ -1,12 +1,13 @@
+import { RefObject } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import Video from './video';
+import WaveForm from './waveform';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   createRoot(div).render(
-    <Video
-      options={{}}
+    <WaveForm
+      videoRef={{ current: null } as RefObject<HTMLVideoElement>}
     />,
   );
 });

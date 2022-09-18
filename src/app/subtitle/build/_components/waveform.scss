@@ -1,0 +1,20 @@
+.waveform { 
+  background-color: var(--over-surface-1);
+  display: flex;
+  height: 12.5vh;
+  width: 100%;
+
+  > wave {
+    display: flex !important;
+    flex-grow: 1;
+    height: auto !important;
+
+    > canvas {
+      --box-size: 10px;
+      background-image: 
+        linear-gradient(transparent calc(var(--box-size) - 1px), var(--over-surface-2) var(--box-size), transparent var(--box-size)),
+        linear-gradient(90deg, transparent calc(var(--box-size) -  1px), var(--over-surface-2) var(--box-size), transparent var(--box-size));
+      background-size: 100% var(--box-size), var(--box-size) 100%;
+    }
+  }
+}

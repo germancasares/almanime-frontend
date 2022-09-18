@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 import SubtitlesOctopus, { Options } from 'libass-wasm';
 import videojs, { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js';
 
@@ -6,51 +6,20 @@ import 'video.js/dist/video-js.css';
 import '@videojs/themes/dist/forest/index.css';
 
 export type PlayerProps = {
+  videoRef: RefObject<HTMLVideoElement>,
   playerOptions: VideoJsPlayerOptions,
   subtitleOptions?: Options,
   onReady?: (player: VideoJsPlayer) => void,
 };
 
 const Player = ({
+  videoRef,
   playerOptions,
   subtitleOptions,
   onReady,
 }: PlayerProps) => {
-  const videoRef = useRef(null);
   const playerRef = useRef<VideoJsPlayer | null>(null);
   const subtitleRef = useRef<SubtitlesOctopus | null>(null);
-
-  useEffect(() => {
-    // make sure Video.js player is only initialized once
-    if (!playerRef.current) {
-      const videoElement = videoRef.current;
-      if (!videoElement) return;
-
-      const player = videojs(videoElement, playerOptions, () => {
-        console.log('player is ready');
-        onReady && onReady(player);
-
-        if (subtitleOptions) {
-          if (!subtitleRef.current) {
-            subtitleRef.current = new SubtitlesOctopus({
-              ...subtitleOptions,
-              workerUrl: '/scripts/subtitles-octopus-worker.js',
-              video: videoElement,
-            });
-          } else {
-            // Modify current instance of subtitleRef
-          }
-        }
-      });
-
-      playerRef.current = player;
-    } else {
-      // you can update player here [update player through props]
-      // const player = playerRef.current;
-      // player.autoplay(options.autoplay);
-      // player.src(options.sources);
-    }
-  }, [onReady, playerOptions, subtitleOptions, videoRef]);
 
   // Dispose the Video.js player when the functional component unmounts
   useEffect(() => {
@@ -63,6 +32,36 @@ const Player = ({
       }
     };
   }, [playerRef]);
+
+  useEffect(() => {
+    // make sure Video.js player is only initialized once
+    if (!playerRef.current) {
+      if (!videoRef.current) return;
+
+      const player = videojs(videoRef.current, playerOptions, () => {
+        if (subtitleOptions) {
+          if (!subtitleRef.current && videoRef.current) {
+            subtitleRef.current = new SubtitlesOctopus({
+              ...subtitleOptions,
+              workerUrl: '/scripts/subtitles-octopus-worker.js',
+              video: videoRef.current,
+            });
+          } else {
+            // Modify current instance of subtitleRef
+          }
+        }
+
+        onReady && onReady(player);
+      });
+      player.muted(true);
+      playerRef.current = player;
+    } else {
+      // you can update player here [update player through props]
+      // const player = playerRef.current;
+      // player.autoplay(options.autoplay);
+      // player.src(options.sources);
+    }
+  }, [onReady, playerOptions, subtitleOptions, videoRef]);
 
   return (
     <div data-vjs-player>

@@ -3,7 +3,7 @@
 {
 	"name": "Node.js & Azure SQL Edge",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "alm_ui",
+	"service": "alm-ui",
 	"workspaceFolder": "/workspace",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
@@ -16,6 +16,7 @@
 		"eslint.format.enable": true,
 		"explorer.confirmDragAndDrop": false,
 		"files.autoSave": "afterDelay",
+		"git.autofetch": true,
 		"git.confirmSync": false,
 		"git.enableSmartCommit": true,
 		"git-graph.repository.fetchAndPrune": true,
@@ -51,7 +52,7 @@
 			"autoRun": "off",
 			"showTerminalOnLaunch": false,
 			"showCoverageOnLoad": true,
-			"coverageFormatter": "GutterFormatter"
+			"coverageFormatter": "DefaultFormatter"
 		}
 	},
 	// Add the IDs of extensions you want installed when the container is created.
@@ -70,8 +71,5 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "yarn install",
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node",
-	"features": {
-		"git": "latest"
-	}
+	"remoteUser": "node"
 }

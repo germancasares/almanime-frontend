@@ -1,6 +1,7 @@
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 import { withToken } from 'app/utils';
+import { Routes } from 'types/typescript/routes';
 
 import Create from './create';
 import Edit from './edit';
@@ -10,13 +11,15 @@ import View from './view';
 const toFansub = (acronym: string): string => `/fansubs/${acronym}`;
 const toEditFansub = (acronym: string): string => `/fansubs/${acronym}/edit`;
 
-const routes = {
+const routes: Routes = {
   create: {
     path: '/fansubs/create',
+    to: () => routes.create.path,
     component: withAuthenticationRequired(Create),
   },
   list: {
     path: '/fansubs',
+    to: () => routes.list.path,
     component: List,
   },
   view: {
