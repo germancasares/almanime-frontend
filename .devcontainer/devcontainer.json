@@ -52,7 +52,7 @@
 			"autoRun": "off",
 			"showTerminalOnLaunch": false,
 			"showCoverageOnLoad": true,
-			"coverageFormatter": "GutterFormatter"
+			"coverageFormatter": "DefaultFormatter"
 		}
 	},
 	// Add the IDs of extensions you want installed when the container is created.

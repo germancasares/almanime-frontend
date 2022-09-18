@@ -1,10 +1,13 @@
 import { createRoot } from 'react-dom/client';
+import { act } from 'react-dom/test-utils';
 
 import Pagination from './pagination';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  createRoot(div).render(
+  const root = createRoot(div);
+
+  act(() => root.render(
     <Pagination
       total={10}
       perPage={2}
@@ -12,5 +15,5 @@ it('renders without crashing', () => {
       steps={3}
       onChange={() => {}}
     />,
-  );
+  ));
 });
