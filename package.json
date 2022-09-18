@@ -23,6 +23,7 @@
     "ass-compiler": "^0.1.4",
     "bulma": "^0.9.4",
     "history": "^5.3.0",
+    "jest-fetch-mock": "^3.0.3",
     "libass-wasm": "^4.0.0",
     "luxon": "^3.0.1",
     "path-to-regexp": "^6.2.1",
