@@ -65,7 +65,7 @@ const Build = () => {
       {
         isReady && (
           <div className="waveform-wrapper">
-            <WaveForm mediaElement={videoRef} />
+            <WaveForm videoRef={videoRef} />
           </div>
         )
       }

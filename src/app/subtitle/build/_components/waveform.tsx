@@ -7,11 +7,11 @@ import Theme from 'enums/Theme';
 import './waveform.scss';
 
 export type WaveFormProps = {
-  mediaElement: RefObject<HTMLMediaElement>,
+  videoRef: RefObject<HTMLMediaElement>,
 };
 
 const WaveForm = ({
-  mediaElement,
+  videoRef,
 }: WaveFormProps) => {
   const waveformRef = useRef<HTMLDivElement | null >(null);
   const waveSurferRef = useRef<WaveSurfer | null >(null);
@@ -35,11 +35,11 @@ const WaveForm = ({
       waveSurferRef.current.zoom(50);
     } else {
       // eslint-disable-next-line no-lonely-if
-      if (mediaElement.current) {
-        waveSurferRef.current.load(mediaElement.current);
+      if (videoRef.current) {
+        waveSurferRef.current.load(videoRef.current);
       }
     }
-  }, [mediaElement]);
+  }, [videoRef]);
 
   const localTheme = Helper.LocalStorage.Get<Theme>('theme');
   useEffect(() => {
