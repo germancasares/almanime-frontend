@@ -33,11 +33,10 @@ const WaveForm = ({
       });
 
       waveSurferRef.current.zoom(50);
-    } else {
-      // eslint-disable-next-line no-lonely-if
-      if (videoRef.current) {
-        waveSurferRef.current.load(videoRef.current);
-      }
+    }
+
+    if (videoRef.current && waveSurferRef.current) {
+      waveSurferRef.current.load(videoRef.current);
     }
   }, [videoRef]);
 

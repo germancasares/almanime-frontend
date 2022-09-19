@@ -52,8 +52,8 @@ const Build = () => {
             subtitleOptions={{
               subContent: decompile(subContent.data),
               fonts: [
-                'http://fonts.cdnfonts.com/css/gisha',
-                'http://fonts.cdnfonts.com/css/aharoni',
+                'https://fonts.cdnfonts.com/css/gisha',
+                'https://fonts.cdnfonts.com/css/aharoni',
               ],
               lossyRender: true,
             }}
