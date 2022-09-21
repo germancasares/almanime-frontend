@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { MouseEvent, useMemo, useRef } from 'react';
 import { Dialogue } from 'ass-compiler';
 
 import './line.scss';
@@ -10,8 +10,9 @@ const Line = ({
 }: {
   dialogue: Dialogue,
   currentTime: number,
-  onClick: () => void,
+  onClick: (event: MouseEvent<HTMLDivElement>) => void,
 }) => {
+  const lineRef = useRef<HTMLDivElement | null>(null);
   const { start, end } = dialogue;
   const isAfterStart = start <= (currentTime ?? 0);
   const isBeforeEnd = end > (currentTime ?? 0);
@@ -23,8 +24,13 @@ const Line = ({
     '',
   ), [dialogue.slices]);
 
+  if (lineRef.current && isAfterStart && isBeforeEnd) {
+    lineRef.current.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+
   return (
     <div
+      ref={lineRef}
       role="button"
       tabIndex={0}
       className={`line${(isAfterStart && isBeforeEnd) ? ' active' : ''}`}
@@ -33,14 +39,9 @@ const Line = ({
     >
       <div className="card-content">
         <div className="content">
-          {text}
+          {text.replaceAll('\\N', '\n')}
         </div>
       </div>
-      {/* <footer className="card-footer">
-          <a href="#" className="card-footer-item">Save</a>
-          <a href="#" className="card-footer-item">Edit</a>
-          <a href="#" className="card-footer-item">Delete</a>
-        </footer> */}
     </div>
   );
 };

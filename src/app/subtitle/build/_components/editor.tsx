@@ -31,12 +31,12 @@ const Editor = ({
             key={`${dialogue.start}${dialogue.end}`}
             dialogue={dialogue}
             currentTime={currentTime ?? 0}
-            onClick={() => {
-              const newTime = dialogue.start;
-              setCurrentTime(newTime);
+            onClick={({ currentTarget }) => {
+              currentTarget.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
               if (!videoRef.current) return;
               // eslint-disable-next-line no-param-reassign
-              videoRef.current.currentTime = newTime;
+              videoRef.current.currentTime = dialogue.start;
+              setCurrentTime(dialogue.start);
             }}
           />
         ))
