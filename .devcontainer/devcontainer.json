@@ -1,75 +1,69 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/typescript-node
 {
-	"name": "Node.js & Azure SQL Edge",
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "alm-ui",
-	"workspaceFolder": "/workspace",
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"diffEditor.codeLens": true,
-		"editor.bracketPairColorization.enabled": true,
-		"editor.defaultFormatter":"dbaeumer.vscode-eslint",
-		"editor.formatOnSave": true,
-		"editor.guides.bracketPairs": true,
-		"editor.tabSize": 2,
-		"eslint.format.enable": true,
-		"explorer.confirmDragAndDrop": false,
-		"files.autoSave": "afterDelay",
-		"git.autofetch": true,
-		"git.confirmSync": false,
-		"git.enableSmartCommit": true,
-		"git-graph.repository.fetchAndPrune": true,
-		"window.autoDetectColorScheme": true,
-		"workbench.iconTheme": "vscode-icons",
-		"typescript.preferences.quoteStyle": "single",
-		"typescript.updateImportsOnFileMove.enabled": "always",
-		"[json]": {
-			"editor.defaultFormatter": "vscode.json-language-features"
-		},
-		"[jsonc]": {
-			"editor.defaultFormatter": "vscode.json-language-features"
-		},
-		// Automatic linting of SCSS
-		"css.validate": false,
-		"less.validate": false,
-		"scss.validate": false,
-		"stylelint": {
-			"configBasedir": "/usr/local/share/npm-global/lib",
-			"validate": [
-				"css",
-				"scss"
-			]
-		},
-		"[scss]": {
-			"editor.defaultFormatter": "stylelint.vscode-stylelint"
-		},
-		"editor.codeActionsOnSave": {
-			"source.fixAll.stylelint": true
-		},
-		// Jest
-		"jest": {
-			"autoRun": "off",
-			"showTerminalOnLaunch": false,
-			"showCoverageOnLoad": true,
-			"coverageFormatter": "DefaultFormatter"
-		}
-	},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"mhutchie.git-graph",
-		"zaaack.markdown-editor",
-		"stylelint.vscode-stylelint",
-		"pflannery.vscode-versionlens",
-		"firefox-devtools.vscode-firefox-debug",
-		"Orta.vscode-jest",
-		"vscode-icons-team.vscode-icons"
-	],
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "yarn install",
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
+  "name": "Node.js & TypeScript",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+  "workspaceMount": "source=${localEnv:HOME}/${localWorkspaceFolderBasename},target=/${localWorkspaceFolderBasename},type=bind,consistency=cached",
+  "workspaceFolder": "/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/pulumi:1": {}
+  },
+  "postAttachCommand": "yarn install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mhutchie.git-graph",
+        "GitHub.vscode-pull-request-github",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint",
+        "pflannery.vscode-versionlens",
+        "Orta.vscode-jest",
+        "bierner.markdown-preview-github-styles"
+      ],
+      "settings": {
+        "diffEditor.codeLens": true,
+        "debug.terminal.clearBeforeReusing": true,
+        "editor.bracketPairColorization.enabled": true,
+        "editor.formatOnSave": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.tabSize": 2,
+        "explorer.confirmDragAndDrop": false,
+        "files.autoSave": "afterDelay",
+        "git-graph.repository.fetchAndPrune": true,
+        "git-graph.repository.fetchAndPruneTags": true,
+        "git-graph.repository.onLoad.showCheckedOutBranch": true,
+        "git-graph.repository.onLoad.showSpecificBranches": [
+          "master",
+          "remotes/origin/master"
+        ],
+        "git.autofetch": true,
+        "git.confirmSync": false,
+        "git.enableSmartCommit": true,
+        "git.pruneOnFetch": true,
+        "window.autoDetectColorScheme": true,
+        "typescript.preferences.quoteStyle": "single",
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "[json]": {
+          "editor.defaultFormatter": "vscode.json-language-features"
+        },
+        "eslint.format.enable": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "css.validate": false,
+        "less.validate": false,
+        "scss.validate": false,
+        "stylelint.configBasedir": "/usr/local/share/npm-global/lib",
+        "stylelint.validate": [
+          "css",
+          "scss"
+        ],
+        "[scss]": {
+          "editor.defaultFormatter": "stylelint.vscode-stylelint"
+        },
+        "jest": {
+          "autoRun": "off",
+          "showTerminalOnLaunch": false,
+          "showCoverageOnLoad": true,
+          "coverageFormatter": "DefaultFormatter"
+        }
+      }
+    }
+  }
 }
