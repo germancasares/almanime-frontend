@@ -5,29 +5,28 @@ if (!fs.existsSync("public/scripts")){
   fs.mkdirSync("public/scripts");
 }
 
-fs.copyFile(
-  path.join(__dirname, 'node_modules/libass-wasm/dist/js/subtitles-octopus-worker.js'),
-  path.join(__dirname, 'public/scripts/subtitles-octopus-worker.js'),
-  (err) => {
-    if (err) throw err;
-    console.log('subtitles-octopus-worker.js was copied to public/scripts');
-  }
-);
+const files = [
+  {
+    origin: "node_modules/libass-wasm/dist/js/subtitles-octopus-worker.js",
+    dest: "public/scripts/subtitles-octopus-worker.js",
+  },
+  {
+    origin: "node_modules/libass-wasm/dist/js/subtitles-octopus-worker.wasm",
+    dest: "public/scripts/subtitles-octopus-worker.wasm",
+  },
+  {
+    origin: "node_modules/libass-wasm/dist/js/subtitles-octopus-worker-legacy.js",
+    dest: "public/scripts/subtitles-octopus-worker-legacy.js",
+  },
+];
 
-fs.copyFile(
-  path.join(__dirname, 'node_modules/libass-wasm/dist/js/subtitles-octopus-worker.wasm'),
-  path.join(__dirname, 'public/scripts/subtitles-octopus-worker.wasm'),
-  (err) => {
-    if (err) throw err;
-    console.log('subtitles-octopus-worker.wasm was copied to public/scripts');
-  }
-);
-
-fs.copyFile(
-  path.join(__dirname, 'node_modules/libass-wasm/dist/js/subtitles-octopus-worker.data'),
-  path.join(__dirname, 'public/scripts/subtitles-octopus-worker.data'),
-  (err) => {
-    if (err) throw err;
-    console.log('subtitles-octopus-worker.data was copied to public/scripts');
-  }
-);
+files.forEach(({ origin, dest }) => {
+  fs.copyFile(
+    path.join(__dirname, origin),
+    path.join(__dirname, dest),
+    (err) => {
+      if (err) throw err;
+      console.log(`${origin} was copied to ${dest}`);
+    }
+  );
+});
