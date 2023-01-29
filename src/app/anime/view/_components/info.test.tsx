@@ -12,6 +12,9 @@ it('renders without crashing', () => {
       anime={{
         id: 'abcd',
         kitsuID: 1,
+        myAnimeListID: 1,
+        aniListID: 1,
+        aniDBID: 1,
         slug: 'aaaa',
         name: 'AAAAAAAA',
         season: Season.Summer,

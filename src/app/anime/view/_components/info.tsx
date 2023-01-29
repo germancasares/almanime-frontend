@@ -1,4 +1,7 @@
+import AniDB from 'assets/anidb.png';
+import AniList from 'assets/anilist.png';
 import Kitsu from 'assets/kitsu.png';
+import MyAnimeList from 'assets/mal.png';
 
 import Formatter from 'app/formatter';
 import { Anime } from 'types/anime';
@@ -43,6 +46,15 @@ const Info = ({ anime, episodesCount }: Props) => (
         <span className="has-text-weight-bold">Links:</span>
         <a href={`https://kitsu.io/anime/${anime.slug}`} target="_blank" rel="noreferrer">
           <img src={Kitsu} alt="" />
+        </a>
+        <a href={`https://myanimelist.net/anime/${anime.myAnimeListID}`} target="_blank" rel="noreferrer">
+          <img src={MyAnimeList} alt="" />
+        </a>
+        <a href={`https://anilist.co/anime/${anime.aniListID}`} target="_blank" rel="noreferrer">
+          <img src={AniList} alt="" />
+        </a>
+        <a href={`https://anidb.net/anime/${anime.aniDBID}`} target="_blank" rel="noreferrer">
+          <img src={AniDB} alt="" />
         </a>
       </li>
     </ul>
