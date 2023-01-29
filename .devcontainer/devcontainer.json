@@ -7,6 +7,13 @@
     "ghcr.io/devcontainers-contrib/features/pulumi:1": {}
   },
   "postAttachCommand": "yarn install",
+  "containerEnv": {
+    "HTTPS": "true",
+    "REACT_APP_SHOULD_PERSIST_QUERIES": "false",
+    "REACT_APP_SENTRY_DSN": "https://c4ecd23a74ab47d3aae4731d1e878a25@o1160005.ingest.sentry.io/6245124",
+    "REACT_APP_API": "https://localhost:7116/api/v1"
+    // "REACT_APP_API": "http://192.168.0.200:9080/api/v1"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
