@@ -47,15 +47,27 @@ const Info = ({ anime, episodesCount }: Props) => (
         <a href={`https://kitsu.io/anime/${anime.slug}`} target="_blank" rel="noreferrer">
           <img src={Kitsu} alt="" />
         </a>
-        <a href={`https://myanimelist.net/anime/${anime.myAnimeListID}`} target="_blank" rel="noreferrer">
-          <img src={MyAnimeList} alt="" />
-        </a>
-        <a href={`https://anilist.co/anime/${anime.aniListID}`} target="_blank" rel="noreferrer">
-          <img src={AniList} alt="" />
-        </a>
-        <a href={`https://anidb.net/anime/${anime.aniDBID}`} target="_blank" rel="noreferrer">
-          <img src={AniDB} alt="" />
-        </a>
+        {
+          anime.myAnimeListID && (
+            <a href={`https://myanimelist.net/anime/${anime.myAnimeListID}`} target="_blank" rel="noreferrer">
+              <img src={MyAnimeList} alt="" />
+            </a>
+          )
+        }
+        {
+          anime.aniListID && (
+            <a href={`https://anilist.co/anime/${anime.aniListID}`} target="_blank" rel="noreferrer">
+              <img src={AniList} alt="" />
+            </a>
+          )
+        }
+        {
+          anime.aniDBID && (
+            <a href={`https://anidb.net/anime/${anime.aniDBID}`} target="_blank" rel="noreferrer">
+              <img src={AniDB} alt="" />
+            </a>
+          )
+        }
       </li>
     </ul>
   </div>

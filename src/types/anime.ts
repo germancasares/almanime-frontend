@@ -10,9 +10,9 @@ export type Anime = {
   id: string;
 
   kitsuID: number;
-  myAnimeListID: number;
-  aniListID: number;
-  aniDBID: number;
+  myAnimeListID?: number;
+  aniListID?: number;
+  aniDBID?: number;
   slug: string;
   name: string;
   season: Season;
