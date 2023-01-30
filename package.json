@@ -7,6 +7,7 @@
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
+    "test:all": "react-scripts test --coverage --watchAll",
     "lint": "eslint src",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
@@ -114,10 +115,10 @@
   "jest": {
     "coverageThreshold": {
       "global": {
-        "branches": 8.56,
-        "functions": 13.05,
-        "lines": 22.2,
-        "statements": 22.3
+        "branches": 10.66,
+        "functions": 13.8,
+        "lines": 22.38,
+        "statements": 22.46
       }
     }
   }
