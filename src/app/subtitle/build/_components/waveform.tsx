@@ -3,45 +3,14 @@ import {
 } from 'react';
 import { CompiledASS } from 'ass-compiler';
 import WaveSurfer from 'wavesurfer.js';
-import RegionsPlugin, { RegionParams } from 'wavesurfer.js/src/plugin/regions';
+import RegionsPlugin from 'wavesurfer.js/src/plugin/regions';
 
 import Helper from 'app/helper';
 import Theme from 'enums/Theme';
 
+import { gatherRegions } from './utils';
+
 import './waveform.scss';
-
-const getHexColor = (subtitleColor: string) => {
-  const hexColor = subtitleColor.slice(2, 10);
-
-  // const alpha = (0xFF - parseInt(hexColor.slice(0, 2), 16)).toString(16);
-  const blue = hexColor.slice(2, 4);
-  const green = hexColor.slice(4, 6);
-  const red = hexColor.slice(6, 8);
-
-  return `#${red}${green}${blue}40`;
-};
-
-const gatherRegions = (
-  subtitle: CompiledASS | undefined,
-): RegionParams[] | undefined => subtitle?.dialogues
-  .map(({ start, end, style }, index) => ({
-    start,
-    end,
-    color: getHexColor(subtitle.styles[style].style.PrimaryColour),
-    handleStyle: {
-      left: {
-        backgroundColor: 'red',
-        borderRight: '10px solid #ff6961',
-      },
-      right: {
-        backgroundColor: 'red',
-        borderLeft: '10px solid #ff6961',
-      },
-    },
-    data: {
-      index,
-    },
-  }));
 
 export type WaveFormProps = {
   videoRef: RefObject<HTMLMediaElement>,
