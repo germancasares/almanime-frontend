@@ -15,8 +15,8 @@ const files = [
     dest: "public/scripts/subtitles-octopus-worker.wasm",
   },
   {
-    origin: "node_modules/libass-wasm/dist/js/subtitles-octopus-worker-legacy.js",
-    dest: "public/scripts/subtitles-octopus-worker-legacy.js",
+    origin: "node_modules/libass-wasm/dist/js/subtitles-octopus-worker.data",
+    dest: "public/scripts/subtitles-octopus-worker.data",
   },
 ];
 
