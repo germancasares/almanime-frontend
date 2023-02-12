@@ -112,6 +112,7 @@
     ]
   },
   "jest": {
+    "transformIgnorePatterns": ["node_modules/(?!wavesurfer.js)/"],
     "coverageThreshold": {
       "global": {
         "branches": 10.66,
