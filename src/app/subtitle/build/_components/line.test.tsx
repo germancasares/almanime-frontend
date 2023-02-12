@@ -28,6 +28,7 @@ it('renders without crashing', () => {
       }}
       currentTime={0}
       onClick={() => {}}
+      onChange={() => {}}
     />,
   );
 });

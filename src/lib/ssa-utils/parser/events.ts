@@ -35,8 +35,6 @@ const hasClosedCurlyBraces = (groups: SubText[]) => groups.every(
 const buildOverrideList = (overrides: string) => {
   const overridesList = overrides.replaceAll('{', '').replaceAll('}', '').split('\\').filter((e) => e);
 
-  console.log(overridesList);
-
   return overridesList;
 };
 

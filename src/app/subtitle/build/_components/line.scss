@@ -3,15 +3,37 @@
   border-radius: 0.25rem;
   box-shadow: 0 0.5em 1em -0.125em var(--background), 0 0 0 1px var(--background);
   color: var(--on-surface);
+  display: grid;
   max-width: 100%;
   position: relative;
 
-  .card-content {
-    padding: 0.5rem;
+  &::after {
+    content: attr(data-replicated-value) ' ';
+    visibility: hidden;
     white-space: pre-wrap;
   }
 
   &.active {
     background-color: var(--primary);
+  }
+
+  .textarea {
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    overflow: hidden;
+    resize: none;
+  }
+
+  &::after,
+  .textarea {
+    border: 1px solid #000;
+    font: inherit;
+    grid-area: 1 / 1 / 2 / 2;
+    padding: 0.5rem;
+  }
+
+  +.line {
+    margin-top: 1px;
   }
 }

@@ -1,0 +1,564 @@
+﻿[Script Info]
+Title: Erai-raws The Disastrous Life of Saiki K. S01E01 spa
+ScriptType: v4.00+
+WrapStyle: 0
+PlayResX: 1280
+PlayResY: 720
+Video Zoom Percent: 1
+Scroll Position: 0
+Active Line: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Open Sans Semibold,45,&H00FFFFFF,&H000000FF,&H00020713,&H00000000,-1,0,0,0,100,100,0,0,1,1.7,0,2,10,10,15,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+
+Dialogue: 0,0:01:36.93,0:01:38.72,Default,,0,0,0,,{\i1}Poderes psíquicos,{\i0}
+Dialogue: 0,0:01:38.80,0:01:41.39,Default,,0,0,0,,{\i1}hagan posible lo imposible.{\i0}
+Dialogue: 0,0:01:41.51,0:01:43.14,Default,,0,0,0,,¡Qué lindo!
+Dialogue: 0,0:01:43.22,0:01:44.68,Default,,0,0,0,,Soy un gran amante de los perros.
+Dialogue: 0,0:01:44.77,0:01:46.64,Default,,0,0,0,,{\i1}Pero me gustan más las chicas.{\i0}
+Dialogue: 0,0:01:46.73,0:01:48.56,Default,,0,0,0,,Espera. ¡Pochimi!
+Dialogue: 0,0:01:50.15,0:01:51.15,Default,,0,0,0,,¡Cuidado!
+Dialogue: 0,0:01:57.24,0:01:58.82,Default,,0,0,0,,Entonces, ¿qué tal si vamos a comer algo?
+Dialogue: 0,0:01:58.91,0:02:00.49,Default,,0,0,0,,¿De qué estás hablando?
+Dialogue: 0,0:02:00.57,0:02:02.49,Default,,0,0,0,,{\i1}Mi nombre es Kusuo Saiki.{\i0}
+Dialogue: 0,0:02:02.62,0:02:04.12,Default,,0,0,0,,{\i1}Soy psíquico.{\i0}
+Dialogue: 0,0:02:05.04,0:02:06.41,Default,,0,0,0,,{\i1}Hace 16 años,{\i0}
+Dialogue: 0,0:02:06.50,0:02:09.00,Default,,0,0,0,,{\i1}una pareja normal tuvo un bebé{\i0}
+Dialogue: 0,0:02:09.50,0:02:11.42,Default,,0,0,0,,{\i1}que no tenía nada de normal.{\i0}
+Dialogue: 0,0:02:11.84,0:02:14.00,Default,,0,0,0,,¡Miren qué lindo es!\N¡Es tan lindo como su mami!
+Dialogue: 0,0:02:14.09,0:02:16.01,Default,,0,0,0,,¡Tan bonito! ¡Bonito como su papi!
+Dialogue: 0,0:02:16.09,0:02:20.22,Default,,0,0,0,,- Qué tesorito.\N{\i1}- ¿Así que estoy en segundo lugar?{\i0}
+Dialogue: 0,0:02:20.30,0:02:22.93,Default,,0,0,0,,{\i1}Comencé a hablar cuando tenía solo 14 días{\i0}
+Dialogue: 0,0:02:23.14,0:02:24.10,Default,,0,0,0,,{\i1}sin usar mi voz.{\i0}
+Dialogue: 0,0:02:24.18,0:02:25.02,Default,,0,0,0,,{\i1}Y luego...{\i0}
+Dialogue: 0,0:02:25.10,0:02:27.98,Default,,0,0,0,,¡Miren quién está caminando!\N¡Miren quién camina!
+Dialogue: 0,0:02:28.06,0:02:30.44,Default,,0,0,0,,{\i1}Cuando tenía un mes, empecé a caminar{\i0}
+Dialogue: 0,0:02:30.52,0:02:32.15,Default,,0,0,0,,{\i1}- por el aire.{\i0}\N- ¡Asombroso!
+Dialogue: 0,0:02:32.23,0:02:33.19,Default,,0,0,0,,UN AÑO
+Dialogue: 0,0:02:33.27,0:02:34.61,Default,,0,0,0,,{\i1}Y cuando tenía un año...{\i0}
+Dialogue: 0,0:02:34.69,0:02:37.32,Default,,0,0,0,,Parece que se nos terminó\Nel vino de arroz.
+Dialogue: 0,0:02:38.40,0:02:39.24,Default,,0,0,0,,¿Ku?
+Dialogue: 0,0:02:39.99,0:02:41.66,Default,,0,0,0,,{\i1}...realicé con éxito mi primer mandado.{\i0}
+Dialogue: 0,0:02:42.32,0:02:43.41,Default,,0,0,0,,Ku...
+Dialogue: 0,0:02:43.83,0:02:46.58,Default,,0,0,0,,{\i1}En ese momento, mi madre\Nfinalmente comenzó a preocuparse.{\i0}
+Dialogue: 0,0:02:47.04,0:02:48.00,Default,,0,0,0,,{\i1}Pensarías{\i0}
+Dialogue: 0,0:02:48.08,0:02:50.75,Default,,0,0,0,,{\i1}que a esta altura, mis padres\Nme llevarían a que me revisaran.{\i0}
+Dialogue: 0,0:02:51.38,0:02:52.88,Default,,0,0,0,,{\i1}Pero ellos son bastante raros también.{\i0}
+Dialogue: 0,0:02:53.13,0:02:55.05,Default,,0,0,0,,Apuesto a que los robó.
+Dialogue: 0,0:02:55.42,0:02:57.13,Default,,0,0,0,,Los llevaré al supermercado mañana.
+Dialogue: 0,0:02:57.21,0:02:58.38,Default,,0,0,0,,{\i1}Y son bastante perezosos.{\i0}
+Dialogue: 0,0:02:59.01,0:03:00.88,Default,,0,0,0,,¡Nuestro mini psíquico\Nfinalmente rindió frutos!
+Dialogue: 0,0:03:00.97,0:03:01.80,Default,,0,0,0,,Salió a ti.
+Dialogue: 0,0:03:01.89,0:03:04.93,Default,,0,0,0,,{\i1}Son una pareja bastante despreocupada\Ny actúan como tortolitos,{\i0}
+Dialogue: 0,0:03:05.01,0:03:06.47,Default,,0,0,0,,{\i1}así que me aceptaron tal cual era{\i0}
+Dialogue: 0,0:03:06.56,0:03:09.10,Default,,0,0,0,,{\i1}- sin ningún problema.{\i0}\N- ¡Es tan artístico!
+Dialogue: 0,0:03:09.27,0:03:10.27,Default,,0,0,0,,{\i1}Los días fueron pasando.{\i0}
+Dialogue: 0,0:03:10.52,0:03:11.85,Default,,0,0,0,,OZAWA
+Dialogue: 0,0:03:12.73,0:03:14.02,Default,,0,0,0,,{\i1}Y ese pequeño niño{\i0}
+Dialogue: 0,0:03:14.11,0:03:16.40,Default,,0,0,0,,{\i1}se convirtió en estudiante de secundaria.{\i0}
+Dialogue: 0,0:03:16.90,0:03:19.78,Default,,0,0,0,,{\i1}Como vieron antes,\Naún tengo mis poderes psíquicos.{\i0}
+Dialogue: 0,0:03:20.28,0:03:22.28,Default,,0,0,0,,{\i1}Puedo doblar cucharas sin tocarlas{\i0}
+Dialogue: 0,0:03:22.82,0:03:24.53,Default,,0,0,0,,{\i1}y conseguir cosas geniales cuando quiero.{\i0}
+Dialogue: 0,0:03:25.41,0:03:27.24,Default,,0,0,0,,{\i1}Estoy viviendo un sueño.{\i0}
+Dialogue: 0,0:03:29.79,0:03:31.58,Default,,0,0,0,,{\i1}Apuesto a que eso es lo que piensan,\N¿verdad?{\i0}
+Dialogue: 0,0:03:31.83,0:03:33.29,Default,,0,0,0,,{\i1}¿Qué sucede si sé doblar cucharas?{\i0}
+Dialogue: 0,0:03:33.38,0:03:35.04,Default,,0,0,0,,{\i1}Eso solo hace que sea difícil comer curri.{\i0}
+Dialogue: 0,0:03:35.42,0:03:37.00,Default,,0,0,0,,{\i1}Y conseguir bocadillos gratis{\i0}
+Dialogue: 0,0:03:37.09,0:03:38.38,Default,,0,0,0,,{\i1}solo hace que me duela la panza.{\i0}
+Dialogue: 0,0:03:38.84,0:03:42.43,Default,,0,0,0,,{\i1}Si creen que soy el hombre más feliz\Ndel mundo y lo tengo todo,{\i0}
+Dialogue: 0,0:03:42.51,0:03:43.55,Default,,0,0,0,,{\i1}están muy equivocados.{\i0}
+Dialogue: 0,0:03:43.64,0:03:46.51,Default,,0,0,0,,{\i1}Soy el más infeliz del mundo\Ny no tengo nada.{\i0}
+Dialogue: 0,0:03:47.06,0:03:48.85,Default,,0,0,0,,{\i1}Telepatía, psicoquinesis,{\i0}
+Dialogue: 0,0:03:48.93,0:03:50.23,Default,,0,0,0,,{\i1}visión de rayos X, premoniciones,{\i0}
+Dialogue: 0,0:03:50.31,0:03:52.02,Default,,0,0,0,,{\i1}teletransportación, clarividencia,\Ny demás.{\i0}
+Dialogue: 0,0:03:52.10,0:03:53.77,Default,,0,0,0,,{\i1}Sé hacer todas esas cosas,{\i0}
+Dialogue: 0,0:03:54.02,0:03:57.15,Default,,0,0,0,,{\i1}pero por cada cosa que sé hacer,\Nhay una que no sé hacer.{\i0}
+Dialogue: 0,0:03:58.07,0:03:59.48,Default,,0,0,0,,{\i1}Un perro alimentado por sus dueños{\i0}
+Dialogue: 0,0:03:59.57,0:04:01.99,Default,,0,0,0,,{\i1}nunca aprende a cazar su propia comida.{\i0}
+Dialogue: 0,0:04:02.53,0:04:04.70,Default,,0,0,0,,{\i1}Los niños malcriados\Nque siempre obtienen lo que quieren{\i0}
+Dialogue: 0,0:04:04.78,0:04:06.41,Default,,0,0,0,,{\i1}nunca aprenden a ser independientes,{\i0}
+Dialogue: 0,0:04:07.03,0:04:09.41,Default,,0,0,0,,{\i1}así que créanme. ¡He perdido bastante!{\i0}
+Dialogue: 0,0:04:09.70,0:04:11.87,Default,,0,0,0,,{\i1}No sé lo que es experimentar el éxito.{\i0}
+Dialogue: 0,0:04:11.96,0:04:13.96,Default,,0,0,0,,{\i1}Nunca me sorprendió una fiesta sorpresa.{\i0}
+Dialogue: 0,0:04:14.04,0:04:15.67,Default,,0,0,0,,{\i1}No puedo sentir ninguna de estas cosas.{\i0}
+Dialogue: 0,0:04:16.17,0:04:19.46,Default,,0,0,0,,{\i1}Es cierto, nunca estoy enojado o triste,\Npero tampoco me siento feliz.{\i0}
+Dialogue: 0,0:04:19.55,0:04:21.30,Default,,0,0,0,,{\i1}Así es mi vida.{\i0}
+Dialogue: 0,0:04:22.97,0:04:25.64,Default,,0,0,0,,{\i1}Aun así, no diría\Nque estoy decepcionado o algo así.{\i0}
+Dialogue: 0,0:04:25.80,0:04:27.97,Default,,0,0,0,,{\i1}Una vida sin altibajos no es tan mala.{\i0}
+Dialogue: 0,0:04:28.05,0:04:29.51,Default,,0,0,0,,{\i1}Kusuo está atrasado.{\i0}
+Dialogue: 0,0:04:30.77,0:04:33.02,Default,,0,0,0,,¡Volviste!
+Dialogue: 0,0:04:33.52,0:04:34.90,Default,,0,0,0,,¿Por qué tardaste tanto?
+Dialogue: 0,0:04:34.98,0:04:37.23,Default,,0,0,0,,{\i1}¿Por qué está papá\Nsentado al frente de la casa?{\i0}
+Dialogue: 0,0:04:37.36,0:04:38.86,Default,,0,0,0,,Me preguntaba
+Dialogue: 0,0:04:39.07,0:04:40.28,Default,,0,0,0,,si puedes abrirme la puerta.
+Dialogue: 0,0:04:40.40,0:04:42.61,Default,,0,0,0,,- No pude entrar.\N{\i1}- ¿En serio? ¿Otra vez?{\i0}
+Dialogue: 0,0:04:48.16,0:04:51.75,Default,,0,0,0,,¡Ese es mi pequeño psíquico!\N¡Qué gran habilidad para abrir cerraduras!
+Dialogue: 0,0:04:51.83,0:04:52.75,Default,,0,0,0,,{\i1}No soy ladrón.{\i0}
+Dialogue: 0,0:04:52.83,0:04:53.66,Default,,0,0,0,,Kusuo,
+Dialogue: 0,0:04:53.75,0:04:56.46,Default,,0,0,0,,creo que puedes hacer algo increíble\Ncon tus poderes.
+Dialogue: 0,0:04:56.54,0:04:58.29,Default,,0,0,0,,{\i1}Guárdate esos pensamientos para ti mismo.{\i0}
+Dialogue: 0,0:04:58.59,0:05:00.05,Default,,0,0,0,,Ku, ¿eres tú?
+Dialogue: 0,0:05:00.34,0:05:01.88,Default,,0,0,0,,¡Hablaremos más sobre esto luego, Kusuo!
+Dialogue: 0,0:05:02.63,0:05:05.38,Default,,0,0,0,,{\i1}De hecho, hay una cosa\Nque perturba mi vida tranquila.{\i0}
+Dialogue: 0,0:05:05.63,0:05:07.55,Default,,0,0,0,,¿Por qué volviste a cambiar la cerradura?
+Dialogue: 0,0:05:07.64,0:05:09.30,Default,,0,0,0,,{\i1}La relación entre mis padres.{\i0}
+Dialogue: 0,0:05:09.39,0:05:12.68,Default,,0,0,0,,¡Bienvenido a casa, Ku!\N¡Cenaremos chuletas de cerdo!
+Dialogue: 0,0:05:12.77,0:05:14.06,Default,,0,0,0,,¡Deja de ignorarme!
+Dialogue: 0,0:05:14.14,0:05:16.14,Default,,0,0,0,,¡Se supone que comeremos filetes hoy!
+Dialogue: 0,0:05:16.23,0:05:18.36,Default,,0,0,0,,¿En serio? ¡Perdón!\N¿Y si te cocino un zapato de cuero?
+Dialogue: 0,0:05:18.69,0:05:20.82,Default,,0,0,0,,- ¿Por qué querría eso?\N{\i1}- Me pregunto qué pasó.{\i0}
+Dialogue: 0,0:05:20.90,0:05:24.03,Default,,0,0,0,,- ¡Tu amor me hace volar hasta el cielo!\N{\i1}- Solían ser muy empalagosos.{\i0}
+Dialogue: 0,0:05:24.11,0:05:26.15,Default,,0,0,0,,- Te amo más que a nadie en el mundo.\N- Tú...
+Dialogue: 0,0:05:26.36,0:05:29.32,Default,,0,0,0,,¡Me haces querer tirarte desde el cielo!
+Dialogue: 0,0:05:29.41,0:05:31.03,Default,,0,0,0,,¡Te odio más que a nadie en el universo!
+Dialogue: 0,0:05:31.12,0:05:32.54,Default,,0,0,0,,Maldita...
+Dialogue: 0,0:05:32.62,0:05:35.29,Default,,0,0,0,,{\i1}Bueno, supongo que se puede decir\Nque conservan su pasión.{\i0}
+Dialogue: 0,0:05:41.46,0:05:44.63,Default,,0,0,0,,¡Hora de comer! ¡Sírvanse!
+Dialogue: 0,0:05:44.71,0:05:47.26,Default,,0,0,0,,- ¡Oye!\N- ¿Cómo está, Ku?
+Dialogue: 0,0:05:47.43,0:05:49.68,Default,,0,0,0,,- Amor, ¡hay un segundo plato para ti!\N- ¡No, gracias!
+Dialogue: 0,0:05:49.76,0:05:51.89,Default,,0,0,0,,- ¡Apuesto a que es otro zapato!\N- ¡Aquí tienes!
+Dialogue: 0,0:05:51.97,0:05:53.22,Default,,0,0,0,,¡Ni siquiera es del mismo par!
+Dialogue: 0,0:05:53.72,0:05:55.98,Default,,0,0,0,,{\i1}Han estado así durante medio año.{\i0}
+Dialogue: 0,0:05:56.27,0:05:57.10,Default,,0,0,0,,Kusuo,
+Dialogue: 0,0:05:57.35,0:06:00.06,Default,,0,0,0,,hazme un favor y transforma esto\Nen un filete, ¿quieres?
+Dialogue: 0,0:06:00.15,0:06:03.15,Default,,0,0,0,,{\i1}El hombre patético que ven aquí\Nes mi padre, Kuniharu Saiki.{\i0}
+Dialogue: 0,0:06:03.23,0:06:05.94,Default,,0,0,0,,{\i1}Es perezoso e irresponsable\Ny siempre viene llorando a pedirme ayuda.{\i0}
+Dialogue: 0,0:06:06.03,0:06:08.24,Default,,0,0,0,,{\i1}Aprendí a ignorar\Nbásicamente todos sus pedidos.{\i0}
+Dialogue: 0,0:06:08.32,0:06:11.58,Default,,0,0,0,,{\i1}No puedo malcriarlo,\Nde lo contrario, se pondrá peor.{\i0}
+Dialogue: 0,0:06:11.78,0:06:13.62,Default,,0,0,0,,Entonces, ¿tomarás el lado de tu madre?
+Dialogue: 0,0:06:13.70,0:06:14.74,Default,,0,0,0,,¡Esa comida en tu plato
+Dialogue: 0,0:06:14.83,0:06:17.54,Default,,0,0,0,,fue pagada con el dinero que gané\Nlamiéndole las botas a mi jefe!
+Dialogue: 0,0:06:17.62,0:06:20.04,Default,,0,0,0,,¡Los zapatos caros saben mejor!
+Dialogue: 0,0:06:20.13,0:06:21.71,Default,,0,0,0,,{\i1}Vaya, ¿te gusta el sabor de los zapatos?{\i0}
+Dialogue: 0,0:06:22.67,0:06:23.92,Default,,0,0,0,,¡Al diablo! ¡Lo comeré igual!
+Dialogue: 0,0:06:24.00,0:06:25.01,Default,,0,0,0,,Qué asco, ¡esto apesta!
+Dialogue: 0,0:06:25.09,0:06:26.42,Default,,0,0,0,,¿Por qué tiene ese olor? ¡Dios!
+Dialogue: 0,0:06:26.51,0:06:28.76,Default,,0,0,0,,{\i1}Es un zapato, tonto.{\i0}
+Dialogue: 0,0:06:28.84,0:06:32.68,Default,,0,0,0,,Ku, no se supone que desperdicies\Ntus poderes en algo así.
+Dialogue: 0,0:06:33.01,0:06:34.51,Default,,0,0,0,,{\i1}Esta es mi madre, Kurumi Saiki.{\i0}
+Dialogue: 0,0:06:34.97,0:06:37.98,Default,,0,0,0,,Deberías usar tus poderes\Npara ayudar a quien los necesita
+Dialogue: 0,0:06:38.23,0:06:40.94,Default,,0,0,0,,o para premiar a quienes son amables.
+Dialogue: 0,0:06:41.02,0:06:42.86,Default,,0,0,0,,{\i1}Ella es una de las principales razones{\i0}
+Dialogue: 0,0:06:42.94,0:06:44.48,Default,,0,0,0,,{\i1}por las que no usé mis poderes para mal.{\i0}
+Dialogue: 0,0:06:44.57,0:06:46.28,Default,,0,0,0,,{\i1}Es una madre amorosa y gentil.{\i0}
+Dialogue: 0,0:06:46.36,0:06:48.95,Default,,0,0,0,,También deberías usarlos\Npara castigar a tu padre.
+Dialogue: 0,0:06:49.03,0:06:50.95,Default,,0,0,0,,{\i1}No creo que lo noten hoy.{\i0}
+Dialogue: 0,0:06:51.03,0:06:52.45,Default,,0,0,0,,CHULETA DE CERDO DE KOSUO
+Dialogue: 0,0:06:53.37,0:06:55.74,Default,,0,0,0,,¿Cómo te atreves a comer la comida de Ku?\N¡Hijo de perra!
+Dialogue: 0,0:06:56.75,0:06:58.37,Default,,0,0,0,,¡Solucionaremos esto afuera!
+Dialogue: 0,0:06:58.46,0:06:59.50,Default,,0,0,0,,Paso...
+Dialogue: 0,0:06:59.83,0:07:02.42,Default,,0,0,0,,{\i1}Podría pararlos cuando quisiera,{\i0}
+Dialogue: 0,0:07:02.50,0:07:04.34,Default,,0,0,0,,{\i1}pero este es su problema,\Ndeben resolverlo.{\i0}
+Dialogue: 0,0:07:04.42,0:07:05.25,Default,,0,0,0,,{\i1}¿Qué?{\i0}
+Dialogue: 0,0:07:05.63,0:07:06.76,Default,,0,0,0,,{\i1}Gelatina con sabor a café.{\i0}
+Dialogue: 0,0:07:07.84,0:07:08.97,Default,,0,0,0,,{\i1}De hecho, no está tan mal.{\i0}
+Dialogue: 0,0:07:09.05,0:07:11.55,Default,,0,0,0,,{\i1}Reúne el rico, robusto aroma\Ny el sabor del café{\i0}
+Dialogue: 0,0:07:11.64,0:07:14.97,Default,,0,0,0,,{\i1}y los condensa en un solo paquete sublime.{\i0}
+Dialogue: 0,0:07:15.18,0:07:18.73,Default,,0,0,0,,{\i1}Si añades un poco de leche,\Ntendrás una experiencia totalmente nueva.{\i0}
+Dialogue: 0,0:07:18.85,0:07:20.89,Default,,0,0,0,,{\i1}Algo tan decadente debería ser ilegal.{\i0}
+Dialogue: 0,0:07:21.31,0:07:22.90,Default,,0,0,0,,{\i1}Pero no me quejo.{\i0}
+Dialogue: 0,0:07:26.61,0:07:28.28,Default,,0,0,0,,Vaya, ¿la gelatina está tan buena?
+Dialogue: 0,0:07:28.36,0:07:30.28,Default,,0,0,0,,¡Olvida eso!\N¡Hay cosas más importantes que hacer!
+Dialogue: 0,0:07:30.40,0:07:32.32,Default,,0,0,0,,¡Mira en lo que se ha convertido tu madre!
+Dialogue: 0,0:07:32.41,0:07:34.82,Default,,0,0,0,,- Deja de correr, ¡cobarde!\N- ¡Debes detenerla, Kusuo!
+Dialogue: 0,0:07:34.91,0:07:36.91,Default,,0,0,0,,¡Ya no es la madre\Nque alguna vez conociste!
+Dialogue: 0,0:07:36.99,0:07:38.83,Default,,0,0,0,,¡Hazlo! ¡Exorciza el demonio\Nen su interior!
+Dialogue: 0,0:07:38.91,0:07:40.87,Default,,0,0,0,,¡No puedes escapar!
+Dialogue: 0,0:07:40.96,0:07:42.54,Default,,0,0,0,,¡Te aplastaré como a una hormiga!
+Dialogue: 0,0:07:46.50,0:07:47.34,Default,,0,0,0,,¿Qué?
+Dialogue: 0,0:07:47.75,0:07:49.71,Default,,0,0,0,,Qué es...
+Dialogue: 0,0:07:49.80,0:07:51.55,Default,,0,0,0,,{\i1}Estos dos dan tanto trabajo.{\i0}
+Dialogue: 0,0:07:51.68,0:07:53.13,Default,,0,0,0,,{\i1}Me gustaría no tener que intervenir{\i0}
+Dialogue: 0,0:07:53.22,0:07:55.14,Default,,0,0,0,,{\i1}y detener otra pelea sin sentido.{\i0}
+Dialogue: 0,0:07:55.22,0:07:56.64,Default,,0,0,0,,¿Ahora estás del lado de tu padre?
+Dialogue: 0,0:07:56.72,0:07:58.06,Default,,0,0,0,,¡Eso es todo! ¡Te odio también!
+Dialogue: 0,0:07:58.14,0:08:00.56,Default,,0,0,0,,{\i1}¿Por qué digo que no tiene sentido?\NYa verán.{\i0}
+Dialogue: 0,0:08:00.68,0:08:02.35,Default,,0,0,0,,¡Los odio a ambos!
+Dialogue: 0,0:08:02.44,0:08:04.77,Default,,0,0,0,,{\i1}Claro que no los odio.\N¡Los amo mucho a ambos!{\i0}
+Dialogue: 0,0:08:04.85,0:08:06.40,Default,,0,0,0,,{\i1}Sus corazones lo dicen todo.{\i0}
+Dialogue: 0,0:08:06.73,0:08:09.32,Default,,0,0,0,,{\i1}No importa cuánto intenten esconderlo,{\i0}
+Dialogue: 0,0:08:09.40,0:08:11.36,Default,,0,0,0,,{\i1}la verdad es que estas peleas\Nson un engaño.{\i0}
+Dialogue: 0,0:08:11.49,0:08:12.99,Default,,0,0,0,,Bien, ¡te odio también!
+Dialogue: 0,0:08:13.07,0:08:14.16,Default,,0,0,0,,¡Te odio tanto!
+Dialogue: 0,0:08:14.24,0:08:15.37,Default,,0,0,0,,{\i1}¡Estoy bromeando!{\i0}
+Dialogue: 0,0:08:15.45,0:08:17.24,Default,,0,0,0,,{\i1}¡Te amo infinitamente!{\i0}
+Dialogue: 0,0:08:17.78,0:08:20.62,Default,,0,0,0,,{\i1}Y por eso no tienen sentido.{\i0}
+Dialogue: 0,0:08:21.04,0:08:24.67,Default,,0,0,0,,{\i1}Lo peor es que interrumpieron mi postre.{\i0}
+Dialogue: 0,0:08:24.83,0:08:27.59,Default,,0,0,0,,{\i1}Y ese es un pecado\Nque este psíquico no puede perdonar.{\i0}
+Dialogue: 0,0:08:28.13,0:08:29.13,Default,,0,0,0,,{\i1}- Te amo.\N- Te amo.{\i0}
+Dialogue: 0,0:08:29.30,0:08:31.34,Default,,0,0,0,,¿Dijiste que me amas?
+Dialogue: 0,0:08:31.42,0:08:33.17,Default,,0,0,0,,{\i1}¿Ella en verdad me ama también?{\i0}
+Dialogue: 0,0:08:33.30,0:08:34.88,Default,,0,0,0,,Espera, ¿no fuiste tú?
+Dialogue: 0,0:08:34.97,0:08:37.51,Default,,0,0,0,,{\i1}¡No! ¿Dije eso en voz alta?{\i0}
+Dialogue: 0,0:08:37.60,0:08:39.72,Default,,0,0,0,,{\i1}¿Y qué significa "me ama también"?{\i0}
+Dialogue: 0,0:08:39.81,0:08:42.48,Default,,0,0,0,,No, ¡fuiste tú! Acabas de admitir\Nque lo dijiste en voz alta.
+Dialogue: 0,0:08:42.56,0:08:43.56,Default,,0,0,0,,{\i1}Espera un segundo...{\i0}
+Dialogue: 0,0:08:43.64,0:08:46.02,Default,,0,0,0,,{\i1}¿Escucho cosas porque la amo tanto?{\i0}
+Dialogue: 0,0:08:46.10,0:08:47.44,Default,,0,0,0,,{\i1}Espera, ¿me ama "tanto"?{\i0}
+Dialogue: 0,0:08:47.52,0:08:49.19,Default,,0,0,0,,{\i1}Espera, ¿ella puede oírme?{\i0}
+Dialogue: 0,0:08:49.27,0:08:50.15,Default,,0,0,0,,Supongo que lo hice...
+Dialogue: 0,0:08:50.23,0:08:51.99,Default,,0,0,0,,{\i1}- Así que sí lo dijo.{\i0}\N- ¡No, no lo hice!
+Dialogue: 0,0:08:52.07,0:08:52.90,Default,,0,0,0,,- ¿Qué?\N- ¿Qué?
+Dialogue: 0,0:08:52.99,0:08:54.32,Default,,0,0,0,,- ¡Kusuo!\N- ¡Ku!
+Dialogue: 0,0:08:54.40,0:08:56.03,Default,,0,0,0,,{\i1}Telepatía forzada.{\i0}
+Dialogue: 0,0:08:56.57,0:08:58.95,Default,,0,0,0,,{\i1}Usé mis poderes para conectar sus mentes,{\i0}
+Dialogue: 0,0:08:59.37,0:09:02.25,Default,,0,0,0,,{\i1}lo que significa que pueden escuchar\Nlos pensamientos del otro.{\i0}
+Dialogue: 0,0:09:02.45,0:09:05.42,Default,,0,0,0,,¡Para! ¡Él no puede descubrir\Nque aún lo amo!
+Dialogue: 0,0:09:05.50,0:09:08.25,Default,,0,0,0,,¡No quiero que tu madre sepa\Nque aún la amo!
+Dialogue: 0,0:09:08.63,0:09:09.92,Default,,0,0,0,,Te amo.
+Dialogue: 0,0:09:10.00,0:09:11.05,Default,,0,0,0,,También te amo.
+Dialogue: 0,0:09:11.13,0:09:11.96,Default,,0,0,0,,{\i1}Como sea. Fin.{\i0}
+Dialogue: 0,0:09:12.30,0:09:14.84,Default,,0,0,0,,- ¡Lo siento tanto, cariño!\N- ¡Yo también!
+Dialogue: 0,0:09:15.05,0:09:17.64,Default,,0,0,0,,{\i1}De verdad. Lidiar\Ncon gente normal es todo un dolor{\i0}
+Dialogue: 0,0:09:17.97,0:09:20.56,Default,,0,0,0,,{\i1}Ahora puedo disfrutar de mi postre en paz.{\i0}
+Dialogue: 0,0:09:20.64,0:09:23.68,Default,,0,0,0,,¡Esto es porque me comí\Ntu gelatina de café!
+Dialogue: 0,0:09:23.77,0:09:24.68,Default,,0,0,0,,¡No!
+Dialogue: 0,0:09:24.77,0:09:29.06,Default,,0,0,0,,¡No debí enojarme y romper\Ntodas las ventanas de la casa!
+Dialogue: 0,0:09:29.19,0:09:30.52,Default,,0,0,0,,Espera un segundo.
+Dialogue: 0,0:09:30.98,0:09:32.78,Default,,0,0,0,,¡Tómalo como muestra\Nde nuestro amor renovado!
+Dialogue: 0,0:09:33.49,0:09:34.49,Default,,0,0,0,,¿Es bueno?
+Dialogue: 0,0:09:34.57,0:09:37.91,Default,,0,0,0,,¡Por supuesto! ¡Algo tan decadente\Ndebería ser ilegal! ¡Es delicioso!
+Dialogue: 0,0:09:45.96,0:09:47.00,Default,,0,0,0,,ACADEMIA PK
+Dialogue: 0,0:09:47.08,0:09:48.92,Default,,0,0,0,,{\i1}Esta es mi secundaria, la academia PK.{\i0}
+Dialogue: 0,0:09:49.79,0:09:52.25,Default,,0,0,0,,{\i1}Hay 542 estudiantes en total.{\i0}
+Dialogue: 0,0:09:52.50,0:09:56.38,Default,,0,0,0,,{\i1}Pero ninguno de ellos sabe\Nsobre mis poderes.{\i0}
+Dialogue: 0,0:09:56.84,0:09:58.64,Default,,0,0,0,,{\i1}Si lo supieran, se desataría el caos.{\i0}
+Dialogue: 0,0:09:59.39,0:10:00.85,Default,,0,0,0,,{\i1}En el jardín de infantes,{\i0}
+Dialogue: 0,0:10:01.05,0:10:03.77,Default,,0,0,0,,{\i1}siempre ganaba en piedra, papel o tijera.{\i0}
+Dialogue: 0,0:10:04.02,0:10:06.85,Default,,0,0,0,,{\i1}Podía leer los pensamientos de todos.{\i0}
+Dialogue: 0,0:10:07.44,0:10:08.94,Default,,0,0,0,,{\i1}Algunos intentaban hacer trampa,{\i0}
+Dialogue: 0,0:10:09.35,0:10:10.40,Default,,0,0,0,,{\i1}pero yo forzaba un empate.{\i0}
+Dialogue: 0,0:10:10.81,0:10:14.28,Default,,0,0,0,,{\i1}El jardín es una jungla sin ley\Ndonde este juego decide todo.{\i0}
+Dialogue: 0,0:10:14.73,0:10:17.15,Default,,0,0,0,,Kusuo, ¿qué tal si jugamos\Npiedra, papel o tijera?
+Dialogue: 0,0:10:17.24,0:10:19.49,Default,,0,0,0,,Si gano, compartes con todos, ¿sí?
+Dialogue: 0,0:10:19.99,0:10:21.24,Default,,0,0,0,,{\i1}No tenía piedad de mis maestras.{\i0}
+Dialogue: 0,0:10:21.32,0:10:22.66,Default,,0,0,0,,- Jugaremos tres veces.\N- {\i1}Destruía al que se me cruzaba.{\i0}
+Dialogue: 0,0:10:22.74,0:10:23.79,Default,,0,0,0,,- ¿El mejor de diez?\N{\i1}- Gané.{\i0}
+Dialogue: 0,0:10:23.95,0:10:26.08,Default,,0,0,0,,- El mejor de 100. Solo debo ganar una.\N{\i1}- Gané.{\i0}
+Dialogue: 0,0:10:26.16,0:10:27.54,Default,,0,0,0,,¡Te daré una piedra!
+Dialogue: 0,0:10:27.62,0:10:28.46,Default,,0,0,0,,{\i1}Las gané todas.{\i0}
+Dialogue: 0,0:10:28.54,0:10:29.62,Default,,0,0,0,,296 ÉXITOS, 0 DERROTAS, 58 EMPATES
+Dialogue: 0,0:10:29.71,0:10:32.04,Default,,0,0,0,,{\i1}Mi maestra renunció al otro día.{\i0}
+Dialogue: 0,0:10:32.50,0:10:34.00,Default,,0,0,0,,{\i1}Y esto era solo el comienzo.{\i0}
+Dialogue: 0,0:10:34.09,0:10:36.92,Default,,0,0,0,,{\i1}Las cosas demoraron un poco en calmarse,{\i0}
+Dialogue: 0,0:10:37.76,0:10:40.89,Default,,0,0,0,,{\i1}así que decidí nunca más\Nusar mis poderes en público.{\i0}
+Dialogue: 0,0:10:41.18,0:10:42.35,Default,,0,0,0,,{\i1}Si debo usarlos,{\i0}
+Dialogue: 0,0:10:42.43,0:10:44.76,Default,,0,0,0,,{\i1}siempre me aseguro\Nde no tener a nadie cerca.{\i0}
+Dialogue: 0,0:10:45.35,0:10:48.18,Default,,0,0,0,,{\i1}Uso la telepatía para asegurarme\Nde que no hay nadie cerca.{\i0}
+Dialogue: 0,0:10:48.60,0:10:50.35,Default,,0,0,0,,{\i1}Detecto personas\Nen un radio de 200 metros.{\i0}
+Dialogue: 0,0:10:50.48,0:10:51.48,Default,,0,0,0,,{\i1}No se me escapa nadie.{\i0}
+Dialogue: 0,0:10:51.56,0:10:52.44,Default,,0,0,0,,¿Adivina quién es?
+Dialogue: 0,0:10:52.52,0:10:53.36,Default,,0,0,0,,{\i1}Bueno, casi nadie.{\i0}
+Dialogue: 0,0:10:53.44,0:10:55.94,Default,,0,0,0,,{\i1}Hay una persona que no puedo detectar.{\i0}
+Dialogue: 0,0:10:56.57,0:10:57.53,Default,,0,0,0,,¿Cómo estás, compañero?
+Dialogue: 0,0:10:57.61,0:11:00.20,Default,,0,0,0,,{\i1}Riki Nendo. Nadie lo quiere,{\i0}
+Dialogue: 0,0:11:00.28,0:11:01.53,Default,,0,0,0,,{\i1}y yo le agrado por alguna razón.{\i0}
+Dialogue: 0,0:11:02.12,0:11:03.78,Default,,0,0,0,,{\i1}Pero ese no es el verdadero problema.{\i0}
+Dialogue: 0,0:11:03.95,0:11:07.95,Default,,0,0,0,,{\i1}El problema es que no puedo\Nleer sus pensamientos.{\i0}
+Dialogue: 0,0:11:08.75,0:11:10.83,Default,,0,0,0,,{\i1}Y todos tienen pensamientos.{\i0}
+Dialogue: 0,0:11:10.92,0:11:12.38,Default,,0,0,0,,{\i1}- Como él...\N- Odio al dentista...{\i0}
+Dialogue: 0,0:11:12.46,0:11:14.54,Default,,0,0,0,,{\i1}- O él...\N- ¡Pelo nasal!{\i0}
+Dialogue: 0,0:11:14.63,0:11:18.59,Default,,0,0,0,,{\i1}Puedo hasta leer la mente de animales,\Npero este chico es la excepción.{\i0}
+Dialogue: 0,0:11:18.67,0:11:20.01,Default,,0,0,0,,{\i1}De inmediato me di cuenta por qué.{\i0}
+Dialogue: 0,0:11:20.09,0:11:22.22,Default,,0,0,0,,{\i1}Es un completo idiota.{\i0}
+Dialogue: 0,0:11:22.68,0:11:23.93,Default,,0,0,0,,{\i1}No puedes leer una mente vacía.{\i0}
+Dialogue: 0,0:11:24.01,0:11:25.93,Default,,0,0,0,,{\i1}Viéndolo así, Nendo asusta.{\i0}
+Dialogue: 0,0:11:26.76,0:11:28.06,Default,,0,0,0,,- ¡Se desmayó!\N- ¿Es anémico?
+Dialogue: 0,0:11:28.27,0:11:29.77,Default,,0,0,0,,¿Qué pasó?
+Dialogue: 0,0:11:29.93,0:11:31.39,Default,,0,0,0,,¡Reacciona! No estás muerto, ¿verdad?
+Dialogue: 0,0:11:31.48,0:11:32.56,Default,,0,0,0,,{\i1}O sea, él no es malo...{\i0}
+Dialogue: 0,0:11:32.65,0:11:33.69,Default,,0,0,0,,¿Qué diablos, Nendo?
+Dialogue: 0,0:11:33.77,0:11:35.52,Default,,0,0,0,,{\i1}No creo que lo sea.{\i0}
+Dialogue: 0,0:11:35.65,0:11:37.07,Default,,0,0,0,,{\i1}Bueno, me equivoqué, es horrible.{\i0}
+Dialogue: 0,0:11:37.15,0:11:38.48,Default,,0,0,0,,¿Qué estás haciendo, Nendo?
+Dialogue: 0,0:11:38.57,0:11:39.94,Default,,0,0,0,,¡Llévenlo a la enfermería!
+Dialogue: 0,0:11:40.03,0:11:42.07,Default,,0,0,0,,¡Claro! ¡La enfermería!
+Dialogue: 0,0:11:42.16,0:11:44.03,Default,,0,0,0,,Oye, Saiki, ve con él.
+Dialogue: 0,0:11:44.12,0:11:45.95,Default,,0,0,0,,Me preocupa que vaya solo.
+Dialogue: 0,0:11:46.03,0:11:46.87,Default,,0,0,0,,ENFERMERÍA
+Dialogue: 0,0:11:47.20,0:11:48.91,Default,,0,0,0,,Oye, no hay nadie aquí.
+Dialogue: 0,0:11:49.29,0:11:51.12,Default,,0,0,0,,Creo que debemos darle\Nrespiración boca a boca.
+Dialogue: 0,0:11:51.21,0:11:52.04,Default,,0,0,0,,{\i1}Basta, Nendo.{\i0}
+Dialogue: 0,0:11:53.92,0:11:55.54,Default,,0,0,0,,¿A qué te refieres con eso?
+Dialogue: 0,0:11:55.63,0:11:56.79,Default,,0,0,0,,¿Eres estúpido?
+Dialogue: 0,0:11:57.05,0:11:58.71,Default,,0,0,0,,Espera, ¿entonces estás bien?
+Dialogue: 0,0:11:58.80,0:12:01.05,Default,,0,0,0,,¡Solo estaba fingiendo, idiota!\N¿Cuál es tu problema?
+Dialogue: 0,0:12:01.55,0:12:03.34,Default,,0,0,0,,¿Por qué me besaste?
+Dialogue: 0,0:12:03.47,0:12:05.51,Default,,0,0,0,,Bueno, fue mi primer beso, ¿sabes?
+Dialogue: 0,0:12:05.60,0:12:06.47,Default,,0,0,0,,Dejémoslo así.
+Dialogue: 0,0:12:07.47,0:12:08.97,Default,,0,0,0,,{\i1}Qué manera de empeorar las cosas.{\i0}
+Dialogue: 0,0:12:09.81,0:12:12.31,Default,,0,0,0,,¡Todos pensarán\Nque estamos enamorados o algo así!
+Dialogue: 0,0:12:12.39,0:12:14.44,Default,,0,0,0,,{\i1}Te garantizo que nadie pensará eso.{\i0}
+Dialogue: 0,0:12:14.90,0:12:17.36,Default,,0,0,0,,Saiki, ¡no le digas a nadie\Nque estaba fingiendo!
+Dialogue: 0,0:12:17.52,0:12:19.36,Default,,0,0,0,,{\i1}Esto no cuenta como primer beso, ¿verdad?{\i0}
+Dialogue: 0,0:12:19.44,0:12:20.49,Default,,0,0,0,,{\i1}Cielos. Esto es lo peor.{\i0}
+Dialogue: 0,0:12:20.61,0:12:21.86,Default,,0,0,0,,¡No se lo digas a nadie!
+Dialogue: 0,0:12:21.99,0:12:23.03,Default,,0,0,0,,{\i1}¿Qué cosa?{\i0}
+Dialogue: 0,0:12:23.15,0:12:23.99,Default,,0,0,0,,{\i1}¿Que fingías?{\i0}
+Dialogue: 0,0:12:24.36,0:12:25.99,Default,,0,0,0,,{\i1}¿O que tu primer beso{\i0}
+Dialogue: 0,0:12:26.07,0:12:27.37,Default,,0,0,0,,{\i1}fue con Nendo?{\i0}
+Dialogue: 0,0:12:27.78,0:12:29.37,Default,,0,0,0,,{\i1}Si es por lo de fingir, ya se descubrió.{\i0}
+Dialogue: 0,0:12:29.58,0:12:31.16,Default,,0,0,0,,- Escuché eso.\N{\i1}- ¡Mierda! ¡Es Matsuzaki!{\i0}
+Dialogue: 0,0:12:31.25,0:12:32.58,Default,,0,0,0,,¿Fingías?
+Dialogue: 0,0:12:32.75,0:12:35.00,Default,,0,0,0,,{\i1}¡Esto es malo!\N¡Es el profesor de gimnasia!{\i0}
+Dialogue: 0,0:12:35.08,0:12:36.25,Default,,0,0,0,,¡Entendió todo mal!
+Dialogue: 0,0:12:36.38,0:12:37.29,Default,,0,0,0,,¡Fue su idea!
+Dialogue: 0,0:12:37.38,0:12:40.21,Default,,0,0,0,,¡Él me dijo que fingiera estar enfermo\Npara que pudiera escaparse!
+Dialogue: 0,0:12:40.34,0:12:42.26,Default,,0,0,0,,¡Soy tan tonto por haberlo escuchado!
+Dialogue: 0,0:12:42.34,0:12:43.47,Default,,0,0,0,,- ¿Es verdad, Nendo?\N- ¿Qué?
+Dialogue: 0,0:12:43.55,0:12:46.59,Default,,0,0,0,,{\i1}¿Culpar a Nendo?\NNo es una mala estrategia.{\i0}
+Dialogue: 0,0:12:46.76,0:12:48.60,Default,,0,0,0,,Saiki, ¿qué haces aquí?
+Dialogue: 0,0:12:48.68,0:12:49.51,Default,,0,0,0,,{\i1}¿Qué?{\i0}
+Dialogue: 0,0:12:49.60,0:12:51.14,Default,,0,0,0,,¿También está involucrado, Takahashi?
+Dialogue: 0,0:12:51.22,0:12:52.48,Default,,0,0,0,,¿Qué? Claro, él también.
+Dialogue: 0,0:12:52.56,0:12:54.31,Default,,0,0,0,,¡Suficiente! ¡Los dos a mi oficina ahora!
+Dialogue: 0,0:12:54.44,0:12:56.73,Default,,0,0,0,,{\i1}Arrastrarme a esto es una muy mala idea.{\i0}
+Dialogue: 0,0:12:56.81,0:12:58.73,Default,,0,0,0,,- Espere un segundo.\N{\i1}- ¿Qué?{\i0}
+Dialogue: 0,0:12:58.94,0:13:00.23,Default,,0,0,0,,Él está realmente enfermo.
+Dialogue: 0,0:13:00.32,0:13:02.03,Default,,0,0,0,,¿No escuchó lo que dijo?
+Dialogue: 0,0:13:02.11,0:13:03.61,Default,,0,0,0,,Tiene la cabeza hueca.
+Dialogue: 0,0:13:03.86,0:13:05.11,Default,,0,0,0,,{\i1}Debes estar bromeando.{\i0}
+Dialogue: 0,0:13:05.66,0:13:07.41,Default,,0,0,0,,{\i1}¿Cree que "cabeza hueca"\Nes una enfermedad?{\i0}
+Dialogue: 0,0:13:07.49,0:13:08.53,Default,,0,0,0,,Es eso, ¿verdad?
+Dialogue: 0,0:13:08.62,0:13:10.79,Default,,0,0,0,,¿Cabeza hueca? ¿De qué hablas?
+Dialogue: 0,0:13:10.87,0:13:11.70,Default,,0,0,0,,{\i1}La cabeza hueca{\i0}
+Dialogue: 0,0:13:11.79,0:13:14.12,Default,,0,0,0,,{\i1}es causada por un virus\Nque invade los folículos.{\i0}
+Dialogue: 0,0:13:14.21,0:13:15.25,Default,,0,0,0,,¡Cabeza hueca! Lo recuerdo.
+Dialogue: 0,0:13:15.33,0:13:16.83,Default,,0,0,0,,- ¡Imposible!\N{\i1}- Vaya. Tonto y retonto.{\i0}
+Dialogue: 0,0:13:17.04,0:13:18.58,Default,,0,0,0,,Midamos tu temperatura.
+Dialogue: 0,0:13:18.67,0:13:20.55,Default,,0,0,0,,Si estás enfermo, debes tener fiebre.
+Dialogue: 0,0:13:20.75,0:13:23.51,Default,,0,0,0,,{\i1}Déjenme en paz. No tengo fiebre.{\i0}
+Dialogue: 0,0:13:24.22,0:13:26.05,Default,,0,0,0,,- Es 92,8 grados.\N- ¿Qué?
+Dialogue: 0,0:13:26.30,0:13:27.89,Default,,0,0,0,,¡Llamen a una ambulancia!
+Dialogue: 0,0:13:28.09,0:13:29.22,Default,,0,0,0,,¡Aguanta!
+Dialogue: 0,0:13:29.47,0:13:31.06,Default,,0,0,0,,¡Quédate con nosotros!
+Dialogue: 0,0:13:31.14,0:13:33.77,Default,,0,0,0,,{\i1}Usé piroquinesis,\Nla habilidad de manipular el calor.{\i0}
+Dialogue: 0,0:13:34.31,0:13:35.56,Default,,0,0,0,,{\i1}Parece que lo derretí un poco.{\i0}
+Dialogue: 0,0:13:35.98,0:13:37.48,Default,,0,0,0,,{\i1}Necesito destruir la evidencia.{\i0}
+Dialogue: 0,0:13:37.90,0:13:39.52,Default,,0,0,0,,- Oye...\N{\i1}- Diablos. ¡Me vio!{\i0}
+Dialogue: 0,0:13:39.77,0:13:42.40,Default,,0,0,0,,¡No me digas que también\Ntienes cabeza hueca!
+Dialogue: 0,0:13:42.65,0:13:43.53,Default,,0,0,0,,¡Aguanta!
+Dialogue: 0,0:13:43.61,0:13:45.82,Default,,0,0,0,,{\i1}Nendo sí que da miedo.{\i0}
+Dialogue: 0,0:13:52.12,0:13:53.70,Default,,0,0,0,,{\i1}Mi nombre es Shun Kaido.{\i0}
+Dialogue: 0,0:13:53.79,0:13:56.21,Default,,0,0,0,,{\i1}Soy estudiante de decimoprimer grado\Nde la academia PK.{\i0}
+Dialogue: 0,0:13:56.29,0:13:57.12,Default,,0,0,0,,{\i1}Bueno, por fuera.{\i0}
+Dialogue: 0,0:13:57.83,0:14:00.88,Default,,0,0,0,,{\i1}Una fuerza maligna llamada Pulso Oscuro\Nmora en mi brazo derecho.{\i0}
+Dialogue: 0,0:14:01.17,0:14:04.38,Default,,0,0,0,,{\i1}Quieren robármela\Ny forjar un nuevo orden mundial.{\i0}
+Dialogue: 0,0:14:04.88,0:14:07.30,Default,,0,0,0,,{\i1}¡Son parte de una sociedad secreta\Nllamada Unión Oscura!{\i0}
+Dialogue: 0,0:14:07.51,0:14:09.22,Default,,0,0,0,,{\i1}Pero debo proteger al mundo.{\i0}
+Dialogue: 0,0:14:09.30,0:14:11.05,Default,,0,0,0,,{\i1}Yo, Alas Sombrías, ¡debo salvar el día!{\i0}
+Dialogue: 0,0:14:12.22,0:14:14.27,Default,,0,0,0,,{\i1}El cerebro de ese chico\Nestá atorado en la secundaria.{\i0}
+Dialogue: 0,0:14:14.89,0:14:16.31,Default,,0,0,0,,{\i1}Oye, ¿escuchaste las noticias?{\i0}
+Dialogue: 0,0:14:16.39,0:14:17.52,Default,,0,0,0,,{\i1}Hay una víbora suelta.{\i0}
+Dialogue: 0,0:14:17.69,0:14:19.35,Default,,0,0,0,,¿De verdad? ¡Eso es muy peligroso!
+Dialogue: 0,0:14:19.60,0:14:21.44,Default,,0,0,0,,¿Están seguros de que anda suelta?
+Dialogue: 0,0:14:21.94,0:14:24.44,Default,,0,0,0,,Parece otra mentira de la Unión Oscura.
+Dialogue: 0,0:14:25.11,0:14:28.11,Default,,0,0,0,,¡Pero no pueden engañar a Alas Sombrías!
+Dialogue: 0,0:14:28.28,0:14:30.41,Default,,0,0,0,,¡Alguien soltó a esa víbora!
+Dialogue: 0,0:14:30.62,0:14:32.33,Default,,0,0,0,,¡Espera un minuto! ¿Sabes quién hizo esto?
+Dialogue: 0,0:14:32.41,0:14:34.29,Default,,0,0,0,,¿Ese tal Alas Sombrías lo hizo?
+Dialogue: 0,0:14:34.37,0:14:36.50,Default,,0,0,0,,¡No! ¡Yo soy Alas Sombrías!
+Dialogue: 0,0:14:36.75,0:14:39.29,Default,,0,0,0,,¡Una sociedad secreta\Nllamada Unión Oscura está detrás de esto!
+Dialogue: 0,0:14:39.37,0:14:42.42,Default,,0,0,0,,¡Y este es el primer paso\Nde su plan para controlar a la humanidad!
+Dialogue: 0,0:14:42.54,0:14:43.63,Default,,0,0,0,,{\i1}¿La Unión Oscura?{\i0}
+Dialogue: 0,0:14:43.71,0:14:44.55,Default,,0,0,0,,{\i1}Nunca los oí nombrar.{\i0}
+Dialogue: 0,0:14:44.63,0:14:46.46,Default,,0,0,0,,Qué pérdida de tiempo.
+Dialogue: 0,0:14:47.13,0:14:49.97,Default,,0,0,0,,Supongo que depende de nosotros,\Nlos superhéroes.
+Dialogue: 0,0:14:50.05,0:14:51.22,Default,,0,0,0,,- ¿Verdad, Saiki?\N{\i1}- Como sea.{\i0}
+Dialogue: 0,0:14:51.39,0:14:54.18,Default,,0,0,0,,{\i1}Por supuesto, él no sabe\Nque soy psíquico de verdad.{\i0}
+Dialogue: 0,0:14:54.26,0:14:55.77,Default,,0,0,0,,{\i1}Todo es parte de su fantasía.{\i0}
+Dialogue: 0,0:14:55.85,0:14:56.97,Default,,0,0,0,,Saiki, dime qué piensas.
+Dialogue: 0,0:14:57.06,0:14:58.48,Default,,0,0,0,,Esto no me gusta para nada.
+Dialogue: 0,0:14:58.56,0:15:00.81,Default,,0,0,0,,{\i1}Esa víbora, a la que llamo\Nla Víbora Asesina Dragoram,{\i0}
+Dialogue: 0,0:15:00.90,0:15:02.19,Default,,0,0,0,,{\i1}¡no debe ser una víbora común!{\i0}
+Dialogue: 0,0:15:02.27,0:15:04.11,Default,,0,0,0,,{\i1}Qué nombre tan dramático.{\i0}
+Dialogue: 0,0:15:04.19,0:15:05.82,Default,,0,0,0,,{\i1}Esta Víbora Asesina Dragoram{\i0}
+Dialogue: 0,0:15:05.90,0:15:08.65,Default,,0,0,0,,{\i1}debe ser un monstruo peligroso\Ncreado en su laboratorio secreto.{\i0}
+Dialogue: 0,0:15:08.74,0:15:09.74,Default,,0,0,0,,{\i1}Eso es pura especulación.{\i0}
+Dialogue: 0,0:15:10.07,0:15:11.36,Default,,0,0,0,,Depende de nosotros.
+Dialogue: 0,0:15:11.45,0:15:15.08,Default,,0,0,0,,- Debemos salvar a la humanidad de...\N- Oye, ¡atraparon a la víbora!
+Dialogue: 0,0:15:15.16,0:15:16.74,Default,,0,0,0,,¡Gracias a Dios! ¿Dónde estaba?
+Dialogue: 0,0:15:16.83,0:15:18.08,Default,,0,0,0,,En la puerta.
+Dialogue: 0,0:15:18.29,0:15:20.33,Default,,0,0,0,,{\i1}Al parecer estaba casi muerta.{\i0}
+Dialogue: 0,0:15:20.75,0:15:23.88,Default,,0,0,0,,{\i1}¡No puede ser! ¿Habrá otros con poderes\Ncomo los nuestros afuera?{\i0}
+Dialogue: 0,0:15:23.96,0:15:25.13,Default,,0,0,0,,¿Por qué estaba casi muerta?
+Dialogue: 0,0:15:25.21,0:15:27.30,Default,,0,0,0,,{\i1}Dicen que unos niños de primaria\Njugaban con ella.{\i0}
+Dialogue: 0,0:15:27.38,0:15:29.59,Default,,0,0,0,,{\i1}¿Quién diría que\Nla Víbora Asesina Dragoram era tan débil?{\i0}
+Dialogue: 0,0:15:29.67,0:15:31.51,Default,,0,0,0,,Tal vez la Unión Oscura\Nno es tan peligrosa.
+Dialogue: 0,0:15:31.59,0:15:34.39,Default,,0,0,0,,¡Cuidado! ¡Estamos hablando\Nde una sociedad secreta!
+Dialogue: 0,0:15:34.51,0:15:36.97,Default,,0,0,0,,¡Sigue así y te descubrirán!
+Dialogue: 0,0:15:38.35,0:15:41.44,Default,,0,0,0,,Adelante, ríanse mientras puedan.
+Dialogue: 0,0:15:41.73,0:15:43.06,Default,,0,0,0,,Es la calma antes de la tormenta.
+Dialogue: 0,0:15:43.27,0:15:47.02,Default,,0,0,0,,Vienen por nosotros.\NIntenté advertirles...
+Dialogue: 0,0:15:47.11,0:15:48.61,Default,,0,0,0,,{\i1}Se va al baño a llorar.{\i0}
+Dialogue: 0,0:15:49.44,0:15:51.15,Default,,0,0,0,,{\i1}Supongo que yo iré también.{\i0}
+Dialogue: 0,0:15:51.24,0:15:53.11,Default,,0,0,0,,¿Viste su cara?\N¡Estaba rojo como un tomate!
+Dialogue: 0,0:15:53.36,0:15:55.41,Default,,0,0,0,,Una vez, dijo que su brazo\Nfue poseído por un demonio.
+Dialogue: 0,0:15:55.49,0:15:57.95,Default,,0,0,0,,Dijo: "Se mueve dentro de mi brazo\Notra vez".
+Dialogue: 0,0:15:59.08,0:15:59.91,Default,,0,0,0,,¡Así!
+Dialogue: 0,0:16:00.00,0:16:01.62,Default,,0,0,0,,- Esperen, ¡se mueve de verdad!\N- ¿Qué?
+Dialogue: 0,0:16:02.83,0:16:04.92,Default,,0,0,0,,Por Dios, ¡es una víbora! ¡Corran!
+Dialogue: 0,0:16:05.00,0:16:06.13,Default,,0,0,0,,¡Está bloqueando la puerta!
+Dialogue: 0,0:16:06.46,0:16:09.46,Default,,0,0,0,,{\i1}Vi que pasaría todo eso\Ndebido a mis poderes.{\i0}
+Dialogue: 0,0:16:10.38,0:16:12.72,Default,,0,0,0,,{\i1}Pero no quiero usarlos frente a los demás,{\i0}
+Dialogue: 0,0:16:12.84,0:16:14.76,Default,,0,0,0,,{\i1}así que me quedaré aquí\Nhasta que todo se calme.{\i0}
+Dialogue: 0,0:16:14.97,0:16:18.22,Default,,0,0,0,,{\i1}Parece que él necesita calmarse también.{\i0}
+Dialogue: 0,0:16:18.47,0:16:20.06,Default,,0,0,0,,{\i1}Veamos cómo le va...{\i0}
+Dialogue: 0,0:16:20.22,0:16:21.06,Default,,0,0,0,,¿Dónde fue la víbora?
+Dialogue: 0,0:16:21.14,0:16:22.48,Default,,0,0,0,,¡Alguien llame a la maestra!
+Dialogue: 0,0:16:22.69,0:16:24.23,Default,,0,0,0,,¡Imposible! ¡Nos morderá!
+Dialogue: 0,0:16:24.73,0:16:25.98,Default,,0,0,0,,¡Cobardes!
+Dialogue: 0,0:16:26.06,0:16:28.57,Default,,0,0,0,,- ¡Nendo! ¿De dónde saliste?\N- ¿Qué pasa? ¿No tienen cojones?
+Dialogue: 0,0:16:28.65,0:16:30.61,Default,,0,0,0,,- ¡Yo me preocuparía por los tuyos!\N- ¿En serio?
+Dialogue: 0,0:16:30.69,0:16:31.74,Default,,0,0,0,,¡Mira!
+Dialogue: 0,0:16:31.94,0:16:33.36,Default,,0,0,0,,¡Te los está mordiendo!
+Dialogue: 0,0:16:36.41,0:16:37.24,Default,,0,0,0,,- ¡Nendo!\N- ¡Nendo!
+Dialogue: 0,0:16:37.33,0:16:38.16,Default,,0,0,0,,{\i1}Estoy perdido.{\i0}
+Dialogue: 0,0:16:39.24,0:16:41.75,Default,,0,0,0,,{\i1}Calma. Solo mordía sus pantalones.{\i0}
+Dialogue: 0,0:16:41.95,0:16:42.79,Default,,0,0,0,,{\i1}Clarividencia.{\i0}
+Dialogue: 0,0:16:42.87,0:16:44.33,Default,,0,0,0,,{\i1}Saiki cruza los ojos,{\i0}
+Dialogue: 0,0:16:44.42,0:16:47.13,Default,,0,0,0,,{\i1}¡esto le da el poder de ver más lejos!{\i0}
+Dialogue: 0,0:16:47.96,0:16:49.09,Default,,0,0,0,,{\i1}- ¡Ustedes escapen!\N- ¿Qué?{\i0}
+Dialogue: 0,0:16:49.34,0:16:50.59,Default,,0,0,0,,¡Yo me encargo!
+Dialogue: 0,0:16:50.71,0:16:52.26,Default,,0,0,0,,¿Kaido? ¿Qué diablos haces?
+Dialogue: 0,0:16:52.34,0:16:54.18,Default,,0,0,0,,Víbora Asesina Dragoram.
+Dialogue: 0,0:16:54.51,0:16:57.18,Default,,0,0,0,,Alas Sombrías está ante ti. ¡Prepárate!
+Dialogue: 0,0:16:57.26,0:16:58.35,Default,,0,0,0,,¡Qué pose rara!
+Dialogue: 0,0:16:58.43,0:16:59.60,Default,,0,0,0,,¡Salgamos de aquí!
+Dialogue: 0,0:16:59.68,0:17:02.64,Default,,0,0,0,,De verdad cree que es un superhéroe.
+Dialogue: 0,0:17:02.81,0:17:04.31,Default,,0,0,0,,{\i1}Bueno, en verdad está actuando,{\i0}
+Dialogue: 0,0:17:04.39,0:17:06.52,Default,,0,0,0,,{\i1}pero deberían oír lo que pasa\Ndentro de su cabeza.{\i0}
+Dialogue: 0,0:17:06.98,0:17:09.77,Default,,0,0,0,,{\i1}¿Por qué me paro frente a esta cosa?\N¿Cuál es mi problema?{\i0}
+Dialogue: 0,0:17:13.07,0:17:14.15,Default,,0,0,0,,{\i1}¡Ahora ya lo hice!{\i0}
+Dialogue: 0,0:17:14.24,0:17:15.49,Default,,0,0,0,,{\i1}Perdón, mamá.{\i0}
+Dialogue: 0,0:17:15.70,0:17:18.87,Default,,0,0,0,,- ¡Toma esto! Caballeros Apocalípticos...\N{\i1}- Perdona, Kaido.{\i0}
+Dialogue: 0,0:17:19.16,0:17:20.66,Default,,0,0,0,,{\i1}Temo que debo robarte el protagonismo.{\i0}
+Dialogue: 0,0:17:20.74,0:17:22.75,Default,,0,0,0,,¡Del Trueno!
+Dialogue: 0,0:17:25.58,0:17:26.67,Default,,0,0,0,,- ¿Qué?\N- ¡Vaya!
+Dialogue: 0,0:17:26.75,0:17:28.42,Default,,0,0,0,,¡Viva Alas Sombrías!
+Dialogue: 0,0:17:28.54,0:17:30.34,Default,,0,0,0,,{\i1}Perdón por el chiste sobre la secundaria.{\i0}
+Dialogue: 0,0:17:30.42,0:17:31.88,Default,,0,0,0,,{\i1}Tal vez no tengas poderes, {\i0}
+Dialogue: 0,0:17:31.96,0:17:33.84,Default,,0,0,0,,{\i1}pero de veras tienes más coraje\Nque la mayoría.{\i0}
+Dialogue: 0,0:17:33.92,0:17:35.93,Default,,0,0,0,,{\i1}¡De verdad soy un superhéroe!{\i0}
+Dialogue: 0,0:17:36.68,0:17:38.68,Default,,0,0,0,,{\i1}Y así terminó la crisis.{\i0}
+Dialogue: 0,0:17:38.93,0:17:41.26,Default,,0,0,0,,No me gusta esta nueva actitud\Nque tienes, Kaido.
+Dialogue: 0,0:17:41.35,0:17:42.77,Default,,0,0,0,,Cuidado cómo me hablas.
+Dialogue: 0,0:17:42.93,0:17:46.14,Default,,0,0,0,,A menos que quieras que te acechen\Nlos Caballeros Apocalípticos del Trueno.
+Dialogue: 0,0:17:46.23,0:17:47.40,Default,,0,0,0,,Oficina del supervisor. Ahora.
+Dialogue: 0,0:17:47.48,0:17:49.02,Default,,0,0,0,,{\i1}Ahora está delirando más que antes.{\i0}
+Dialogue: 0,0:17:49.11,0:17:50.73,Default,,0,0,0,,{\i1}Este chico no tiene esperanza.{\i0}
+Dialogue: 0,0:17:56.70,0:17:57.82,Default,,0,0,0,,{\i1}Chicas hermosas.{\i0}
+Dialogue: 0,0:17:57.91,0:18:00.37,Default,,0,0,0,,{\i1}No hay nada como una linda chica\Nque se destaque del resto.{\i0}
+Dialogue: 0,0:18:00.87,0:18:02.91,Default,,0,0,0,,{\i1}Mi nombre es Kokomi Teruashi.{\i0}
+Dialogue: 0,0:18:02.99,0:18:06.21,Default,,0,0,0,,{\i1}No quiero presumir ni nada,\Npero soy el ejemplo de una chica linda.{\i0}
+Dialogue: 0,0:18:06.79,0:18:09.58,Default,,0,0,0,,{\i1}No intento ser arrogante.\NSolo expreso un hecho.{\i0}
+Dialogue: 0,0:18:10.21,0:18:13.30,Default,,0,0,0,,{\i1}No es como si fuera por ahí\Njactándome de mi belleza.{\i0}
+Dialogue: 0,0:18:14.01,0:18:15.42,Default,,0,0,0,,Oye, ¿vamos a beber un té?
+Dialogue: 0,0:18:15.63,0:18:17.17,Default,,0,0,0,,{\i1}Si fuera una chica normal...{\i0}
+Dialogue: 0,0:18:17.30,0:18:19.51,Default,,0,0,0,,¿Y si vas a un chiquero\Ne invitas a salir a un puerco?
+Dialogue: 0,0:18:19.59,0:18:21.30,Default,,0,0,0,,{\i1}Tal vez diría algo como eso.{\i0}
+Dialogue: 0,0:18:21.72,0:18:22.81,Default,,0,0,0,,{\i1}Pero soy diferente.{\i0}
+Dialogue: 0,0:18:23.43,0:18:24.60,Default,,0,0,0,,Lo siento tanto.
+Dialogue: 0,0:18:24.68,0:18:26.81,Default,,0,0,0,,De veras debo ir a estudiar.
+Dialogue: 0,0:18:27.89,0:18:29.23,Default,,0,0,0,,¡Buena suerte!
+Dialogue: 0,0:18:30.15,0:18:32.86,Default,,0,0,0,,{\i1}¿Ven? ¡Soy hermosa por dentro y por fuera!{\i0}
+Dialogue: 0,0:18:32.94,0:18:34.61,Default,,0,0,0,,{\i1}¿Y saben lo que significa eso?{\i0}
+Dialogue: 0,0:18:34.98,0:18:36.44,Default,,0,0,0,,{\i1}Que soy incomparable.{\i0}
+Dialogue: 0,0:18:37.99,0:18:39.57,Default,,0,0,0,,{\i1}Ese chico es de mi clase.{\i0}
+Dialogue: 0,0:18:39.66,0:18:40.66,Default,,0,0,0,,{\i1}¿Cómo se llamaba?{\i0}
+Dialogue: 0,0:18:40.82,0:18:42.03,Default,,0,0,0,,{\i1}Ah, claro, Saiki.{\i0}
+Dialogue: 0,0:18:42.12,0:18:43.37,Default,,0,0,0,,{\i1}Kunio Saiki.{\i0}
+Dialogue: 0,0:18:43.45,0:18:45.62,Default,,0,0,0,,{\i1}Se ve tan solitario caminando así.{\i0}
+Dialogue: 0,0:18:45.79,0:18:48.46,Default,,0,0,0,,{\i1}Tal vez debería llamarlo\Ny alegrarle el día.{\i0}
+Dialogue: 0,0:18:49.46,0:18:51.75,Default,,0,0,0,,{\i1}Después de todo, soy perfecta por fuera{\i0}
+Dialogue: 0,0:18:51.83,0:18:53.96,Default,,0,0,0,,{\i1}y por dentro.{\i0}
+Dialogue: 0,0:18:54.38,0:18:55.46,Default,,0,0,0,,¡Hola, Saiki!
+Dialogue: 0,0:18:55.63,0:18:57.42,Default,,0,0,0,,¡Así que eres tú!
+Dialogue: 0,0:18:57.72,0:18:58.63,Default,,0,0,0,,{\i1}¡Aquí tienes!{\i0}
+Dialogue: 0,0:18:58.72,0:19:00.80,Default,,0,0,0,,{\i1}¡Ahora tienes un recuerdo\Npara atesorar por siempre!{\i0}
+Dialogue: 0,0:19:01.26,0:19:04.06,Default,,0,0,0,,{\i1}Te encontraste de casualidad\Ncon la chica más linda de la clase.{\i0}
+Dialogue: 0,0:19:04.14,0:19:06.68,Default,,0,0,0,,{\i1}¡Sin mencionar que ella vino corriendo\Na saludarte!{\i0}
+Dialogue: 0,0:19:07.10,0:19:08.77,Default,,0,0,0,,{\i1}¡Apuesto a que estás muy enamorado de mí!{\i0}
+Dialogue: 0,0:19:08.85,0:19:11.44,Default,,0,0,0,,{\i1}Está bien. Tal vez sea\Ndemasiado para ti, pero adelante.{\i0}
+Dialogue: 0,0:19:11.65,0:19:13.15,Default,,0,0,0,,{\i1}¿Quién podría culparte?{\i0}
+Dialogue: 0,0:19:13.65,0:19:15.86,Default,,0,0,0,,{\i1}¡Nadie puede resistir mi belleza!{\i0}
+Dialogue: 0,0:19:17.78,0:19:18.82,Default,,0,0,0,,{\i1}¿Eso es todo?{\i0}
+Dialogue: 0,0:19:18.99,0:19:21.07,Default,,0,0,0,,- {\i1}¿Qué clase de reacción fue esa?{\i0}\N- ¡Teruhashi!
+Dialogue: 0,0:19:21.32,0:19:24.08,Default,,0,0,0,,{\i1}¡Ya sé! ¡Estaba tan sorprendido\Nque lo dejé mudo!{\i0}
+Dialogue: 0,0:19:24.16,0:19:26.49,Default,,0,0,0,,{\i1}¡Es la única explicación lógica!{\i0}
+Dialogue: 0,0:19:26.74,0:19:27.58,Default,,0,0,0,,{\i1}Pobrecito.{\i0}
+Dialogue: 0,0:19:27.66,0:19:30.37,Default,,0,0,0,,{\i1}Seguro que se está lamentando\Npor haber perdido la oportunidad.{\i0}
+Dialogue: 0,0:19:30.67,0:19:32.88,Default,,0,0,0,,{\i1}Está bien. Le daré otra chance.{\i0}
+Dialogue: 0,0:19:32.96,0:19:36.63,Default,,0,0,0,,{\i1}¡Eso es porque soy perfecta\Npor dentro y por fuera!{\i0}
+Dialogue: 0,0:19:36.88,0:19:40.22,Default,,0,0,0,,¡Saiki! Oye, no deberías\Nignorar a las personas, ¿sabes?
+Dialogue: 0,0:19:40.38,0:19:41.55,Default,,0,0,0,,{\i1}¡Ni siquiera asintió!{\i0}
+Dialogue: 0,0:19:41.63,0:19:44.43,Default,,0,0,0,,{\i1}¿No me vio? ¿Estoy muerta?{\i0}
+Dialogue: 0,0:19:44.51,0:19:46.26,Default,,0,0,0,,{\i1}¡Ahora entendí!{\i0}
+Dialogue: 0,0:19:46.43,0:19:48.77,Default,,0,0,0,,{\i1}¡Debe pensar que soy una ilusión!{\i0}
+Dialogue: 0,0:19:48.85,0:19:50.23,Default,,0,0,0,,{\i1}Vive una vida tan desafortunada,{\i0}
+Dialogue: 0,0:19:50.31,0:19:52.14,Default,,0,0,0,,{\i1}que no cree que sea real.{\i0}
+Dialogue: 0,0:19:52.40,0:19:54.73,Default,,0,0,0,,{\i1}Bueno, te ganaste un premio.\NVoy a regalarte{\i0}
+Dialogue: 0,0:19:54.81,0:19:56.40,Default,,0,0,0,,{\i1}el momento más feliz de tu vida.{\i0}
+Dialogue: 0,0:19:57.23,0:20:00.53,Default,,0,0,0,,Saiki, ¿a dónde vas?
+Dialogue: 0,0:20:01.49,0:20:02.53,Default,,0,0,0,,{\i1}¡Me esquivó!{\i0}
+Dialogue: 0,0:20:02.66,0:20:03.53,Default,,0,0,0,,{\i1}¿Qué está pasando?{\i0}
+Dialogue: 0,0:20:03.61,0:20:05.87,Default,,0,0,0,,{\i1}La mayoría de la gente\Nno intenta esquivar las ilusiones.{\i0}
+Dialogue: 0,0:20:06.16,0:20:09.70,Default,,0,0,0,,{\i1}Esperen. ¿Tendrá miedo de tocar\Na un ser etéreo?{\i0}
+Dialogue: 0,0:20:10.66,0:20:14.79,Default,,0,0,0,,{\i1}¡No puedo creer\Nque signifique tanto para él!{\i0}
+Dialogue: 0,0:20:15.29,0:20:18.21,Default,,0,0,0,,{\i1}Genial. Otra persona molesta\Ncon la cual lidiar.{\i0}
+Dialogue: 0,0:20:18.30,0:20:20.42,Default,,0,0,0,,¡Oye, Saiki!
+Dialogue: 0,0:20:20.51,0:20:21.42,Default,,0,0,0,,{\i1}¿Otra vez?{\i0}
+Dialogue: 0,0:20:21.51,0:20:24.59,Default,,0,0,0,,{\i1}Supongo que no está familiarizada\Ncon el concepto del rechazo.{\i0}
+Dialogue: 0,0:20:24.80,0:20:27.22,Default,,0,0,0,,{\i1}Bueno,\Nes cierto que las personas normales...{\i0}
+Dialogue: 0,0:20:27.56,0:20:29.43,Default,,0,0,0,,¡Vaya! Hola, Teruhashi.
+Dialogue: 0,0:20:29.52,0:20:30.81,Default,,0,0,0,,{\i1}...tal vez reaccionarían así.{\i0}
+Dialogue: 0,0:20:30.89,0:20:31.73,Default,,0,0,0,,{\i1}Incluso Nendo...{\i0}
+Dialogue: 0,0:20:31.81,0:20:33.44,Default,,0,0,0,,Teruhashi.
+Dialogue: 0,0:20:33.52,0:20:34.56,Default,,0,0,0,,{\i1}Él no sería inmune.{\i0}
+Dialogue: 0,0:20:34.65,0:20:37.44,Default,,0,0,0,,{\i1}Todo lo que dice sobre sí misma\Nes de hecho bastante cierto.{\i0}
+Dialogue: 0,0:20:37.57,0:20:39.19,Default,,0,0,0,,{\i1}Y por eso es tan peligrosa.{\i0}
+Dialogue: 0,0:20:39.69,0:20:41.15,Default,,0,0,0,,{\i1}Teruhashi es un imán de atención.{\i0}
+Dialogue: 0,0:20:41.24,0:20:42.49,Default,,0,0,0,,{\i1}Es la última persona{\i0}
+Dialogue: 0,0:20:42.57,0:20:44.36,Default,,0,0,0,,{\i1}- que quiero cerca.{\i0}\N- Oye, ¿hacia dónde vas?
+Dialogue: 0,0:20:44.45,0:20:47.16,Default,,0,0,0,,¿Te importa si te acompaño?
+Dialogue: 0,0:20:47.37,0:20:48.78,Default,,0,0,0,,{\i1}¿Qué? ¿Nendo?{\i0}
+Dialogue: 0,0:20:49.41,0:20:50.41,Default,,0,0,0,,{\i1}Esto no es bueno.{\i0}
+Dialogue: 0,0:20:50.49,0:20:52.16,Default,,0,0,0,,{\i1}Si me la señala,{\i0}
+Dialogue: 0,0:20:52.25,0:20:54.62,Default,,0,0,0,,{\i1}no tendré otra opción\Nque notar su existencia.{\i0}
+Dialogue: 0,0:20:54.71,0:20:56.92,Default,,0,0,0,,{\i1}Y luego tendré que fingir que la idolatro.{\i0}
+Dialogue: 0,0:20:57.08,0:20:58.50,Default,,0,0,0,,¡Vaya! ¡Teruhashi!
+Dialogue: 0,0:20:58.59,0:21:00.13,Default,,0,0,0,,{\i1}Realmente no quiero hacer eso.{\i0}
+Dialogue: 0,0:21:00.55,0:21:02.09,Default,,0,0,0,,{\i1}Me esconderé entre la gente.{\i0}
+Dialogue: 0,0:21:02.67,0:21:04.63,Default,,0,0,0,,{\i1}¿Se fue? Eso estuvo cerca...{\i0}
+Dialogue: 0,0:21:04.72,0:21:07.47,Default,,0,0,0,,¿Qué? Siento que mi compañero está cerca.
+Dialogue: 0,0:21:07.72,0:21:10.22,Default,,0,0,0,,¿Qué? ¿A dónde fue Saiki?
+Dialogue: 0,0:21:10.31,0:21:11.47,Default,,0,0,0,,¿Qué pasó?
+Dialogue: 0,0:21:11.56,0:21:14.52,Default,,0,0,0,,{\i1}- Genial. Me teletransporté por accidente.{\i0}\N- ¡Saiki!
+Dialogue: 0,0:21:15.39,0:21:17.69,Default,,0,0,0,,{\i1}Parece que la gente a mi alrededor\Nno se dio cuenta,{\i0}
+Dialogue: 0,0:21:17.77,0:21:20.19,Default,,0,0,0,,{\i1}pero Teruhashi parece pensar\Nque algo no anda bien.{\i0}
+Dialogue: 0,0:21:20.27,0:21:23.15,Default,,0,0,0,,{\i1}Solo considérame una ilusión\Ny olvídate de todo.{\i0}
+Dialogue: 0,0:21:23.32,0:21:24.78,Default,,0,0,0,,¡Nendo!
+Dialogue: 0,0:21:26.36,0:21:28.41,Default,,0,0,0,,Hola, Teruhashi.
+Dialogue: 0,0:21:28.49,0:21:29.66,Default,,0,0,0,,¿Viste a Saiki?
+Dialogue: 0,0:21:29.74,0:21:32.33,Default,,0,0,0,,¿Qué? ¿Mi compañero? No, no lo vi.
+Dialogue: 0,0:21:32.41,0:21:34.41,Default,,0,0,0,,{\i1}Un momento, ¿desapareció?{\i0}
+Dialogue: 0,0:21:34.50,0:21:37.04,Default,,0,0,0,,{\i1}¿Era yo quien veía\Nuna ilusión todo este tiempo?{\i0}
+Dialogue: 0,0:21:37.12,0:21:40.09,Default,,0,0,0,,{\i1}Estás tan enamorado de mí\Nque me ves en todos lados, ¿no?{\i0}
+Dialogue: 0,0:21:40.42,0:21:41.63,Default,,0,0,0,,{\i1}No puede ser...{\i0}
+Dialogue: 0,0:21:41.71,0:21:43.76,Default,,0,0,0,,{\i1}Estoy... No, ¡no puede ser!{\i0}
+Dialogue: 0,0:21:44.13,0:21:46.26,Default,,0,0,0,,{\i1}¡No! ¿Qué es esto que siento\Nen mi interior?{\i0}
+Dialogue: 0,0:21:46.68,0:21:51.14,Default,,0,0,0,,{\i1}¿De verdad amo a Saiki?{\i0}
+Dialogue: 0,0:21:51.89,0:21:53.14,Default,,0,0,0,,{\i1}Vaya.{\i0}
+Dialogue: 0,0:21:54.14,0:21:55.35,Default,,0,0,0,,{\i1}Teruhashi...{\i0}
+Dialogue: 0,0:23:26.40,0:23:27.86,Default,,0,0,0,,{\i1}Mi nombre es Kusuo Saiki.{\i0}
+Dialogue: 0,0:23:28.28,0:23:31.20,Default,,0,0,0,,{\i1}Esta información es muy importante,\Nasí que dejen que refresque su memoria.{\i0}
+Dialogue: 0,0:23:31.28,0:23:33.32,Default,,0,0,0,,{\i1}Soy psíquico con numerosos poderes.{\i0}
+Dialogue: 0,0:23:34.58,0:23:35.87,Default,,0,0,0,,{\i1}Quisiera que ya se callaran.{\i0}
+Dialogue: 0,0:23:36.08,0:23:38.50,Default,,0,0,0,,{\i1}En el próximo capítulo,{\i0}
+Dialogue: 0,0:23:38.62,0:23:40.54,Default,,0,0,0,,{\i1}seguiré presentando episodios\Nbasados en el manga.{\i0}
+Dialogue: 0,0:23:40.62,0:23:42.08,Default,,0,0,0,,Subtítulos: Ignacio Gómez

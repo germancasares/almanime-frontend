@@ -1,4 +1,6 @@
-import { MouseEvent, useMemo, useRef } from 'react';
+import {
+  ChangeEvent, MouseEvent, useRef,
+} from 'react';
 import { Dialogue } from 'ass-compiler';
 
 import './line.scss';
@@ -7,22 +9,24 @@ const Line = ({
   dialogue,
   currentTime,
   onClick,
+  onChange,
 }: {
   dialogue: Dialogue,
   currentTime: number,
   onClick: (event: MouseEvent<HTMLDivElement>) => void,
+  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void,
 }) => {
   const lineRef = useRef<HTMLDivElement | null>(null);
   const { start, end } = dialogue;
   const isAfterStart = start <= (currentTime ?? 0);
   const isBeforeEnd = end > (currentTime ?? 0);
-  const text = useMemo(() => dialogue.slices.reduce(
+  const text = dialogue.slices.reduce(
     (line, slice) => line + slice.fragments.reduce(
-      (subline, frag) => subline + frag.text,
+      (lineFragment, fragment) => lineFragment + fragment.text,
       '',
     ),
     '',
-  ), [dialogue.slices]);
+  ).replaceAll('\\N', '\n');
 
   if (lineRef.current && isAfterStart && isBeforeEnd) {
     lineRef.current.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
@@ -36,12 +40,14 @@ const Line = ({
       className={`line${(isAfterStart && isBeforeEnd) ? ' active' : ''}`}
       onClick={onClick}
       onKeyUp={() => {}}
+      data-replicated-value={text}
     >
-      <div className="card-content">
-        <div className="content">
-          {text.replaceAll('\\N', '\n')}
-        </div>
-      </div>
+      <textarea
+        className="textarea"
+        rows={1}
+        value={text}
+        onChange={onChange}
+      />
     </div>
   );
 };

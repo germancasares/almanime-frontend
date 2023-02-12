@@ -36,6 +36,24 @@ export default class AnimeApi {
     },
   );
 
+  public static GetByBookmarked = (
+    token?: string,
+  ) => useQuery<AnimeWithExtra[]>(
+    ['animes', 'bookmarked', token],
+    async () => (await fetch(
+      'anime/bookmarked',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    )).json(),
+    {
+      enabled: !!token,
+      staleTime: Duration.fromObject({ day: 1 }).toMillis(),
+    },
+  );
+
   public static GetSeason = (
     year: number,
     season: Season,
@@ -47,6 +65,7 @@ export default class AnimeApi {
     {
       keepPreviousData: true,
       staleTime: Duration.fromObject({ days: 1 }).toMillis(),
+      enabled: page > 0,
     },
   );
 }

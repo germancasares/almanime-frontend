@@ -9,6 +9,15 @@
     flex-grow: 1;
     height: auto !important;
 
+    > wave {
+      z-index: 4 !important;
+    }
+
+    > region {
+      height: 70% !important;
+      top: 15% !important;
+    }
+
     > canvas {
       --box-size: 10px;
       background-image: 

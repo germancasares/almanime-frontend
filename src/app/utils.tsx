@@ -32,7 +32,7 @@ export const withToken = <P extends object>(
       try {
         setToken(await getAccessTokenSilently());
       } catch (error) {
-        console.log(error);
+        console.debug(error);
       }
     }, [getAccessTokenSilently]);
 

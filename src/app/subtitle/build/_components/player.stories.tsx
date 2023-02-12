@@ -41,12 +41,13 @@ DefaultWithSubtitles.args = {
     }],
   },
   subtitleOptions: {
-    subUrl: '/OuterScienceSubs.ass',
+    // subUrl: '/OuterScienceSubs.ass',
+    subContent: '',
     fonts: [
       'http://fonts.cdnfonts.com/css/gisha',
       'http://fonts.cdnfonts.com/css/aharoni',
     ],
-    onReady: () => console.log('Hola'),
+    onReady: () => {},
     debug: true,
   },
 };

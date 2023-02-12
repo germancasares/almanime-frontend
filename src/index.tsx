@@ -53,11 +53,13 @@ createRoot(
     <Auth0Provider
       domain="almanime.us.auth0.com"
       clientId="kofffbDvo0gJ9BW1U9Hj7UNsrJuMAO9Y"
-      redirectUri={`${window.location.origin}${routes.user.create.path}`}
-      audience="https://almani.me"
       useRefreshTokens
       cacheLocation="localstorage"
-      scope="read:current_user update:current_user_metadata"
+      authorizationParams={{
+        redirect_uri: `${window.location.origin}${routes.user.create.path}`,
+        audience: 'https://almani.me',
+        scope: 'profile email read:current_user update:current_user_metadata',
+      }}
     >
       <Router>
         <QueryClientProvider client={queryClient}>
