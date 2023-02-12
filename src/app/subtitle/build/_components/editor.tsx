@@ -2,25 +2,9 @@ import { RefObject, useEffect, useState } from 'react';
 import { CompiledASS, DialogueSlice } from 'ass-compiler';
 
 import Line from './line';
+import { textToSlice } from './utils';
 
 import './editor.scss';
-
-// slices are created splitting by \r
-// fragments are created splitting by {someting}
-// \n is replaced with \\N
-const textToSlice = (text: string) => {
-  const slice: DialogueSlice = {
-    style: 'Default',
-    fragments: [
-      {
-        tag: {},
-        text: text.replaceAll('\n', '\\N'),
-      },
-    ],
-  };
-
-  return slice;
-};
 
 const Editor = ({
   subtitle,

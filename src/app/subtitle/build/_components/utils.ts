@@ -1,5 +1,22 @@
-import { CompiledASS } from 'ass-compiler';
+import { CompiledASS, DialogueSlice } from 'ass-compiler';
 import { RegionParams } from 'wavesurfer.js/src/plugin/regions';
+
+// slices are created splitting by \r
+// fragments are created splitting by {someting}
+// \n is replaced with \\N
+export const textToSlice = (text: string) => {
+  const slice: DialogueSlice = {
+    style: 'Default',
+    fragments: [
+      {
+        tag: {},
+        text: text.replaceAll('\n', '\\N'),
+      },
+    ],
+  };
+
+  return slice;
+};
 
 export const getHexColor = (subtitleColor: string) => {
   if (subtitleColor === '' || subtitleColor.length !== 10) return '';

@@ -1,7 +1,56 @@
-import { CompiledASS, CompiledASSStyle, ScriptInfo } from 'ass-compiler';
-import { Dialogue } from 'lib/ssa-utils/SSASubtitle';
+import { CompiledASS, ScriptInfo } from 'ass-compiler';
 
-import { gatherRegions, getHexColor } from './utils';
+import { gatherRegions, getHexColor, textToSlice } from './utils';
+
+describe('[textToSlice]', () => {
+  it('should return a slice if text is correct', () => {
+    const text = 'Test';
+
+    const slice = textToSlice(text);
+
+    expect(slice).toEqual({
+      style: 'Default',
+      fragments: [
+        {
+          tag: {},
+          text: 'Test',
+        },
+      ],
+    });
+  });
+
+  it('should replace new lines', () => {
+    const text = 'Test\nTest';
+
+    const slice = textToSlice(text);
+
+    expect(slice).toEqual({
+      style: 'Default',
+      fragments: [
+        {
+          tag: {},
+          text: 'Test\\NTest',
+        },
+      ],
+    });
+  });
+
+  it('should return empty slice if no text provided', () => {
+    const text = '';
+
+    const slice = textToSlice(text);
+
+    expect(slice).toEqual({
+      style: 'Default',
+      fragments: [
+        {
+          tag: {},
+          text: '',
+        },
+      ],
+    });
+  });
+});
 
 describe('[getHexColor]', () => {
   it('should return hexColor', () => {
