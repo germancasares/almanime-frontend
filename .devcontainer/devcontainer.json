@@ -64,6 +64,9 @@
         "[scss]": {
           "editor.defaultFormatter": "stylelint.vscode-stylelint"
         },
+        "editor.codeActionsOnSave": {
+          "source.fixAll.stylelint": true
+        },
         "jest": {
           "autoRun": "off",
           "showTerminalOnLaunch": false,
