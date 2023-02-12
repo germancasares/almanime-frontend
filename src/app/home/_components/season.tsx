@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import AnimeApi from 'api/AnimeApi';
 import BookmarkApi from 'api/BookmarkApi';
@@ -22,12 +22,29 @@ type Props = {
 const SeasonPage = ({
   bookmarks, token, season, year,
 }: Props) => {
-  const [page,
-    setPage] = useState(1);
+  const [page, setPage] = useState(1);
   const { data: animes } = AnimeApi.GetSeason(year, season, page, true);
+  const { data: previousAnimes } = AnimeApi.GetSeason(year, season, page - 1, true);
+  const { data: nextAnimes } = AnimeApi.GetSeason(year, season, page + 1, true);
 
   const { mutateAsync: createAsync } = BookmarkApi.Create();
   const { mutateAsync: deleteAsync } = BookmarkApi.Delete();
+
+  useEffect(() => {
+    previousAnimes?.models.forEach((anime) => {
+      if (anime.coverImages?.tiny) {
+        const img = new Image();
+        img.src = anime.coverImages?.tiny;
+      }
+    });
+
+    nextAnimes?.models.forEach((anime) => {
+      if (anime.coverImages?.tiny) {
+        const img = new Image();
+        img.src = anime.coverImages?.tiny;
+      }
+    });
+  }, [nextAnimes?.models, previousAnimes?.models]);
 
   if (!animes) return (<Loader />);
 
