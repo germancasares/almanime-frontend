@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  lint-test-build:
 
     runs-on: ubuntu-latest
 
@@ -27,6 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn install --frozen-lockfile --prefer-offline
-    - run: yarn test
     - run: yarn lint
+    - run: yarn test
     - run: yarn build
