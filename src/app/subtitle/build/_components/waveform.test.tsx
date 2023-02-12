@@ -8,6 +8,8 @@ it('renders without crashing', () => {
   createRoot(div).render(
     <WaveForm
       videoRef={{ current: null } as RefObject<HTMLVideoElement>}
+      subtitle={undefined}
+      updateTime={() => {}}
     />,
   );
 });

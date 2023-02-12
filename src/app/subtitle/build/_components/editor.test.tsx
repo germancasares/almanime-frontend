@@ -10,6 +10,7 @@ it('renders without crashing', () => {
     <Editor
       subtitle={{} as CompiledASS}
       videoRef={{ current: null } as RefObject<HTMLVideoElement>}
+      updateSlices={() => {}}
     />,
   );
 });

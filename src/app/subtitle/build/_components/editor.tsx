@@ -1,16 +1,35 @@
 import { RefObject, useEffect, useState } from 'react';
-import { CompiledASS } from 'ass-compiler';
+import { CompiledASS, DialogueSlice } from 'ass-compiler';
 
 import Line from './line';
 
 import './editor.scss';
 
+// slices are created splitting by \r
+// fragments are created splitting by {someting}
+// \n is replaced with \\N
+const textToSlice = (text: string) => {
+  const slice: DialogueSlice = {
+    style: 'Default',
+    fragments: [
+      {
+        tag: {},
+        text: text.replaceAll('\n', '\\N'),
+      },
+    ],
+  };
+
+  return slice;
+};
+
 const Editor = ({
   subtitle,
   videoRef,
+  updateSlices,
 }: {
   subtitle: CompiledASS,
   videoRef: RefObject<HTMLVideoElement>,
+  updateSlices: (slices: DialogueSlice[], dialogueIndex: number) => void,
 }) => {
   const [currentTime, setCurrentTime] = useState(videoRef.current?.currentTime);
 
@@ -26,9 +45,9 @@ const Editor = ({
   return (
     <div className="editor">
       {
-        subtitle.dialogues.map((dialogue) => (
+        subtitle.dialogues.map((dialogue, index) => (
           <Line
-            key={`${dialogue.start}${dialogue.end}`}
+            key={`${dialogue.start}${dialogue.end}${dialogue.slices}`}
             dialogue={dialogue}
             currentTime={currentTime ?? 0}
             onClick={({ currentTarget }) => {
@@ -38,10 +57,12 @@ const Editor = ({
               videoRef.current.currentTime = dialogue.start;
               setCurrentTime(dialogue.start);
             }}
+            onChange={({ target: { value } }) => updateSlices([textToSlice(value)], index)}
           />
         ))
       }
     </div>
   );
 };
+
 export default Editor;

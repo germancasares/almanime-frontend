@@ -1,19 +1,24 @@
 import { RefObject, useEffect, useRef } from 'react';
-import SubtitlesOctopus, { Options } from 'libass-wasm';
-import videojs, { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js';
+import SubtitlesOctopus, { OptionsWithSubContent, OptionsWithSubUrl } from 'libass-wasm';
+import videojs from 'video.js';
+import VideoJsPlayer from 'video.js/dist/types/player';
+
+import { VideoJsPlayerOptions } from 'types/typescript/videojs-options';
 
 import 'video.js/dist/video-js.css';
 import '@videojs/themes/dist/forest/index.css';
 
 export type PlayerProps = {
   videoRef: RefObject<HTMLVideoElement>,
+  subtitle: string,
   playerOptions: VideoJsPlayerOptions,
-  subtitleOptions?: Options,
+  subtitleOptions?: OptionsWithSubContent | OptionsWithSubUrl,
   onReady?: (player: VideoJsPlayer) => void,
 };
 
 const Player = ({
   videoRef,
+  subtitle,
   playerOptions,
   subtitleOptions,
   onReady,
@@ -21,7 +26,7 @@ const Player = ({
   const playerRef = useRef<VideoJsPlayer | null>(null);
   const subtitleRef = useRef<SubtitlesOctopus | null>(null);
 
-  // Dispose the Video.js player when the functional component unmounts
+  // Dispose the Video.js player & subtitles when the functional component unmounts
   useEffect(() => {
     const player = playerRef.current;
 
@@ -29,6 +34,11 @@ const Player = ({
       if (player) {
         player.dispose();
         playerRef.current = null;
+      }
+
+      if (subtitleRef) {
+        subtitleRef.current?.dispose();
+        subtitleRef.current = null;
       }
     };
   }, [playerRef]);
@@ -43,6 +53,7 @@ const Player = ({
           if (!subtitleRef.current && videoRef.current) {
             subtitleRef.current = new SubtitlesOctopus({
               ...subtitleOptions,
+              subContent: subtitle,
               workerUrl: '/scripts/subtitles-octopus-worker.js',
               video: videoRef.current,
             });
@@ -56,12 +67,16 @@ const Player = ({
       player.muted(true);
       playerRef.current = player;
     } else {
+      // eslint-disable-next-line no-lonely-if
+      if (subtitleRef.current && subtitle) {
+        subtitleRef.current.setTrack(subtitle);
+      }
       // you can update player here [update player through props]
       // const player = playerRef.current;
       // player.autoplay(options.autoplay);
       // player.src(options.sources);
     }
-  }, [onReady, playerOptions, subtitleOptions, videoRef]);
+  }, [onReady, playerOptions, subtitleOptions, videoRef, subtitle]);
 
   return (
     <div data-vjs-player>
