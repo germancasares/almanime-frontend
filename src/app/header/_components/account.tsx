@@ -46,7 +46,7 @@ const Login = () => {
 
   return (
     <div id="profile" className="navbar-item">
-      <button type="button" className="button is-fullwidth" onClick={loginWithRedirect}>Login</button>
+      <button type="button" className="button is-fullwidth" onClick={() => loginWithRedirect()}>Login</button>
     </div>
   );
 };

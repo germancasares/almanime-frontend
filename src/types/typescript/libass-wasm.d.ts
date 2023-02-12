@@ -74,12 +74,12 @@ declare module 'libass-wasm' {
     lossyRender?: boolean
   }
 
-  interface OptionsWithSubUrl extends OptionsBase {
-    subUrl: string
+  export interface OptionsWithSubUrl extends OptionsBase {
+    subUrl?: string
   }
 
-  interface OptionsWithSubContent extends OptionsBase {
-    subContent: string
+  export interface OptionsWithSubContent extends OptionsBase {
+    subContent?: string
   }
 
   export type Options = OptionsWithSubUrl | OptionsWithSubContent;

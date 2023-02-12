@@ -33,7 +33,7 @@ const Home = ({ token }: { token?: string }) => {
           Fall Season
         </h1>
         <Season
-          year={2021}
+          year={2022}
           season={SeasonType.Fall}
           bookmarks={bookmarks}
           token={token}
