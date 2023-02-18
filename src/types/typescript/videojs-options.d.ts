@@ -9,6 +9,7 @@ export interface VideoJsPlayerOptions extends videojs.ComponentOptions {
   fill?: boolean | undefined;
   fluid?: boolean | undefined;
   height?: number | undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   html5?: any;
   inactivityTimeout?: number | undefined;
   language?: string | undefined;

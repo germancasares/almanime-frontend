@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { act } from 'react-dom/test-utils';
+import { act } from '@testing-library/react';
 
 import AnimeStatus from 'enums/AnimeStatus';
 import Season from 'enums/Season';
@@ -9,21 +9,24 @@ import Info from './info';
 describe('[Info]', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    createRoot(div).render(
-      <Info
-        anime={{
-          id: 'abcd',
-          kitsuID: 1,
-          slug: 'aaaa',
-          name: 'AAAAAAAA',
-          season: Season.Summer,
-          status: AnimeStatus.Finished,
-          synopsis: '',
-          startDate: null,
-        }}
-        episodesCount={0}
-      />,
-    );
+
+    act(() => {
+      createRoot(div).render(
+        <Info
+          anime={{
+            id: 'abcd',
+            kitsuID: 1,
+            slug: 'aaaa',
+            name: 'AAAAAAAA',
+            season: Season.Summer,
+            status: AnimeStatus.Finished,
+            synopsis: '',
+            startDate: null,
+          }}
+          episodesCount={0}
+        />,
+      );
+    });
   });
 
   it('renders episodes', () => {

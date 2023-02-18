@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import { act } from 'react-dom/test-utils';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { act } from '@testing-library/react';
 
 import Panel from './panel';
 

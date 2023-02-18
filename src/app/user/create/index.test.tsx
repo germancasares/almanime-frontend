@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
-import { act } from 'react-dom/test-utils';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { act } from '@testing-library/react';
 
 import Create from '.';
 
