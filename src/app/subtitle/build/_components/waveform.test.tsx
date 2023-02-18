@@ -7,6 +7,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   createRoot(div).render(
     <WaveForm
+      isNewSubtitle={false}
       videoRef={{ current: null } as RefObject<HTMLVideoElement>}
       subtitle={undefined}
       updateTime={() => {}}

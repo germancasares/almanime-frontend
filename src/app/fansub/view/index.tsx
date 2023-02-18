@@ -26,7 +26,7 @@ const NewSubtitleButton = ({ acronym } : { acronym: string }) => (
     <span className="icon">
       <Icon path={mdiFilePlusOutline} size={1} />
     </span>
-    <span>New Subtitle</span>
+    <span>Subtitle</span>
   </Link>
 );
 

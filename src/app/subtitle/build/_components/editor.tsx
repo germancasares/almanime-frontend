@@ -11,7 +11,7 @@ const Editor = ({
   videoRef,
   updateSlices,
 }: {
-  subtitle: CompiledASS,
+  subtitle?: CompiledASS,
   videoRef: RefObject<HTMLVideoElement>,
   updateSlices: (slices: DialogueSlice[], dialogueIndex: number) => void,
 }) => {
@@ -29,7 +29,7 @@ const Editor = ({
   return (
     <div className="editor">
       {
-        subtitle.dialogues.map((dialogue, index) => (
+        subtitle?.dialogues.map((dialogue, index) => (
           <Line
             key={`${dialogue.start}${dialogue.end}${dialogue.slices}`}
             dialogue={dialogue}

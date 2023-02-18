@@ -13,12 +13,14 @@ import { gatherRegions } from './utils';
 import './waveform.scss';
 
 export type WaveFormProps = {
+  isNewSubtitle: boolean,
   videoRef: RefObject<HTMLMediaElement>,
   subtitle?: CompiledASS,
   updateTime: (index: number, start: number, end: number) => void
 };
 
 const WaveForm = ({
+  isNewSubtitle,
   videoRef,
   subtitle,
   updateTime,
@@ -58,6 +60,18 @@ const WaveForm = ({
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoRef]);
+
+  useEffect(() => {
+    if (waveSurferRef.current && subtitle && isNewSubtitle) {
+      console.debug('New regions');
+      waveSurferRef.current.destroyPlugin('regions');
+      waveSurferRef.current.registerPlugins([
+        RegionsPlugin.create({
+          regions: gatherRegions(subtitle),
+        }),
+      ]);
+    }
+  }, [isNewSubtitle, subtitle]);
 
   const localTheme = Helper.LocalStorage.Get<Theme>('theme');
   useEffect(() => {

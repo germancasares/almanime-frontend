@@ -10,7 +10,7 @@ import '@videojs/themes/dist/forest/index.css';
 
 export type PlayerProps = {
   videoRef: RefObject<HTMLVideoElement>,
-  subtitle: string,
+  subtitle?: string,
   playerOptions: VideoJsPlayerOptions,
   subtitleOptions?: OptionsWithSubContent | OptionsWithSubUrl,
   onReady?: (player: VideoJsPlayer) => void,
@@ -53,10 +53,15 @@ const Player = ({
           if (!subtitleRef.current && videoRef.current) {
             subtitleRef.current = new SubtitlesOctopus({
               ...subtitleOptions,
-              subContent: subtitle,
+              subUrl: '/empty-subtitle.ass',
               workerUrl: '/scripts/subtitles-octopus-worker.js',
               video: videoRef.current,
+              lossyRender: true,
             });
+
+            if (subtitle) {
+              subtitleRef.current.setTrack(subtitle);
+            }
           } else {
             // Modify current instance of subtitleRef
           }
