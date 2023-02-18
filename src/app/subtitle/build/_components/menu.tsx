@@ -38,14 +38,14 @@ const Menu = ({
           {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <span
             className="file-cta"
-            onMouseDown={() => setActiveIcon('mdiFileUpload')}
+            onMouseDown={() => setActiveIcon('mdiSubtitles')}
             onMouseUp={() => setActiveIcon('')}
             onBlur={() => setActiveIcon('')}
             onMouseOut={() => setActiveIcon('')}
           >
             <span className="file-icon">
               <Icon
-                path={activeIcon === 'mdiFileUpload' ? mdiSubtitlesOutline : mdiSubtitles}
+                path={activeIcon === 'mdiSubtitles' ? mdiSubtitlesOutline : mdiSubtitles}
                 size={1}
               />
             </span>
@@ -71,14 +71,14 @@ const Menu = ({
           {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <span
             className="file-cta"
-            onMouseDown={() => setActiveIcon('mdiFileUpload')}
+            onMouseDown={() => setActiveIcon('mdiVideo')}
             onMouseUp={() => setActiveIcon('')}
             onBlur={() => setActiveIcon('')}
             onMouseOut={() => setActiveIcon('')}
           >
             <span className="file-icon">
               <Icon
-                path={activeIcon === 'mdiFileUpload' ? mdiVideoOutline : mdiVideo}
+                path={activeIcon === 'mdiVideo' ? mdiVideoOutline : mdiVideo}
                 size={1}
               />
             </span>
