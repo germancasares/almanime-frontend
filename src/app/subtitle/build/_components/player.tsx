@@ -11,6 +11,7 @@ import '@videojs/themes/dist/forest/index.css';
 export type PlayerProps = {
   videoRef: RefObject<HTMLVideoElement>,
   subtitle?: string,
+  videoSource?: { src: string, type: string },
   playerOptions: VideoJsPlayerOptions,
   subtitleOptions?: OptionsWithSubContent | OptionsWithSubUrl,
   onReady?: (player: VideoJsPlayer) => void,
@@ -19,6 +20,7 @@ export type PlayerProps = {
 const Player = ({
   videoRef,
   subtitle,
+  videoSource,
   playerOptions,
   subtitleOptions,
   onReady,
@@ -46,47 +48,56 @@ const Player = ({
   useEffect(() => {
     // make sure Video.js player is only initialized once
     if (!playerRef.current) {
-      if (!videoRef.current) return;
+      if (!videoRef.current || !videoSource) return;
 
-      const player = videojs(videoRef.current, playerOptions, () => {
-        if (subtitleOptions) {
-          if (!subtitleRef.current && videoRef.current) {
-            subtitleRef.current = new SubtitlesOctopus({
-              ...subtitleOptions,
-              subUrl: '/empty-subtitle.ass',
-              workerUrl: '/scripts/subtitles-octopus-worker.js',
-              video: videoRef.current,
-              lossyRender: true,
-            });
-
-            if (subtitle) {
-              subtitleRef.current.setTrack(subtitle);
+      const player = videojs(
+        videoRef.current,
+        {
+          controls: true,
+          fill: true,
+          // fluid: true,
+          responsive: true,
+          sources: [videoSource],
+          ...playerOptions,
+        },
+        () => {
+          if (subtitleOptions) {
+            if (!subtitleRef.current && videoRef.current) {
+              subtitleRef.current = new SubtitlesOctopus({
+                ...subtitleOptions,
+                subUrl: '/empty-subtitle.ass',
+                workerUrl: '/scripts/subtitles-octopus-worker.js',
+                video: videoRef.current,
+                lossyRender: true,
+              });
             }
-          } else {
-            // Modify current instance of subtitleRef
           }
-        }
-
-        onReady && onReady(player);
-      });
+          onReady && onReady(player);
+        },
+      );
       player.muted(true);
       playerRef.current = player;
-    } else {
-      // eslint-disable-next-line no-lonely-if
-      if (subtitleRef.current && subtitle) {
-        subtitleRef.current.setTrack(subtitle);
-      }
-      // you can update player here [update player through props]
-      // const player = playerRef.current;
-      // player.autoplay(options.autoplay);
-      // player.src(options.sources);
     }
-  }, [onReady, playerOptions, subtitleOptions, videoRef, subtitle]);
+  }, [onReady, playerOptions, subtitleOptions, videoRef, videoSource]);
+
+  useEffect(() => {
+    if (!playerRef.current) return;
+
+    playerRef.current.src(videoSource);
+  }, [videoSource]);
+
+  useEffect(() => {
+    if (!playerRef.current) return;
+
+    if (subtitleRef.current && subtitle) {
+      subtitleRef.current.setTrack(subtitle);
+    }
+  }, [subtitle]);
 
   return (
     <div data-vjs-player>
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <video ref={videoRef} className="video-js vjs-theme-forest" />
+      <video ref={videoRef} preload="none" className="video-js vjs-theme-forest" />
     </div>
   );
 };

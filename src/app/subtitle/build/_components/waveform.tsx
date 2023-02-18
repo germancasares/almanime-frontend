@@ -63,7 +63,6 @@ const WaveForm = ({
 
   useEffect(() => {
     if (waveSurferRef.current && subtitle && isNewSubtitle) {
-      console.debug('New regions');
       waveSurferRef.current.destroyPlugin('regions');
       waveSurferRef.current.registerPlugins([
         RegionsPlugin.create({

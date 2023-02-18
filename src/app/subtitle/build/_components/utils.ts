@@ -18,6 +18,14 @@ export const textToSlice = (text: string) => {
   return slice;
 };
 
+export const slicesToText = (slices: DialogueSlice[]) => slices.reduce(
+  (line, slice) => line + slice.fragments.reduce(
+    (lineFragment, fragment) => lineFragment + fragment.text,
+    '',
+  ),
+  '',
+).replaceAll('\\N', '\n');
+
 export const getHexColor = (subtitleColor: string) => {
   if (subtitleColor === '' || subtitleColor.length !== 10) return '';
 

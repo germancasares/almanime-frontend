@@ -31,7 +31,7 @@ const Editor = ({
       {
         subtitle?.dialogues.map((dialogue, index) => (
           <Line
-            key={`${dialogue.start}${dialogue.end}${dialogue.slices}`}
+            key={JSON.stringify(dialogue)}
             dialogue={dialogue}
             currentTime={currentTime ?? 0}
             onClick={({ currentTarget }) => {

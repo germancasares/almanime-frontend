@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { mdiFileUpload, mdiFileUploadOutline } from '@mdi/js';
+import {
+  mdiSubtitles,
+  mdiSubtitlesOutline,
+  mdiVideo,
+  mdiVideoOutline,
+} from '@mdi/js';
 import Icon from '@mdi/react';
 import {
   compile,
@@ -10,16 +15,21 @@ import './menu.scss';
 
 const Menu = ({
   setSubtitle,
+  setVideoSource,
 }: {
   setSubtitle: (subtitle: CompiledASS) => void,
+  setVideoSource: React.Dispatch<React.SetStateAction<{
+    src: string;
+    type: string;
+  } | undefined>>,
 }) => {
   const [activeIcon, setActiveIcon] = useState('');
   return (
     <div id="menu">
       <div className="file is-boxed">
-        <label className="file-label" htmlFor="upload-subtitle">
+        <label className="file-label" htmlFor="set-subtitle">
           <input
-            id="upload-subtitle"
+            id="set-subtitle"
             className="file-input"
             type="file"
             name="subtitle"
@@ -35,7 +45,7 @@ const Menu = ({
           >
             <span className="file-icon">
               <Icon
-                path={activeIcon === 'mdiFileUpload' ? mdiFileUploadOutline : mdiFileUpload}
+                path={activeIcon === 'mdiFileUpload' ? mdiSubtitlesOutline : mdiSubtitles}
                 size={1}
               />
             </span>
@@ -43,6 +53,38 @@ const Menu = ({
         </label>
       </div>
 
+      <div className="file is-boxed">
+        <label className="file-label" htmlFor="set-video">
+          <input
+            id="set-video"
+            className="file-input"
+            type="file"
+            name="video"
+            accept="video/*"
+            onChange={
+              async ({ target: { files } }) => files && setVideoSource({
+                type: files[0].type,
+                src: URL.createObjectURL(files[0]),
+              })
+            }
+          />
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+          <span
+            className="file-cta"
+            onMouseDown={() => setActiveIcon('mdiFileUpload')}
+            onMouseUp={() => setActiveIcon('')}
+            onBlur={() => setActiveIcon('')}
+            onMouseOut={() => setActiveIcon('')}
+          >
+            <span className="file-icon">
+              <Icon
+                path={activeIcon === 'mdiFileUpload' ? mdiVideoOutline : mdiVideo}
+                size={1}
+              />
+            </span>
+          </span>
+        </label>
+      </div>
     </div>
   );
 };

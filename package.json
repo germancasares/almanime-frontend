@@ -93,12 +93,7 @@
       "not op_mini all"
     ]
   },
-  "resolutions": {
-    "trim": "1.0.1",
-    "nth-check": "2.1.1",
-    "glob-parent": "6.0.2",
-    "trim-newlines": "4.0.2"
-  },
+  "resolutions": {},
   "eslintConfig": {
     "overrides": [
       {
@@ -112,7 +107,9 @@
     ]
   },
   "jest": {
-    "transformIgnorePatterns": ["node_modules/(?!wavesurfer.js)/"],
+    "transformIgnorePatterns": [
+      "node_modules/(?!wavesurfer.js)/"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 10.66,

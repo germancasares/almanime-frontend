@@ -14,12 +14,11 @@ import WaveForm from './_components/waveform';
 import './index.scss';
 
 const Build = () => {
-  const videoUrl = '/SaikiKusuonoPsiNan-01.mp4';
-
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isReady, setReady] = useState(false);
   const [isNewSubtitle, setIsNewSubtitle] = useState(false);
   const [subtitle, setSubtitle] = useState<CompiledASS | undefined>(undefined);
+  const [videoSource, setVideoSource] = useState<{ src: string, type: string } | undefined>(undefined);
 
   const updateSubtitle = useCallback((newSubtitle: CompiledASS) => {
     setSubtitle(newSubtitle);
@@ -71,7 +70,7 @@ const Build = () => {
     <div id="subtitle-build">
       <div className="video-editor-wrapper">
         <div className="menu-wrapper">
-          <Menu setSubtitle={updateSubtitle} />
+          <Menu setSubtitle={updateSubtitle} setVideoSource={setVideoSource} />
         </div>
         <div className="editor-wrapper">
           <Editor
@@ -84,17 +83,9 @@ const Build = () => {
           <Player
             videoRef={videoRef}
             subtitle={subtitle ? decompile(subtitle) : undefined}
+            videoSource={videoSource}
             onReady={() => setReady(true)}
-            playerOptions={{
-              controls: true,
-              fill: true,
-              // fluid: true,
-              responsive: true,
-              sources: [{
-                src: videoUrl,
-                type: 'video/mp4',
-              }],
-            }}
+            playerOptions={{}}
             subtitleOptions={{
               // subUrl: '/OuterScienceSubs.ass',
               // subContent: decompile(subtitle),

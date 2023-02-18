@@ -1,7 +1,9 @@
 import {
-  ChangeEvent, MouseEvent, useRef,
+  ChangeEvent, MouseEvent, useMemo, useRef,
 } from 'react';
 import { Dialogue } from 'ass-compiler';
+
+import { slicesToText } from './utils';
 
 import './line.scss';
 
@@ -20,13 +22,7 @@ const Line = ({
   const { start, end } = dialogue;
   const isAfterStart = start <= (currentTime ?? 0);
   const isBeforeEnd = end > (currentTime ?? 0);
-  const text = dialogue.slices.reduce(
-    (line, slice) => line + slice.fragments.reduce(
-      (lineFragment, fragment) => lineFragment + fragment.text,
-      '',
-    ),
-    '',
-  ).replaceAll('\\N', '\n');
+  const text = useMemo(() => slicesToText(dialogue.slices), [dialogue.slices]);
 
   if (lineRef.current && isAfterStart && isBeforeEnd) {
     lineRef.current.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
