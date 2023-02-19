@@ -6,9 +6,9 @@ import routes from 'app/routes';
 import Loader from 'components/loader';
 
 const List = () => {
-  const { data: animes } = AnimeApi.Get();
+  const { data: animes, isLoading } = AnimeApi.Get();
 
-  if (!animes) return (<Loader />);
+  if (isLoading) return (<Loader />);
 
   return (
     <main>

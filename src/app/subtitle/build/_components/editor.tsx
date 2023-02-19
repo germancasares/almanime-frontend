@@ -11,7 +11,7 @@ const Editor = ({
   videoRef,
   updateSlices,
 }: {
-  subtitle: CompiledASS,
+  subtitle?: CompiledASS,
   videoRef: RefObject<HTMLVideoElement>,
   updateSlices: (slices: DialogueSlice[], dialogueIndex: number) => void,
 }) => {
@@ -29,14 +29,14 @@ const Editor = ({
   return (
     <div className="editor">
       {
-        subtitle.dialogues.map((dialogue, index) => (
+        subtitle?.dialogues.map((dialogue, index) => (
           <Line
-            key={`${dialogue.start}${dialogue.end}${dialogue.slices}`}
+            key={`${dialogue.layer}-${dialogue.start}-${dialogue.end}-${JSON.stringify(dialogue.margin)}`}
             dialogue={dialogue}
             currentTime={currentTime ?? 0}
             onClick={({ currentTarget }) => {
               currentTarget.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-              if (!videoRef.current) return;
+              if (!videoRef.current) { return; }
               // eslint-disable-next-line no-param-reassign
               videoRef.current.currentTime = dialogue.start;
               setCurrentTime(dialogue.start);

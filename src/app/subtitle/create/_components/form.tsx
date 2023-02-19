@@ -59,9 +59,9 @@ const Form = () => {
       </div>
 
       <div className="field file is-primary has-name is-fullwidth">
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label className="file-label">
+        <label className="file-label" htmlFor="upload-subtitle">
           <input
+            id="upload-subtitle"
             name="file"
             className="file-input"
             type="file"

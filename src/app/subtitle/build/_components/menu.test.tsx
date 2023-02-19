@@ -1,16 +1,14 @@
-import { RefObject } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import Player from './player';
+import Menu from './menu';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   createRoot(div).render(
-    <Player
-      videoRef={{ current: null } as RefObject<HTMLVideoElement>}
+    <Menu
+      setSubtitle={() => {}}
+      setVideoSource={() => {}}
       subtitle={undefined}
-      playerOptions={{}}
-      onReady={() => {}}
     />,
   );
 });
