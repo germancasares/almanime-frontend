@@ -6,20 +6,23 @@ import routes from 'app/routes';
 import Loader from 'components/loader';
 
 const List = () => {
-  const { data: users } = UserApi.Get();
+  const {
+    data: users,
+    isLoading,
+  } = UserApi.Get();
 
-  if (!users) return (<Loader />);
+  if (isLoading) return (<Loader />);
 
   return (
-    <>
+    <main>
       {
-        users.map(({ name }) => (
+        users && users.map(({ name }) => (
           <Link key={name} to={routes.user.view.to(name)}>
             {name}
           </Link>
         ))
       }
-    </>
+    </main>
   );
 };
 

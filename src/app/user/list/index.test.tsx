@@ -1,23 +1,49 @@
-import { createRoot } from 'react-dom/client';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { act } from '@testing-library/react';
-import fetchMock from 'jest-fetch-mock';
+import { render } from 'test-utils';
+
+import UserApi from 'api/UserApi';
 
 import List from '.';
 
-it('renders without crashing', async () => {
-  const div = document.createElement('div');
-  const queryClient = new QueryClient();
-  fetchMock.mockResponseOnce(JSON.stringify([]));
+jest.mock('api/UserApi');
 
-  await act(async () => {
-    createRoot(div).render(
-      <Router>
-        <QueryClientProvider client={queryClient}>
-          <List />
-        </QueryClientProvider>
-      </Router>,
-    );
+describe('[User][List]', () => {
+  let mockedGet: jest.Mock;
+
+  beforeEach(() => {
+    mockedGet = jest.fn();
+    UserApi.Get = mockedGet;
+  });
+
+  it('should render the loader if not fetched', async () => {
+    // Arrange
+    mockedGet.mockReturnValue({ isLoading: true });
+
+    // Act
+    const { getByRole } = render(<List />);
+
+    // Assert
+    expect(getByRole('main')).toHaveClass('loader-wrapper');
+  });
+
+  it('should render empty main if no users', () => {
+    // Arrange
+    mockedGet.mockReturnValue({ isLoading: false, data: [] });
+
+    // Act
+    const { container } = render(<List />);
+
+    // Assert
+    expect(container.firstChild).toBeEmptyDOMElement();
+  });
+
+  it('should render the users if there are users', () => {
+    // Arrange
+    mockedGet.mockReturnValue({ isLoading: false, data: [{ name: 'test' }] });
+
+    // Act
+    const { getByText } = render(<List />);
+
+    // Assert
+    expect(getByText('test')).toHaveAttribute('href', '/users/test');
   });
 });
