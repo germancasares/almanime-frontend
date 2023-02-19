@@ -1,4 +1,9 @@
-import { RefObject, useEffect, useRef } from 'react';
+import {
+  RefObject,
+  useEffect,
+  useRef,
+} from 'react';
+import { CompiledASS, decompile } from 'ass-compiler';
 import SubtitlesOctopus, { OptionsWithSubContent, OptionsWithSubUrl } from 'libass-wasm';
 import videojs from 'video.js';
 import VideoJsPlayer from 'video.js/dist/types/player';
@@ -10,7 +15,7 @@ import '@videojs/themes/dist/forest/index.css';
 
 export type PlayerProps = {
   videoRef: RefObject<HTMLVideoElement>,
-  subtitle?: string,
+  subtitle?: CompiledASS | undefined,
   videoSource?: { src: string, type: string },
   playerOptions: VideoJsPlayerOptions,
   subtitleOptions?: OptionsWithSubContent | OptionsWithSubUrl,
@@ -61,15 +66,16 @@ const Player = ({
           ...playerOptions,
         },
         () => {
-          if (subtitleOptions) {
-            if (!subtitleRef.current && videoRef.current) {
-              subtitleRef.current = new SubtitlesOctopus({
-                ...subtitleOptions,
-                subUrl: '/empty-subtitle.ass',
-                workerUrl: '/scripts/subtitles-octopus-worker.js',
-                video: videoRef.current,
-                lossyRender: true,
-              });
+          if (!subtitleRef.current && videoRef.current) {
+            subtitleRef.current = new SubtitlesOctopus({
+              ...subtitleOptions,
+              subUrl: '/empty-subtitle.ass',
+              workerUrl: '/scripts/subtitles-octopus-worker.js',
+              video: videoRef.current,
+              lossyRender: true,
+            });
+            if (subtitleRef.current && subtitle) {
+              subtitleRef.current.setTrack(decompile(subtitle));
             }
           }
           onReady && onReady(player);
@@ -78,7 +84,8 @@ const Player = ({
       player.muted(true);
       playerRef.current = player;
     }
-  }, [onReady, playerOptions, subtitleOptions, videoRef, videoSource]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onReady, playerOptions, subtitle, videoRef, videoSource]);
 
   useEffect(() => {
     if (!playerRef.current) return;
@@ -90,7 +97,7 @@ const Player = ({
     if (!playerRef.current) return;
 
     if (subtitleRef.current && subtitle) {
-      subtitleRef.current.setTrack(subtitle);
+      subtitleRef.current.setTrack(decompile(subtitle));
     }
   }, [subtitle]);
 

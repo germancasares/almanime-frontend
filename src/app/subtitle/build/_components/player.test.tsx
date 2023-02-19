@@ -8,7 +8,7 @@ it('renders without crashing', () => {
   createRoot(div).render(
     <Player
       videoRef={{ current: null } as RefObject<HTMLVideoElement>}
-      subtitle=""
+      subtitle={undefined}
       playerOptions={{}}
       onReady={() => {}}
     />,

@@ -1,5 +1,5 @@
 import {
-  RefObject, useEffect, useRef, useState,
+  RefObject, useEffect, useMemo, useRef, useState,
 } from 'react';
 import { CompiledASS } from 'ass-compiler';
 import WaveSurfer from 'wavesurfer.js';
@@ -61,7 +61,7 @@ const WaveForm = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoRef]);
 
-  useEffect(() => {
+  useMemo(() => {
     if (waveSurferRef.current && subtitle && isNewSubtitle) {
       waveSurferRef.current.destroyPlugin('regions');
       waveSurferRef.current.registerPlugins([
@@ -73,7 +73,7 @@ const WaveForm = ({
   }, [isNewSubtitle, subtitle]);
 
   const localTheme = Helper.LocalStorage.Get<Theme>('theme');
-  useEffect(() => {
+  useMemo(() => {
     if (!waveSurferRef.current) return;
 
     // TODO: Find a better way of using palette

@@ -1,7 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import {
   CompiledASS,
-  decompile,
   DialogueSlice,
 } from 'ass-compiler';
 
@@ -86,7 +85,7 @@ const Build = () => {
         <div className="video-wrapper">
           <Player
             videoRef={videoRef}
-            subtitle={subtitle ? decompile(subtitle) : undefined}
+            subtitle={subtitle}
             videoSource={videoSource}
             onReady={() => setReady(true)}
             playerOptions={{}}
