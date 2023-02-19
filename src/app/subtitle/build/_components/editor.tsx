@@ -31,12 +31,12 @@ const Editor = ({
       {
         subtitle?.dialogues.map((dialogue, index) => (
           <Line
-            key={JSON.stringify(dialogue)}
+            key={`${dialogue.layer}-${dialogue.start}-${dialogue.end}-${JSON.stringify(dialogue.margin)}`}
             dialogue={dialogue}
             currentTime={currentTime ?? 0}
             onClick={({ currentTarget }) => {
               currentTarget.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-              if (!videoRef.current) return;
+              if (!videoRef.current) { return; }
               // eslint-disable-next-line no-param-reassign
               videoRef.current.currentTime = dialogue.start;
               setCurrentTime(dialogue.start);

@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
+  mdiDownload,
+  mdiDownloadOutline,
   mdiSubtitles,
   mdiSubtitlesOutline,
   mdiVideo,
@@ -9,6 +11,7 @@ import Icon from '@mdi/react';
 import {
   compile,
   CompiledASS,
+  decompile,
 } from 'ass-compiler';
 
 import './menu.scss';
@@ -16,14 +19,29 @@ import './menu.scss';
 const Menu = ({
   setSubtitle,
   setVideoSource,
+  subtitle,
 }: {
   setSubtitle: (subtitle: CompiledASS) => void,
   setVideoSource: React.Dispatch<React.SetStateAction<{
     src: string;
     type: string;
   } | undefined>>,
+  subtitle: CompiledASS | undefined,
 }) => {
   const [activeIcon, setActiveIcon] = useState('');
+
+  let downloadLink = '';
+
+  if (subtitle) {
+    const blob = new Blob([decompile(subtitle)], { type: 'text/plain' });
+
+    downloadLink = URL.createObjectURL(blob);
+  }
+
+  useEffect(() => () => {
+    URL.revokeObjectURL(downloadLink);
+  }, [downloadLink]);
+
   return (
     <div id="menu">
       <div className="file is-boxed">
@@ -85,6 +103,37 @@ const Menu = ({
           </span>
         </label>
       </div>
+
+      {
+        subtitle && (
+          <a
+            download="subtitle.ass"
+            href={downloadLink}
+          >
+            <Icon
+              path={activeIcon === 'mdiDownload' ? mdiDownloadOutline : mdiDownload}
+              size={1}
+            />
+          </a>
+          // <button
+          //   type="button"
+          //   className="button"
+          //   onMouseDown={() => setActiveIcon('mdiDownload')}
+          //   onMouseUp={() => setActiveIcon('')}
+          //   onBlur={() => setActiveIcon('')}
+          //   onMouseOut={() => setActiveIcon('')}
+          //   onClick={() => {
+          //     const blob = new Blob([decompile(subtitle)], { type: 'text/plain' });
+          //     const file = new File([blob], 'foo.ass', { type: 'text/plain' });
+          //   }}
+          // >
+          //   <Icon
+          //     path={activeIcon === 'mdiDownload' ? mdiDownloadOutline : mdiDownload}
+          //     size={1}
+          //   />
+          // </button>
+        )
+      }
     </div>
   );
 };

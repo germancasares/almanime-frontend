@@ -8,6 +8,7 @@ it('renders without crashing', () => {
     <Menu
       setSubtitle={() => {}}
       setVideoSource={() => {}}
+      subtitle={undefined}
     />,
   );
 });

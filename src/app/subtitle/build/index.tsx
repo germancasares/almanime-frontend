@@ -70,7 +70,11 @@ const Build = () => {
     <div id="subtitle-build">
       <div className="video-editor-wrapper">
         <div className="menu-wrapper">
-          <Menu setSubtitle={updateSubtitle} setVideoSource={setVideoSource} />
+          <Menu
+            setSubtitle={updateSubtitle}
+            setVideoSource={setVideoSource}
+            subtitle={subtitle}
+          />
         </div>
         <div className="editor-wrapper">
           <Editor
