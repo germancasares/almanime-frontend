@@ -31,20 +31,20 @@ export default class BookmarkApi {
         })
       ),
       {
-        onMutate: async (newBookmark: BookmarkDTO) => {
-          await queryClient.cancelQueries(['bookmarks', newBookmark.token]);
-          const bookmarks = queryClient.getQueryData<string[]>(['bookmarks', newBookmark.token]);
+        onMutate: async ({ token, slug }: BookmarkDTO) => {
+          await queryClient.cancelQueries(['bookmarks', token]);
+          const bookmarks = queryClient.getQueryData<string[]>(['bookmarks', token]);
 
           if (bookmarks) {
             queryClient.setQueryData<string[]>(
-              ['bookmarks', newBookmark.token],
-              [...bookmarks, newBookmark.slug],
+              ['bookmarks', token],
+              [...bookmarks, slug],
             );
           }
 
           return { bookmarks };
         },
-        onError: (err, newBookmark, context) => {
+        onError: (error, newBookmark, context) => {
           if (context?.bookmarks) {
             queryClient.setQueryData<string[]>(['bookmarks', newBookmark.token], context.bookmarks);
           }
@@ -80,7 +80,7 @@ export default class BookmarkApi {
 
           return { bookmarks };
         },
-        onError: (err, newBookmark, context) => {
+        onError: (error, newBookmark, context) => {
           if (context?.bookmarks) {
             queryClient.setQueryData<string[]>(['bookmarks', newBookmark.token], context.bookmarks);
           }

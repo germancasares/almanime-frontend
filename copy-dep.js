@@ -24,8 +24,8 @@ files.forEach(({ origin, dest }) => {
   fs.copyFile(
     path.join(__dirname, origin),
     path.join(__dirname, dest),
-    (err) => {
-      if (err) throw err;
+    (error) => {
+      if (error) throw error;
       console.log(`${origin} was copied to ${dest}`);
     }
   );

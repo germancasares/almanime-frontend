@@ -70,10 +70,10 @@ export default class FansubApi {
     },
   );
 
-  public static GetSubtitles = (
+  public static GetPublishedSubtitles = (
     acronym?: string,
   ) => useQuery<Subtitle[]>(
-    ['subtitles', acronym],
+    ['subtitles', 'published', acronym],
     async () => (await fetch(`fansub/acronym/${acronym}/subtitles`)).json(),
     {
       enabled: !!acronym,
@@ -85,7 +85,7 @@ export default class FansubApi {
     acronym?: string,
     token?: string,
   ) => useQuery<Subtitle[]>(
-    ['subtitles', acronym, token],
+    ['subtitles', 'drafts', acronym, token],
     async () => (await fetch(`fansub/acronym/${acronym}/subtitles/drafts`, {
       headers: {
         Authorization: `Bearer ${token}`,

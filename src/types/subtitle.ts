@@ -15,6 +15,7 @@ export type Subtitle = {
   format: SubtitleFormat,
   creationDate: DateTime,
   anime: string,
+  animeSlug: string,
   episode: number,
   user: string,
 };

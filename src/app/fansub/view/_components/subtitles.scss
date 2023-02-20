@@ -1,0 +1,10 @@
+#subtitles {
+  background-color: var(--surface);
+  border-radius: 3px;
+  margin-top: 50px;
+
+  td,
+  th {
+    color: var(--on-surface);
+  }
+}

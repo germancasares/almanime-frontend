@@ -2,7 +2,7 @@ import FansubApi from 'api/FansubApi';
 
 import Loader from 'components/loader';
 
-const Members = ({ acronym }: { acronym?: string }) => {
+const Members = ({ acronym }: { acronym: string }) => {
   const { data: members } = FansubApi.GetMembers(acronym);
 
   if (!members) return (<Loader />);
