@@ -4,9 +4,9 @@ import { CompiledASS, DialogueSlice } from 'ass-compiler';
 import Line from './line';
 import { textToSlice } from './utils';
 
-import './editor.scss';
+import './lines.scss';
 
-const Editor = ({
+const Lines = ({
   subtitle,
   videoRef,
   updateSlices,
@@ -27,7 +27,7 @@ const Editor = ({
   }, [videoRef]);
 
   return (
-    <div className="editor">
+    <div id="lines">
       {
         subtitle?.dialogues.map((dialogue, index) => (
           <Line
@@ -49,4 +49,4 @@ const Editor = ({
   );
 };
 
-export default Editor;
+export default Lines;

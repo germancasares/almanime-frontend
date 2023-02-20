@@ -1,18 +1,28 @@
 import { useCallback, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   CompiledASS,
   DialogueSlice,
 } from 'ass-compiler';
 
-import Player from 'app/subtitle/build/_components/player';
-
-import Editor from './_components/editor';
+import Lines from './_components/lines';
 import Menu from './_components/menu';
+import Player from './_components/player';
 import WaveForm from './_components/waveform';
 
 import './index.scss';
 
-const Build = () => {
+const Editor = () => {
+  const {
+    fansubAcronym,
+    animeSlug,
+    episodeNumber,
+  } = useParams<{
+    fansubAcronym: string,
+    animeSlug: string,
+    episodeNumber: string,
+  }>();
+
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isReady, setReady] = useState(false);
   const [isNewSubtitle, setIsNewSubtitle] = useState(false);
@@ -66,17 +76,20 @@ const Build = () => {
   }, []);
 
   return (
-    <div id="subtitle-build">
+    <div id="subtitle-editor">
       <div className="video-editor-wrapper">
         <div className="menu-wrapper">
           <Menu
             setSubtitle={updateSubtitle}
             setVideoSource={setVideoSource}
             subtitle={subtitle}
+            fansubAcronym={fansubAcronym}
+            animeSlug={animeSlug}
+            episodeNumber={episodeNumber}
           />
         </div>
-        <div className="editor-wrapper">
-          <Editor
+        <div className="lines-wrapper">
+          <Lines
             subtitle={subtitle}
             videoRef={videoRef}
             updateSlices={updateSlices}
@@ -116,4 +129,4 @@ const Build = () => {
   );
 };
 
-export default Build;
+export default Editor;

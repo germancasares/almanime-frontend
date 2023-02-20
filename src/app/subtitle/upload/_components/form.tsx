@@ -1,12 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import {
-  Link,
-  useParams,
-} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import { mdiFileUploadOutline } from '@mdi/js';
+import Icon from '@mdi/react';
 
 import SubtitleApi from 'api/SubtitleApi';
-import routes from 'app/routes';
 import { SubtitleDTO } from 'types/subtitle';
 
 import './form.scss';
@@ -14,7 +12,7 @@ import './form.scss';
 const Form = () => {
   const { fansubAcronym } = useParams<{ fansubAcronym: string }>();
 
-  const [subtitle, setSubtitle] = useState({ fansubAcronym, animeSlug: '', episodeNumber: 0 } as SubtitleDTO);
+  const [subtitle, setSubtitle] = useState({ fansubAcronym } as SubtitleDTO);
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = event;
     setSubtitle((values) => ({ ...values, [name]: value === '' ? undefined : value }));
@@ -60,13 +58,33 @@ const Form = () => {
         </div>
       </div>
 
+      <div className="field file is-primary has-name is-fullwidth">
+        <label className="file-label" htmlFor="upload-subtitle">
+          <input
+            id="upload-subtitle"
+            name="file"
+            className="file-input"
+            type="file"
+            onChange={({ target: { files } }) => {
+              if (!files) return;
+
+              setSubtitle((values) => ({ ...values, file: files[0] }));
+            }}
+          />
+          <span className="file-cta">
+            <Icon className="file-icon" path={mdiFileUploadOutline} size={1} />
+            <span className="file-label">
+              Choose a file…
+            </span>
+          </span>
+          <span className="file-name">
+            {subtitle.file && subtitle.file.name}
+          </span>
+        </label>
+      </div>
+
       <div className="control">
-        <Link
-          className={`button is-link${isLoading ? ' is-loading' : ''}`}
-          to={routes.subtitle.editor.to(subtitle.fansubAcronym, subtitle.animeSlug, subtitle.episodeNumber.toString())}
-        >
-          <span>Editor</span>
-        </Link>
+        <button type="submit" className={`button is-link${isLoading ? ' is-loading' : ''}`}>Submit</button>
       </div>
     </form>
   );

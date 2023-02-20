@@ -31,6 +31,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       cacheTime: Duration.fromObject({ days: 1 }).toMillis(),
+      refetchOnWindowFocus: process.env.NODE_ENV !== 'development',
     },
   },
 });

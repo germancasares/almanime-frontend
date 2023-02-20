@@ -1,6 +1,6 @@
 @import 'styles/variables';
 
-#subtitle-build {
+#subtitle-editor {
   display: flex;
   flex-direction: column;
   height: calc(100vh - $navbar-height);
@@ -10,7 +10,7 @@
     display: flex;
     height: calc(100vh - $navbar-height - 12.5vh);
 
-    .editor-wrapper {
+    .lines-wrapper {
       background-color: var(--surface);
       display: flex;
       overflow-y: scroll;

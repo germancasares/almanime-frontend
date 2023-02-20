@@ -20,6 +20,9 @@ const Menu = ({
   setSubtitle,
   setVideoSource,
   subtitle,
+  fansubAcronym,
+  animeSlug,
+  episodeNumber,
 }: {
   setSubtitle: (subtitle: CompiledASS) => void,
   setVideoSource: React.Dispatch<React.SetStateAction<{
@@ -27,6 +30,9 @@ const Menu = ({
     type: string;
   } | undefined>>,
   subtitle: CompiledASS | undefined,
+  fansubAcronym?: string,
+  animeSlug?: string,
+  episodeNumber?: string,
 }) => {
   const [activeIcon, setActiveIcon] = useState('');
 
@@ -107,7 +113,8 @@ const Menu = ({
       {
         subtitle && (
           <a
-            download="subtitle.ass"
+            className="button"
+            download={`[${fansubAcronym}]${animeSlug}-${episodeNumber}.ass`}
             href={downloadLink}
           >
             <Icon
@@ -115,23 +122,6 @@ const Menu = ({
               size={1}
             />
           </a>
-          // <button
-          //   type="button"
-          //   className="button"
-          //   onMouseDown={() => setActiveIcon('mdiDownload')}
-          //   onMouseUp={() => setActiveIcon('')}
-          //   onBlur={() => setActiveIcon('')}
-          //   onMouseOut={() => setActiveIcon('')}
-          //   onClick={() => {
-          //     const blob = new Blob([decompile(subtitle)], { type: 'text/plain' });
-          //     const file = new File([blob], 'foo.ass', { type: 'text/plain' });
-          //   }}
-          // >
-          //   <Icon
-          //     path={activeIcon === 'mdiDownload' ? mdiDownloadOutline : mdiDownload}
-          //     size={1}
-          //   />
-          // </button>
         )
       }
     </div>

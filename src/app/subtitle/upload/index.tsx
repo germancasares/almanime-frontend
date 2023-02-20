@@ -2,15 +2,15 @@ import Form from './_components/form';
 
 import './index.scss';
 
-const Create = () => (
+const Upload = () => (
   <main id="subtitle-create" className="container">
     <section className="section">
       <h1 className="title">
-        Start a new subtitle
+        Upload a new subtitle
       </h1>
       <Form />
     </section>
   </main>
 );
 
-export default Create;
+export default Upload;

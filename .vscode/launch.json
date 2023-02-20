@@ -7,13 +7,14 @@
       "request": "launch",
       "profile": "dev-edition-default",
       "keepProfileChanges": true,
+      "reAttach": true,
       "url": "https://localhost:3000",
       "webRoot": "${workspaceFolder}/src",
       "pathMappings": [
         {
-          "url": "https://localhost:3000/workspaces/almanime-frontend-react/src",
-          "path": "${workspaceFolder}/src"
-        },
+          "url": "https://localhost:3000/almanime-frontend/",
+          "path": "${workspaceFolder}/"
+        }
       ]
     }
   ]

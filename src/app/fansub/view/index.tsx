@@ -1,10 +1,16 @@
 import { useState } from 'react';
 import {
   Link,
-  useLocation, useNavigate, useParams,
+  useLocation,
+  useNavigate,
+  useParams,
 } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import { mdiCog, mdiFilePlusOutline } from '@mdi/js';
+import {
+  mdiCog,
+  mdiFileUpload,
+  mdiImageText,
+} from '@mdi/js';
 import Icon from '@mdi/react';
 
 import FansubApi from 'api/FansubApi';
@@ -21,10 +27,19 @@ import Tabs, { TabName } from './_components/tabs';
 
 import './index.scss';
 
-const NewSubtitleButton = ({ acronym } : { acronym: string }) => (
+const CreateSubtitleButton = ({ acronym } : { acronym: string }) => (
   <Link className="button is-primary is-rounded" to={routes.subtitle.create.to(acronym)}>
     <span className="icon">
-      <Icon path={mdiFilePlusOutline} size={1} />
+      <Icon path={mdiImageText} size={1} />
+    </span>
+    <span>Editor</span>
+  </Link>
+);
+
+const UploadSubtitleButton = ({ acronym } : { acronym: string }) => (
+  <Link className="button is-primary is-rounded" to={routes.subtitle.upload.to(acronym)}>
+    <span className="icon">
+      <Icon path={mdiFileUpload} size={1} />
     </span>
     <span>Subtitle</span>
   </Link>
@@ -100,7 +115,10 @@ const View = ({ token }: { token?: string }) => {
           }
           {
             Helper.HasPermission(Permission.CreateSubtitle, acronym, me) && (
-              <NewSubtitleButton acronym={acronym} />
+              <>
+                <UploadSubtitleButton acronym={acronym} />
+                <CreateSubtitleButton acronym={acronym} />
+              </>
             )
           }
         </h1>

@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client';
 
-import Build from '.';
+import Editor from '.';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  createRoot(div).render(<Build />);
+  createRoot(div).render(<Editor />);
 });
