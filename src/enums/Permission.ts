@@ -1,6 +1,7 @@
 enum Permission {
+  DraftSubtitle = 'DraftSubtitle',
+  PublishSubtitle = 'PublishSubtitle',
   EditPermissions = 'EditPermissions',
-  CreateSubtitle = 'CreateSubtitle',
 }
 
 export default Permission;

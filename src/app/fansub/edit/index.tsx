@@ -7,10 +7,10 @@ import Permission from 'enums/Permission';
 
 import './index.scss';
 
-const Edit = () => {
+const Edit = ({ token }: { token?: string }) => {
   const { acronym } = useParams<{ acronym: string }>();
 
-  const { data } = FansubApi.GetRoles(acronym);
+  const { data } = FansubApi.GetRoles(acronym, token);
   const [roles, setRoles] = useState(data);
   useEffect(() => {
     setRoles(data);

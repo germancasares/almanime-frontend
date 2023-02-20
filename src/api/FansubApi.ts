@@ -81,13 +81,34 @@ export default class FansubApi {
     },
   );
 
+  public static GetSubtitlesDrafts = (
+    acronym?: string,
+    token?: string,
+  ) => useQuery<Subtitle[]>(
+    ['subtitles', acronym, token],
+    async () => (await fetch(`fansub/acronym/${acronym}/subtitles/drafts`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })).json(),
+    {
+      enabled: !!acronym && !!token,
+      staleTime: Duration.fromObject({ minutes: 30 }).toMillis(),
+    },
+  );
+
   public static GetRoles = (
     acronym?: string,
+    token?: string,
   ) => useQuery<Roles>(
-    ['roles', acronym],
-    async () => (await fetch(`fansub/acronym/${acronym}/roles`)).json(),
+    ['roles', acronym, token],
+    async () => (await fetch(`fansub/acronym/${acronym}/roles`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })).json(),
     {
-      enabled: !!acronym,
+      enabled: !!acronym && !!token,
       staleTime: Duration.fromObject({ minutes: 30 }).toMillis(),
     },
   );
@@ -129,7 +150,7 @@ export default class FansubApi {
 
           return { roles };
         },
-        onError: (err, newRoles, context) => {
+        onError: (_error, _newRoles, context) => {
           if (context?.roles) {
             queryClient.setQueryData<Roles>(['roles', acronym], context.roles);
           }

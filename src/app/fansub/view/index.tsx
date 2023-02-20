@@ -66,8 +66,7 @@ const JoinFansubButton = ({ onClick, isLoading } : { onClick: () => void, isLoad
 const useInitialTab = () => {
   const { hash } = useLocation();
   const urlTab = hash.replace('#', '');
-  let initialTab = TabName.Newest;
-  if ((urlTab in TabName)) initialTab = urlTab as TabName;
+  const initialTab = urlTab in TabName ? urlTab as TabName : TabName.Newest;
   return useState<TabName>(initialTab);
 };
 
@@ -114,7 +113,7 @@ const View = ({ token }: { token?: string }) => {
             )
           }
           {
-            Helper.HasPermission(Permission.CreateSubtitle, acronym, me) && (
+            Helper.HasPermission(Permission.DraftSubtitle, acronym, me) && (
               <>
                 <UploadSubtitleButton acronym={acronym} />
                 <CreateSubtitleButton acronym={acronym} />
@@ -124,7 +123,7 @@ const View = ({ token }: { token?: string }) => {
         </h1>
         <Tabs activeTab={activeTab} changeTab={changeTab} />
         { activeTab === TabName.Members ? <MembersPage acronym={acronym} /> : null }
-        { activeTab === TabName.Subtitles ? <SubtitlesPage acronym={acronym} /> : null }
+        { activeTab === TabName.Subtitles ? <SubtitlesPage acronym={acronym} token={token} /> : null }
       </section>
     </main>
   );
