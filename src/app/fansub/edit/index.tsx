@@ -37,7 +37,7 @@ const Edit = () => {
         <h3 className="title">
           {`Edit ${acronym}`}
         </h3>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} autoComplete="on">
           <table className="table">
             <thead>
               <tr>

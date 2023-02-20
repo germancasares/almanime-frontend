@@ -5,7 +5,7 @@ import SubtitleFormat from 'enums/SubtitleFormat';
 export type SubtitleDTO = {
   fansubAcronym: string;
   animeSlug: string;
-  episodeNumber: number;
+  episodeNumber: number | string;
   file: File;
 };
 

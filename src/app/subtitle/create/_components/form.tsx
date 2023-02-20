@@ -1,11 +1,9 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import {
   Link,
   useParams,
 } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 
-import SubtitleApi from 'api/SubtitleApi';
 import routes from 'app/routes';
 import { SubtitleDTO } from 'types/subtitle';
 
@@ -20,18 +18,8 @@ const Form = () => {
     setSubtitle((values) => ({ ...values, [name]: value === '' ? undefined : value }));
   };
 
-  const { getAccessTokenSilently } = useAuth0();
-  const { mutateAsync, isLoading } = SubtitleApi.Post();
-  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    await mutateAsync({
-      subtitle,
-      token: await getAccessTokenSilently(),
-    });
-  };
-
   return (
-    <form onSubmit={onSubmit}>
+    <form autoComplete="on">
       <div className="field">
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label className="label" htmlFor="animeSlug">Anime</label>
@@ -62,7 +50,7 @@ const Form = () => {
 
       <div className="control">
         <Link
-          className={`button is-link${isLoading ? ' is-loading' : ''}`}
+          className="button is-link"
           to={routes.subtitle.editor.to(subtitle.fansubAcronym, subtitle.animeSlug, subtitle.episodeNumber.toString())}
         >
           <span>Editor</span>

@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import {
+  mdiContentSave,
+  mdiContentSaveOutline,
   mdiDownload,
   mdiDownloadOutline,
   mdiSubtitles,
@@ -13,6 +16,8 @@ import {
   CompiledASS,
   decompile,
 } from 'ass-compiler';
+
+import SubtitleApi from 'api/SubtitleApi';
 
 import './menu.scss';
 
@@ -36,8 +41,29 @@ const Menu = ({
 }) => {
   const [activeIcon, setActiveIcon] = useState('');
 
-  let downloadLink = '';
+  const { getAccessTokenSilently } = useAuth0();
+  const { mutateAsync, isLoading } = SubtitleApi.Post();
+  const onClick = async (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
 
+    if (!(fansubAcronym && animeSlug && episodeNumber && subtitle)) return;
+
+    await mutateAsync({
+      subtitle: {
+        fansubAcronym,
+        animeSlug,
+        episodeNumber,
+        file: new File(
+          [decompile(subtitle)],
+          `[${fansubAcronym}]${animeSlug}-${episodeNumber}.ass`,
+          { type: 'text/plain' },
+        ),
+      },
+      token: await getAccessTokenSilently(),
+    });
+  };
+
+  let downloadLink = '';
   if (subtitle) {
     const blob = new Blob([decompile(subtitle)], { type: 'text/plain' });
 
@@ -114,6 +140,7 @@ const Menu = ({
         subtitle && (
           <a
             className="button"
+            title="Download subtitle"
             download={`[${fansubAcronym}]${animeSlug}-${episodeNumber}.ass`}
             href={downloadLink}
           >
@@ -122,6 +149,22 @@ const Menu = ({
               size={1}
             />
           </a>
+        )
+      }
+
+      {
+        subtitle && (
+          <button
+            type="button"
+            className={`button ${isLoading ? ' is-loading' : ''}`}
+            title="Save subtitle to fansub"
+            onClick={onClick}
+          >
+            <Icon
+              path={activeIcon === 'mdiContentSave' ? mdiContentSaveOutline : mdiContentSave}
+              size={1}
+            />
+          </button>
         )
       }
     </div>
