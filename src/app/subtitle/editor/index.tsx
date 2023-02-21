@@ -1,6 +1,8 @@
 import { useCallback, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import { useLocation, useParams } from 'react-router-dom';
 import {
+  compile,
   CompiledASS,
   DialogueSlice,
 } from 'ass-compiler';
@@ -28,6 +30,21 @@ const Editor = () => {
   const [isNewSubtitle, setIsNewSubtitle] = useState(false);
   const [subtitle, setSubtitle] = useState<CompiledASS | undefined>(undefined);
   const [videoSource, setVideoSource] = useState<{ src: string, type: string } | undefined>(undefined);
+
+  const { subtitleUrl } = useLocation().state as { subtitleUrl?: string };
+  useQuery(
+    ['subtitle', subtitleUrl],
+    async () => (await fetch(new URL(subtitleUrl ?? ''))).text(),
+    {
+      enabled: !!subtitleUrl,
+      staleTime: Infinity,
+      onSuccess: (text) => {
+        if (!subtitle) {
+          setSubtitle(compile(text, {}));
+        }
+      },
+    },
+  );
 
   const updateSubtitle = useCallback((newSubtitle: CompiledASS) => {
     setSubtitle(newSubtitle);

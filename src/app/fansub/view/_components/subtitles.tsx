@@ -1,4 +1,10 @@
-import { mdiArchiveArrowDown, mdiDownload, mdiPublish } from '@mdi/js';
+import { Link } from 'react-router-dom';
+import {
+  mdiArchiveArrowDown,
+  mdiDownload,
+  mdiImageText,
+  mdiPublish,
+} from '@mdi/js';
 import Icon from '@mdi/react';
 
 import FansubApi from 'api/FansubApi';
@@ -6,6 +12,7 @@ import SubtitleApi from 'api/SubtitleApi';
 import UserApi from 'api/UserApi';
 import Formatter from 'app/formatter';
 import Helper from 'app/helper';
+import routes from 'app/routes';
 import Permission from 'enums/Permission';
 
 import Loader from 'components/loader';
@@ -16,6 +23,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
   const { data: publishedSubtitles } = FansubApi.GetPublishedSubtitles(acronym);
   const { data: draftedSubtitles } = FansubApi.GetSubtitlesDrafts(acronym, token);
   const { data: me } = UserApi.Me(token);
+  const canDraft = Helper.HasPermission(Permission.DraftSubtitle, acronym, me);
   const canPublish = Helper.HasPermission(Permission.PublishSubtitle, acronym, me);
   const canUnpublish = Helper.HasPermission(Permission.UnpublishSubtitle, acronym, me);
   const { mutateAsync: publishAsync } = SubtitleApi.Publish();
@@ -64,10 +72,10 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                 </a>
               </td>
               <td>Drafted</td>
-              <td>
+              <td className="fullwidth">
                 <button
                   type="button"
-                  className="button is-small is-fullwidth"
+                  className="button is-small"
                   title="Publish subtitle"
                   onClick={async (event) => {
                     event.preventDefault();
@@ -85,6 +93,20 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                     size={1}
                   />
                 </button>
+                {
+                  canDraft && (
+                    <Link
+                      className="button is-small"
+                      to={routes.subtitle.editor.to(acronym, animeSlug, episode.toString())}
+                      state={{ subtitleUrl: `${process.env.REACT_APP_API}${url}` }}
+                    >
+                      <Icon
+                        path={mdiImageText}
+                        size={1}
+                      />
+                    </Link>
+                  )
+                }
               </td>
             </tr>
           ))
