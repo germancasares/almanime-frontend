@@ -57,7 +57,13 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
             id, url, user, anime, animeSlug, episode, format, creationDate,
           }) => (
             <tr key={id}>
-              <td>{anime}</td>
+              <td>
+                <Link
+                  to={routes.anime.view.to(animeSlug)}
+                >
+                  {anime}
+                </Link>
+              </td>
               <td>{episode}</td>
               <td>{Formatter.DateFull(creationDate.toString())}</td>
               <td>{format}</td>
@@ -116,7 +122,13 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
             id, url, user, anime, animeSlug, episode, format, creationDate,
           }) => (
             <tr key={id}>
-              <td>{anime}</td>
+              <td>
+                <Link
+                  to={routes.anime.view.to(animeSlug)}
+                >
+                  {anime}
+                </Link>
+              </td>
               <td>{episode}</td>
               <td>{Formatter.DateFull(creationDate.toString())}</td>
               <td>{format}</td>

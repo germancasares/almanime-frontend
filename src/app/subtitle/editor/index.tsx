@@ -10,6 +10,7 @@ import {
 import Lines from './_components/lines';
 import Menu from './_components/menu';
 import Player from './_components/player';
+import Styles from './_components/styles';
 import WaveForm from './_components/waveform';
 
 import './index.scss';
@@ -27,6 +28,7 @@ const Editor = () => {
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isReady, setReady] = useState(false);
+  const [isStylesActive, setIsStylesActive] = useState(false);
   const [isNewSubtitle, setIsNewSubtitle] = useState(false);
   const [subtitle, setSubtitle] = useState<CompiledASS | undefined>(undefined);
   const [videoSource, setVideoSource] = useState<{ src: string, type: string } | undefined>(undefined);
@@ -94,6 +96,7 @@ const Editor = () => {
 
   return (
     <div id="subtitle-editor">
+      <Styles isActive={isStylesActive} setIsStylesActive={setIsStylesActive} />
       <div className="video-editor-wrapper">
         <div className="menu-wrapper">
           <Menu
@@ -103,6 +106,7 @@ const Editor = () => {
             fansubAcronym={fansubAcronym}
             animeSlug={animeSlug}
             episodeNumber={episodeNumber}
+            setIsStylesActive={setIsStylesActive}
           />
         </div>
         <div className="lines-wrapper">

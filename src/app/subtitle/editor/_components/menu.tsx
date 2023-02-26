@@ -5,6 +5,7 @@ import {
   mdiContentSaveOutline,
   mdiDownload,
   mdiDownloadOutline,
+  mdiPalette,
   mdiSubtitles,
   mdiSubtitlesOutline,
   mdiVideo,
@@ -28,6 +29,7 @@ const Menu = ({
   fansubAcronym,
   animeSlug,
   episodeNumber,
+  setIsStylesActive,
 }: {
   setSubtitle: (subtitle: CompiledASS) => void,
   setVideoSource: React.Dispatch<React.SetStateAction<{
@@ -38,6 +40,7 @@ const Menu = ({
   fansubAcronym?: string,
   animeSlug?: string,
   episodeNumber?: string,
+  setIsStylesActive: (isActive: boolean) => void,
 }) => {
   const [activeIcon, setActiveIcon] = useState('');
 
@@ -136,10 +139,17 @@ const Menu = ({
         </label>
       </div>
 
+      <button type="button" className="button" onClick={() => setIsStylesActive(true)}>
+        <Icon
+          path={mdiPalette}
+          size={1}
+        />
+      </button>
+
       {
         subtitle && (
           <a
-            className="button"
+            className="button is-last"
             title="Download subtitle"
             download={`[${fansubAcronym}]${animeSlug}-${episodeNumber}.ass`}
             href={downloadLink}

@@ -9,6 +9,7 @@ it('renders without crashing', () => {
       setSubtitle={() => {}}
       setVideoSource={() => {}}
       subtitle={undefined}
+      setIsStylesActive={() => {}}
     />,
   );
 });
