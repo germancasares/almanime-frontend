@@ -1,8 +1,20 @@
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { Duration } from 'luxon';
 
-import { Subtitle, SubtitleDTO } from 'types/subtitle';
+import { AnimeSubtitles, Subtitle, SubtitleDTO } from 'types/subtitle';
 
 export default class SubtitleApi {
+  public static GetByAnimeSlug = (
+    animeSlug?: string,
+  ) => useQuery<AnimeSubtitles>(
+    ['animeSubtitles', animeSlug],
+    async () => (await fetch(`subtitle/anime/${animeSlug}`)).json(),
+    {
+      enabled: !!animeSlug,
+      staleTime: Duration.fromObject({ hours: 1 }).toMillis(),
+    },
+  );
+
   public static Publish = () => {
     const queryClient = useQueryClient();
 

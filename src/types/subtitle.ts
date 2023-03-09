@@ -19,3 +19,12 @@ export type Subtitle = {
   episode: number,
   user: string,
 };
+
+export type EpisodeSubtitle = {
+  acronym: string,
+  url: string,
+};
+
+export type AnimeSubtitles = {
+  [episode: number]: EpisodeSubtitle[],
+};

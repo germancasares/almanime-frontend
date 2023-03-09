@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 
 import AnimeApi from 'api/AnimeApi';
 import EpisodeApi from 'api/EpisodeApi';
+import SubtitleApi from 'api/SubtitleApi';
 
 import Hero from 'components/hero';
 import Loader from 'components/loader';
@@ -17,9 +18,9 @@ const View = () => {
 
   const { data: anime } = AnimeApi.GetBySlug(slug);
   const { data: episodes } = EpisodeApi.GetByAnimeSlug(slug);
-  const { data: episodeFansubs } = EpisodeApi.GetFansubs(slug);
+  const { data: animeSubtitles } = SubtitleApi.GetByAnimeSlug(slug);
 
-  if (!anime || !episodes || !episodeFansubs) return (<Loader />);
+  if (!anime || !episodes || !animeSubtitles) return (<Loader />);
 
   return (
     <main id="anime">
@@ -43,7 +44,7 @@ const View = () => {
               {anime.synopsis}
             </p>
             {
-              episodes.length > 0 && (<Episodes episodes={episodes} episodeFansubs={episodeFansubs} />)
+              episodes.length > 0 && (<Episodes episodes={episodes} animeSubtitles={animeSubtitles} />)
             }
           </section>
         </div>

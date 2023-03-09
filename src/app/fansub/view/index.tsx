@@ -84,14 +84,13 @@ const View = ({ token }: { token?: string }) => {
   const { data: isMember, isSuccess } = FansubApi.IsMember(acronym, token);
   const { data: me } = UserApi.Me(token);
 
-  const { getAccessTokenSilently } = useAuth0();
   const { mutateAsync, isLoading } = FansubApi.Join();
   const joinFansub = async () => {
     if (!acronym) return;
 
     await mutateAsync({
       acronym,
-      token: await getAccessTokenSilently(),
+      token,
     });
   };
 

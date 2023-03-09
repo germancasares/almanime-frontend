@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   createRoot(div).render(
     <Episodes
       episodes={[]}
-      episodeFansubs={{}}
+      animeSubtitles={{}}
     />,
   );
 });

@@ -2,13 +2,14 @@ import { Duration } from 'luxon';
 
 import Formatter from 'app/formatter';
 import Helper from 'app/helper';
-import { Episode, EpisodeFansubs, FansubSubtitles } from 'types/episode';
+import { Episode } from 'types/episode';
+import { AnimeSubtitles, EpisodeSubtitle } from 'types/subtitle';
 
 import './episodes.scss';
 
 type Props = {
   episodes: Episode[],
-  episodeFansubs: EpisodeFansubs,
+  animeSubtitles: AnimeSubtitles,
 };
 
 const Header = () => (
@@ -23,7 +24,7 @@ const Header = () => (
 
 type RowProp = {
   episode: Episode,
-  fansubs: FansubSubtitles,
+  episodeSubtitles: EpisodeSubtitle[],
 };
 
 const Row = ({
@@ -33,7 +34,7 @@ const Row = ({
     duration,
     aired,
   },
-  fansubs,
+  episodeSubtitles,
 }: RowProp) => (
   <tr>
     <th>{number}</th>
@@ -43,16 +44,16 @@ const Row = ({
     </td>
     <td>{Formatter.DateFull(aired)}</td>
     <td>
-      {Object.entries(fansubs).map(([fansub, subtitle]) => (
-        <a href={`${process.env.REACT_APP_API}${subtitle}`} key={fansub}>
-          {fansub}
+      {episodeSubtitles?.map(({ acronym, url }) => (
+        <a href={`${process.env.REACT_APP_API}${url}`} key={url}>
+          {acronym}
         </a>
       ))}
     </td>
   </tr>
 );
 
-const Episodes = ({ episodes, episodeFansubs }: Props) => (
+const Episodes = ({ episodes, animeSubtitles }: Props) => (
   <table id="episodes" className="table is-fullwidth">
     <thead>
       <Header />
@@ -61,7 +62,11 @@ const Episodes = ({ episodes, episodeFansubs }: Props) => (
       <Header />
     </tfoot>
     <tbody>
-      {episodes.map((episode) => <Row episode={episode} key={episode.id} fansubs={episodeFansubs[episode.number]} />)}
+      {
+        episodes.map(
+          (episode) => <Row episode={episode} key={episode.id} episodeSubtitles={animeSubtitles[episode.number]} />,
+        )
+      }
     </tbody>
   </table>
 );

@@ -3,6 +3,7 @@
   "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
   "workspaceMount": "source=${localEnv:HOME}/${localWorkspaceFolderBasename},target=/${localWorkspaceFolderBasename},type=bind,consistency=cached",
   "workspaceFolder": "/${localWorkspaceFolderBasename}",
+  "runArgs": ["--name", "almanime_frontend_devcontainer"],
   "features": {
     "ghcr.io/devcontainers-contrib/features/pulumi:1": {}
   },
@@ -23,7 +24,8 @@
         "stylelint.vscode-stylelint",
         "pflannery.vscode-versionlens",
         "Orta.vscode-jest",
-        "bierner.markdown-preview-github-styles"
+        "bierner.markdown-preview-github-styles",
+        "firefox-devtools.vscode-firefox-debug"
       ],
       "settings": {
         "diffEditor.codeLens": true,
