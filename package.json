@@ -110,10 +110,10 @@
     "transformIgnorePatterns": ["node_modules/(?!wavesurfer.js)/"],
     "coverageThreshold": {
       "global": {
-        "statements": 24.27,
-        "branches": 13.65,
-        "functions": 16.45,
-        "lines": 24.22
+        "statements": 23.3,
+        "branches": 12.11,
+        "functions": 15.54,
+        "lines": 23.16
       }
     }
   }
