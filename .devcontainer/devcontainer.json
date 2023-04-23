@@ -29,7 +29,8 @@
         "Orta.vscode-jest",
         "bierner.markdown-preview-github-styles",
         "firefox-devtools.vscode-firefox-debug",
-        "vscode-icons-team.vscode-icons"
+        "vscode-icons-team.vscode-icons",
+        "firefox-devtools.vscode-firefox-debug"
       ],
       "settings": {
         // --- Common settings ---
