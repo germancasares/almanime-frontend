@@ -1,11 +1,13 @@
 import { DateTime } from 'luxon';
 
 import SubtitleFormat from 'enums/SubtitleFormat';
+import SubtitleLanguage from 'enums/SubtitleLanguage';
 
 export type SubtitleDTO = {
   fansubAcronym: string;
   animeSlug: string;
   episodeNumber: number | string;
+  subtitleLanguage: SubtitleLanguage;
   file: File;
 };
 

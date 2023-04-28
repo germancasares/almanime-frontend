@@ -20,7 +20,7 @@ const routes: Routes = {
   list: {
     path: '/fansubs',
     to: () => routes.list.path,
-    component: List,
+    component: withToken(List),
   },
   view: {
     path: toFansub(':acronym'),

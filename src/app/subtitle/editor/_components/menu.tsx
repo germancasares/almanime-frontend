@@ -19,6 +19,7 @@ import {
 } from 'ass-compiler';
 
 import SubtitleApi from 'api/SubtitleApi';
+import SubtitleLanguage from 'enums/SubtitleLanguage';
 
 import './menu.scss';
 
@@ -29,6 +30,7 @@ const Menu = ({
   fansubAcronym,
   animeSlug,
   episodeNumber,
+  subtitleLanguage,
   setIsStylesActive,
 }: {
   setSubtitle: (subtitle: CompiledASS) => void,
@@ -40,6 +42,7 @@ const Menu = ({
   fansubAcronym?: string,
   animeSlug?: string,
   episodeNumber?: string,
+  subtitleLanguage?: SubtitleLanguage,
   setIsStylesActive: (isActive: boolean) => void,
 }) => {
   const [activeIcon, setActiveIcon] = useState('');
@@ -49,13 +52,14 @@ const Menu = ({
   const onClick = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    if (!(fansubAcronym && animeSlug && episodeNumber && subtitle)) return;
+    if (!(fansubAcronym && animeSlug && episodeNumber && subtitleLanguage && subtitle)) return;
 
     await mutateAsync({
       subtitle: {
         fansubAcronym,
         animeSlug,
         episodeNumber,
+        subtitleLanguage,
         file: new File(
           [decompile(subtitle)],
           `[${fansubAcronym}]${animeSlug}-${episodeNumber}.ass`,

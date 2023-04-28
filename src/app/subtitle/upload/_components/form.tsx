@@ -5,6 +5,7 @@ import { mdiFileUploadOutline } from '@mdi/js';
 import Icon from '@mdi/react';
 
 import SubtitleApi from 'api/SubtitleApi';
+import SubtitleLanguage from 'enums/SubtitleLanguage';
 import { SubtitleDTO } from 'types/subtitle';
 
 import './form.scss';
@@ -13,7 +14,7 @@ const Form = () => {
   const { fansubAcronym } = useParams<{ fansubAcronym: string }>();
 
   const [subtitle, setSubtitle] = useState({ fansubAcronym } as SubtitleDTO);
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
     const { target: { name, value } } = event;
     setSubtitle((values) => ({ ...values, [name]: value === '' ? undefined : value }));
   };
@@ -55,6 +56,22 @@ const Form = () => {
             placeholder="10"
             onChange={onChange}
           />
+        </div>
+      </div>
+
+      <div className="field">
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <label className="label" htmlFor="subtitleLanguage">Language</label>
+        <div className="control">
+          <span className="select">
+            <select onChange={onChange}>
+              {
+                Object.keys(SubtitleLanguage).map((language) => (
+                  <option>{language}</option>
+                ))
+              }
+            </select>
+          </span>
         </div>
       </div>
 

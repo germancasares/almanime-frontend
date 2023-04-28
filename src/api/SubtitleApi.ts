@@ -146,6 +146,7 @@ export default class SubtitleApi {
       fansubAcronym,
       animeSlug,
       episodeNumber,
+      subtitleLanguage,
       file,
     },
     token,
@@ -155,6 +156,7 @@ export default class SubtitleApi {
     formData.append('animeSlug', animeSlug);
     formData.append('episodeNumber', episodeNumber.toString());
     formData.append('fansubAcronym', fansubAcronym);
+    formData.append('subtitleLanguage', subtitleLanguage);
     formData.append('file', file);
 
     return (await fetch('subtitle', {
