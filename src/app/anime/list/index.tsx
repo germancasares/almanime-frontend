@@ -11,18 +11,40 @@ const List = () => {
   if (isLoading) return (<Loader />);
 
   return (
-    <main>
-      {
-        animes && animes.map(({
-          slug, name, season, status, episodes,
-        }) => (
-          <div key={slug}>
-            <Link to={routes.anime.view.to(slug)}>
-              {`${name} ${season} ${status} ${episodes}`}
-            </Link>
-          </div>
-        ))
-      }
+    <main id="anime-list">
+      <section className="section">
+        <h1 className="title">
+          Anime List
+        </h1>
+        <table className="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Anime</th>
+              <th>Season</th>
+              <th>Status</th>
+              <th>Episodes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              animes && animes.sort((a, b) => (a.name > b.name ? 1 : -1)).map(({
+                slug, name, season, status, episodes,
+              }) => (
+                <tr key={slug}>
+                  <td>
+                    <Link to={routes.anime.view.to(slug)}>
+                      {name}
+                    </Link>
+                  </td>
+                  <td>{season}</td>
+                  <td>{status}</td>
+                  <td>{episodes}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </section>
     </main>
   );
 };

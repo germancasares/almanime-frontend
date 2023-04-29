@@ -107,13 +107,15 @@
     ]
   },
   "jest": {
-    "transformIgnorePatterns": ["node_modules/(?!wavesurfer.js)/"],
+    "transformIgnorePatterns": [
+      "node_modules/(?!wavesurfer.js)/"
+    ],
     "coverageThreshold": {
       "global": {
-        "statements": 23.3,
-        "branches": 12.11,
-        "functions": 15.54,
-        "lines": 23.16
+        "statements": 50,
+        "branches": 40.9,
+        "functions": 25.75,
+        "lines": 49.57
       }
     }
   }

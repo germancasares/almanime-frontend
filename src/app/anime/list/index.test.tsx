@@ -1,4 +1,4 @@
-import { render } from 'test-utils';
+import { render, screen } from 'test-utils';
 
 import AnimeApi from 'api/AnimeApi';
 
@@ -30,10 +30,12 @@ describe('[Anime][List]', () => {
     mockedGet.mockReturnValue({ isLoading: false, data: [] });
 
     // Act
-    const { container } = render(<List />);
+    render(<List />);
 
     // Assert
-    expect(container.firstChild).toBeEmptyDOMElement();
+    expect(screen.getByRole('main').id).toEqual('anime-list');
+    expect(screen.getByRole('heading').textContent).toEqual('Anime List');
+    expect(screen.getAllByRole('rowgroup')[1].childNodes.length).toBe(0);
   });
 
   it('should render the animes if there are animes', () => {
@@ -53,6 +55,6 @@ describe('[Anime][List]', () => {
     const { getByText } = render(<List />);
 
     // Assert
-    expect(getByText('name season status episodes')).toHaveAttribute('href', '/animes/slug');
+    expect(getByText('name')).toHaveAttribute('href', '/animes/slug');
   });
 });

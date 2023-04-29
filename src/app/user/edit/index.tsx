@@ -40,7 +40,7 @@ const Edit = ({ token }: { token?: string }) => {
                 type="text"
                 value={user.name}
                 placeholder="Luffy"
-                onChange={({ target: { value } }) => setUser({ name: value, permissions: me.permissions })}
+                onChange={({ target: { value } }) => setUser({ name: value, permissions: me.permissions, fansubs: [] })}
               />
             </div>
           </div>

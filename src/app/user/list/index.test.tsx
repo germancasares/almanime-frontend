@@ -1,4 +1,4 @@
-import { render } from 'test-utils';
+import { render, screen } from 'test-utils';
 
 import UserApi from 'api/UserApi';
 
@@ -30,15 +30,17 @@ describe('[User][List]', () => {
     mockedGet.mockReturnValue({ isLoading: false, data: [] });
 
     // Act
-    const { container } = render(<List />);
+    render(<List />);
 
     // Assert
-    expect(container.firstChild).toBeEmptyDOMElement();
+    expect(screen.getByRole('main').id).toEqual('user-list');
+    expect(screen.getByRole('heading').textContent).toEqual('User List');
+    expect(screen.getAllByRole('rowgroup')[1].childNodes.length).toBe(0);
   });
 
   it('should render the users if there are users', () => {
     // Arrange
-    mockedGet.mockReturnValue({ isLoading: false, data: [{ name: 'test' }] });
+    mockedGet.mockReturnValue({ isLoading: false, data: [{ name: 'test', fansubs: [] }] });
 
     // Act
     const { getByText } = render(<List />);

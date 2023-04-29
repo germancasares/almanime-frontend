@@ -3,6 +3,7 @@ import { mdiPlus } from '@mdi/js';
 import Icon from '@mdi/react';
 
 import FansubApi from 'api/FansubApi';
+import Formatter from 'app/formatter';
 import routes from 'app/routes';
 
 import Loader from 'components/loader';
@@ -19,26 +20,48 @@ const List = ({ token }: { token?: string }) => {
       <section className="section">
         <h1 className="title">
           Fansubs List
-        </h1>
-        { token && (
-          <Link className="button is-primary is-rounded" to={routes.fansub.create.path}>
-            <span className="icon">
-              <Icon path={mdiPlus} size={1} />
-            </span>
-            <span>Fansub</span>
-          </Link>
-        ) }
-        {
-          fansubs && fansubs.map(({
-            acronym, name, webpage, creationDate, members,
-          }) => (
-            <div key={acronym}>
-              <Link to={routes.fansub.view.to(acronym)}>
-                {`${acronym} ${name} ${webpage} ${creationDate} ${members}`}
+          {
+            token && (
+              <Link className="button is-primary is-rounded" to={routes.fansub.create.path}>
+                <span className="icon">
+                  <Icon path={mdiPlus} size={1} />
+                </span>
+                <span>Fansub</span>
               </Link>
-            </div>
-          ))
-        }
+            )
+          }
+        </h1>
+        <table className="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Acronym</th>
+              <th>Name</th>
+              <th>Webpage</th>
+              <th>Creation Date</th>
+              <th>Members</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              fansubs && fansubs.map(({
+                acronym, name, webpage, creationDate, members,
+              }) => (
+                <tr key={acronym}>
+                  <td>
+                    <Link to={routes.fansub.view.to(acronym)}>
+                      {acronym}
+                    </Link>
+                  </td>
+                  <td>{name}</td>
+                  <td>{webpage}</td>
+                  <td>{Formatter.DateFull(creationDate.toString())}</td>
+                  <td>{members}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+
       </section>
 
     </main>

@@ -43,7 +43,7 @@ const Create = ({ token }: { token?: string }) => {
                 className="input"
                 type="text"
                 placeholder="Luffy"
-                onChange={({ target: { value } }) => setUser({ name: value, permissions: {} })}
+                onChange={({ target: { value } }) => setUser({ name: value, permissions: {}, fansubs: [] })}
               />
             </div>
           </div>

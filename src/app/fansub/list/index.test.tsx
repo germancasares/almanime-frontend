@@ -1,4 +1,4 @@
-import { render } from 'test-utils';
+import { render, screen } from 'test-utils';
 
 import FansubApi from 'api/FansubApi';
 
@@ -30,10 +30,12 @@ describe('[Anime][List]', () => {
     mockedGet.mockReturnValue({ isLoading: false, data: [] });
 
     // Act
-    const { container } = render(<List />);
+    render(<List />);
 
     // Assert
-    expect(container.firstChild).toBeEmptyDOMElement();
+    expect(screen.getByRole('main').id).toEqual('fansub-list');
+    expect(screen.getByRole('heading').textContent).toEqual('Fansubs List');
+    expect(screen.getAllByRole('rowgroup')[1].childNodes.length).toBe(0);
   });
 
   it('should render the fansubs if there are fansubs', () => {
@@ -53,6 +55,6 @@ describe('[Anime][List]', () => {
     const { getByText } = render(<List />);
 
     // Assert
-    expect(getByText('acronym name webpage creationDate members')).toHaveAttribute('href', '/fansubs/acronym');
+    expect(getByText('acronym')).toHaveAttribute('href', '/fansubs/acronym');
   });
 });
