@@ -10,4 +10,13 @@
       margin-left: auto;
     }
   }
+
+  .table {
+    background-color: var(--surface);
+
+    td,
+    th {
+      color: var(--on-surface);
+    }
+  }
 }

@@ -5,6 +5,8 @@ import routes from 'app/routes';
 
 import Loader from 'components/loader';
 
+import './index.scss';
+
 const List = () => {
   const {
     data: users,
