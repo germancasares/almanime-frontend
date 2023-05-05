@@ -9,6 +9,12 @@
     top: -150px;
   }
 
+  aside {
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+  }
+
   section {
     color: var(--on-background);
     padding-left: 20px;
