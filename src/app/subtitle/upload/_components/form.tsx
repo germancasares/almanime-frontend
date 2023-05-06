@@ -15,6 +15,7 @@ const Form = () => {
 
   const [subtitle, setSubtitle] = useState({ fansubAcronym } as SubtitleDTO);
   const onChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+    console.log({ event });
     const { target: { name, value } } = event;
     setSubtitle((values) => ({ ...values, [name]: value === '' ? undefined : value }));
   };
@@ -61,10 +62,10 @@ const Form = () => {
 
       <div className="field">
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label className="label" htmlFor="subtitleLanguage">Language</label>
+        <label className="label" htmlFor="language">Language</label>
         <div className="control">
           <span className="select">
-            <select onChange={onChange}>
+            <select onChange={onChange} name="language">
               {
                 Object.keys(SubtitleLanguage).map((language) => (
                   <option>{language}</option>

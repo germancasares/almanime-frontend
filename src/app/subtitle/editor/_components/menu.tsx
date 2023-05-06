@@ -30,7 +30,7 @@ const Menu = ({
   fansubAcronym,
   animeSlug,
   episodeNumber,
-  subtitleLanguage,
+  language,
   setIsStylesActive,
 }: {
   setSubtitle: (subtitle: CompiledASS) => void,
@@ -42,7 +42,7 @@ const Menu = ({
   fansubAcronym?: string,
   animeSlug?: string,
   episodeNumber?: string,
-  subtitleLanguage?: SubtitleLanguage,
+  language?: SubtitleLanguage,
   setIsStylesActive: (isActive: boolean) => void,
 }) => {
   const [activeIcon, setActiveIcon] = useState('');
@@ -52,14 +52,14 @@ const Menu = ({
   const onClick = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    if (!(fansubAcronym && animeSlug && episodeNumber && subtitleLanguage && subtitle)) return;
+    if (!(fansubAcronym && animeSlug && episodeNumber && language && subtitle)) return;
 
     await mutateAsync({
       subtitle: {
         fansubAcronym,
         animeSlug,
         episodeNumber,
-        subtitleLanguage,
+        language,
         file: new File(
           [decompile(subtitle)],
           `[${fansubAcronym}]${animeSlug}-${episodeNumber}.ass`,

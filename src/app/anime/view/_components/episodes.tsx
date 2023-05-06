@@ -2,6 +2,7 @@ import { Duration } from 'luxon';
 
 import Formatter from 'app/formatter';
 import Helper from 'app/helper';
+import SubtitleLanguage from 'enums/SubtitleLanguage';
 import { Episode } from 'types/episode';
 import { AnimeSubtitles, EpisodeSubtitle } from 'types/subtitle';
 
@@ -27,6 +28,13 @@ type RowProp = {
   episodeSubtitles: EpisodeSubtitle[],
 };
 
+const flagsEmoji = {
+  [SubtitleLanguage.Japanese]: '🇯🇵',
+  [SubtitleLanguage.English]: '🇺🇸',
+  [SubtitleLanguage.SpanishCastilian]: '🇪🇸',
+  [SubtitleLanguage.SpanishLatin]: '🇲🇽',
+};
+
 const Row = ({
   episode: {
     number,
@@ -44,9 +52,9 @@ const Row = ({
     </td>
     <td>{Formatter.DateFull(aired)}</td>
     <td>
-      {episodeSubtitles?.map(({ acronym, url }) => (
+      {episodeSubtitles?.map(({ acronym, url, language }) => (
         <a href={`${process.env.REACT_APP_API}${url}`} key={url}>
-          {acronym}
+          {`${acronym} ${flagsEmoji[language]}`}
         </a>
       ))}
     </td>

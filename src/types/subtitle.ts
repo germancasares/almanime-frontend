@@ -7,7 +7,7 @@ export type SubtitleDTO = {
   fansubAcronym: string;
   animeSlug: string;
   episodeNumber: number | string;
-  subtitleLanguage: SubtitleLanguage;
+  language: SubtitleLanguage;
   file: File;
 };
 
@@ -25,6 +25,7 @@ export type Subtitle = {
 export type EpisodeSubtitle = {
   acronym: string,
   url: string,
+  language: SubtitleLanguage,
 };
 
 export type AnimeSubtitles = {
