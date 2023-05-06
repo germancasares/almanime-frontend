@@ -141,6 +141,62 @@ export default class SubtitleApi {
     });
   };
 
+  public static Delete = () => {
+    const queryClient = useQueryClient();
+
+    return useMutation(async ({
+      fansubAcronym, animeSlug, episodeNumber, token,
+    }: {
+      id: string,
+      fansubAcronym: string;
+      animeSlug: string;
+      episodeNumber: number;
+      token?: string;
+    }) => (fetch(`subtitle/fansub/${fansubAcronym}/anime/${animeSlug}/episode/${episodeNumber}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })), {
+      onMutate: async ({ fansubAcronym, token, id }) => {
+        await queryClient.cancelQueries(['subtitles', 'published', fansubAcronym]);
+        await queryClient.cancelQueries(['subtitles', 'drafts', fansubAcronym, token]);
+        const publishedSubtitles = queryClient.getQueryData<Subtitle[]>(
+          ['subtitles', 'published', fansubAcronym],
+        );
+        const unpublishedSubtitles = queryClient.getQueryData<Subtitle[]>(
+          ['subtitles', 'drafts', fansubAcronym, token],
+        );
+
+        queryClient.setQueryData<Subtitle[]>(
+          ['subtitles', 'published', fansubAcronym],
+          publishedSubtitles?.filter((subtitle) => subtitle.id !== id) ?? [],
+        );
+        queryClient.setQueryData<Subtitle[]>(
+          ['subtitles', 'drafts', fansubAcronym, token],
+          unpublishedSubtitles?.filter((subtitle) => subtitle.id !== id) ?? [],
+        );
+
+        return { publishedSubtitles, unpublishedSubtitles };
+      },
+      onError: (error, subtitle, context) => {
+        if (context?.publishedSubtitles) {
+          queryClient.setQueryData<Subtitle[]>(
+            ['subtitles', 'published', subtitle.fansubAcronym],
+            context.publishedSubtitles,
+          );
+        }
+
+        if (context?.unpublishedSubtitles) {
+          queryClient.setQueryData<Subtitle[]>(
+            ['subtitles', 'unpublished', subtitle.fansubAcronym, subtitle.token],
+            context.unpublishedSubtitles,
+          );
+        }
+      },
+    });
+  };
+
   public static Post = () => useMutation(async ({
     subtitle: {
       fansubAcronym,

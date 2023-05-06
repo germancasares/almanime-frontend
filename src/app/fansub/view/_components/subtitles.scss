@@ -9,8 +9,11 @@
   }
 
   .fullwidth {
+    display: flex;
+    justify-content: end;
+
     > * {
-      width: 50%;
+      width: 33%;
     }
   }
 }

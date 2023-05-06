@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import {
   mdiArchiveArrowDown,
+  mdiDelete,
   mdiDownload,
   mdiImageText,
   mdiPublish,
@@ -26,10 +27,12 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
   const canDraft = Helper.HasPermission(Permission.DraftSubtitle, acronym, me);
   const canPublish = Helper.HasPermission(Permission.PublishSubtitle, acronym, me);
   const canUnpublish = Helper.HasPermission(Permission.UnpublishSubtitle, acronym, me);
+  const canDelete = Helper.HasPermission(Permission.DeleteSubtitle, acronym, me);
   const { mutateAsync: publishAsync } = SubtitleApi.Publish();
   const { mutateAsync: unpublishAsync } = SubtitleApi.Unpublish();
+  const { mutateAsync: deleteAsync } = SubtitleApi.Delete();
 
-  if (!publishedSubtitles) return (<Loader />);
+  if (!publishedSubtitles && !draftedSubtitles) return (<Loader />);
 
   return (
     <table id="subtitles" className="table is-fullwidth">
@@ -43,7 +46,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
           <th>User</th>
           <th>Download</th>
           {
-            (canPublish || canUnpublish) && (
+            (canPublish || canUnpublish || canDelete) && (
               <>
                 <th>Status</th>
                 <th>Action</th>
@@ -54,7 +57,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
       </thead>
       <tbody>
         {
-          (canPublish || canUnpublish) && draftedSubtitles?.map(({
+          (canPublish || canUnpublish || canDelete) && draftedSubtitles?.map(({
             id, url, user, anime, animeSlug, episode, format, language, creationDate,
           }) => (
             <tr key={id}>
@@ -115,12 +118,36 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                     </Link>
                   )
                 }
+                {
+                  canDelete && (
+                    <button
+                      type="button"
+                      className="button is-small"
+                      title="Delete subtitle"
+                      onClick={async (event) => {
+                        event.preventDefault();
+                        await deleteAsync({
+                          id,
+                          fansubAcronym: acronym,
+                          animeSlug,
+                          episodeNumber: episode,
+                          token,
+                        });
+                      }}
+                    >
+                      <Icon
+                        path={mdiDelete}
+                        size={1}
+                      />
+                    </button>
+                  )
+                }
               </td>
             </tr>
           ))
         }
         {
-          publishedSubtitles.map(({
+          publishedSubtitles?.map(({
             id, url, user, anime, animeSlug, episode, format, language, creationDate,
           }) => (
             <tr key={id}>
@@ -146,13 +173,13 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                 </a>
               </td>
               {
-                (canPublish || canUnpublish) && (
+                (canPublish || canUnpublish || canDelete) && (
                   <>
                     <td>Published</td>
-                    <td>
+                    <td className="fullwidth">
                       <button
                         type="button"
-                        className="button is-small is-fullwidth"
+                        className="button is-small"
                         title="Unpublish subtitle"
                         onClick={async (event) => {
                           event.preventDefault();
@@ -170,6 +197,30 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                           size={1}
                         />
                       </button>
+                      {
+                        canDelete && (
+                          <button
+                            type="button"
+                            className="button is-small"
+                            title="Delete subtitle"
+                            onClick={async (event) => {
+                              event.preventDefault();
+                              await deleteAsync({
+                                id,
+                                fansubAcronym: acronym,
+                                animeSlug,
+                                episodeNumber: episode,
+                                token,
+                              });
+                            }}
+                          >
+                            <Icon
+                              path={mdiDelete}
+                              size={1}
+                            />
+                          </button>
+                        )
+                      }
                     </td>
                   </>
                 )
