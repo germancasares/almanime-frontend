@@ -15,6 +15,7 @@ export type Subtitle = {
   id: string,
   url: string,
   format: SubtitleFormat,
+  language: SubtitleLanguage,
   creationDate: DateTime,
   anime: string,
   animeSlug: string,

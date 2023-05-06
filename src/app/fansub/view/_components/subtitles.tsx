@@ -39,6 +39,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
           <th>Episode</th>
           <th>Created on</th>
           <th>Format</th>
+          <th>Language</th>
           <th>User</th>
           <th>Download</th>
           {
@@ -54,7 +55,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
       <tbody>
         {
           (canPublish || canUnpublish) && draftedSubtitles?.map(({
-            id, url, user, anime, animeSlug, episode, format, creationDate,
+            id, url, user, anime, animeSlug, episode, format, language, creationDate,
           }) => (
             <tr key={id}>
               <td>
@@ -67,6 +68,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
               <td>{episode}</td>
               <td>{Formatter.DateFull(creationDate.toString())}</td>
               <td>{format}</td>
+              <td>{Formatter.LanguageFlag(language)}</td>
               <td>{user}</td>
               <td>
                 <a
@@ -119,7 +121,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
         }
         {
           publishedSubtitles.map(({
-            id, url, user, anime, animeSlug, episode, format, creationDate,
+            id, url, user, anime, animeSlug, episode, format, language, creationDate,
           }) => (
             <tr key={id}>
               <td>
@@ -132,6 +134,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
               <td>{episode}</td>
               <td>{Formatter.DateFull(creationDate.toString())}</td>
               <td>{format}</td>
+              <td>{Formatter.LanguageFlag(language)}</td>
               <td>{user}</td>
               <td>
                 <a
