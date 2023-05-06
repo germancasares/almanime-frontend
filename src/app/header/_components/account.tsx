@@ -3,16 +3,19 @@ import { Link } from 'react-router-dom';
 import UserAvatar from 'react-user-avatar';
 import { useAuth0 } from '@auth0/auth0-react';
 
+import UserApi from 'api/UserApi';
 import routes from 'app/routes';
+import { withToken } from 'app/utils';
 
 import './account.scss';
 
-const Profile = () => {
+const Profile = ({ token }: { token?: string }) => {
   const {
     user,
     logout,
     getAccessTokenSilently,
   } = useAuth0();
+  const { data: me } = UserApi.Me(token);
 
   useEffect(() => {
     (async () => {
@@ -28,6 +31,9 @@ const Profile = () => {
           name={user?.name}
           src={user?.picture}
         />
+        <div className="username">
+          {me?.name ?? ''}
+        </div>
       </div>
 
       <div className="navbar-dropdown is-right">
@@ -41,6 +47,8 @@ const Profile = () => {
   );
 };
 
+const ProfileWithToken = withToken(Profile);
+
 const Login = () => {
   const { loginWithRedirect } = useAuth0();
 
@@ -51,6 +59,6 @@ const Login = () => {
   );
 };
 
-const Account = () => (useAuth0().isAuthenticated ? <Profile /> : <Login />);
+const Account = () => (useAuth0().isAuthenticated ? <ProfileWithToken /> : <Login />);
 
 export default Account;
