@@ -9,7 +9,7 @@ import { withToken } from 'app/utils';
 
 import './account.scss';
 
-const Profile = ({ token }: { token?: string }) => {
+const Profile = ({ token, toggleBurger }: { token?: string, toggleBurger: () => void }) => {
   const {
     user,
     logout,
@@ -24,8 +24,13 @@ const Profile = ({ token }: { token?: string }) => {
   });
 
   return (
-    <div id="profile" className="navbar-item has-dropdown is-hoverable">
-      <div className="navbar-link">
+    <div
+      id="profile"
+      className="navbar-item has-dropdown is-hoverable"
+    >
+      <div
+        className="navbar-link"
+      >
         <UserAvatar
           size={40}
           name={user?.name}
@@ -37,11 +42,20 @@ const Profile = ({ token }: { token?: string }) => {
       </div>
 
       <div className="navbar-dropdown is-right">
-        <Link className="navbar-item" to={routes.user.edit.path}>Profile</Link>
-        <Link className="navbar-item" to={routes.favorites.view.path}>Favorites</Link>
-        <Link className="navbar-item" to={routes.settings.edit.path}>Setttings</Link>
+        <Link className="navbar-item" to={routes.user.edit.path} onClick={toggleBurger}>Profile</Link>
+        <Link className="navbar-item" to={routes.favorites.view.path} onClick={toggleBurger}>Favorites</Link>
+        <Link className="navbar-item" to={routes.settings.edit.path} onClick={toggleBurger}>Setttings</Link>
         <hr className="navbar-divider" />
-        <a className="navbar-item" href="/#" onClick={() => logout()}>Logout</a>
+        <a
+          className="navbar-item"
+          href="/#"
+          onClick={() => {
+            toggleBurger();
+            logout();
+          }}
+        >
+          Logout
+        </a>
       </div>
     </div>
   );
@@ -59,6 +73,14 @@ const Login = () => {
   );
 };
 
-const Account = () => (useAuth0().isAuthenticated ? <ProfileWithToken /> : <Login />);
+const Account = ({
+  toggleBurger,
+}: {
+  toggleBurger: () => void
+}) => (
+  useAuth0().isAuthenticated
+    ? <ProfileWithToken toggleBurger={toggleBurger} />
+    : <Login />
+);
 
 export default Account;

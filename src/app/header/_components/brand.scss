@@ -1,8 +1,9 @@
 @import '~bulma/sass/utilities/mixins.sass';
 
 .navbar-brand {
-  .theme-switch { 
+  .theme-switch {
     margin-left: auto;
+
     @include from($tablet) {
       display: none;
     }

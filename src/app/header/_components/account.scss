@@ -8,10 +8,12 @@
   }
 
   .navbar-link {
-    // padding-left: 3.75rem;
+    display: flex;
 
     .username {
+      align-items: center;
       color: var(--on-primary__variant);
+      display: flex;
       min-width: 120px;
       padding-left: 10px;
     }

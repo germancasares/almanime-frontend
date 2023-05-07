@@ -4,5 +4,5 @@ import Account from './account';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  createRoot(div).render(<Account />);
+  createRoot(div).render(<Account toggleBurger={() => {}} />);
 });

@@ -3,8 +3,9 @@
 @import '~bulma/sass/utilities/mixins.sass';
 
 .navbar-item.search {
-  @include until($tablet) {
-    display: none;
+  display: none;
+  @include from($desktop) {
+    display: unset;
   }
 
   .select {

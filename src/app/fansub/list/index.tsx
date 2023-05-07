@@ -31,36 +31,38 @@ const List = ({ token }: { token?: string }) => {
             )
           }
         </h1>
-        <table className="table is-fullwidth">
-          <thead>
-            <tr>
-              <th>Acronym</th>
-              <th>Name</th>
-              <th>Webpage</th>
-              <th>Creation Date</th>
-              <th>Members</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              fansubs && fansubs.map(({
-                acronym, name, webpage, creationDate, members,
-              }) => (
-                <tr key={acronym}>
-                  <td>
-                    <Link to={routes.fansub.view.to(acronym)}>
-                      {acronym}
-                    </Link>
-                  </td>
-                  <td>{name}</td>
-                  <td>{webpage}</td>
-                  <td>{Formatter.DateFull(creationDate.toString())}</td>
-                  <td>{members}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+        <div className="table-container">
+          <table className="table is-fullwidth">
+            <thead>
+              <tr>
+                <th>Acronym</th>
+                <th>Name</th>
+                <th>Webpage</th>
+                <th>Creation Date</th>
+                <th>Members</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                fansubs && fansubs.map(({
+                  acronym, name, webpage, creationDate, members,
+                }) => (
+                  <tr key={acronym}>
+                    <td>
+                      <Link to={routes.fansub.view.to(acronym)}>
+                        {acronym}
+                      </Link>
+                    </td>
+                    <td>{name}</td>
+                    <td>{webpage}</td>
+                    <td>{Formatter.DateFull(creationDate.toString())}</td>
+                    <td>{members}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
 
       </section>
 
