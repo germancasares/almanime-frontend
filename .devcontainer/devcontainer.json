@@ -1,11 +1,11 @@
 {
   "name": "Node.js & TypeScript",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
-  "workspaceMount": "source=${localEnv:HOME}/${localWorkspaceFolderBasename},target=/${localWorkspaceFolderBasename},type=bind,consistency=cached",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
+  "workspaceMount": "source=${localEnv:HOME}/Repositories/${localWorkspaceFolderBasename},target=/${localWorkspaceFolderBasename},type=bind,consistency=cached",
   "workspaceFolder": "/${localWorkspaceFolderBasename}",
   "runArgs": [
     "--name",
-    "almanime_frontend_devcontainer"
+    "almanime-frontend_devcontainer"
   ],
   "features": {
     "ghcr.io/devcontainers-contrib/features/pulumi:1": {}
@@ -15,7 +15,8 @@
     "HTTPS": "true",
     "REACT_APP_SHOULD_PERSIST_QUERIES": "false",
     "REACT_APP_SENTRY_DSN": "https://c4ecd23a74ab47d3aae4731d1e878a25@o1160005.ingest.sentry.io/6245124",
-    "REACT_APP_API": "https://localhost:7116/api/v1"
+    "REACT_APP_API": "https://33f1b08a-7a69-4f51-9da6-b32f9b65e31d.mock.pstmn.io/api/v1"
+    // "REACT_APP_API": "https://localhost:7116/api/v1"
     // "REACT_APP_API": "http://192.168.0.200:9080/api/v1"
   },
   "customizations": {

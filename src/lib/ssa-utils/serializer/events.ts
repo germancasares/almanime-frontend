@@ -48,7 +48,7 @@ export const eventsSerializer = (dialogues: Dialogue[]) => {
         dialogue: {
           [key: string]: string | number | boolean | Duration | undefined
         },
-      ) => dialogue[header]?.toString().length ?? 0,
+      ) => dialogue[header]?.toString()?.length ?? 0,
     ));
   });
 
