@@ -1,16 +1,12 @@
 const realFetch = window.fetch;
 
-const configureFetch = (): void => {
-  window.fetch = fetchAbsolute;
-};
-
 const fetchAbsolute = async (input: RequestInfo | URL, init?: RequestInit) => {
   let response;
 
   const route = input.toString();
   if (input instanceof Request) {
     response = await realFetch(input, init);
-  } else if (route.startsWith('http') || route.startsWith('/')) {
+  } else if (route.startsWith('http') || route.startsWith('/') || route.startsWith('blob:')) {
     response = await realFetch(route, init);
   } else {
     response = await realFetch(`${process.env.REACT_APP_API}/${route}`, init);
@@ -21,6 +17,10 @@ const fetchAbsolute = async (input: RequestInfo | URL, init?: RequestInit) => {
   }
 
   return response;
+};
+
+const configureFetch = (): void => {
+  window.fetch = fetchAbsolute;
 };
 
 export default configureFetch;

@@ -1,5 +1,5 @@
 import { CompiledASS, DialogueSlice } from 'ass-compiler';
-import { RegionParams } from 'wavesurfer.js/src/plugin/regions';
+import { RegionParams } from 'wavesurfer.js/dist/plugins/regions';
 
 // slices are created splitting by \r
 // fragments are created splitting by {someting}
@@ -39,24 +39,12 @@ export const getHexColor = (subtitleColor: string) => {
   return `#${red}${green}${blue}40`;
 };
 
-export const gatherRegions = (
-  subtitle: CompiledASS | undefined,
-): RegionParams[] | undefined => subtitle?.dialogues
+export const getRegionsFromSubtitle = (
+  subtitle: CompiledASS,
+): RegionParams[] => subtitle.dialogues
   .map(({ start, end, style }, index) => ({
     start,
     end,
     color: getHexColor(subtitle.styles[style].style.PrimaryColour),
-    handleStyle: {
-      left: {
-        backgroundColor: 'red',
-        borderRight: '10px solid #ff6961',
-      },
-      right: {
-        backgroundColor: 'red',
-        borderLeft: '10px solid #ff6961',
-      },
-    },
-    data: {
-      index,
-    },
+    id: index.toString(),
   }));

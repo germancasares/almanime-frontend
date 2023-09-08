@@ -1,6 +1,6 @@
 import { CompiledASS, ScriptInfo } from 'ass-compiler';
 
-import { gatherRegions, getHexColor, textToSlice } from './utils';
+import { getHexColor, getRegionsFromSubtitle, textToSlice } from './utils';
 
 describe('[textToSlice]', () => {
   it('should return a slice if text is correct', () => {
@@ -97,7 +97,7 @@ describe('[gatherRegions]', () => {
       width: 0,
     } as CompiledASS;
 
-    const regions = gatherRegions(subtitle);
+    const regions = getRegionsFromSubtitle(subtitle);
 
     expect(regions).toEqual([]);
   });
@@ -121,7 +121,7 @@ describe('[gatherRegions]', () => {
       width: 0,
     } as unknown as CompiledASS;
 
-    const regions = gatherRegions(subtitle);
+    const regions = getRegionsFromSubtitle(subtitle);
 
     expect(regions).toEqual([{
       color: '#33221140',

@@ -1,14 +1,15 @@
 import {
-  RefObject, useEffect, useMemo, useRef, useState,
+  RefObject, useEffect, useMemo,
+  useRef, useState,
 } from 'react';
 import { CompiledASS } from 'ass-compiler';
 import WaveSurfer from 'wavesurfer.js';
-import RegionsPlugin from 'wavesurfer.js/src/plugin/regions';
+import RegionsPlugin from 'wavesurfer.js/dist/plugins/regions';
 
 import Helper from 'app/helper';
 import Theme from 'enums/Theme';
 
-import { gatherRegions } from './utils';
+import { getRegionsFromSubtitle } from './utils';
 
 import './waveform.scss';
 
@@ -25,50 +26,59 @@ const WaveForm = ({
   subtitle,
   updateTime,
 }: WaveFormProps) => {
-  const waveformRef = useRef<HTMLDivElement | null >(null);
+  const containerRef = useRef<HTMLDivElement | null >(null);
   const waveSurferRef = useRef<WaveSurfer | null >(null);
+  const regionsRef = useRef<RegionsPlugin | null>(null);
   const [zoom, setZoom] = useState(100);
 
   useEffect(() => {
     if (!waveSurferRef.current) {
-      if (!waveformRef.current) return;
+      if (!containerRef.current || !videoRef.current) return;
       const initialLocalTheme = Helper.LocalStorage.Get<Theme>('theme');
 
+      regionsRef.current = RegionsPlugin.create();
+
       waveSurferRef.current = WaveSurfer.create({
-        container: waveformRef.current,
+        container: containerRef.current,
         waveColor: '#8e8f96',
         barHeight: 0.75,
+        height: 'auto',
+        autoScroll: true,
+        autoCenter: true,
         cursorWidth: 2,
         cursorColor: '#ff6961',
+        media: videoRef.current,
         // TODO: Find a better way of using palette
         progressColor: initialLocalTheme === Theme.Light ? '#ffc107' : '#005d78',
-        backend: 'MediaElement',
-        responsive: true,
         plugins: [
-          RegionsPlugin.create({
-            regions: gatherRegions(subtitle),
-          }),
+          regionsRef.current,
         ],
       });
 
-      waveSurferRef.current.zoom(zoom);
-      waveSurferRef.current.on('region-update-end', ({ data, start, end }) => updateTime(data.index, start, end));
+      waveSurferRef.current.on('decode', () => {
+        if (!waveSurferRef.current) return;
+        waveSurferRef.current.zoom(zoom);
+      });
+
+      regionsRef.current.on('region-updated', ({ id, start, end }) => updateTime(parseInt(id, 10), start, end));
+
+      if (subtitle) {
+        getRegionsFromSubtitle(subtitle).forEach((region) => regionsRef.current?.addRegion(region));
+      }
     }
 
     if (waveSurferRef.current && videoRef.current) {
-      waveSurferRef.current.load(videoRef.current);
+      waveSurferRef.current.setOptions({
+        media: videoRef.current,
+      });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoRef]);
 
   useMemo(() => {
     if (waveSurferRef.current && subtitle && isNewSubtitle) {
-      waveSurferRef.current.destroyPlugin('regions');
-      waveSurferRef.current.registerPlugins([
-        RegionsPlugin.create({
-          regions: gatherRegions(subtitle),
-        }),
-      ]);
+      regionsRef.current?.clearRegions();
+      getRegionsFromSubtitle(subtitle).forEach((region) => regionsRef.current?.addRegion(region));
     }
   }, [isNewSubtitle, subtitle]);
 
@@ -77,16 +87,16 @@ const WaveForm = ({
     if (!waveSurferRef.current) return;
 
     // TODO: Find a better way of using palette
-    waveSurferRef.current.setProgressColor(localTheme === Theme.Light ? '#ffc107' : '#005d78');
+    waveSurferRef.current.setOptions({ progressColor: localTheme === Theme.Light ? '#ffc107' : '#005d78' });
   }, [localTheme]);
 
   return (
     <div
-      ref={waveformRef}
+      ref={containerRef}
       className="waveform"
       onWheel={(event) => {
         if (!waveSurferRef.current) return;
-        const newZoom = Math.max(zoom + Math.sign(event.deltaY) * -50, 50);
+        const newZoom = Math.max(zoom + Math.sign(event.deltaY) * -50, 1);
         if (newZoom !== zoom) {
           waveSurferRef.current.zoom(newZoom);
           setZoom(newZoom);

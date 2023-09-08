@@ -66,7 +66,7 @@ const toHuman = (dur: Duration, smallestUnit: keyof DurationLikeObject = 'second
   const smallestIdx = units.indexOf(smallestUnit);
   const entries = Object.entries(
     dur.shiftTo(...units).normalize().toObject(),
-  ).filter(([_unit, amount], idx) => amount > 0 && idx <= smallestIdx);
+  ).filter(([, amount], idx) => amount > 0 && idx <= smallestIdx);
   const dur2 = Duration.fromObject(
     entries.length === 0 ? { [smallestUnit]: 0 } : Object.fromEntries(entries),
   );

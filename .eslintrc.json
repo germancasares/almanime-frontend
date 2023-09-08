@@ -9,8 +9,7 @@
     "airbnb",
     "airbnb-typescript",
     "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended",
-    "react-app"
+    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -22,7 +21,6 @@
     "project": "./tsconfig.json"
   },
   "plugins": [
-    "react",
     "jest",
     "@typescript-eslint",
     "simple-import-sort"

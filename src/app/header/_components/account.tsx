@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import UserAvatar from 'react-user-avatar';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -13,15 +12,8 @@ const Profile = ({ token, toggleBurger }: { token?: string, toggleBurger: () => 
   const {
     user,
     logout,
-    getAccessTokenSilently,
   } = useAuth0();
   const { data: me } = UserApi.Me(token);
-
-  useEffect(() => {
-    (async () => {
-      console.debug(await getAccessTokenSilently());
-    })();
-  });
 
   return (
     <div
