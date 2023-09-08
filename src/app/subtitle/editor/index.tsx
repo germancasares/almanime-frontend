@@ -33,7 +33,7 @@ const Editor = () => {
   const [subtitle, setSubtitle] = useState<CompiledASS | undefined>(undefined);
   const [videoSource, setVideoSource] = useState<{ src: string, type: string } | undefined>(undefined);
 
-  const { subtitleUrl } = useLocation().state as { subtitleUrl?: string };
+  const { subtitleUrl } = useLocation().state as { subtitleUrl?: string } ?? {};
   useQuery(
     ['subtitle', subtitleUrl],
     async () => (await fetch(new URL(subtitleUrl ?? ''))).text(),
