@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {
   RefObject, useEffect, useMemo,
   useRef, useState,
@@ -5,6 +6,7 @@ import {
 import { CompiledASS } from 'ass-compiler';
 import WaveSurfer from 'wavesurfer.js';
 import RegionsPlugin from 'wavesurfer.js/dist/plugins/regions';
+import TimelinePlugin from 'wavesurfer.js/dist/plugins/timeline';
 
 import Helper from 'app/helper';
 import Theme from 'enums/Theme';
@@ -19,6 +21,14 @@ export type WaveFormProps = {
   subtitle?: CompiledASS,
   updateTime: (index: number, start: number, end: number) => void
 };
+
+const wrapperBackground = `.wrapper {
+  --box-size: 10px;
+background-image: 
+  linear-gradient(transparent calc(var(--box-size) - 1px), var(--over-surface-2) var(--box-size), transparent var(--box-size)),
+  linear-gradient(90deg, transparent calc(var(--box-size) -  1px), var(--over-surface-2) var(--box-size), transparent var(--box-size));
+background-size: 100% var(--box-size), var(--box-size) 100%;
+}`;
 
 const WaveForm = ({
   isNewSubtitle,
@@ -52,6 +62,18 @@ const WaveForm = ({
         progressColor: initialLocalTheme === Theme.Light ? '#ffc107' : '#005d78',
         plugins: [
           regionsRef.current,
+          TimelinePlugin.create({
+            height: 16,
+            timeInterval: 0.1,
+            primaryLabelInterval: 1,
+            style: {
+              backgroundColor: 'transparent',
+              position: 'absolute',
+              width: '100%',
+              bottom: '0',
+              color: 'white',
+            },
+          }),
         ],
       });
 
@@ -59,6 +81,12 @@ const WaveForm = ({
         if (!waveSurferRef.current) return;
         waveSurferRef.current.zoom(zoom);
       });
+
+      /** HACK: https://github.com/katspaugh/wavesurfer.js/discussions/3175 */
+      const style = document.createElement('style');
+      style.textContent = wrapperBackground;
+      waveSurferRef.current.getWrapper().appendChild(style);
+      /** HACK: https://github.com/katspaugh/wavesurfer.js/discussions/3175 */
 
       regionsRef.current.on('region-updated', ({ id, start, end }) => updateTime(parseInt(id, 10), start, end));
 

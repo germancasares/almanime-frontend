@@ -6,11 +6,11 @@
 
   > div {
     width: 100%;
-    --box-size: 10px;
-    background-image: 
-      linear-gradient(transparent calc(var(--box-size) - 1px), var(--over-surface-2) var(--box-size), transparent var(--box-size)),
-      linear-gradient(90deg, transparent calc(var(--box-size) -  1px), var(--over-surface-2) var(--box-size), transparent var(--box-size));
-    background-size: 100% var(--box-size), var(--box-size) 100%;
+    // --box-size: 10px;
+    // background-image: 
+    // linear-gradient(transparent calc(var(--box-size) - 1px), var(--over-surface-2) var(--box-size), transparent var(--box-size)),
+    // linear-gradient(90deg, transparent calc(var(--box-size) -  1px), var(--over-surface-2) var(--box-size), transparent var(--box-size));
+    // background-size: 100% var(--box-size), var(--box-size) 100%;
   }
 
   // > wave {
