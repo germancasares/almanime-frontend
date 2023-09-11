@@ -1,4 +1,5 @@
 import { MouseEvent, useEffect, useState } from 'react';
+import { srtToAss } from '@almanime/srt-to-ass';
 import { useAuth0 } from '@auth0/auth0-react';
 import {
   mdiContentSave,
@@ -84,33 +85,6 @@ const Menu = ({
   return (
     <div id="menu">
       <div className="file is-boxed">
-        <label className="file-label" htmlFor="set-subtitle">
-          <input
-            id="set-subtitle"
-            className="file-input"
-            type="file"
-            name="subtitle"
-            onChange={async ({ target: { files } }) => files && setSubtitle(compile(await files[0].text(), {}))}
-          />
-          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-          <span
-            className="file-cta"
-            onMouseDown={() => setActiveIcon('mdiSubtitles')}
-            onMouseUp={() => setActiveIcon('')}
-            onBlur={() => setActiveIcon('')}
-            onMouseOut={() => setActiveIcon('')}
-          >
-            <span className="file-icon">
-              <Icon
-                path={activeIcon === 'mdiSubtitles' ? mdiSubtitlesOutline : mdiSubtitles}
-                size={1}
-              />
-            </span>
-          </span>
-        </label>
-      </div>
-
-      <div className="file is-boxed">
         <label className="file-label" htmlFor="set-video">
           <input
             id="set-video"
@@ -136,6 +110,45 @@ const Menu = ({
             <span className="file-icon">
               <Icon
                 path={activeIcon === 'mdiVideo' ? mdiVideoOutline : mdiVideo}
+                size={1}
+              />
+            </span>
+          </span>
+        </label>
+      </div>
+
+      <div className="file is-boxed">
+        <label className="file-label" htmlFor="set-subtitle">
+          <input
+            id="set-subtitle"
+            className="file-input"
+            type="file"
+            name="subtitle"
+            onChange={async ({ target: { files } }) => {
+              if (!files) return;
+              const rawSubtitle = await files[0].text();
+
+              let assSubtitle: CompiledASS;
+              if (!Number.isNaN(parseInt(rawSubtitle.split('\n')[0], 10))) {
+                assSubtitle = compile(srtToAss(rawSubtitle), { });
+              } else {
+                assSubtitle = compile(rawSubtitle, {});
+              }
+
+              setSubtitle(assSubtitle);
+            }}
+          />
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+          <span
+            className="file-cta"
+            onMouseDown={() => setActiveIcon('mdiSubtitles')}
+            onMouseUp={() => setActiveIcon('')}
+            onBlur={() => setActiveIcon('')}
+            onMouseOut={() => setActiveIcon('')}
+          >
+            <span className="file-icon">
+              <Icon
+                path={activeIcon === 'mdiSubtitles' ? mdiSubtitlesOutline : mdiSubtitles}
                 size={1}
               />
             </span>

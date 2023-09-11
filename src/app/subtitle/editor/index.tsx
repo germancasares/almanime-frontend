@@ -1,11 +1,14 @@
 import { useCallback, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useLocation, useParams } from 'react-router-dom';
+import { srtToAss } from '@almanime/srt-to-ass';
 import {
   compile,
   CompiledASS,
   DialogueSlice,
 } from 'ass-compiler';
+
+import SubtitleFormat from 'enums/SubtitleFormat';
 
 import Lines from './_components/lines';
 import Menu from './_components/menu';
@@ -33,7 +36,7 @@ const Editor = () => {
   const [subtitle, setSubtitle] = useState<CompiledASS | undefined>(undefined);
   const [videoSource, setVideoSource] = useState<{ src: string, type: string } | undefined>(undefined);
 
-  const { subtitleUrl } = useLocation().state as { subtitleUrl?: string } ?? {};
+  const { subtitleUrl, format } = useLocation().state as { subtitleUrl?: string, format?: SubtitleFormat } ?? {};
   useQuery(
     ['subtitle', subtitleUrl],
     async () => (await fetch(new URL(subtitleUrl ?? ''))).text(),
@@ -42,7 +45,11 @@ const Editor = () => {
       staleTime: Infinity,
       onSuccess: (text) => {
         if (!subtitle) {
-          setSubtitle(compile(text, {}));
+          if (format === SubtitleFormat.SRT) {
+            setSubtitle(compile(srtToAss(text), {}));
+          } else {
+            setSubtitle(compile(text, {}));
+          }
         }
       },
     },

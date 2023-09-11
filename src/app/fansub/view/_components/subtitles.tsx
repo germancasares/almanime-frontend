@@ -109,7 +109,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                     <Link
                       className="button is-small"
                       to={routes.subtitle.editor.to(acronym, animeSlug, episode.toString())}
-                      state={{ subtitleUrl: `${process.env.REACT_APP_API}${url}` }}
+                      state={{ subtitleUrl: `${process.env.REACT_APP_API}${url}`, format }}
                     >
                       <Icon
                         path={mdiImageText}

@@ -15,7 +15,6 @@ const Form = () => {
 
   const [subtitle, setSubtitle] = useState({ fansubAcronym } as SubtitleDTO);
   const onChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
-    console.log({ event });
     const { target: { name, value } } = event;
     setSubtitle((values) => ({ ...values, [name]: value === '' ? undefined : value }));
   };
