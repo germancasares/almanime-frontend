@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { render } from 'test-utils';
 
 import AnimeApi from 'api/AnimeApi';

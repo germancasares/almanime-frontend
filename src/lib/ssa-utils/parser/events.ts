@@ -106,7 +106,7 @@ const textParser = (text: string) => {
   return groups.map((group) => group.subText).join('');
 };
 
-const dialoguesParser = (dialogues:string[], columns: string[]) => dialogues.map((dialogueString, index) => {
+const dialoguesParser = (dialogues:string[], columns: string[]) => dialogues.map((dialogueString) => {
   const dialogueArray = dialogueString.split(/\s*,\s*/g);
 
   const dialogue = {} as { [key: string]: unknown; };

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import Player from './player';
 
 const meta: Meta<typeof Player> = {
@@ -9,7 +10,6 @@ const meta: Meta<typeof Player> = {
 export default meta;
 
 type Story = StoryObj<typeof Player>;
-
 
 export const Default: Story = {
   args: {
