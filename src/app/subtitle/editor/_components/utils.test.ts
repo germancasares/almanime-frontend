@@ -125,20 +125,8 @@ describe('[gatherRegions]', () => {
 
     expect(regions).toEqual([{
       color: '#33221140',
-      data: {
-        index: 0,
-      },
       end: 0,
-      handleStyle: {
-        left: {
-          backgroundColor: 'red',
-          borderRight: '10px solid #ff6961',
-        },
-        right: {
-          backgroundColor: 'red',
-          borderLeft: '10px solid #ff6961',
-        },
-      },
+      id: '0',
       start: 0,
     }]);
   });
