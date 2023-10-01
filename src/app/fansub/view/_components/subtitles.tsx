@@ -20,10 +20,10 @@ import Loader from 'components/loader';
 
 import './subtitles.scss';
 
-const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
+const Subtitles = ({ acronym, accessToken }: { acronym: string, accessToken?: string }) => {
   const { data: publishedSubtitles } = FansubApi.GetPublishedSubtitles(acronym);
-  const { data: draftedSubtitles } = FansubApi.GetSubtitlesDrafts(acronym, token);
-  const { data: me } = UserApi.Me(token);
+  const { data: draftedSubtitles } = FansubApi.GetSubtitlesDrafts(acronym, accessToken);
+  const { data: me } = UserApi.Me(accessToken);
   const canDraft = Helper.HasPermission(Permission.DraftSubtitle, acronym, me);
   const canPublish = Helper.HasPermission(Permission.PublishSubtitle, acronym, me);
   const canUnpublish = Helper.HasPermission(Permission.UnpublishSubtitle, acronym, me);
@@ -95,7 +95,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                       fansubAcronym: acronym,
                       animeSlug,
                       episodeNumber: episode,
-                      token,
+                      accessToken,
                     });
                   }}
                 >
@@ -131,7 +131,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                           fansubAcronym: acronym,
                           animeSlug,
                           episodeNumber: episode,
-                          token,
+                          accessToken,
                         });
                       }}
                     >
@@ -188,7 +188,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                             fansubAcronym: acronym,
                             animeSlug,
                             episodeNumber: episode,
-                            token,
+                            accessToken,
                           });
                         }}
                       >
@@ -210,7 +210,7 @@ const Subtitles = ({ acronym, token }: { acronym: string, token?: string }) => {
                                 fansubAcronym: acronym,
                                 animeSlug,
                                 episodeNumber: episode,
-                                token,
+                                accessToken,
                               });
                             }}
                           >

@@ -7,8 +7,8 @@ import Loader from 'components/loader';
 
 import './index.scss';
 
-const Edit = ({ token }: { token?: string }) => {
-  const { data: me } = UserApi.Me(token);
+const Edit = ({ accessToken }: { accessToken?: string }) => {
+  const { data: me } = UserApi.Me(accessToken);
   const [user, setUser] = useState({ name: '' } as User);
   const { mutateAsync, isLoading } = UserApi.Update();
 
@@ -21,7 +21,7 @@ const Edit = ({ token }: { token?: string }) => {
 
     await mutateAsync({
       user,
-      token,
+      accessToken,
     });
   };
 

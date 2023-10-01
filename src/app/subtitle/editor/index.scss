@@ -6,6 +6,20 @@
   height: calc(100vh - $navbar-height);
   width: 100vw;
 
+  .dropzone-section {
+    margin: auto;
+
+    > div {
+      padding: 5px 10px;
+      text-align: center;
+      color: var(--on-background);
+      border-color: var(--on-background);
+      border-width: 2px;
+      border-radius: 2px;
+      border-style: dashed;
+    }
+  }
+
   .video-editor-wrapper {
     display: flex;
     height: calc(100vh - $navbar-height - 12.5vh);
@@ -13,16 +27,16 @@
     .lines-wrapper {
       background-color: var(--surface);
       display: flex;
-      overflow-y: scroll;
+      // overflow-y: scroll;
       width: 34%;
     }
 
     .video-wrapper {
-      background-color: #00f;
       display: flex;
       width: 66%;
+      justify-content: center;
+      flex-direction: column;
 
-      /* stylelint-disable-next-line selector-max-compound-selectors */
       * {
         transition: none;
       }

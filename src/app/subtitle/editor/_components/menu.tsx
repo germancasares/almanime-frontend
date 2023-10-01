@@ -1,5 +1,4 @@
 import { MouseEvent, useEffect, useState } from 'react';
-import { srtToAss } from '@almanime/srt-to-ass';
 import { useAuth0 } from '@auth0/auth0-react';
 import {
   mdiContentSave,
@@ -7,14 +6,9 @@ import {
   mdiDownload,
   mdiDownloadOutline,
   mdiPalette,
-  mdiSubtitles,
-  mdiSubtitlesOutline,
-  mdiVideo,
-  mdiVideoOutline,
 } from '@mdi/js';
 import Icon from '@mdi/react';
 import {
-  compile,
   CompiledASS,
   decompile,
 } from 'ass-compiler';
@@ -25,8 +19,6 @@ import SubtitleLanguage from 'enums/SubtitleLanguage';
 import './menu.scss';
 
 const Menu = ({
-  setSubtitle,
-  setVideoSource,
   subtitle,
   fansubAcronym,
   animeSlug,
@@ -34,11 +26,6 @@ const Menu = ({
   language,
   setIsStylesActive,
 }: {
-  setSubtitle: (subtitle: CompiledASS) => void,
-  setVideoSource: React.Dispatch<React.SetStateAction<{
-    src: string;
-    type: string;
-  } | undefined>>,
   subtitle: CompiledASS | undefined,
   fansubAcronym?: string,
   animeSlug?: string,
@@ -67,7 +54,7 @@ const Menu = ({
           { type: 'text/plain' },
         ),
       },
-      token: await getAccessTokenSilently(),
+      accessToken: await getAccessTokenSilently(),
     });
   };
 
@@ -84,78 +71,6 @@ const Menu = ({
 
   return (
     <div id="menu">
-      <div className="file is-boxed">
-        <label className="file-label" htmlFor="set-video">
-          <input
-            id="set-video"
-            className="file-input"
-            type="file"
-            name="video"
-            accept="video/*"
-            onChange={
-              async ({ target: { files } }) => files && setVideoSource({
-                type: files[0].type,
-                src: URL.createObjectURL(files[0]),
-              })
-            }
-          />
-          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-          <span
-            className="file-cta"
-            onMouseDown={() => setActiveIcon('mdiVideo')}
-            onMouseUp={() => setActiveIcon('')}
-            onBlur={() => setActiveIcon('')}
-            onMouseOut={() => setActiveIcon('')}
-          >
-            <span className="file-icon">
-              <Icon
-                path={activeIcon === 'mdiVideo' ? mdiVideoOutline : mdiVideo}
-                size={1}
-              />
-            </span>
-          </span>
-        </label>
-      </div>
-
-      <div className="file is-boxed">
-        <label className="file-label" htmlFor="set-subtitle">
-          <input
-            id="set-subtitle"
-            className="file-input"
-            type="file"
-            name="subtitle"
-            onChange={async ({ target: { files } }) => {
-              if (!files) return;
-              const rawSubtitle = await files[0].text();
-
-              let assSubtitle: CompiledASS;
-              if (!Number.isNaN(parseInt(rawSubtitle.split('\n')[0], 10))) {
-                assSubtitle = compile(srtToAss(rawSubtitle), { });
-              } else {
-                assSubtitle = compile(rawSubtitle, {});
-              }
-
-              setSubtitle(assSubtitle);
-            }}
-          />
-          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-          <span
-            className="file-cta"
-            onMouseDown={() => setActiveIcon('mdiSubtitles')}
-            onMouseUp={() => setActiveIcon('')}
-            onBlur={() => setActiveIcon('')}
-            onMouseOut={() => setActiveIcon('')}
-          >
-            <span className="file-icon">
-              <Icon
-                path={activeIcon === 'mdiSubtitles' ? mdiSubtitlesOutline : mdiSubtitles}
-                size={1}
-              />
-            </span>
-          </span>
-        </label>
-      </div>
-
       <button type="button" className="button" onClick={() => setIsStylesActive(true)}>
         <Icon
           path={mdiPalette}
@@ -170,6 +85,10 @@ const Menu = ({
             title="Download subtitle"
             download={`[${fansubAcronym}]${animeSlug}-${episodeNumber}.ass`}
             href={downloadLink}
+            onMouseDown={() => setActiveIcon('mdiDownload')}
+            onMouseUp={() => setActiveIcon('')}
+            onBlur={() => setActiveIcon('')}
+            onMouseOut={() => setActiveIcon('')}
           >
             <Icon
               path={activeIcon === 'mdiDownload' ? mdiDownloadOutline : mdiDownload}
@@ -186,6 +105,10 @@ const Menu = ({
             className={`button ${isLoading ? ' is-loading' : ''}`}
             title="Save subtitle to fansub"
             onClick={onClick}
+            onMouseDown={() => setActiveIcon('mdiContentSave')}
+            onMouseUp={() => setActiveIcon('')}
+            onBlur={() => setActiveIcon('')}
+            onMouseOut={() => setActiveIcon('')}
           >
             <Icon
               path={activeIcon === 'mdiContentSave' ? mdiContentSaveOutline : mdiContentSave}

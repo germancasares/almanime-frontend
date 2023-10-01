@@ -6,6 +6,8 @@ import {
 } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
+import Loader from 'components/loader';
+
 // export const withMemberRequired = <T extends object>(
 //   WrappedComponent: ComponentType<T>,
 // ) => {
@@ -23,10 +25,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 // };
 
 // eslint-disable-next-line import/prefer-default-export
-export const withToken = <P extends object>(
+export const withAccessToken = <P extends object>(
   Component: ComponentType<P>,
+  required?: boolean,
 ): FunctionComponent<P> => (props: P) => {
-    const [token, setToken] = useState<string>();
+    const [accessToken, setToken] = useState<string>();
     const { getAccessTokenSilently } = useAuth0();
     useMemo(async () => {
       try {
@@ -36,8 +39,10 @@ export const withToken = <P extends object>(
       }
     }, [getAccessTokenSilently]);
 
+    if (required && !accessToken) return (<Loader />);
+
     return (
       // eslint-disable-next-line react/jsx-props-no-spreading
-      <Component {...props} token={token} />
+      <Component {...props} accessToken={accessToken} />
     );
   };

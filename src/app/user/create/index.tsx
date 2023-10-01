@@ -1,5 +1,6 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import UserApi from 'api/UserApi';
 import routes from 'app/routes';
@@ -9,21 +10,45 @@ import Loader from 'components/loader';
 
 import './index.scss';
 
-const Create = ({ token }: { token?: string }) => {
-  const navigate = useNavigate();
-  const [user, setUser] = useState({} as User);
+const Create = ({ accessToken }: { accessToken?: string }) => {
+  // const { isFetched, isSuccess } = UserApi.Me(accessToken, false);
+  const { getIdTokenClaims } = useAuth0();
   const { mutateAsync, isLoading } = UserApi.Create();
+  const [user, setUser] = useState<User | undefined>();
+  const navigate = useNavigate();
 
-  const { isFetched, isSuccess } = UserApi.Me(token, false);
+  useEffect(() => {
+    const createUserAsync = async () => {
+      const claims = await getIdTokenClaims();
+      if (!claims || !claims.nickname) {
+        throw new Error(`This accessToken does not have claims/nickname ${accessToken}`);
+      }
 
-  if (isSuccess) navigate(routes.home.view.path);
-  if (!isFetched) return (<Loader />);
+      const newUser = { name: claims.nickname } as User;
+
+      const { isNew } = await (await mutateAsync({
+        user: newUser,
+        accessToken,
+      })).json();
+
+      if (isNew) {
+        setUser(newUser);
+      } else {
+        navigate(routes.home.view.path);
+      }
+    };
+
+    createUserAsync();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (!user) return (<Loader />);
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await mutateAsync({
       user,
-      token,
+      accessToken,
     });
 
     navigate(routes.home.view.path);
@@ -42,7 +67,7 @@ const Create = ({ token }: { token?: string }) => {
                 name="name"
                 className="input"
                 type="text"
-                placeholder="Luffy"
+                value={user.name}
                 onChange={({ target: { value } }) => setUser({ name: value, permissions: {}, fansubs: [] })}
               />
             </div>

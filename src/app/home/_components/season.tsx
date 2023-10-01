@@ -16,11 +16,11 @@ type Props = {
   year: number;
   season: Season;
   bookmarks?: string[];
-  token?: string;
+  accessToken?: string;
 };
 
 const SeasonPage = ({
-  bookmarks, token, season, year,
+  bookmarks, accessToken, season, year,
 }: Props) => {
   const [page, setPage] = useState(1);
   const { data: animes } = AnimeApi.GetSeason(year, season, page, true);
@@ -67,9 +67,9 @@ const SeasonPage = ({
 
                       const isThere = bookmarks?.includes(anime.slug);
                       if (isThere) {
-                        deleteAsync({ slug: anime.slug, token });
+                        deleteAsync({ slug: anime.slug, accessToken });
                       } else {
-                        createAsync({ slug: anime.slug, token });
+                        createAsync({ slug: anime.slug, accessToken });
                       }
                     },
                   }}

@@ -1,6 +1,6 @@
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 
-import { withToken } from 'app/utils';
+import { withAccessToken } from 'app/utils';
 import { Routes } from 'types/typescript/routes';
 
 import Create from './create';
@@ -14,12 +14,12 @@ const routes: Routes = {
   create: {
     path: '/users/create',
     to: () => routes.create.path,
-    component: withAuthenticationRequired(withToken(Create)),
+    component: withAuthenticationRequired(withAccessToken(Create, true)),
   },
   edit: {
     path: '/profile',
     to: () => routes.edit.path,
-    component: withAuthenticationRequired(withToken(Edit)),
+    component: withAuthenticationRequired(withAccessToken(Edit)),
   },
   list: {
     path: '/users',
@@ -29,7 +29,7 @@ const routes: Routes = {
   view: {
     path: toUser(':name'),
     to: toUser,
-    component: withToken(View),
+    component: withAccessToken(View),
   },
 };
 

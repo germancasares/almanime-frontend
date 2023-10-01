@@ -10,7 +10,7 @@ import Loader from 'components/loader';
 
 import './index.scss';
 
-const List = ({ token }: { token?: string }) => {
+const List = ({ accessToken }: { accessToken?: string }) => {
   const { data: fansubs } = FansubApi.Get();
 
   if (!fansubs) return (<Loader />);
@@ -21,7 +21,7 @@ const List = ({ token }: { token?: string }) => {
         <h1 className="title">
           Fansubs List
           {
-            token && (
+            accessToken && (
               <Link className="button is-primary is-rounded" to={routes.fansub.create.path}>
                 <span className="icon">
                   <Icon path={mdiPlus} size={1} />

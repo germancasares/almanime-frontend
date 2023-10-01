@@ -69,7 +69,7 @@ const useInitialTab = () => {
   return useState<TabName>(initialTab);
 };
 
-const View = ({ token }: { token?: string }) => {
+const View = ({ accessToken }: { accessToken?: string }) => {
   const { acronym } = useParams<{ acronym: string }>();
   const [activeTab, setActiveTab] = useInitialTab();
 
@@ -80,8 +80,8 @@ const View = ({ token }: { token?: string }) => {
   };
 
   const { data: fansub } = FansubApi.GetByAcronym(acronym);
-  const { data: isMember, isSuccess } = FansubApi.IsMember(acronym, token);
-  const { data: me } = UserApi.Me(token);
+  const { data: isMember, isSuccess } = FansubApi.IsMember(acronym, accessToken);
+  const { data: me } = UserApi.Me(accessToken);
 
   const { mutateAsync, isLoading } = FansubApi.Join();
   const joinFansub = async () => {
@@ -89,7 +89,7 @@ const View = ({ token }: { token?: string }) => {
 
     await mutateAsync({
       acronym,
-      token,
+      accessToken,
     });
   };
 
@@ -121,7 +121,7 @@ const View = ({ token }: { token?: string }) => {
         </h1>
         <Tabs activeTab={activeTab} changeTab={changeTab} />
         { activeTab === TabName.Members ? <MembersPage acronym={acronym} /> : null }
-        { activeTab === TabName.Subtitles ? <SubtitlesPage acronym={acronym} token={token} /> : null }
+        { activeTab === TabName.Subtitles ? <SubtitlesPage acronym={acronym} accessToken={accessToken} /> : null }
       </section>
     </main>
   );

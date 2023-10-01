@@ -6,5 +6,5 @@ export type Roles = {
 
 export type RolesDTO = {
   roles: Roles;
-  token?: string;
+  accessToken?: string;
 };

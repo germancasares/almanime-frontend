@@ -8,12 +8,12 @@ import Season from './_components/season';
 
 import './index.scss';
 
-const Home = ({ token }: { token?: string }) => {
+const Home = ({ accessToken }: { accessToken?: string }) => {
   const now = DateTime.now();
   const year = now.month === 12 ? now.year + 1 : now.year;
   const season = Helper.GetSeason(now);
 
-  const { data: bookmarks } = BookmarkApi.Get(token);
+  const { data: bookmarks } = BookmarkApi.Get(accessToken);
 
   return (
     <main id="home" className="container">
@@ -25,7 +25,7 @@ const Home = ({ token }: { token?: string }) => {
           year={year}
           season={season}
           bookmarks={bookmarks}
-          token={token}
+          accessToken={accessToken}
         />
       </section>
       <section className="section">
@@ -36,7 +36,7 @@ const Home = ({ token }: { token?: string }) => {
           year={2022}
           season={SeasonType.Fall}
           bookmarks={bookmarks}
-          token={token}
+          accessToken={accessToken}
         />
       </section>
     </main>

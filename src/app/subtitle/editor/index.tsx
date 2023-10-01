@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import Dropzone from 'react-dropzone';
 import { useQuery } from 'react-query';
 import { useLocation, useParams } from 'react-router-dom';
 import { srtToAss } from '@almanime/srt-to-ass';
@@ -55,11 +56,6 @@ const Editor = () => {
     },
   );
 
-  const updateSubtitle = useCallback((newSubtitle: CompiledASS) => {
-    setSubtitle(newSubtitle);
-    setIsNewSubtitle(true);
-  }, []);
-
   const updateSlices = useCallback((slices: DialogueSlice[], dialogueIndex: number) => {
     setSubtitle((currentSubtitle) => {
       if (!currentSubtitle) return currentSubtitle;
@@ -107,8 +103,6 @@ const Editor = () => {
       <div className="video-editor-wrapper">
         <div className="menu-wrapper">
           <Menu
-            setSubtitle={updateSubtitle}
-            setVideoSource={setVideoSource}
             subtitle={subtitle}
             fansubAcronym={fansubAcronym}
             animeSlug={animeSlug}
@@ -116,29 +110,93 @@ const Editor = () => {
             setIsStylesActive={setIsStylesActive}
           />
         </div>
-        <div className="lines-wrapper">
-          <Lines
-            subtitle={subtitle}
-            videoRef={videoRef}
-            updateSlices={updateSlices}
-          />
+        <div className="lines-wrapper" style={{ overflowY: subtitle ? 'scroll' : 'visible' }}>
+          {
+            subtitle ? (
+              <Lines
+                subtitle={subtitle}
+                videoRef={videoRef}
+                updateSlices={updateSlices}
+              />
+            ) : (
+              <Dropzone
+                maxFiles={1}
+                onDrop={async (files) => {
+                  if (!files) return;
+                  const rawSubtitle = await files[0].text();
+
+                  let assSubtitle: CompiledASS;
+                  if (!Number.isNaN(parseInt(rawSubtitle.split('\n')[0], 10))) {
+                    assSubtitle = compile(srtToAss(rawSubtitle), { });
+                  } else {
+                    assSubtitle = compile(rawSubtitle, {});
+                  }
+
+                  assSubtitle.info.Title = `See more at Almanime: ${window.location.origin}/animes/${animeSlug}`;
+                  setSubtitle(assSubtitle);
+                  setIsNewSubtitle(true);
+                }}
+              >
+                {({ getRootProps, getInputProps }) => (
+                  <section className="dropzone-section">
+                    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                    <div {...getRootProps()}>
+                      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                      <input {...getInputProps()} />
+                      <p>
+                        Drag & drop your subtitle here,
+                        <br />
+                        or click to select it
+                      </p>
+                    </div>
+                  </section>
+                )}
+              </Dropzone>
+            )
+          }
         </div>
         <div className="video-wrapper">
-          <Player
-            videoRef={videoRef}
-            subtitle={subtitle}
-            videoSource={videoSource}
-            onReady={() => setReady(true)}
-            playerOptions={{}}
-            subtitleOptions={{
-              // subUrl: '/OuterScienceSubs.ass',
-              // subContent: decompile(subtitle),
-              fonts: [
-                'https://fonts.cdnfonts.com/css/gisha',
-                'https://fonts.cdnfonts.com/css/aharoni',
-              ],
-            }}
-          />
+          {
+            videoSource ? (
+              <Player
+                videoRef={videoRef}
+                subtitle={subtitle}
+                videoSource={videoSource}
+                onReady={() => setReady(true)}
+                playerOptions={{}}
+                subtitleOptions={{
+                // subUrl: '/OuterScienceSubs.ass',
+                // subContent: decompile(subtitle),
+                  fonts: [
+                    'https://fonts.cdnfonts.com/css/gisha',
+                    'https://fonts.cdnfonts.com/css/aharoni',
+                  ],
+                }}
+              />
+            ) : (
+              <Dropzone
+                accept={{
+                  'video/*': [],
+                }}
+                maxFiles={1}
+                onDrop={(files) => files && setVideoSource({
+                  type: files[0].type,
+                  src: URL.createObjectURL(files[0]),
+                })}
+              >
+                {({ getRootProps, getInputProps }) => (
+                  <section className="dropzone-section">
+                    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                    <div {...getRootProps()}>
+                      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                      <input {...getInputProps()} />
+                      <p>Drag & drop your video here, or click to select it</p>
+                    </div>
+                  </section>
+                )}
+              </Dropzone>
+            )
+          }
         </div>
       </div>
       {

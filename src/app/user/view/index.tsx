@@ -5,10 +5,10 @@ import routes from 'app/routes';
 
 import Loader from 'components/loader';
 
-const View = ({ token }: { token?: string }) => {
+const View = ({ accessToken }: { accessToken?: string }) => {
   const { name } = useParams<{ name: string }>();
 
-  const { data: me } = UserApi.Me(token);
+  const { data: me } = UserApi.Me(accessToken);
 
   if (!me) return (<Loader />);
 

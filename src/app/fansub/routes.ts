@@ -1,6 +1,6 @@
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 
-import { withToken } from 'app/utils';
+import { withAccessToken } from 'app/utils';
 import { Routes } from 'types/typescript/routes';
 
 import Create from './create';
@@ -20,17 +20,17 @@ const routes: Routes = {
   list: {
     path: '/fansubs',
     to: () => routes.list.path,
-    component: withToken(List),
+    component: withAccessToken(List),
   },
   view: {
     path: toFansub(':acronym'),
     to: toFansub,
-    component: withToken(View),
+    component: withAccessToken(View),
   },
   edit: {
     path: toEditFansub(':acronym'),
     to: toEditFansub,
-    component: withAuthenticationRequired(withToken(Edit)),
+    component: withAuthenticationRequired(withAccessToken(Edit)),
   },
 };
 

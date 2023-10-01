@@ -22,7 +22,7 @@ const Form = () => {
     event.preventDefault();
     await mutateAsync({
       fansub,
-      token: await getAccessTokenSilently(),
+      accessToken: await getAccessTokenSilently(),
     });
 
     navigate(routes.fansub.view.to(fansub.acronym));

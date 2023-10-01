@@ -7,8 +7,8 @@ import Loader from 'components/loader';
 
 import './index.scss';
 
-const Favorites = ({ token }: { token?: string }) => {
-  const { data: animes } = AnimeApi.GetByBookmarked(token);
+const Favorites = ({ accessToken }: { accessToken?: string }) => {
+  const { data: animes } = AnimeApi.GetByBookmarked(accessToken);
 
   if (!animes) return (<Loader />);
 

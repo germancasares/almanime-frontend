@@ -42,19 +42,19 @@ export default class FansubApi {
 
   public static IsMember = (
     acronym?: string,
-    token?: string,
+    accessToken?: string,
   ) => useQuery<boolean>(
-    ['isMember', acronym, token],
+    ['isMember', acronym, accessToken],
     async () => (await fetch(
       `fansub/acronym/${acronym}/isMember`,
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       },
     )).json(),
     {
-      enabled: !!acronym && !!token,
+      enabled: !!acronym && !!accessToken,
       staleTime: Duration.fromObject({ hours: 1 }).toMillis(),
     },
   );
@@ -83,42 +83,42 @@ export default class FansubApi {
 
   public static GetSubtitlesDrafts = (
     acronym?: string,
-    token?: string,
+    accessToken?: string,
   ) => useQuery<Subtitle[]>(
-    ['subtitles', 'drafts', acronym, token],
+    ['subtitles', 'drafts', acronym, accessToken],
     async () => (await fetch(`fansub/acronym/${acronym}/subtitles/drafts`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     })).json(),
     {
-      enabled: !!acronym && !!token,
+      enabled: !!acronym && !!accessToken,
       staleTime: Duration.fromObject({ minutes: 30 }).toMillis(),
     },
   );
 
   public static GetRoles = (
     acronym?: string,
-    token?: string,
+    accessToken?: string,
   ) => useQuery<Roles>(
-    ['roles', acronym, token],
+    ['roles', acronym, accessToken],
     async () => (await fetch(`fansub/acronym/${acronym}/roles`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     })).json(),
     {
-      enabled: !!acronym && !!token,
+      enabled: !!acronym && !!accessToken,
       staleTime: Duration.fromObject({ minutes: 30 }).toMillis(),
     },
   );
 
   public static Post = () => useMutation(
-    async ({ fansub, token } : { fansub: FansubDTO, token?: string }) => (await fetch('fansub', {
+    async ({ fansub, accessToken } : { fansub: FansubDTO, accessToken?: string }) => (await fetch('fansub', {
       method: 'POST',
       body: JSON.stringify(fansub),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
     })).json(),
@@ -128,11 +128,11 @@ export default class FansubApi {
     const queryClient = useQueryClient();
 
     return useMutation(
-      async ({ roles, token }: RolesDTO) => fetch(`fansub/acronym/${acronym}/roles`, {
+      async ({ roles, accessToken }: RolesDTO) => fetch(`fansub/acronym/${acronym}/roles`, {
         method: 'PUT',
         body: JSON.stringify(roles),
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
       }),
@@ -160,10 +160,13 @@ export default class FansubApi {
   };
 
   public static Join = () => useMutation(
-    async ({ acronym, token } : { acronym: string, token?: string }) => fetch(`fansub/acronym/${acronym}/join`, {
+    async (
+      { acronym, accessToken } :
+      { acronym: string, accessToken?: string },
+    ) => fetch(`fansub/acronym/${acronym}/join`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
     }),

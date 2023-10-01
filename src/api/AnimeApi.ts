@@ -37,19 +37,19 @@ export default class AnimeApi {
   );
 
   public static GetByBookmarked = (
-    token?: string,
+    accessToken?: string,
   ) => useQuery<AnimeWithExtra[]>(
-    ['animes', 'bookmarked', token],
+    ['animes', 'bookmarked', accessToken],
     async () => (await fetch(
       'anime/bookmarked',
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       },
     )).json(),
     {
-      enabled: !!token,
+      enabled: !!accessToken,
       staleTime: Duration.fromObject({ day: 1 }).toMillis(),
     },
   );

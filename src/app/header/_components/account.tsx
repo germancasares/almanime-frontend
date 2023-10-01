@@ -4,16 +4,16 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import UserApi from 'api/UserApi';
 import routes from 'app/routes';
-import { withToken } from 'app/utils';
+import { withAccessToken } from 'app/utils';
 
 import './account.scss';
 
-const Profile = ({ token, toggleBurger }: { token?: string, toggleBurger: () => void }) => {
+const Profile = ({ accessToken, toggleBurger }: { accessToken?: string, toggleBurger: () => void }) => {
   const {
     user,
     logout,
   } = useAuth0();
-  const { data: me } = UserApi.Me(token);
+  const { data: me } = UserApi.Me(accessToken);
 
   return (
     <div
@@ -53,7 +53,7 @@ const Profile = ({ token, toggleBurger }: { token?: string, toggleBurger: () => 
   );
 };
 
-const ProfileWithToken = withToken(Profile);
+const ProfileWithToken = withAccessToken(Profile);
 
 const Login = () => {
   const { loginWithRedirect } = useAuth0();

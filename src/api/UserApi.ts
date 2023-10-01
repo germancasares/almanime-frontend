@@ -24,42 +24,42 @@ export default class UserApi {
   );
 
   public static Me = (
-    token?: string,
+    accessToken?: string,
     retry: boolean | number = 3,
   ) => useQuery<User>(
-    ['me', token],
+    ['me', accessToken],
     async () => (await fetch(
       'user/me',
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       },
     )).json(),
     {
       retry,
-      enabled: !!token,
+      enabled: !!accessToken,
       staleTime: Duration.fromObject({ day: 1 }).toMillis(),
     },
   );
 
   public static Create = () => useMutation(
-    async ({ user, token } : { user: User, token?: string }) => (fetch('user', {
+    async ({ user, accessToken } : { user: User, accessToken?: string }) => (fetch('user', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
     })),
   );
 
   public static Update = () => useMutation(
-    async ({ user, token } : { user: User, token?: string }) => (fetch('user', {
+    async ({ user, accessToken } : { user: User, accessToken?: string }) => (fetch('user', {
       method: 'PUT',
       body: JSON.stringify(user),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
     })),

@@ -52,13 +52,13 @@ createRoot(
 ).render(
   <StrictMode>
     <Auth0Provider
-      domain="almanime.us.auth0.com"
-      clientId="kofffbDvo0gJ9BW1U9Hj7UNsrJuMAO9Y"
+      domain={process.env.REACT_APP_AUTH0_DOMAIN ?? ''}
+      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID ?? ''}
       useRefreshTokens
       cacheLocation="localstorage"
       authorizationParams={{
         redirect_uri: `${window.location.origin}${routes.user.create.path}`,
-        audience: 'https://almani.me',
+        audience: process.env.REACT_APP_AUTH0_AUDIENCE,
         scope: 'profile email read:current_user update:current_user_metadata',
       }}
     >

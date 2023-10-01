@@ -19,25 +19,25 @@ export default class SubtitleApi {
     const queryClient = useQueryClient();
 
     return useMutation(async ({
-      fansubAcronym, animeSlug, episodeNumber, token,
+      fansubAcronym, animeSlug, episodeNumber, accessToken,
     }: {
       id: string;
       fansubAcronym: string;
       animeSlug: string;
       episodeNumber: number;
-      token?: string;
+      accessToken?: string;
     }) => (await fetch(`subtitle/fansub/${fansubAcronym}/anime/${animeSlug}/episode/${episodeNumber}/publish`, {
       method: 'PATCH',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     })).json(), {
-      onMutate: async ({ fansubAcronym, token, id }) => {
+      onMutate: async ({ fansubAcronym, accessToken, id }) => {
         await queryClient.cancelQueries(['subtitles', 'published', fansubAcronym]);
-        await queryClient.cancelQueries(['subtitles', 'drafts', fansubAcronym, token]);
+        await queryClient.cancelQueries(['subtitles', 'drafts', fansubAcronym, accessToken]);
         const publishedSubtitles = queryClient.getQueryData<Subtitle[]>(['subtitles', 'published', fansubAcronym]);
         const unpublishedSubtitles = queryClient.getQueryData<Subtitle[]>(
-          ['subtitles', 'drafts', fansubAcronym, token],
+          ['subtitles', 'drafts', fansubAcronym, accessToken],
         );
 
         const subtitleToPublish = unpublishedSubtitles?.find((subtitle) => subtitle.id === id);
@@ -53,7 +53,7 @@ export default class SubtitleApi {
           );
 
           queryClient.setQueryData<Subtitle[]>(
-            ['subtitles', 'drafts', fansubAcronym, token],
+            ['subtitles', 'drafts', fansubAcronym, accessToken],
             unpublishedSubtitles?.filter((subtitle) => subtitle.id !== id) ?? [],
           );
         }
@@ -70,7 +70,7 @@ export default class SubtitleApi {
 
         if (context?.unpublishedSubtitles) {
           queryClient.setQueryData<Subtitle[]>(
-            ['subtitles', 'unpublished', subtitle.fansubAcronym, subtitle.token],
+            ['subtitles', 'unpublished', subtitle.fansubAcronym, subtitle.accessToken],
             context.unpublishedSubtitles,
           );
         }
@@ -82,25 +82,25 @@ export default class SubtitleApi {
     const queryClient = useQueryClient();
 
     return useMutation(async ({
-      fansubAcronym, animeSlug, episodeNumber, token,
+      fansubAcronym, animeSlug, episodeNumber, accessToken,
     }: {
       id: string,
       fansubAcronym: string;
       animeSlug: string;
       episodeNumber: number;
-      token?: string;
+      accessToken?: string;
     }) => (await fetch(`subtitle/fansub/${fansubAcronym}/anime/${animeSlug}/episode/${episodeNumber}/unpublish`, {
       method: 'PATCH',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     })).json(), {
-      onMutate: async ({ fansubAcronym, token, id }) => {
+      onMutate: async ({ fansubAcronym, accessToken, id }) => {
         await queryClient.cancelQueries(['subtitles', 'published', fansubAcronym]);
-        await queryClient.cancelQueries(['subtitles', 'drafts', fansubAcronym, token]);
+        await queryClient.cancelQueries(['subtitles', 'drafts', fansubAcronym, accessToken]);
         const publishedSubtitles = queryClient.getQueryData<Subtitle[]>(['subtitles', 'published', fansubAcronym]);
         const unpublishedSubtitles = queryClient.getQueryData<Subtitle[]>(
-          ['subtitles', 'drafts', fansubAcronym, token],
+          ['subtitles', 'drafts', fansubAcronym, accessToken],
         );
 
         const subtitleToUnpublish = publishedSubtitles?.find((subtitle) => subtitle.id === id);
@@ -111,7 +111,7 @@ export default class SubtitleApi {
             : [subtitleToUnpublish];
 
           queryClient.setQueryData<Subtitle[]>(
-            ['subtitles', 'drafts', fansubAcronym, token],
+            ['subtitles', 'drafts', fansubAcronym, accessToken],
             newUnpublishedSubtitles,
           );
 
@@ -133,7 +133,7 @@ export default class SubtitleApi {
 
         if (context?.unpublishedSubtitles) {
           queryClient.setQueryData<Subtitle[]>(
-            ['subtitles', 'unpublished', subtitle.fansubAcronym, subtitle.token],
+            ['subtitles', 'unpublished', subtitle.fansubAcronym, subtitle.accessToken],
             context.unpublishedSubtitles,
           );
         }
@@ -145,27 +145,27 @@ export default class SubtitleApi {
     const queryClient = useQueryClient();
 
     return useMutation(async ({
-      fansubAcronym, animeSlug, episodeNumber, token,
+      fansubAcronym, animeSlug, episodeNumber, accessToken,
     }: {
       id: string,
       fansubAcronym: string;
       animeSlug: string;
       episodeNumber: number;
-      token?: string;
+      accessToken?: string;
     }) => (fetch(`subtitle/fansub/${fansubAcronym}/anime/${animeSlug}/episode/${episodeNumber}`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     })), {
-      onMutate: async ({ fansubAcronym, token, id }) => {
+      onMutate: async ({ fansubAcronym, accessToken, id }) => {
         await queryClient.cancelQueries(['subtitles', 'published', fansubAcronym]);
-        await queryClient.cancelQueries(['subtitles', 'drafts', fansubAcronym, token]);
+        await queryClient.cancelQueries(['subtitles', 'drafts', fansubAcronym, accessToken]);
         const publishedSubtitles = queryClient.getQueryData<Subtitle[]>(
           ['subtitles', 'published', fansubAcronym],
         );
         const unpublishedSubtitles = queryClient.getQueryData<Subtitle[]>(
-          ['subtitles', 'drafts', fansubAcronym, token],
+          ['subtitles', 'drafts', fansubAcronym, accessToken],
         );
 
         queryClient.setQueryData<Subtitle[]>(
@@ -173,7 +173,7 @@ export default class SubtitleApi {
           publishedSubtitles?.filter((subtitle) => subtitle.id !== id) ?? [],
         );
         queryClient.setQueryData<Subtitle[]>(
-          ['subtitles', 'drafts', fansubAcronym, token],
+          ['subtitles', 'drafts', fansubAcronym, accessToken],
           unpublishedSubtitles?.filter((subtitle) => subtitle.id !== id) ?? [],
         );
 
@@ -189,7 +189,7 @@ export default class SubtitleApi {
 
         if (context?.unpublishedSubtitles) {
           queryClient.setQueryData<Subtitle[]>(
-            ['subtitles', 'unpublished', subtitle.fansubAcronym, subtitle.token],
+            ['subtitles', 'unpublished', subtitle.fansubAcronym, subtitle.accessToken],
             context.unpublishedSubtitles,
           );
         }
@@ -205,8 +205,8 @@ export default class SubtitleApi {
       language,
       file,
     },
-    token,
-  } : { subtitle: SubtitleDTO, token?: string }) => {
+    accessToken,
+  } : { subtitle: SubtitleDTO, accessToken?: string }) => {
     const formData = new FormData();
 
     formData.append('animeSlug', animeSlug);
@@ -219,7 +219,7 @@ export default class SubtitleApi {
       method: 'POST',
       body: formData,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     })).json();
   });

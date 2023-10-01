@@ -25,7 +25,7 @@ const Form = () => {
     event.preventDefault();
     await mutateAsync({
       subtitle,
-      token: await getAccessTokenSilently(),
+      accessToken: await getAccessTokenSilently(),
     });
   };
 
