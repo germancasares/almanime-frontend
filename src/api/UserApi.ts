@@ -44,14 +44,14 @@ export default class UserApi {
   );
 
   public static Create = () => useMutation(
-    async ({ user, accessToken } : { user: User, accessToken?: string }) => (fetch('user', {
+    async ({ user, accessToken } : { user: User, accessToken?: string }) => (await fetch('user', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
-    })),
+    })).json(),
   );
 
   public static Update = () => useMutation(

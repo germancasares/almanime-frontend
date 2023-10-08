@@ -10,8 +10,7 @@ import Loader from 'components/loader';
 
 import './index.scss';
 
-const Create = ({ accessToken }: { accessToken?: string }) => {
-  // const { isFetched, isSuccess } = UserApi.Me(accessToken, false);
+const Create = ({ accessToken }: { accessToken: string }) => {
   const { getIdTokenClaims } = useAuth0();
   const { mutateAsync, isLoading } = UserApi.Create();
   const [user, setUser] = useState<User | undefined>();
@@ -29,7 +28,7 @@ const Create = ({ accessToken }: { accessToken?: string }) => {
       const { isNew } = await (await mutateAsync({
         user: newUser,
         accessToken,
-      })).json();
+      }));
 
       if (isNew) {
         setUser(newUser);
