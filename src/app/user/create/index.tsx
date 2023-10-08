@@ -10,7 +10,7 @@ import Loader from 'components/loader';
 
 import './index.scss';
 
-const Create = ({ accessToken }: { accessToken: string }) => {
+const Create = ({ accessToken }: { accessToken?: string }) => {
   const { getIdTokenClaims } = useAuth0();
   const { mutateAsync, isLoading } = UserApi.Create();
   const [user, setUser] = useState<User | undefined>();
