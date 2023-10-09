@@ -19,6 +19,7 @@
   "dependencies": {
     "@almanime/srt-to-ass": "^1.0.7",
     "@auth0/auth0-react": "^2.0.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@mdi/js": "^7.1.96",
     "@mdi/react": "^1.6.1",
     "@sentry/react": "^7.36.0",
