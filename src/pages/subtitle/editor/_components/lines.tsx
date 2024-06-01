@@ -34,7 +34,6 @@ const Lines = ({
             onClick={({ currentTarget }) => {
               currentTarget.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
               if (!videoRef.current) { return; }
-              // eslint-disable-next-line no-param-reassign
               videoRef.current.currentTime = dialogue.start;
               setCurrentTime(dialogue.start);
             }}

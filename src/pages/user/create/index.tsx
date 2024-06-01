@@ -56,7 +56,6 @@ const Create = ({ accessToken }: { accessToken?: string }) => {
         <h3 className="title">Finish Account Setup</h3>
         <form onSubmit={onSubmit} autoComplete="on">
           <div className="field">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label className="label" htmlFor="name">Username</label>
             <div className="control">
               <input

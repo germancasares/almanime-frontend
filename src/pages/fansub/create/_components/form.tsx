@@ -43,7 +43,7 @@ const Form = () => {
       </div>
 
       <div className="field">
-        <label className="label">Webpage</label>
+        <label className="label" htmlFor="webpage">Webpage</label>
         <div className="control">
           <input name="webpage" className="input" type="url" placeholder="www.example.com" onChange={onChange} />
         </div>

@@ -5,15 +5,8 @@ import {
   mdiLibraryShelves,
 } from '@mdi/js';
 import Icon from '@mdi/react';
-
+import { TabName } from '../../../../enums/TabName';
 import './tabs.scss';
-
-export enum TabName {
-  Newest = 'Newest',
-  Subtitles = 'Subtitles',
-  Members = 'Members',
-  About = 'About',
-}
 
 const Tab = (
   {
@@ -21,12 +14,14 @@ const Tab = (
   }:
   { name: TabName, activeTab: string, iconPath: string, changeTab: (newTab: TabName) => void },
 ) => (
+  // eslint-disable-next-line jsx-a11y/click-events-have-key-events
   <li
     role="tab"
     className={activeTab === name ? 'is-active' : ''}
     onClick={() => changeTab(name)}
     tabIndex={0}
   >
+    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
     <a>
       <Icon className="icon" path={iconPath} size={1} />
       <span>{name}</span>

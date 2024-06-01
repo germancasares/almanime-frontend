@@ -27,7 +27,6 @@ export const styleSerializer = (
 
 export const V4PlusStylesSerializer = (styles: V4PlusStyle[]) => {
   const paddings = HEADER_ORDER.reduce((paddingObj: { [header: string]: number }, header) => {
-    // eslint-disable-next-line no-param-reassign
     paddingObj[header] = Math.max(header.length, ...styles.map(
       (style: { [key: string]: string | number | boolean }) => style[header].toString().length,
     ));

@@ -30,7 +30,6 @@ const Form = () => {
   return (
     <form onSubmit={onSubmit} autoComplete="on">
       <div className="field">
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label className="label" htmlFor="animeSlug">Anime</label>
         <div className="control">
           <input
@@ -44,7 +43,6 @@ const Form = () => {
       </div>
 
       <div className="field">
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label className="label" htmlFor="episodeNumber">Episode</label>
         <div className="control">
           <input
@@ -58,7 +56,6 @@ const Form = () => {
       </div>
 
       <div className="field">
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label className="label" htmlFor="language">Language</label>
         <div className="control">
           <span className="select">

@@ -1,16 +1,15 @@
-/* eslint-disable max-len */
+import { CompiledASS } from 'ass-compiler';
 import {
   RefObject, useEffect, useMemo,
   useRef, useState,
 } from 'react';
-import { CompiledASS } from 'ass-compiler';
 import WaveSurfer from 'wavesurfer.js';
+import RegionsPlugin from 'wavesurfer.js/dist/plugins/regions.js';
+import TimelinePlugin from 'wavesurfer.js/dist/plugins/timeline.js';
+import Theme from '../../../../enums/Theme';
+import Helper from '../../../../helper';
 import { getRegionsFromSubtitle } from './utils';
 import './waveform.scss';
-import RegionsPlugin from 'wavesurfer.js/dist/plugins/regions.js';
-import Helper from '../../../../helper';
-import Theme from '../../../../enums/Theme';
-import TimelinePlugin from 'wavesurfer.js/dist/plugins/timeline.js';
 
 export type WaveFormProps = {
   isNewSubtitle: boolean,

@@ -17,7 +17,7 @@ const Brand = ({
 }: Props) => (
   <div className="navbar-brand">
     <Link to={routes.home.view.path} className="navbar-item">
-      <img width="30" height="28" src={logoUrl} />
+      <img width="30" height="28" src={logoUrl} alt="Almanime logo" />
     </Link>
     <ThemeSwitch theme={theme} toggleTheme={toggleTheme} />
     <button

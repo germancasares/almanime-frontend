@@ -76,7 +76,6 @@ const Player = ({
               subtitleRef.current.setTrack(decompile(subtitle));
             }
           }
-          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           onReady && onReady(player);
         },
       );

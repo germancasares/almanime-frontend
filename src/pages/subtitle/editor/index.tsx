@@ -182,7 +182,6 @@ const Editor = () => {
                 {({ getRootProps, getInputProps }) => (
                   <section className="dropzone-section">
                     <div {...getRootProps()}>
-                      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
                       <input {...getInputProps()} />
                       <p>Drag & drop your video here, or click to select it</p>
                     </div>

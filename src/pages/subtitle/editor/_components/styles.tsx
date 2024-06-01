@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 // Style: Default,Open Sans Semibold,45,&H00FFFFFF,&H000000FF,&H00020713,&H00000000,-1,0,0,0,100,100,0,0,1,1.7,0,2,10,10,15,1
 
@@ -8,7 +7,6 @@ const StyleEditor = () => (
       <div>
         <div className="field is-horizontal">
           <div className="field-label is-normal">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label className="label" htmlFor="main-color">Main Color</label>
           </div>
           <div className="field-body">
@@ -24,7 +22,6 @@ const StyleEditor = () => (
   </div>
 );
 
-/* eslint-disable max-len */
 const Styles = ({
   isActive,
   setIsStylesActive,
