@@ -25,7 +25,7 @@ jobs:
         run: yarn build
       - name: Build Storybook
         run: yarn build-storybook
- analyze:
+  analyze:
     name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
     permissions:
