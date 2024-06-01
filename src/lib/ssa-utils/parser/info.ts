@@ -1,14 +1,18 @@
-import { Info, INFO_NUMBER_FIELDS } from '../SSASubtitle';
+import { Info, INFO_NUMBER_FIELDS } from "../SSASubtitle";
 
-const scriptInfoParser = (lines: string[]) => lines.reduce(
-  (info, line) => {
-    const { key, value } = /^\s*(?<key>[^:]+):\s*(?<value>.*)(\r?\n)?$/.exec(line)?.groups ?? {};
+const scriptInfoParser = (lines: string[]) =>
+  lines.reduce(
+    (info, line) => {
+      const { key, value } =
+        /^\s*(?<key>[^:]+):\s*(?<value>.*)(\r?\n)?$/.exec(line)?.groups ?? {};
 
-    info[key.trim()] = INFO_NUMBER_FIELDS.includes(key.trim()) ? parseInt(value.trim(), 10) : value.trim();
+      info[key.trim()] = INFO_NUMBER_FIELDS.includes(key.trim())
+        ? parseInt(value.trim(), 10)
+        : value.trim();
 
-    return info;
-  },
-  {} as { [key: string]: unknown; },
-) as Info;
+      return info;
+    },
+    {} as { [key: string]: unknown },
+  ) as Info;
 
 export default scriptInfoParser;

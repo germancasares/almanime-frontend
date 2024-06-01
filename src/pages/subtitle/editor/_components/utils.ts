@@ -1,16 +1,16 @@
-import { CompiledASS, DialogueSlice } from 'ass-compiler';
-import { RegionParams } from 'wavesurfer.js/dist/plugins/regions.min';
+import { CompiledASS, DialogueSlice } from "ass-compiler";
+import { RegionParams } from "wavesurfer.js/dist/plugins/regions.min";
 
 // slices are created splitting by \r
 // fragments are created splitting by {someting}
 // \n is replaced with \\N
 export const textToSlice = (text: string) => {
   const slice: DialogueSlice = {
-    style: 'Default',
+    style: "Default",
     fragments: [
       {
         tag: {},
-        text: text.replace(/\n/g, '\\N'),
+        text: text.replace(/\n/g, "\\N"),
       },
     ],
   };
@@ -18,16 +18,21 @@ export const textToSlice = (text: string) => {
   return slice;
 };
 
-export const slicesToText = (slices: DialogueSlice[]) => slices.reduce(
-  (line, slice) => line + slice.fragments.reduce(
-    (lineFragment, fragment) => lineFragment + fragment.text,
-    '',
-  ),
-  '',
-).replace(/\\N/g, '\n');
+export const slicesToText = (slices: DialogueSlice[]) =>
+  slices
+    .reduce(
+      (line, slice) =>
+        line +
+        slice.fragments.reduce(
+          (lineFragment, fragment) => lineFragment + fragment.text,
+          "",
+        ),
+      "",
+    )
+    .replace(/\\N/g, "\n");
 
 export const getHexColor = (subtitleColor: string) => {
-  if (subtitleColor === '' || subtitleColor.length !== 10) return '';
+  if (subtitleColor === "" || subtitleColor.length !== 10) return "";
 
   const hexColor = subtitleColor.slice(2, 10);
 
@@ -39,10 +44,8 @@ export const getHexColor = (subtitleColor: string) => {
   return `#${red}${green}${blue}40`;
 };
 
-export const getRegionsFromSubtitle = (
-  subtitle: CompiledASS,
-): RegionParams[] => subtitle.dialogues
-  .map(({ start, end, style }, index) => ({
+export const getRegionsFromSubtitle = (subtitle: CompiledASS): RegionParams[] =>
+  subtitle.dialogues.map(({ start, end, style }, index) => ({
     start,
     end,
     color: getHexColor(subtitle.styles[style].style.PrimaryColour),

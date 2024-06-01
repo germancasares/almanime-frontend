@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
-import { DateTime, Duration, DurationLikeObject } from 'luxon';
-import Permission from './enums/Permission';
-import { User } from './types/user';
-import Season from './enums/Season';
+import { useEffect, useState } from "react";
+import { DateTime, Duration, DurationLikeObject } from "luxon";
+import Permission from "./enums/Permission";
+import { User } from "./types/user";
+import Season from "./enums/Season";
 
-const StringToDateTime = (date: string) => DateTime.fromISO(date, { zone: 'utc' });
-const HasPermission = (
-  permission: Permission,
-  fansub: string,
-  user?: User,
-) => user && user.permissions[fansub]?.includes(permission);
+const StringToDateTime = (date: string) =>
+  DateTime.fromISO(date, { zone: "utc" });
+const HasPermission = (permission: Permission, fansub: string, user?: User) =>
+  user && user.permissions[fansub]?.includes(permission);
 
 const GetSeason = (month: number | DateTime): Season => {
   if (month instanceof DateTime) {
@@ -25,7 +23,8 @@ const GetSeason = (month: number | DateTime): Season => {
       return Season.Summer;
     case month >= 10 && month <= 12:
       return Season.Fall;
-    default: throw new RangeError('Month out of valid range.');
+    default:
+      throw new RangeError("Month out of valid range.");
   }
 };
 
@@ -57,13 +56,25 @@ const useDebounce = (value: string, delay = 500) => {
 };
 
 // https://github.com/moment/luxon/issues/1134#issue-1128331010
-const toHuman = (dur: Duration, smallestUnit: keyof DurationLikeObject = 'seconds'): string => {
+const toHuman = (
+  dur: Duration,
+  smallestUnit: keyof DurationLikeObject = "seconds",
+): string => {
   const units: (keyof DurationLikeObject)[] = [
-    'years', 'months', 'days', 'hours', 'minutes', 'seconds', 'milliseconds',
+    "years",
+    "months",
+    "days",
+    "hours",
+    "minutes",
+    "seconds",
+    "milliseconds",
   ];
   const smallestIdx = units.indexOf(smallestUnit);
   const entries = Object.entries(
-    dur.shiftTo(...units).normalize().toObject(),
+    dur
+      .shiftTo(...units)
+      .normalize()
+      .toObject(),
   ).filter(([, amount], idx) => amount > 0 && idx <= smallestIdx);
   const dur2 = Duration.fromObject(
     entries.length === 0 ? { [smallestUnit]: 0 } : Object.fromEntries(entries),
@@ -83,7 +94,8 @@ const GetLocalStorage = <T>(key: string): T | null => {
   return JSON.parse(item);
 };
 
-const CreateLocalStorage = (key: string, value: unknown): void => localStorage.setItem(key, JSON.stringify(value));
+const CreateLocalStorage = (key: string, value: unknown): void =>
+  localStorage.setItem(key, JSON.stringify(value));
 
 const DeleteLocalStorage = (key: string): void => localStorage.removeItem(key);
 

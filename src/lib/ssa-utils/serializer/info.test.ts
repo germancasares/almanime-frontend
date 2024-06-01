@@ -1,10 +1,10 @@
-import { describe, expect, test } from 'vitest';
-import { Info } from '../SSASubtitle';
+import { describe, expect, test } from "vitest";
+import { Info } from "../SSASubtitle";
 
-import scriptInfoSerializer from './info';
+import scriptInfoSerializer from "./info";
 
-describe('scriptInfoSerializer', () => {
-  test('works with empty object', () => {
+describe("scriptInfoSerializer", () => {
+  test("works with empty object", () => {
     const info = {} as Info;
 
     const infoString = scriptInfoSerializer(info);
@@ -20,20 +20,20 @@ WrapStyle: undefined
 `);
   });
 
-  test('works with an info with data', () => {
+  test("works with an info with data", () => {
     const info = {
-      ScriptType: 'Test',
-      Title: 'Test',
-      Collisions: 'Test',
+      ScriptType: "Test",
+      Title: "Test",
+      Collisions: "Test",
       PlayResX: 10,
       PlayResY: 10,
       WrapStyle: 1,
-      'Last Style Storage': 'Test',
-      ScaledBorderAndShadow: 'Test',
-      'Video Aspect Ratio': 10,
-      'Video File': 'Test',
-      'Video Position': 10,
-      'Video Zoom': 10,
+      "Last Style Storage": "Test",
+      ScaledBorderAndShadow: "Test",
+      "Video Aspect Ratio": 10,
+      "Video File": "Test",
+      "Video Position": 10,
+      "Video Zoom": 10,
     } as Info;
 
     const infoString = scriptInfoSerializer(info);
@@ -56,17 +56,17 @@ Video Zoom: 10
 `);
   });
 
-  test('only serializes the fields with data', () => {
+  test("only serializes the fields with data", () => {
     const info = {
-      ScriptType: 'Test',
-      Title: 'Test',
-      Collisions: 'Test',
+      ScriptType: "Test",
+      Title: "Test",
+      Collisions: "Test",
       PlayResX: 10,
       PlayResY: 10,
       WrapStyle: 1,
-      'Last Style Storage': 'Test',
-      ScaledBorderAndShadow: 'Test',
-      'Video Position': 10,
+      "Last Style Storage": "Test",
+      ScaledBorderAndShadow: "Test",
+      "Video Position": 10,
     } as Info;
 
     const infoString = scriptInfoSerializer(info);
@@ -86,17 +86,17 @@ Video Position: 10
 `);
   });
 
-  test('is serialized by HEADER order and additonal fields alphabetically', () => {
+  test("is serialized by HEADER order and additonal fields alphabetically", () => {
     const info = {
       PlayResX: 10,
-      'Video Position': 10,
+      "Video Position": 10,
       PlayResY: 10,
-      ScaledBorderAndShadow: 'Test',
-      Title: 'Test',
-      Collisions: 'Test',
-      'Last Style Storage': 'Test',
+      ScaledBorderAndShadow: "Test",
+      Title: "Test",
+      Collisions: "Test",
+      "Last Style Storage": "Test",
       WrapStyle: 1,
-      ScriptType: 'Test',
+      ScriptType: "Test",
     } as Info;
 
     const infoString = scriptInfoSerializer(info);

@@ -1,10 +1,13 @@
-@import '../styles/variables';
+@import "../styles/variables";
 
 .loader-wrapper {
   align-items: center;
   border-radius: 6px;
   display: flex;
-  height: calc(100vh - $navbar-height - $footer-top-padding - $footer-bottom-padding - $line-height);
+  height: calc(
+    100vh - $navbar-height - $footer-top-padding - $footer-bottom-padding -
+      $line-height
+  );
   justify-content: center;
   width: 100%;
 

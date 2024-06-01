@@ -1,9 +1,22 @@
-import { Duration } from 'luxon';
+import { Duration } from "luxon";
 
-import { Dialogue, DIALOGUE_DURATION_FIELD, DIALOGUE_NUMBER_FIELD } from '../SSASubtitle';
+import {
+  Dialogue,
+  DIALOGUE_DURATION_FIELD,
+  DIALOGUE_NUMBER_FIELD,
+} from "../SSASubtitle";
 
 const HEADER_ORDER = [
-  'Layer', 'Start', 'End', 'Style', 'Name', 'MarginL', 'MarginR', 'MarginV', 'Effect', 'Text',
+  "Layer",
+  "Start",
+  "End",
+  "Style",
+  "Name",
+  "MarginL",
+  "MarginR",
+  "MarginV",
+  "Effect",
+  "Text",
 ];
 
 const dialogueSerializer = (
@@ -11,16 +24,16 @@ const dialogueSerializer = (
   paddings: { [header: string]: number },
 ) => {
   let dialogueLine = HEADER_ORDER.reduce((str, header) => {
-    let value: string = dialogue[header]?.toString() ?? '';
+    let value: string = dialogue[header]?.toString() ?? "";
 
     if (DIALOGUE_DURATION_FIELD.includes(header)) {
-      value = ((dialogue[header] as unknown) as Duration).toFormat('h:mm:ss.SS');
-    } else if (DIALOGUE_NUMBER_FIELD.includes(header) && header !== 'Layer') {
-      value = value.padStart(4, '0');
+      value = (dialogue[header] as unknown as Duration).toFormat("h:mm:ss.SS");
+    } else if (DIALOGUE_NUMBER_FIELD.includes(header) && header !== "Layer") {
+      value = value.padStart(4, "0");
     }
 
-    return `${str}${value.padEnd(paddings[header], ' ')},`;
-  }, '');
+    return `${str}${value.padEnd(paddings[header], " ")},`;
+  }, "");
 
   dialogueLine = `${dialogueLine.slice(0, -1)}\n`;
   return `Dialogue: ${dialogueLine}`;
@@ -43,13 +56,14 @@ export const eventsSerializer = (dialogues: Dialogue[]) => {
   HEADER_ORDER.forEach((header) => {
     if (paddings[header] !== -1) return;
 
-    paddings[header] = Math.max(header.length, ...dialogues.map(
-      (
-        dialogue: {
-          [key: string]: string | number | boolean | Duration | undefined
-        },
-      ) => dialogue[header]?.toString()?.length ?? 0,
-    ));
+    paddings[header] = Math.max(
+      header.length,
+      ...dialogues.map(
+        (dialogue: {
+          [key: string]: string | number | boolean | Duration | undefined;
+        }) => dialogue[header]?.toString()?.length ?? 0,
+      ),
+    );
   });
 
   let eventsSection = `
@@ -57,12 +71,14 @@ export const eventsSerializer = (dialogues: Dialogue[]) => {
 Format:   `;
 
   eventsSection += HEADER_ORDER.reduce(
-    (format, header) => `${format}${header.padEnd(paddings[header], ' ')},`,
-    '',
+    (format, header) => `${format}${header.padEnd(paddings[header], " ")},`,
+    "",
   );
   eventsSection = `${eventsSection.slice(0, -1)}\n`;
 
-  eventsSection += dialogues.map((dialogue) => dialogueSerializer(dialogue, paddings)).join('');
+  eventsSection += dialogues
+    .map((dialogue) => dialogueSerializer(dialogue, paddings))
+    .join("");
 
   return eventsSection;
 };
@@ -73,14 +89,25 @@ export const eventsSerializerUnprettified = (dialogues: Dialogue[]) => {
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 `;
 
-  eventsString += dialogues.map(({
-    Layer, Start, End, Style, Name,
-    MarginL, MarginR,
-    MarginV, Effect, Text,
-  }) => `Dialogue: ${Layer}, ${Start.toFormat('h:mm:ss:SS')}, ${End.toFormat('h:mm:ss:SS')}, ${Style}, ${Name}, \
-${MarginL.toString().padStart(4, '0')}, ${MarginR.toString().padStart(4, '0')}, \
-${MarginV.toString().padStart(4, '0')}, ${Effect},${Text}
-`).join('');
+  eventsString += dialogues
+    .map(
+      ({
+        Layer,
+        Start,
+        End,
+        Style,
+        Name,
+        MarginL,
+        MarginR,
+        MarginV,
+        Effect,
+        Text,
+      }) => `Dialogue: ${Layer}, ${Start.toFormat("h:mm:ss:SS")}, ${End.toFormat("h:mm:ss:SS")}, ${Style}, ${Name}, \
+${MarginL.toString().padStart(4, "0")}, ${MarginR.toString().padStart(4, "0")}, \
+${MarginV.toString().padStart(4, "0")}, ${Effect},${Text}
+`,
+    )
+    .join("");
 
   return eventsString;
 };

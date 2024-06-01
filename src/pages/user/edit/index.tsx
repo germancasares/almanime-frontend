@@ -1,17 +1,17 @@
-import { FormEvent, useEffect, useState } from 'react';
-import UserApi from '../../../api/UserApi';
-import Loader from '../../../components/loader';
-import { User } from '../../../types/user';
-import './index.scss';
+import { FormEvent, useEffect, useState } from "react";
+import UserApi from "../../../api/UserApi";
+import Loader from "../../../components/loader";
+import { User } from "../../../types/user";
+import "./index.scss";
 
 const Edit = ({ accessToken }: { accessToken?: string }) => {
   const { data: me } = UserApi.Me(accessToken);
-  const [user, setUser] = useState({ name: '' } as User);
+  const [user, setUser] = useState({ name: "" } as User);
   const { mutateAsync, isLoading } = UserApi.Update();
 
   useEffect(() => me && setUser(me), [me]);
 
-  if (!me) return (<Loader />);
+  if (!me) return <Loader />;
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,7 +28,9 @@ const Edit = ({ accessToken }: { accessToken?: string }) => {
         <h3 className="title">Profile</h3>
         <form onSubmit={onSubmit} autoComplete="on">
           <div className="field">
-            <label className="label" htmlFor="name">Name</label>
+            <label className="label" htmlFor="name">
+              Name
+            </label>
             <div className="control">
               <input
                 name="name"
@@ -36,13 +38,24 @@ const Edit = ({ accessToken }: { accessToken?: string }) => {
                 type="text"
                 value={user.name}
                 placeholder="Luffy"
-                onChange={({ target: { value } }) => setUser({ name: value, permissions: me.permissions, fansubs: [] })}
+                onChange={({ target: { value } }) =>
+                  setUser({
+                    name: value,
+                    permissions: me.permissions,
+                    fansubs: [],
+                  })
+                }
               />
             </div>
           </div>
 
           <div className="control">
-            <button type="submit" className={`button is-link${isLoading ? ' is-loading' : ''}`}>Submit</button>
+            <button
+              type="submit"
+              className={`button is-link${isLoading ? " is-loading" : ""}`}
+            >
+              Submit
+            </button>
           </div>
         </form>
       </section>

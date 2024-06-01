@@ -1,11 +1,11 @@
-import FansubApi from '../../../../api/FansubApi';
-import Loader from '../../../../components/loader';
-import './members.scss';
+import FansubApi from "../../../../api/FansubApi";
+import Loader from "../../../../components/loader";
+import "./members.scss";
 
 const Members = ({ acronym }: { acronym: string }) => {
   const { data: members } = FansubApi.GetMembers(acronym);
 
-  if (!members) return (<Loader />);
+  if (!members) return <Loader />;
 
   return (
     <table id="members" className="table is-fullwidth">
@@ -16,14 +16,12 @@ const Members = ({ acronym }: { acronym: string }) => {
         </tr>
       </thead>
       <tbody>
-        {
-          members.map(({ name, role }) => (
-            <tr key={name}>
-              <td>{name}</td>
-              <td>{role}</td>
-            </tr>
-          ))
-        }
+        {members.map(({ name, role }) => (
+          <tr key={name}>
+            <td>{name}</td>
+            <td>{role}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

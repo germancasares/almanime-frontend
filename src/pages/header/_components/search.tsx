@@ -1,38 +1,44 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { mdiMagnify } from '@mdi/js';
-import { Icon } from '@mdi/react';
-import './search.scss';
-import Helper from '../../../helper';
-import AnimeApi from '../../../api/AnimeApi';
-import FansubApi from '../../../api/FansubApi';
-import UserApi from '../../../api/UserApi';
-import { AnimeDocument } from '../../../types/anime';
-import { FansubDocument } from '../../../types/fansub';
-import { UserDocument } from '../../../types/user';
-import routes from '../../routes';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { mdiMagnify } from "@mdi/js";
+import { Icon } from "@mdi/react";
+import "./search.scss";
+import Helper from "../../../helper";
+import AnimeApi from "../../../api/AnimeApi";
+import FansubApi from "../../../api/FansubApi";
+import UserApi from "../../../api/UserApi";
+import { AnimeDocument } from "../../../types/anime";
+import { FansubDocument } from "../../../types/fansub";
+import { UserDocument } from "../../../types/user";
+import routes from "../../routes";
 
 const Search = () => {
-  const [type, setType] = useState('Anime');
-  const [query, setQuery] = useState('');
+  const [type, setType] = useState("Anime");
+  const [query, setQuery] = useState("");
   const debouncedSearchQuery = Helper.useDebounce(query, 600).trim();
 
-  const animeSearch = AnimeApi.Search(type === 'Anime' ? debouncedSearchQuery : undefined);
-  const fansubSearch = FansubApi.Search(type === 'Fansub' ? debouncedSearchQuery : undefined);
-  const userSearch = UserApi.Search(type === 'User' ? debouncedSearchQuery : undefined);
+  const animeSearch = AnimeApi.Search(
+    type === "Anime" ? debouncedSearchQuery : undefined,
+  );
+  const fansubSearch = FansubApi.Search(
+    type === "Fansub" ? debouncedSearchQuery : undefined,
+  );
+  const userSearch = UserApi.Search(
+    type === "User" ? debouncedSearchQuery : undefined,
+  );
 
   let isLoading = false;
   let documents: AnimeDocument[] | FansubDocument[] | UserDocument[] = [];
   switch (type) {
-    case 'Anime':
+    case "Anime":
       isLoading = animeSearch.isLoading;
       documents = animeSearch.data ?? [];
       break;
-    case 'Fansub':
+    case "Fansub":
       isLoading = fansubSearch.isLoading;
       documents = fansubSearch.data ?? [];
       break;
-    case 'User':
+    case "User":
       isLoading = userSearch.isLoading;
       documents = userSearch.data ?? [];
       break;
@@ -54,7 +60,9 @@ const Search = () => {
         </div>
 
         <div className="control">
-          <div className={`dropdown${(documents?.length ?? 0) > 0 ? ' is-active' : ''}`}>
+          <div
+            className={`dropdown${(documents?.length ?? 0) > 0 ? " is-active" : ""}`}
+          >
             <div className="dropdown-trigger">
               <input
                 type="text"
@@ -66,33 +74,34 @@ const Search = () => {
             </div>
             <div className="dropdown-menu" role="menu">
               <div className="dropdown-content">
-                {
-                  documents && documents.map((doc) => (
+                {documents &&
+                  documents.map((doc) => (
                     <Link
                       key={doc.id}
                       to={
-                        type === 'Anime'
+                        type === "Anime"
                           ? routes.anime.view.to((doc as AnimeDocument).slug)
-                          : routes.fansub.view.to((doc as FansubDocument).acronym)
+                          : routes.fansub.view.to(
+                              (doc as FansubDocument).acronym,
+                            )
                       }
                       className="dropdown-item"
-                      onClick={() => setQuery('')}
+                      onClick={() => setQuery("")}
                     >
                       {doc.name}
                     </Link>
-                  ))
-                }
+                  ))}
               </div>
             </div>
           </div>
         </div>
 
         <div className="control">
-          <button type="button" className={`button px-2${isLoading ? ' is-loading' : ''}`}>
-            <Icon
-              path={mdiMagnify}
-              size={1}
-            />
+          <button
+            type="button"
+            className={`button px-2${isLoading ? " is-loading" : ""}`}
+          >
+            <Icon path={mdiMagnify} size={1} />
           </button>
         </div>
       </div>

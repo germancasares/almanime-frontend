@@ -1,11 +1,11 @@
-import { render } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { BrowserRouter } from 'react-router-dom';
-import { test } from 'vitest';
-import Theme from '../../../enums/Theme';
-import Brand from './brand';
+import { render } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter } from "react-router-dom";
+import { test } from "vitest";
+import Theme from "../../../enums/Theme";
+import Brand from "./brand";
 
-test('renders without crashing', () => {
+test("renders without crashing", () => {
   const queryClient = new QueryClient();
 
   render(
@@ -18,6 +18,6 @@ test('renders without crashing', () => {
           toggleTheme={() => {}}
         />
       </QueryClientProvider>
-    </BrowserRouter>
+    </BrowserRouter>,
   );
 });

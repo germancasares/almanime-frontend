@@ -1,14 +1,16 @@
 .line {
   // background-color: #ffa500;
   border-radius: 0.25rem;
-  box-shadow: 0 0.5em 1em -0.125em var(--background), 0 0 0 1px var(--background);
+  box-shadow:
+    0 0.5em 1em -0.125em var(--background),
+    0 0 0 1px var(--background);
   color: var(--on-surface);
   display: grid;
   max-width: 100%;
   position: relative;
 
   &::after {
-    content: attr(data-replicated-value) ' ';
+    content: attr(data-replicated-value) " ";
     visibility: hidden;
     white-space: pre-wrap;
   }
@@ -33,7 +35,7 @@
     padding: 0.5rem;
   }
 
-  +.line {
+  + .line {
     margin-top: 1px;
   }
 }

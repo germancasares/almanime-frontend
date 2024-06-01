@@ -1,9 +1,9 @@
-import { render } from '@testing-library/react';
-import { RefObject } from 'react';
-import { test } from 'vitest';
-import WaveForm from './waveform';
+import { render } from "@testing-library/react";
+import { RefObject } from "react";
+import { test } from "vitest";
+import WaveForm from "./waveform";
 
-test('renders without crashing', () => {
+test("renders without crashing", () => {
   render(
     <WaveForm
       isNewSubtitle={false}

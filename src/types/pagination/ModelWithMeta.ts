@@ -1,4 +1,4 @@
-import PaginationMeta from './PaginationMeta';
+import PaginationMeta from "./PaginationMeta";
 
 type ModelWithMeta<T> = {
   meta: PaginationMeta;

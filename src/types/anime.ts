@@ -1,8 +1,8 @@
-import { DateTime } from 'luxon';
-import { Episode } from './episode';
-import { SizedImage } from './sizedImage';
-import Season from '../enums/Season';
-import AnimeStatus from '../enums/AnimeStatus';
+import { DateTime } from "luxon";
+import { Episode } from "./episode";
+import { SizedImage } from "./sizedImage";
+import Season from "../enums/Season";
+import AnimeStatus from "../enums/AnimeStatus";
 
 export type Anime = {
   id: string;

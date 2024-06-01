@@ -1,4 +1,4 @@
-@import 'bulma/sass/utilities/mixins.sass';
+@import "bulma/sass/utilities/mixins.sass";
 
 #header {
   background-color: var(--primary);
@@ -22,7 +22,7 @@
   .navbar-item {
     background-color: var(--primary);
     color: var(--on-primary);
-    
+
     &:not(.search) {
       &:hover,
       &:focus {

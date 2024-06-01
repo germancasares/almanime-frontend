@@ -1,14 +1,14 @@
-import cover from '../assets/default-cover.jpg';
-import fall from '../assets/season/fall.jpg';
-import spring from '../assets/season/spring.jpg';
-import summer from '../assets/season/summer.jpg';
-import winter from '../assets/season/winter.jpg';
-import Season from '../enums/Season';
-import './hero.scss';
+import cover from "../assets/default-cover.jpg";
+import fall from "../assets/season/fall.jpg";
+import spring from "../assets/season/spring.jpg";
+import summer from "../assets/season/summer.jpg";
+import winter from "../assets/season/winter.jpg";
+import Season from "../enums/Season";
+import "./hero.scss";
 
 type Props = {
-  season?: Season,
-  image?: string,
+  season?: Season;
+  image?: string;
 };
 
 const defaultImage = (season?: Season): string => {
@@ -26,10 +26,7 @@ const defaultImage = (season?: Season): string => {
   }
 };
 
-const Hero = ({
-  season,
-  image = defaultImage(season),
-}: Props) => (
+const Hero = ({ season, image = defaultImage(season) }: Props) => (
   <div id="hero" className="hero is-medium">
     <figure className="image">
       <img src={image} alt="" />

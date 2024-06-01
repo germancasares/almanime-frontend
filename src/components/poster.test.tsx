@@ -1,7 +1,7 @@
-import { render } from '@testing-library/react';
-import { test } from 'vitest';
-import Poster from './poster';
+import { render } from "@testing-library/react";
+import { test } from "vitest";
+import Poster from "./poster";
 
-test('renders without crashing', () => {
+test("renders without crashing", () => {
   render(<Poster />);
 });

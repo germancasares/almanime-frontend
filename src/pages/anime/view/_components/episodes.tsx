@@ -1,19 +1,21 @@
-import { Duration } from 'luxon';
-import Formatter from '../../../../formatter';
-import Helper from '../../../../helper';
-import { API } from '../../../../settings';
-import { Episode } from '../../../../types/episode';
-import { AnimeSubtitles, EpisodeSubtitle } from '../../../../types/subtitle';
-import './episodes.scss';
+import { Duration } from "luxon";
+import Formatter from "../../../../formatter";
+import Helper from "../../../../helper";
+import { API } from "../../../../settings";
+import { Episode } from "../../../../types/episode";
+import { AnimeSubtitles, EpisodeSubtitle } from "../../../../types/subtitle";
+import "./episodes.scss";
 
 type Props = {
-  episodes: Episode[],
-  animeSubtitles: AnimeSubtitles,
+  episodes: Episode[];
+  animeSubtitles: AnimeSubtitles;
 };
 
 const Header = () => (
   <tr>
-    <th><abbr title="Number">#</abbr></th>
+    <th>
+      <abbr title="Number">#</abbr>
+    </th>
     <th>Name</th>
     <th>Duration</th>
     <th>Aired</th>
@@ -22,17 +24,12 @@ const Header = () => (
 );
 
 type RowProp = {
-  episode: Episode,
-  episodeSubtitles: EpisodeSubtitle[],
+  episode: Episode;
+  episodeSubtitles: EpisodeSubtitle[];
 };
 
 const Row = ({
-  episode: {
-    number,
-    name,
-    duration,
-    aired,
-  },
+  episode: { number, name, duration, aired },
   episodeSubtitles,
 }: RowProp) => (
   <tr>
@@ -61,11 +58,13 @@ const Episodes = ({ episodes, animeSubtitles }: Props) => (
       <Header />
     </tfoot>
     <tbody>
-      {
-        episodes.map(
-          (episode) => <Row episode={episode} key={episode.id} episodeSubtitles={animeSubtitles[episode.number]} />,
-        )
-      }
+      {episodes.map((episode) => (
+        <Row
+          episode={episode}
+          key={episode.id}
+          episodeSubtitles={animeSubtitles[episode.number]}
+        />
+      ))}
     </tbody>
   </table>
 );

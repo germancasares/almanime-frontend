@@ -1,1 +1,1 @@
-declare module 'react-user-avatar';
+declare module "react-user-avatar";

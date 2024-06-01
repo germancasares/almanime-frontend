@@ -1,4 +1,4 @@
-import './loader.scss';
+import "./loader.scss";
 
 const Loader = () => (
   <main className="loader-wrapper">

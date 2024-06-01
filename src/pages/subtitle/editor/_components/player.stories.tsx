@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import Player from './player';
+import Player from "./player";
 
 const meta: Meta<typeof Player> = {
-  title: 'Alm VideoJS Editor/Player',
+  title: "Alm VideoJS Editor/Player",
   component: Player,
 };
 
@@ -19,10 +19,12 @@ export const Default: Story = {
       controls: true,
       fluid: true,
       responsive: true,
-      sources: [{
-        src: '/sample.mp4',
-        type: 'video/mp4',
-      }],
+      sources: [
+        {
+          src: "/sample.mp4",
+          type: "video/mp4",
+        },
+      ],
     },
   },
 };
@@ -32,17 +34,19 @@ export const DefaultWithSubtitles: Story = {
     playerOptions: {
       controls: true,
       responsive: true,
-      sources: [{
-        src: '/OuterScienceSubs.mp4',
-        type: 'video/mp4',
-      }],
+      sources: [
+        {
+          src: "/OuterScienceSubs.mp4",
+          type: "video/mp4",
+        },
+      ],
     },
     subtitleOptions: {
       // subUrl: '/OuterScienceSubs.ass',
-      subContent: '',
+      subContent: "",
       fonts: [
-        'http://fonts.cdnfonts.com/css/gisha',
-        'http://fonts.cdnfonts.com/css/aharoni',
+        "http://fonts.cdnfonts.com/css/gisha",
+        "http://fonts.cdnfonts.com/css/aharoni",
       ],
       onReady: () => {},
       debug: true,

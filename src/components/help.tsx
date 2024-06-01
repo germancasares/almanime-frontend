@@ -1,17 +1,13 @@
-import './help.scss';
+import "./help.scss";
 
 type Props = {
-  message: string,
+  message: string;
 };
 
 export const Error = ({ message }: Props) => (
-  <p className="help is-danger">
-    {message}
-  </p>
+  <p className="help is-danger">{message}</p>
 );
 
 export const Success = ({ message }: Props) => (
-  <p className="help is-success">
-    {message}
-  </p>
+  <p className="help is-success">{message}</p>
 );

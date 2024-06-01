@@ -1,15 +1,15 @@
-import { DateTime } from 'luxon';
-import Permission from '../enums/Permission';
+import { DateTime } from "luxon";
+import Permission from "../enums/Permission";
 
 export type User = {
-  name: string,
+  name: string;
   fansubs: {
-    acronym: string,
-    name: string,
-  }[],
+    acronym: string;
+    name: string;
+  }[];
   permissions: {
-    [fansub: string]: Permission
-  }
+    [fansub: string]: Permission;
+  };
 };
 
 export type UserDocument = {

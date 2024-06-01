@@ -1,8 +1,8 @@
-import { render } from '@testing-library/react';
-import { test } from 'vitest';
-import Pagination from './pagination';
+import { render } from "@testing-library/react";
+import { test } from "vitest";
+import Pagination from "./pagination";
 
-test('renders without crashing', () => {
+test("renders without crashing", () => {
   render(
     <Pagination
       total={10}

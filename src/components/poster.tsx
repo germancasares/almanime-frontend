@@ -1,8 +1,8 @@
-import poster from '../assets/default-poster.jpg';
-import './poster.scss';
+import poster from "../assets/default-poster.jpg";
+import "./poster.scss";
 
 type Props = {
-  image?: string,
+  image?: string;
 };
 
 const Poster = ({ image = poster }: Props) => (

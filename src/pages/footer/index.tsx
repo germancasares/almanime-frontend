@@ -1,4 +1,4 @@
-import './index.scss';
+import "./index.scss";
 
 const Footer = () => (
   <footer id="footer" className="footer">

@@ -1,5 +1,5 @@
-@import 'bulma/sass/utilities/functions';
-@import 'bulma/sass/utilities/mixins.sass';
+@import "bulma/sass/utilities/functions";
+@import "bulma/sass/utilities/mixins.sass";
 
 .navbar-item.search {
   display: none;
@@ -28,7 +28,7 @@
       background-color: transparent;
       border-color: var(--on-primary);
       color: var(--on-primary);
-  
+
       &::placeholder {
         color: var(--on-primary);
       }
@@ -44,7 +44,7 @@
         .dropdown-item {
           background-color: transparent;
           color: var(--on-primary);
-  
+
           &:hover,
           &:focus {
             background-color: var(--primary__variant);

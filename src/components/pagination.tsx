@@ -1,4 +1,4 @@
-import './pagination.scss';
+import "./pagination.scss";
 
 type Props = {
   total: number;
@@ -14,48 +14,54 @@ const Ellipsis = () => (
   </li>
 );
 
-const Page = ({ page, onChange }: { page: number, onChange: (page: number) => void }) => (
+const Page = ({
+  page,
+  onChange,
+}: {
+  page: number;
+  onChange: (page: number) => void;
+}) => (
   <li>
     <button
       type="button"
       className="pagination-link"
       aria-label={`Goto page ${page}`}
       value={page}
-      onClick={(event) => onChange(parseInt((event.target as HTMLButtonElement).value, 10))}
+      onClick={(event) =>
+        onChange(parseInt((event.target as HTMLButtonElement).value, 10))
+      }
     >
       {page}
     </button>
   </li>
 );
 
-const Pagination = ({
-  total,
-  perPage,
-  current,
-  steps,
-  onChange,
-}: Props) => {
+const Pagination = ({ total, perPage, current, steps, onChange }: Props) => {
   const totalPages = Math.ceil(total / perPage);
 
   const prePages = current - 2;
   const postPages = totalPages - current - 1;
 
   return (
-    <nav className="pagination is-right" role="navigation" aria-label="pagination">
+    <nav
+      className="pagination is-right"
+      role="navigation"
+      aria-label="pagination"
+    >
       <ul className="pagination-list">
-        {current > 1 && (<Page page={1} onChange={onChange} />)}
+        {current > 1 && <Page page={1} onChange={onChange} />}
 
-        {
-          prePages > 0 && prePages <= steps && (
-            Array.from(Array(prePages).keys()).map(
-              (page) => <Page page={page + 2} onChange={onChange} key={page} />,
-            )
-          )
-        }
+        {prePages > 0 &&
+          prePages <= steps &&
+          Array.from(Array(prePages).keys()).map((page) => (
+            <Page page={page + 2} onChange={onChange} key={page} />
+          ))}
 
-        {prePages > steps && (<Ellipsis />)}
+        {prePages > steps && <Ellipsis />}
 
-        {prePages > steps && current - 1 > 1 && (<Page page={current - 1} onChange={onChange} />)}
+        {prePages > steps && current - 1 > 1 && (
+          <Page page={current - 1} onChange={onChange} />
+        )}
 
         <li>
           <button
@@ -68,19 +74,19 @@ const Pagination = ({
           </button>
         </li>
 
-        {postPages > steps && current + 1 < totalPages && (<Page page={current + 1} onChange={onChange} />)}
+        {postPages > steps && current + 1 < totalPages && (
+          <Page page={current + 1} onChange={onChange} />
+        )}
 
-        {postPages > steps && (<Ellipsis />)}
+        {postPages > steps && <Ellipsis />}
 
-        {
-          postPages > 0 && postPages <= steps && (
-            Array.from(Array(postPages).keys()).map(
-              (page) => <Page page={current + page + 1} onChange={onChange} key={page} />,
-            )
-          )
-        }
+        {postPages > 0 &&
+          postPages <= steps &&
+          Array.from(Array(postPages).keys()).map((page) => (
+            <Page page={current + page + 1} onChange={onChange} key={page} />
+          ))}
 
-        {current < totalPages && (<Page page={totalPages} onChange={onChange} />)}
+        {current < totalPages && <Page page={totalPages} onChange={onChange} />}
       </ul>
     </nav>
   );

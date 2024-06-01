@@ -1,9 +1,9 @@
-import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { test } from 'vitest';
-import Panel from './panel';
+import { render } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import { test } from "vitest";
+import Panel from "./panel";
 
-test('renders without crashing', () => {
+test("renders without crashing", () => {
   render(
     <BrowserRouter>
       <Panel

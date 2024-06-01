@@ -1,10 +1,10 @@
-import Home from '.';
-import { Routes } from '../../types/typescript/routes';
-import { withAccessToken } from '../../utils';
+import Home from ".";
+import { Routes } from "../../types/typescript/routes";
+import { withAccessToken } from "../../utils";
 
 const routes: Routes = {
   view: {
-    path: '/',
+    path: "/",
     to: () => routes.view.path,
     component: withAccessToken(Home),
   },

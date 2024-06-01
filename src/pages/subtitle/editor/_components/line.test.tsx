@@ -1,16 +1,16 @@
-import { render } from '@testing-library/react';
-import { test } from 'vitest';
-import Line from './line';
+import { render } from "@testing-library/react";
+import { test } from "vitest";
+import Line from "./line";
 
-test('renders without crashing', () => {
+test("renders without crashing", () => {
   render(
     <Line
       dialogue={{
         layer: 0,
         start: 0,
         end: 0,
-        style: '',
-        name: '',
+        style: "",
+        name: "",
         alignment: 0,
         slices: [],
         clip: undefined,

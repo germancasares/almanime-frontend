@@ -1,70 +1,74 @@
-import { Duration } from 'luxon';
-import { useQuery } from 'react-query';
-import Season from '../enums/Season';
-import { Anime, AnimeDocument, AnimeWithExtra } from '../types/anime';
-import ModelWithMeta from '../types/pagination/ModelWithMeta';
+import { Duration } from "luxon";
+import { useQuery } from "react-query";
+import Season from "../enums/Season";
+import { Anime, AnimeDocument, AnimeWithExtra } from "../types/anime";
+import ModelWithMeta from "../types/pagination/ModelWithMeta";
 
 export default class AnimeApi {
-  public static Get = () => useQuery<AnimeWithExtra[]>(
-    ['animes'],
-    async () => (await fetch('anime')).json(),
-    {
-      staleTime: Duration.fromObject({ weeks: 1 }).toMillis(),
-    },
-  );
-
-  public static Search = (
-    animeName?: string,
-  ) => useQuery<AnimeDocument[]>(
-    ['search', animeName],
-    async () => (await fetch(`anime/search/${animeName}`)).json(),
-    {
-      staleTime: 0,
-      enabled: !!animeName,
-    },
-  );
-
-  public static GetBySlug = (
-    slug?: string,
-  ) => useQuery<Anime>(
-    ['anime', slug],
-    async () => (await fetch(`anime/slug/${slug}`)).json(),
-    {
-      enabled: !!slug,
-      staleTime: Duration.fromObject({ weeks: 1 }).toMillis(),
-    },
-  );
-
-  public static GetByBookmarked = (
-    accessToken?: string,
-  ) => useQuery<AnimeWithExtra[]>(
-    ['animes', 'bookmarked', accessToken],
-    async () => (await fetch(
-      'anime/bookmarked',
+  public static Get = () =>
+    useQuery<AnimeWithExtra[]>(
+      ["animes"],
+      async () => (await fetch("anime")).json(),
       {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+        staleTime: Duration.fromObject({ weeks: 1 }).toMillis(),
       },
-    )).json(),
-    {
-      enabled: !!accessToken,
-      staleTime: Duration.fromObject({ day: 1 }).toMillis(),
-    },
-  );
+    );
+
+  public static Search = (animeName?: string) =>
+    useQuery<AnimeDocument[]>(
+      ["search", animeName],
+      async () => (await fetch(`anime/search/${animeName}`)).json(),
+      {
+        staleTime: 0,
+        enabled: !!animeName,
+      },
+    );
+
+  public static GetBySlug = (slug?: string) =>
+    useQuery<Anime>(
+      ["anime", slug],
+      async () => (await fetch(`anime/slug/${slug}`)).json(),
+      {
+        enabled: !!slug,
+        staleTime: Duration.fromObject({ weeks: 1 }).toMillis(),
+      },
+    );
+
+  public static GetByBookmarked = (accessToken?: string) =>
+    useQuery<AnimeWithExtra[]>(
+      ["animes", "bookmarked", accessToken],
+      async () =>
+        (
+          await fetch("anime/bookmarked", {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          })
+        ).json(),
+      {
+        enabled: !!accessToken,
+        staleTime: Duration.fromObject({ day: 1 }).toMillis(),
+      },
+    );
 
   public static GetSeason = (
     year: number,
     season: Season,
     page: number,
     includeMeta = false,
-  ) => useQuery<ModelWithMeta<Anime[]>>(
-    ['animeSeason', year, season, page, includeMeta],
-    async () => (await fetch(`anime/year/${year}/season/${season}?page=${page}&includeMeta=${includeMeta}`)).json(),
-    {
-      keepPreviousData: true,
-      staleTime: Duration.fromObject({ days: 1 }).toMillis(),
-      enabled: page > 0,
-    },
-  );
+  ) =>
+    useQuery<ModelWithMeta<Anime[]>>(
+      ["animeSeason", year, season, page, includeMeta],
+      async () =>
+        (
+          await fetch(
+            `anime/year/${year}/season/${season}?page=${page}&includeMeta=${includeMeta}`,
+          )
+        ).json(),
+      {
+        keepPreviousData: true,
+        staleTime: Duration.fromObject({ days: 1 }).toMillis(),
+        enabled: page > 0,
+      },
+    );
 }

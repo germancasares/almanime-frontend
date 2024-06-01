@@ -1,11 +1,6 @@
-import {
-  ComponentType,
-  FunctionComponent,
-  useMemo,
-  useState,
-} from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
-import Loader from './components/loader';
+import { ComponentType, FunctionComponent, useMemo, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import Loader from "./components/loader";
 
 // export const withMemberRequired = <T extends object>(
 //   WrappedComponent: ComponentType<T>,
@@ -23,10 +18,12 @@ import Loader from './components/loader';
 //   };
 // };
 
-export const withAccessToken = <P extends object>(
-  Component: ComponentType<P>,
-  required?: boolean,
-): FunctionComponent<P> => (props: P) => {
+export const withAccessToken =
+  <P extends object>(
+    Component: ComponentType<P>,
+    required?: boolean,
+  ): FunctionComponent<P> =>
+  (props: P) => {
     const [accessToken, setToken] = useState<string>();
     const { getAccessTokenSilently } = useAuth0();
     useMemo(async () => {
@@ -37,9 +34,7 @@ export const withAccessToken = <P extends object>(
       }
     }, [getAccessTokenSilently]);
 
-    if (required && !accessToken) return (<Loader />);
+    if (required && !accessToken) return <Loader />;
 
-    return (
-      <Component {...props} accessToken={accessToken} />
-    );
+    return <Component {...props} accessToken={accessToken} />;
   };

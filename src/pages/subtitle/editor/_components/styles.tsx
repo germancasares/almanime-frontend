@@ -7,12 +7,20 @@ const StyleEditor = () => (
       <div>
         <div className="field is-horizontal">
           <div className="field-label is-normal">
-            <label className="label" htmlFor="main-color">Main Color</label>
+            <label className="label" htmlFor="main-color">
+              Main Color
+            </label>
           </div>
           <div className="field-body">
             <div className="field">
               <p className="control">
-                <input id="main-color" className="input is-static" type="email" value="me@example.com" readOnly />
+                <input
+                  id="main-color"
+                  className="input is-static"
+                  type="email"
+                  value="me@example.com"
+                  readOnly
+                />
               </p>
             </div>
           </div>
@@ -26,10 +34,10 @@ const Styles = ({
   isActive,
   setIsStylesActive,
 }: {
-  isActive: boolean,
-  setIsStylesActive: (isActive: boolean) => void
+  isActive: boolean;
+  setIsStylesActive: (isActive: boolean) => void;
 }) => (
-  <div className={`modal${isActive ? ' is-active' : ''}`}>
+  <div className={`modal${isActive ? " is-active" : ""}`}>
     <div
       role="presentation"
       className="modal-background"

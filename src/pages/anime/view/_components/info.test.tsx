@@ -1,25 +1,25 @@
-import { act, render, screen } from '@testing-library/react';
-import { createRoot } from 'react-dom/client';
-import { describe, expect, test } from 'vitest';
-import AnimeStatus from '../../../../enums/AnimeStatus';
-import Season from '../../../../enums/Season';
-import Info from './info';
+import { act, render, screen } from "@testing-library/react";
+import { createRoot } from "react-dom/client";
+import { describe, expect, test } from "vitest";
+import AnimeStatus from "../../../../enums/AnimeStatus";
+import Season from "../../../../enums/Season";
+import Info from "./info";
 
-describe('[Info]', () => {
-  test('renders without crashing', () => {
-    const div = document.createElement('div');
+describe("[Info]", () => {
+  test("renders without crashing", () => {
+    const div = document.createElement("div");
 
     act(() => {
       createRoot(div).render(
         <Info
           anime={{
-            id: 'abcd',
+            id: "abcd",
             kitsuID: 1,
-            slug: 'aaaa',
-            name: 'AAAAAAAA',
+            slug: "aaaa",
+            name: "AAAAAAAA",
             season: Season.Summer,
             status: AnimeStatus.Finished,
-            synopsis: '',
+            synopsis: "",
             startDate: null,
           }}
           episodesCount={0}
@@ -28,17 +28,17 @@ describe('[Info]', () => {
     });
   });
 
-  test('renders episodes', () => {
+  test("renders episodes", () => {
     render(
       <Info
         anime={{
-          id: 'abcd',
+          id: "abcd",
           kitsuID: 1,
-          slug: 'aaaa',
-          name: 'AAAAAAAA',
+          slug: "aaaa",
+          name: "AAAAAAAA",
           season: Season.Summer,
           status: AnimeStatus.Finished,
-          synopsis: '',
+          synopsis: "",
           startDate: null,
         }}
         episodesCount={1}
@@ -48,23 +48,23 @@ describe('[Info]', () => {
     expect(screen.getAllByRole("listitem")[0].textContent).toBe("Episodes:1");
   });
 
-  test.each(([
-    [{ myAnimeListID: 1 }, 'https://myanimelist.net/anime/1'],
-    [{ aniListID: 1 }, 'https://anilist.co/anime/1'],
-    [{ aniDBID: 1 }, 'https://anidb.net/anime/1'],
-  ]))('Anime with %p renders link for %p', (anime, result: string) => {
-    const div = document.createElement('div');
+  test.each([
+    [{ myAnimeListID: 1 }, "https://myanimelist.net/anime/1"],
+    [{ aniListID: 1 }, "https://anilist.co/anime/1"],
+    [{ aniDBID: 1 }, "https://anidb.net/anime/1"],
+  ])("Anime with %p renders link for %p", (anime, result: string) => {
+    const div = document.createElement("div");
     act(() => {
       createRoot(div).render(
         <Info
           anime={{
-            id: 'abcd',
+            id: "abcd",
             kitsuID: 1,
-            slug: 'aaaa',
-            name: 'AAAAAAAA',
+            slug: "aaaa",
+            name: "AAAAAAAA",
             season: Season.Summer,
             status: AnimeStatus.Finished,
-            synopsis: '',
+            synopsis: "",
             startDate: null,
             ...anime,
           }}

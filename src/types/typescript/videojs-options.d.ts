@@ -38,18 +38,20 @@ export interface VideoJsPlayerOptions extends videojs.ComponentOptions {
   audioPosterMode?: boolean | undefined;
   autoSetup?: boolean | undefined;
   breakpoints?: Partial<videojs.Breakpoint> | undefined;
-  fullscreen?: { options: { navigationUI: 'hide' } } | undefined;
+  fullscreen?: { options: { navigationUI: "hide" } } | undefined;
   id?: string | undefined;
-  liveTracker?: {
-    trackingThreshold?: number | undefined;
-    liveTolerance?: number | undefined;
-  } | undefined;
+  liveTracker?:
+    | {
+        trackingThreshold?: number | undefined;
+        liveTolerance?: number | undefined;
+      }
+    | undefined;
   normalizeAutoplay?: boolean | undefined;
   preferFullWindow?: boolean | undefined;
   restoreEl?: boolean | Element | undefined;
   suppressNotSupportedError?: boolean | undefined;
   techCanOverridePoster?: boolean | undefined;
-  'vtt.js'?: string | undefined;
+  "vtt.js"?: string | undefined;
   disablePictureInPicture?: boolean | undefined;
   enableSourceset?: boolean | undefined;
   retryOnError?: boolean | undefined;

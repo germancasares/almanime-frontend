@@ -1,20 +1,27 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import { mdiFileUploadOutline } from '@mdi/js';
-import Icon from '@mdi/react';
-import { ChangeEvent, FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import SubtitleApi from '../../../../api/SubtitleApi';
-import SubtitleLanguage from '../../../../enums/SubtitleLanguage';
-import { SubtitleDTO } from '../../../../types/subtitle';
-import './form.scss';
+import { useAuth0 } from "@auth0/auth0-react";
+import { mdiFileUploadOutline } from "@mdi/js";
+import Icon from "@mdi/react";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { useParams } from "react-router-dom";
+import SubtitleApi from "../../../../api/SubtitleApi";
+import SubtitleLanguage from "../../../../enums/SubtitleLanguage";
+import { SubtitleDTO } from "../../../../types/subtitle";
+import "./form.scss";
 
 const Form = () => {
   const { fansubAcronym } = useParams<{ fansubAcronym: string }>();
 
   const [subtitle, setSubtitle] = useState({ fansubAcronym } as SubtitleDTO);
-  const onChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
-    const { target: { name, value } } = event;
-    setSubtitle((values) => ({ ...values, [name]: value === '' ? undefined : value }));
+  const onChange = (
+    event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>,
+  ) => {
+    const {
+      target: { name, value },
+    } = event;
+    setSubtitle((values) => ({
+      ...values,
+      [name]: value === "" ? undefined : value,
+    }));
   };
 
   const { getAccessTokenSilently } = useAuth0();
@@ -30,7 +37,9 @@ const Form = () => {
   return (
     <form onSubmit={onSubmit} autoComplete="on">
       <div className="field">
-        <label className="label" htmlFor="animeSlug">Anime</label>
+        <label className="label" htmlFor="animeSlug">
+          Anime
+        </label>
         <div className="control">
           <input
             name="animeSlug"
@@ -43,7 +52,9 @@ const Form = () => {
       </div>
 
       <div className="field">
-        <label className="label" htmlFor="episodeNumber">Episode</label>
+        <label className="label" htmlFor="episodeNumber">
+          Episode
+        </label>
         <div className="control">
           <input
             name="episodeNumber"
@@ -56,15 +67,15 @@ const Form = () => {
       </div>
 
       <div className="field">
-        <label className="label" htmlFor="language">Language</label>
+        <label className="label" htmlFor="language">
+          Language
+        </label>
         <div className="control">
           <span className="select">
             <select onChange={onChange} name="language">
-              {
-                Object.keys(SubtitleLanguage).map((language) => (
-                  <option>{language}</option>
-                ))
-              }
+              {Object.keys(SubtitleLanguage).map((language) => (
+                <option>{language}</option>
+              ))}
             </select>
           </span>
         </div>
@@ -85,9 +96,7 @@ const Form = () => {
           />
           <span className="file-cta">
             <Icon className="file-icon" path={mdiFileUploadOutline} size={1} />
-            <span className="file-label">
-              Choose a file…
-            </span>
+            <span className="file-label">Choose a file…</span>
           </span>
           <span className="file-name">
             {subtitle.file && subtitle.file.name}
@@ -96,7 +105,12 @@ const Form = () => {
       </div>
 
       <div className="control">
-        <button type="submit" className={`button is-link${isLoading ? ' is-loading' : ''}`}>Submit</button>
+        <button
+          type="submit"
+          className={`button is-link${isLoading ? " is-loading" : ""}`}
+        >
+          Submit
+        </button>
       </div>
     </form>
   );

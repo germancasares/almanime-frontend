@@ -1,6 +1,6 @@
 enum SubtitleFormat {
-  ASS = 'ASS',
-  SRT = 'SRT',
+  ASS = "ASS",
+  SRT = "SRT",
 }
 
 export default SubtitleFormat;

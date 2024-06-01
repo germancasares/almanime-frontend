@@ -1,11 +1,9 @@
-import {
-  ChangeEvent, MouseEvent, useMemo, useRef,
-} from 'react';
-import { Dialogue } from 'ass-compiler';
+import { ChangeEvent, MouseEvent, useMemo, useRef } from "react";
+import { Dialogue } from "ass-compiler";
 
-import { slicesToText } from './utils';
+import { slicesToText } from "./utils";
 
-import './line.scss';
+import "./line.scss";
 
 const Line = ({
   dialogue,
@@ -13,10 +11,10 @@ const Line = ({
   onClick,
   onChange,
 }: {
-  dialogue: Dialogue,
-  currentTime: number,
-  onClick: (event: MouseEvent<HTMLDivElement>) => void,
-  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void,
+  dialogue: Dialogue;
+  currentTime: number;
+  onClick: (event: MouseEvent<HTMLDivElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }) => {
   const lineRef = useRef<HTMLDivElement | null>(null);
   const { start, end } = dialogue;
@@ -25,7 +23,7 @@ const Line = ({
   const text = useMemo(() => slicesToText(dialogue.slices), [dialogue.slices]);
 
   if (lineRef.current && isAfterStart && isBeforeEnd) {
-    lineRef.current.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    lineRef.current.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }
 
   return (
@@ -33,7 +31,7 @@ const Line = ({
       ref={lineRef}
       role="button"
       tabIndex={0}
-      className={`line${(isAfterStart && isBeforeEnd) ? ' active' : ''}`}
+      className={`line${isAfterStart && isBeforeEnd ? " active" : ""}`}
       onClick={onClick}
       onKeyUp={() => {}}
       data-replicated-value={text}

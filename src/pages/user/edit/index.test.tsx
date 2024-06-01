@@ -1,10 +1,10 @@
-import { render } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { test } from 'vitest';
-import Edit from '.';
+import { render } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter as Router } from "react-router-dom";
+import { test } from "vitest";
+import Edit from ".";
 
-test('renders without crashing', () => {
+test("renders without crashing", () => {
   const queryClient = new QueryClient();
 
   render(

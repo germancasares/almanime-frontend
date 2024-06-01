@@ -1,10 +1,10 @@
-import { render } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { BrowserRouter } from 'react-router-dom';
-import { test } from 'vitest';
-import Form from './form';
+import { render } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter } from "react-router-dom";
+import { test } from "vitest";
+import Form from "./form";
 
-test('renders without crashing', () => {
+test("renders without crashing", () => {
   const queryClient = new QueryClient();
 
   render(
@@ -12,6 +12,6 @@ test('renders without crashing', () => {
       <QueryClientProvider client={queryClient}>
         <Form />
       </QueryClientProvider>
-    </BrowserRouter>
+    </BrowserRouter>,
   );
 });

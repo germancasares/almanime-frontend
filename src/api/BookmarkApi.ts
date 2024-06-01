@@ -1,42 +1,46 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { BookmarkDTO } from '../types/bookmark';
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { BookmarkDTO } from "../types/bookmark";
 
 export default class BookmarkApi {
-  public static Get = (
-    accessToken?: string,
-  ) => useQuery<string[]>(
-    ['bookmarks', accessToken],
-    async () => (await fetch('bookmark', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
+  public static Get = (accessToken?: string) =>
+    useQuery<string[]>(
+      ["bookmarks", accessToken],
+      async () =>
+        (
+          await fetch("bookmark", {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          })
+        ).json(),
+      {
+        enabled: !!accessToken,
       },
-    })).json(),
-    {
-      enabled: !!accessToken,
-    },
-  );
+    );
 
   public static Create = () => {
     const queryClient = useQueryClient();
 
     return useMutation(
-      async ({ slug, accessToken }: BookmarkDTO) => (
+      async ({ slug, accessToken }: BookmarkDTO) =>
         fetch(`bookmark/animeSlug/${slug}`, {
-          method: 'POST',
+          method: "POST",
           headers: {
             Authorization: `Bearer ${accessToken}`,
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
-        })
-      ),
+        }),
       {
         onMutate: async ({ accessToken, slug }: BookmarkDTO) => {
-          await queryClient.cancelQueries(['bookmarks', accessToken]);
-          const bookmarks = queryClient.getQueryData<string[]>(['bookmarks', accessToken]);
+          await queryClient.cancelQueries(["bookmarks", accessToken]);
+          const bookmarks = queryClient.getQueryData<string[]>([
+            "bookmarks",
+            accessToken,
+          ]);
 
           if (bookmarks) {
             queryClient.setQueryData<string[]>(
-              ['bookmarks', accessToken],
+              ["bookmarks", accessToken],
               [...bookmarks, slug],
             );
           }
@@ -45,7 +49,10 @@ export default class BookmarkApi {
         },
         onError: (_error, newBookmark, context) => {
           if (context?.bookmarks) {
-            queryClient.setQueryData<string[]>(['bookmarks', newBookmark.accessToken], context.bookmarks);
+            queryClient.setQueryData<string[]>(
+              ["bookmarks", newBookmark.accessToken],
+              context.bookmarks,
+            );
           }
         },
       },
@@ -56,23 +63,28 @@ export default class BookmarkApi {
     const queryClient = useQueryClient();
 
     return useMutation(
-      async ({ slug, accessToken }: BookmarkDTO) => (
+      async ({ slug, accessToken }: BookmarkDTO) =>
         fetch(`bookmark/animeSlug/${slug}`, {
-          method: 'DELETE',
+          method: "DELETE",
           headers: {
             Authorization: `Bearer ${accessToken}`,
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
-        })
-      ),
+        }),
       {
         onMutate: async (newBookmark: BookmarkDTO) => {
-          await queryClient.cancelQueries(['bookmarks', newBookmark.accessToken]);
-          const bookmarks = queryClient.getQueryData<string[]>(['bookmarks', newBookmark.accessToken]);
+          await queryClient.cancelQueries([
+            "bookmarks",
+            newBookmark.accessToken,
+          ]);
+          const bookmarks = queryClient.getQueryData<string[]>([
+            "bookmarks",
+            newBookmark.accessToken,
+          ]);
 
           if (bookmarks) {
             queryClient.setQueryData<string[]>(
-              ['bookmarks', newBookmark.accessToken],
+              ["bookmarks", newBookmark.accessToken],
               bookmarks.filter((bookmark) => bookmark !== newBookmark.slug),
             );
           }
@@ -81,7 +93,10 @@ export default class BookmarkApi {
         },
         onError: (_error, newBookmark, context) => {
           if (context?.bookmarks) {
-            queryClient.setQueryData<string[]>(['bookmarks', newBookmark.accessToken], context.bookmarks);
+            queryClient.setQueryData<string[]>(
+              ["bookmarks", newBookmark.accessToken],
+              context.bookmarks,
+            );
           }
         },
       },

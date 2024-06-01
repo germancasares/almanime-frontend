@@ -3,21 +3,26 @@ import {
   mdiDecagram,
   mdiInformationVariant,
   mdiLibraryShelves,
-} from '@mdi/js';
-import Icon from '@mdi/react';
-import { TabName } from '../../../../enums/TabName';
-import './tabs.scss';
+} from "@mdi/js";
+import Icon from "@mdi/react";
+import { TabName } from "../../../../enums/TabName";
+import "./tabs.scss";
 
-const Tab = (
-  {
-    name, activeTab, iconPath, changeTab,
-  }:
-  { name: TabName, activeTab: string, iconPath: string, changeTab: (newTab: TabName) => void },
-) => (
+const Tab = ({
+  name,
+  activeTab,
+  iconPath,
+  changeTab,
+}: {
+  name: TabName;
+  activeTab: string;
+  iconPath: string;
+  changeTab: (newTab: TabName) => void;
+}) => (
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
   <li
     role="tab"
-    className={activeTab === name ? 'is-active' : ''}
+    className={activeTab === name ? "is-active" : ""}
     onClick={() => changeTab(name)}
     tabIndex={0}
   >
@@ -29,10 +34,13 @@ const Tab = (
   </li>
 );
 
-const Tabs = (
-  { activeTab, changeTab } :
-  { activeTab : TabName, changeTab: (newTab: TabName) => void },
-) => (
+const Tabs = ({
+  activeTab,
+  changeTab,
+}: {
+  activeTab: TabName;
+  changeTab: (newTab: TabName) => void;
+}) => (
   <div id="tabs">
     <div className="tabs is-centered is-toggle is-fullwidth">
       <ul>

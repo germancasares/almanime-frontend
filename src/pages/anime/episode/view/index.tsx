@@ -1,7 +1,3 @@
-const View = () => (
-  <>
-    Hola
-  </>
-);
+const View = () => <>Hola</>;
 
 export default View;

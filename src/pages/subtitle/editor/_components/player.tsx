@@ -1,23 +1,22 @@
-import {
-  RefObject,
-  useEffect,
-  useRef,
-} from 'react';
-import { CompiledASS, decompile } from 'ass-compiler';
-import SubtitlesOctopus, { OptionsWithSubContent, OptionsWithSubUrl } from 'libass-wasm';
-import videojs from 'video.js';
-import VideoJsPlayer from 'video.js/dist/types/player';
-import 'video.js/dist/video-js.css';
-import '@videojs/themes/dist/forest/index.css';
-import { VideoJsPlayerOptions } from '../../../../types/typescript/videojs-options';
+import { RefObject, useEffect, useRef } from "react";
+import { CompiledASS, decompile } from "ass-compiler";
+import SubtitlesOctopus, {
+  OptionsWithSubContent,
+  OptionsWithSubUrl,
+} from "libass-wasm";
+import videojs from "video.js";
+import VideoJsPlayer from "video.js/dist/types/player";
+import "video.js/dist/video-js.css";
+import "@videojs/themes/dist/forest/index.css";
+import { VideoJsPlayerOptions } from "../../../../types/typescript/videojs-options";
 
 export type PlayerProps = {
-  videoRef: RefObject<HTMLVideoElement>,
-  subtitle?: CompiledASS | undefined,
-  videoSource?: { src: string, type: string },
-  playerOptions: VideoJsPlayerOptions,
-  subtitleOptions?: OptionsWithSubContent | OptionsWithSubUrl,
-  onReady?: (player: VideoJsPlayer) => void,
+  videoRef: RefObject<HTMLVideoElement>;
+  subtitle?: CompiledASS | undefined;
+  videoSource?: { src: string; type: string };
+  playerOptions: VideoJsPlayerOptions;
+  subtitleOptions?: OptionsWithSubContent | OptionsWithSubUrl;
+  onReady?: (player: VideoJsPlayer) => void;
 };
 
 const Player = ({
@@ -67,8 +66,8 @@ const Player = ({
           if (!subtitleRef.current && videoRef.current) {
             subtitleRef.current = new SubtitlesOctopus({
               ...subtitleOptions,
-              subUrl: '/empty-subtitle.ass',
-              workerUrl: '/scripts/subtitles-octopus-worker.js',
+              subUrl: "/empty-subtitle.ass",
+              workerUrl: "/scripts/subtitles-octopus-worker.js",
               video: videoRef.current,
               lossyRender: true,
             });
@@ -82,7 +81,7 @@ const Player = ({
       player.muted(true);
       playerRef.current = player;
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onReady, playerOptions, subtitle, videoRef, videoSource]);
 
   useEffect(() => {
@@ -102,7 +101,11 @@ const Player = ({
   return (
     <div data-vjs-player>
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <video ref={videoRef} preload="none" className="video-js vjs-theme-forest" />
+      <video
+        ref={videoRef}
+        preload="none"
+        className="video-js vjs-theme-forest"
+      />
     </div>
   );
 };

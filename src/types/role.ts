@@ -1,7 +1,7 @@
 import Permission from "../enums/Permission";
 
 export type Roles = {
-  [name: string]: Permission[],
+  [name: string]: Permission[];
 };
 
 export type RolesDTO = {

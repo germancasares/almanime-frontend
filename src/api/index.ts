@@ -8,7 +8,11 @@ const fetchAbsolute = async (input: RequestInfo | URL, init?: RequestInit) => {
   const route = input.toString();
   if (input instanceof Request) {
     response = await realFetch(input, init);
-  } else if (route.startsWith('http') || route.startsWith('/') || route.startsWith('blob:')) {
+  } else if (
+    route.startsWith("http") ||
+    route.startsWith("/") ||
+    route.startsWith("blob:")
+  ) {
     response = await realFetch(route, init);
   } else {
     response = await realFetch(`${API}/${route}`, init);

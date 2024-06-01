@@ -1,10 +1,10 @@
 @charset "utf-8";
 
 @import-normalize;
-@import './styles/variables';
-@import 'bulma/bulma';
-@import './styles/palette';
-@import './styles/mixins';
+@import "./styles/variables";
+@import "bulma/bulma";
+@import "./styles/palette";
+@import "./styles/mixins";
 
 // TODO: A better way of applying a transition to the colors?
 * {
