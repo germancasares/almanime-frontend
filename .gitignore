@@ -23,5 +23,17 @@ dist-ssr
 *.sln
 *.sw?
 
+# Yarn
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Almanime
+
 /public/scripts
 /coverage
