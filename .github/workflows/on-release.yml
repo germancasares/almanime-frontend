@@ -1,4 +1,4 @@
-name: Build, publish Docker image to GitHub Container Registry, and deploy to Orange
+name: On new release
 on:
   push:
     tags: [ 'v*.*.*' ]

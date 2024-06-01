@@ -1,4 +1,4 @@
-name: Pipeline for new push to master
+name: On master push
 on:
   push:
     branches: [ "master" ]
