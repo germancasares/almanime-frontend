@@ -1,6 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-
-import { BookmarkDTO } from 'types/bookmark';
+import { BookmarkDTO } from '../types/bookmark';
 
 export default class BookmarkApi {
   public static Get = (
@@ -44,7 +43,7 @@ export default class BookmarkApi {
 
           return { bookmarks };
         },
-        onError: (error, newBookmark, context) => {
+        onError: (_error, newBookmark, context) => {
           if (context?.bookmarks) {
             queryClient.setQueryData<string[]>(['bookmarks', newBookmark.accessToken], context.bookmarks);
           }
@@ -80,7 +79,7 @@ export default class BookmarkApi {
 
           return { bookmarks };
         },
-        onError: (error, newBookmark, context) => {
+        onError: (_error, newBookmark, context) => {
           if (context?.bookmarks) {
             queryClient.setQueryData<string[]>(['bookmarks', newBookmark.accessToken], context.bookmarks);
           }

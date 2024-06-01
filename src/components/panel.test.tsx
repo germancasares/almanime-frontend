@@ -1,15 +1,11 @@
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { act } from '@testing-library/react';
-
+import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import { test } from 'vitest';
 import Panel from './panel';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  const root = createRoot(div);
-
-  act(() => root.render(
-    <Router>
+test('renders without crashing', () => {
+  render(
+    <BrowserRouter>
       <Panel
         name="Test"
         to="/"
@@ -19,6 +15,6 @@ it('renders without crashing', () => {
           onClick: () => {},
         }}
       />
-    </Router>,
-  ));
+    </BrowserRouter>,
+  );
 });

@@ -1,4 +1,4 @@
-import Permission from 'enums/Permission';
+import Permission from "../enums/Permission";
 
 export type Roles = {
   [name: string]: Permission[],

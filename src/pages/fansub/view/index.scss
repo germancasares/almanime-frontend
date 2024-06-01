@@ -1,0 +1,13 @@
+@import 'bulma/sass/utilities/functions';
+
+#fansub-view {
+  .title {
+    color: var(--on-background);
+    display: flex;
+
+    a,
+    button {
+      margin-left: auto;
+    }
+  }
+}

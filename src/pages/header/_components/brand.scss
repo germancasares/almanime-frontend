@@ -1,0 +1,20 @@
+@import 'bulma/sass/utilities/mixins.sass';
+
+.navbar-brand {
+  .theme-switch {
+    margin-left: auto;
+
+    @include from($tablet) {
+      display: none;
+    }
+  }
+
+  .burger {
+    color: var(--on-primary);
+    margin-left: 0;
+
+    &:hover {
+      background-color: var(--primary__variant);
+    }
+  }
+}

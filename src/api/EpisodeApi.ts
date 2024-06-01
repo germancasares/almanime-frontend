@@ -1,7 +1,6 @@
-import { useQuery } from 'react-query';
 import { Duration } from 'luxon';
-
-import { Episode } from 'types/episode';
+import { useQuery } from 'react-query';
+import { Episode } from '../types/episode';
 
 export default class EpisodeApi {
   public static GetByAnimeSlug = (

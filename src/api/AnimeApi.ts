@@ -1,9 +1,8 @@
-import { useQuery } from 'react-query';
 import { Duration } from 'luxon';
-
-import Season from 'enums/Season';
-import { Anime, AnimeDocument, AnimeWithExtra } from 'types/anime';
-import ModelWithMeta from 'types/pagination/ModelWithMeta';
+import { useQuery } from 'react-query';
+import Season from '../enums/Season';
+import { Anime, AnimeDocument, AnimeWithExtra } from '../types/anime';
+import ModelWithMeta from '../types/pagination/ModelWithMeta';
 
 export default class AnimeApi {
   public static Get = () => useQuery<AnimeWithExtra[]>(

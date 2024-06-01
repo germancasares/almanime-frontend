@@ -1,6 +1,5 @@
 import { DateTime } from 'luxon';
-
-import Permission from 'enums/Permission';
+import Permission from '../enums/Permission';
 
 export type User = {
   name: string,

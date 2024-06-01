@@ -1,7 +1,8 @@
+import { describe, expect, test } from 'vitest';
 import scriptInfoParser from './info';
 
 describe('scriptInfoParser', () => {
-  it('works with empty string', () => {
+  test('works with empty string', () => {
     const lines: string[] = [];
 
     const info = scriptInfoParser(lines);
@@ -9,7 +10,7 @@ describe('scriptInfoParser', () => {
     expect(info).toEqual({});
   });
 
-  it('trims the keys', () => {
+  test('trims the keys', () => {
     const lines = [
       '   Title   : Default Aegisub file',
     ];
@@ -19,7 +20,7 @@ describe('scriptInfoParser', () => {
     expect(info).toEqual({ Title: 'Default Aegisub file' });
   });
 
-  it('trims the values', () => {
+  test('trims the values', () => {
     const lines = [
       'Title:   Default Aegisub file   ',
     ];
@@ -29,7 +30,7 @@ describe('scriptInfoParser', () => {
     expect(info).toEqual({ Title: 'Default Aegisub file' });
   });
 
-  it('works with empty string', () => {
+  test('works with empty string', () => {
     const lines = [
       'Title: Default Aegisub file',
       'ScriptType: v4.00',

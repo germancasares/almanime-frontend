@@ -1,5 +1,4 @@
-import poster from 'assets/default-poster.jpg';
-
+import poster from '../assets/default-poster.jpg';
 import './poster.scss';
 
 type Props = {

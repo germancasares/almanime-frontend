@@ -1,11 +1,7 @@
-import { createRoot } from 'react-dom/client';
-import { act } from '@testing-library/react';
-
+import { render } from '@testing-library/react';
+import { test } from 'vitest';
 import Loader from './loader';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  const root = createRoot(div);
-
-  act(() => root.render(<Loader />));
+test('renders without crashing', () => {
+  render(<Loader />);
 });

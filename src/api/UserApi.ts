@@ -1,7 +1,7 @@
-import { useMutation, useQuery } from 'react-query';
 import { Duration } from 'luxon';
+import { useMutation, useQuery } from 'react-query';
+import { User, UserDocument } from '../types/user';
 
-import { User, UserDocument } from 'types/user';
 
 export default class UserApi {
   public static Get = () => useQuery<User[]>(

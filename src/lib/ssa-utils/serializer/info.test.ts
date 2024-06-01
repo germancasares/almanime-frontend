@@ -1,9 +1,10 @@
+import { describe, expect, test } from 'vitest';
 import { Info } from '../SSASubtitle';
 
 import scriptInfoSerializer from './info';
 
 describe('scriptInfoSerializer', () => {
-  it('works with empty object', () => {
+  test('works with empty object', () => {
     const info = {} as Info;
 
     const infoString = scriptInfoSerializer(info);
@@ -19,7 +20,7 @@ WrapStyle: undefined
 `);
   });
 
-  it('works with an info with data', () => {
+  test('works with an info with data', () => {
     const info = {
       ScriptType: 'Test',
       Title: 'Test',
@@ -55,7 +56,7 @@ Video Zoom: 10
 `);
   });
 
-  it('only serializes the fields with data', () => {
+  test('only serializes the fields with data', () => {
     const info = {
       ScriptType: 'Test',
       Title: 'Test',
@@ -85,7 +86,7 @@ Video Position: 10
 `);
   });
 
-  it('is serialized by HEADER order and additonal fields alphabetically', () => {
+  test('is serialized by HEADER order and additonal fields alphabetically', () => {
     const info = {
       PlayResX: 10,
       'Video Position': 10,

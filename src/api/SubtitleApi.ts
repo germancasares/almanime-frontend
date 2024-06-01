@@ -1,7 +1,6 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { Duration } from 'luxon';
-
-import { AnimeSubtitles, Subtitle, SubtitleDTO } from 'types/subtitle';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { AnimeSubtitles, Subtitle, SubtitleDTO } from '../types/subtitle';
 
 export default class SubtitleApi {
   public static GetByAnimeSlug = (
@@ -60,7 +59,7 @@ export default class SubtitleApi {
 
         return { publishedSubtitles, unpublishedSubtitles };
       },
-      onError: (error, subtitle, context) => {
+      onError: (_error, subtitle, context) => {
         if (context?.publishedSubtitles) {
           queryClient.setQueryData<Subtitle[]>(
             ['subtitles', 'published', subtitle.fansubAcronym],
@@ -123,7 +122,7 @@ export default class SubtitleApi {
 
         return { publishedSubtitles, unpublishedSubtitles };
       },
-      onError: (error, subtitle, context) => {
+      onError: (_error, subtitle, context) => {
         if (context?.publishedSubtitles) {
           queryClient.setQueryData<Subtitle[]>(
             ['subtitles', 'published', subtitle.fansubAcronym],
@@ -179,7 +178,7 @@ export default class SubtitleApi {
 
         return { publishedSubtitles, unpublishedSubtitles };
       },
-      onError: (error, subtitle, context) => {
+      onError: (_error, subtitle, context) => {
         if (context?.publishedSubtitles) {
           queryClient.setQueryData<Subtitle[]>(
             ['subtitles', 'published', subtitle.fansubAcronym],

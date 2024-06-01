@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
 import { mdiStar, mdiStarOutline } from '@mdi/js';
 import Icon from '@mdi/react';
-import cover from 'assets/default-cover.jpg';
-
+import { Link } from 'react-router-dom';
+import cover from '../assets/default-cover.jpg';
 import './panel.scss';
 
 type Props = {
@@ -36,7 +35,6 @@ const Panel = ({
     </Link>
     {
       star.shouldShow && (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <div role="button" className="star" onClick={star.onClick} tabIndex={0}>
           <Icon size={1} path={star.isSelected ? mdiStar : mdiStarOutline} />
         </div>

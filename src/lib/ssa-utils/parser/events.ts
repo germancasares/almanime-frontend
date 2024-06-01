@@ -32,11 +32,11 @@ const hasClosedCurlyBraces = (groups: SubText[]) => groups.every(
 // TODO: Build overrides list, splitting by \\ and handling nested functions
 // NOTE: This method is missing the handling the nested function logic
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const buildOverrideList = (overrides: string) => {
-  const overridesList = overrides.replaceAll('{', '').replaceAll('}', '').split('\\').filter((e) => e);
+// const buildOverrideList = (overrides: string) => {
+//   const overridesList = overrides.replaceAll('{', '').replaceAll('}', '').split('\\').filter((e) => e);
 
-  return overridesList;
-};
+//   return overridesList;
+// };
 
 const textGroupsBuilder = (text: string) => {
   const groups: SubText[] = [];

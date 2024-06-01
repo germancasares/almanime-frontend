@@ -1,10 +1,9 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { Duration } from 'luxon';
-
-import { Fansub, FansubDocument, FansubDTO } from 'types/fansub';
-import { Member } from 'types/member';
-import { Roles, RolesDTO } from 'types/role';
-import { Subtitle } from 'types/subtitle';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { Fansub, FansubDTO, FansubDocument } from '../types/fansub';
+import { Member } from '../types/member';
+import { Roles, RolesDTO } from '../types/role';
+import { Subtitle } from '../types/subtitle';
 
 export default class FansubApi {
   public static Get = () => useQuery<Fansub[]>(

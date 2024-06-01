@@ -1,0 +1,34 @@
+@import 'bulma/sass/utilities/mixins.sass';
+
+#header {
+  background-color: var(--primary);
+
+  .navbar-end .theme-switch {
+    display: none;
+
+    @include from($desktop) {
+      display: unset;
+    }
+  }
+
+  .navbar-menu {
+    background-color: var(--primary__variant);
+
+    @include from($desktop) {
+      background-color: unset;
+    }
+  }
+
+  .navbar-item {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    
+    &:not(.search) {
+      &:hover,
+      &:focus {
+        background-color: var(--primary__variant);
+        color: var(--on-primary__variant);
+      }
+    }
+  }
+}

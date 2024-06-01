@@ -1,11 +1,9 @@
-import cover from 'assets/default-cover.jpg';
-import fall from 'assets/season/fall.jpg';
-import spring from 'assets/season/spring.jpg';
-import summer from 'assets/season/summer.jpg';
-import winter from 'assets/season/winter.jpg';
-
-import Season from 'enums/Season';
-
+import cover from '../assets/default-cover.jpg';
+import fall from '../assets/season/fall.jpg';
+import spring from '../assets/season/spring.jpg';
+import summer from '../assets/season/summer.jpg';
+import winter from '../assets/season/winter.jpg';
+import Season from '../enums/Season';
 import './hero.scss';
 
 type Props = {

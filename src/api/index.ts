@@ -1,3 +1,5 @@
+import { API } from "../settings";
+
 const realFetch = window.fetch;
 
 const fetchAbsolute = async (input: RequestInfo | URL, init?: RequestInit) => {
@@ -9,7 +11,7 @@ const fetchAbsolute = async (input: RequestInfo | URL, init?: RequestInit) => {
   } else if (route.startsWith('http') || route.startsWith('/') || route.startsWith('blob:')) {
     response = await realFetch(route, init);
   } else {
-    response = await realFetch(`${process.env.REACT_APP_API}/${route}`, init);
+    response = await realFetch(`${API}/${route}`, init);
   }
 
   if (!response.ok) {

@@ -1,0 +1,50 @@
+@import 'bulma/sass/utilities/functions';
+@import '../../../styles/mixins';
+
+#profile {
+  &.navbar-item.has-dropdown:hover .navbar-link {
+    background-color: var(--primary__variant);
+    color: var(--on-primary__variant);
+  }
+
+  .navbar-link {
+    display: flex;
+
+    .username {
+      align-items: center;
+      color: var(--on-primary__variant);
+      display: flex;
+      min-width: 120px;
+      padding-left: 10px;
+    }
+
+    &::after {
+      border-color: var(--on-primary);
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+      background-color: var(--primary__variant);
+      color: var(--on-primary__variant);
+    }
+  }
+
+  .navbar-dropdown {
+    background-color: var(--primary);
+    border-top-color: var(--primary);
+
+    .navbar-item {
+      color: var(--on-primary);
+
+      &:hover {
+        background-color: var(--primary__variant);
+        color: var(--on-primary__variant);
+      }
+    }
+
+    .navbar-divider {
+      background-color: var(--on-primary);
+    }
+  }
+}

@@ -1,8 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+import { copyFile, existsSync, mkdirSync } from 'fs';
+import { join } from 'path';
+import { cwd } from 'process';
 
-if (!fs.existsSync("public/scripts")){
-  fs.mkdirSync("public/scripts");
+if (!existsSync("public/scripts")) {
+  mkdirSync("public/scripts");
 }
 
 const files = [
@@ -21,9 +22,9 @@ const files = [
 ];
 
 files.forEach(({ origin, dest }) => {
-  fs.copyFile(
-    path.join(__dirname, origin),
-    path.join(__dirname, dest),
+  copyFile(
+    join(cwd(), origin),
+    join(cwd(), dest),
     (error) => {
       if (error) throw error;
       console.log(`${origin} was copied to ${dest}`);
