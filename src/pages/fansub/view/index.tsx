@@ -6,11 +6,12 @@ import FansubApi from "../../../api/FansubApi";
 import UserApi from "../../../api/UserApi";
 import Loader from "../../../components/loader";
 import Permission from "../../../enums/Permission";
+import { TabName } from "../../../enums/TabName";
 import Helper from "../../../helper";
 import routes from "../../routes";
 import MembersPage from "./_components/members";
 import SubtitlesPage from "./_components/subtitles";
-import Tabs, { TabName } from "./_components/tabs";
+import Tabs from "./_components/tabs";
 import "./index.scss";
 
 const CreateSubtitleButton = ({ acronym }: { acronym: string }) => (

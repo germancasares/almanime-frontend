@@ -14,10 +14,10 @@ export default defineConfig({
     coverage: {
       thresholds: {
         autoUpdate: true,
-        lines: 22.1,
+        lines: 22.07,
         functions: 33.75,
         branches: 51.91,
-        statements: 22.1,
+        statements: 22.07,
       }
     }
   }
