@@ -22,7 +22,7 @@ WORKDIR /app
 RUN mkdir -p public/scripts
 COPY . ./
 
-RUN yarn install --prod --frozen-lockfile
+RUN yarn install --immutable
 
 RUN yarn run build
 
