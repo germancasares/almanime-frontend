@@ -1,0 +1,53 @@
+name: Pipeline for new push to master
+on:
+  push:
+    branches: [ "master" ]
+jobs:
+  on-master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Use Node.js from .nvmrc
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --prefer-offline
+      - name: ESLint & Stylelint
+        run: yarn lint
+      - name: Prettier checks
+        run: yarn prettier:check
+      - name: Vitest
+        run: yarn test
+      - name: Build React
+        run: yarn build
+      - name: Build Storybook
+        run: yarn build-storybook
+ analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - language: javascript-typescript
+          build-mode: none
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}"
