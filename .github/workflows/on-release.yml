@@ -1,7 +1,17 @@
 name: On new release
-on:
-  push:
-    tags: [ 'v*.*.*' ]
+on: 
+  workflow_dispatch:
+    inputs:
+      nextRelease:
+        description: 'Next Release'     
+        required: true
+        default: 'patch'
+        type: choice
+        options: 
+        - major
+        - minor
+        - patch
+        - prerelease
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
@@ -9,7 +19,7 @@ jobs:
   on-release:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
       id-token: write
     steps:
@@ -35,6 +45,12 @@ jobs:
       - name: Install latest arm64 builder
         id: update-arm64-builder
         run: docker run --privileged --rm tonistiigi/binfmt --install arm64
+      - name: Automated Version Bump
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          version-type: {{ github.event.inputs.nextRelease }}
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
@@ -58,6 +74,8 @@ jobs:
           TAGS: ${{ steps.meta.outputs.tags }}
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
+      - name: Create Github release
+        uses: softprops/action-gh-release@v2
       - name: Tailscale
         uses: tailscale/github-action@7a0b30ed3517c2244d1330e39467b95f067a33bd
         with:
