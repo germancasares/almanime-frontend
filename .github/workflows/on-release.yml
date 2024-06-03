@@ -46,11 +46,11 @@ jobs:
         id: update-arm64-builder
         run: docker run --privileged --rm tonistiigi/binfmt --install arm64
       - name: Automated Version Bump
-        uses: phips28/gh-action-bump-version@master
+        uses: phips28/gh-action-bump-version@v11
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          version-type: {{ github.event.inputs.nextRelease }}
+          version-type: {{ inputs.nextRelease }}
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
