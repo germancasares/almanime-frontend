@@ -1,4 +1,4 @@
-name: Publish a Docker image
+name: On tag
 on:
   push:
     tags: [ 'v*.*.*' ]
