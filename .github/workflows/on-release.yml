@@ -55,7 +55,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=schedule,pattern=nightly,enable=true,priority=1000
-            type=semver,pattern={{ raw }},value={{ steps.bump_version.outputs.newTag }},enable=true,priority=700
+            type=semver,pattern={{ raw }},value=${{ steps.bump_version.outputs.newTag }},enable=true,priority=700
             type=ref,event=branch,enable=true,priority=600
             type=ref,event=tag,enable=true,priority=600
             type=ref,event=pr,prefix=pr-,enable=true,priority=600
