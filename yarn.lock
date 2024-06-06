@@ -4525,6 +4525,7 @@ __metadata:
     jsdom: "npm:^24.1.0"
     libass-wasm: "npm:4.0.0"
     luxon: "npm:^3.4.4"
+    postcss: "npm:^8.4.38"
     prettier: "npm:3.2.5"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
