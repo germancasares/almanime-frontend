@@ -19,7 +19,7 @@ jobs:
   create-release:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read,write
       packages: write
       id-token: write
     steps:
@@ -79,7 +79,7 @@ jobs:
           cosign-release: 'v2.2.4'
       - name: Sign the published Docker image
         env:
-          TAGS: ${{ steps.bump_version.outputs.newTag  }}
+          TAGS: ${{ steps.meta.outputs.tags }}
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
       - name: Create Github release
