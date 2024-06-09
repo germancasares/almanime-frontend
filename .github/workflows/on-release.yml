@@ -67,13 +67,13 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            VITE_API=${{ secrets.VITE_API }}
-            VITE_SENTRY_DSN=${{ secrets.VITE_SENTRY_DSN }}
+            VITE_API=${{ vars.VITE_API }}
+            VITE_SENTRY_DSN=${{ vars.VITE_SENTRY_DSN }}
             VITE_RELEASE=${{ github.ref_name }}
-            VITE_AUTH0_DOMAIN=${{ secrets.VITE_AUTH0_DOMAIN }}
-            VITE_AUTH0_AUDIENCE=${{ secrets.VITE_AUTH0_AUDIENCE }}
-            VITE_AUTH0_CLIENT_ID=${{ secrets.VITE_AUTH0_CLIENT_ID }}
-            VITE_SHOULD_PERSIST_QUERIES=${{ secrets.VITE_SHOULD_PERSIST_QUERIES }}
+            VITE_AUTH0_DOMAIN=${{ vars.VITE_AUTH0_DOMAIN }}
+            VITE_AUTH0_AUDIENCE=${{ vars.VITE_AUTH0_AUDIENCE }}
+            VITE_AUTH0_CLIENT_ID=${{ vars.VITE_AUTH0_CLIENT_ID }}
+            VITE_SHOULD_PERSIST_QUERIES=${{ vars.VITE_SHOULD_PERSIST_QUERIES }}
       - name: Install cosign
         uses: sigstore/cosign-installer@59acb6260d9c0ba8f4a2f9d9b48431a222b68e20 #v3.5.0
         with:
@@ -92,10 +92,10 @@ jobs:
       - name: Tailscale
         uses: tailscale/github-action@v2
         with:
-          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-client-id: ${{ vars.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:almanime
       - name: Trigger Portainer webhook
         uses: joelwmale/webhook-action@448a17bf857ead98546cfbdbe3b9d4cf979dda95
         with:
-          url: ${{ secrets.WEBHOOK_URL }}
+          url: ${{ vars.WEBHOOK_URL }}
