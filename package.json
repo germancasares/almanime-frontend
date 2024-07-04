@@ -1,7 +1,7 @@
 {
   "name": "almanime-frontend",
   "private": true,
-  "version": "1.2.4",
+  "version": "1.2.5",
   "type": "module",
   "engines": {
     "node": ">=22.0.0"
