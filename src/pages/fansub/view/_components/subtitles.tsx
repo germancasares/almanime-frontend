@@ -14,9 +14,10 @@ import Loader from "../../../../components/loader";
 import Permission from "../../../../enums/Permission";
 import Formatter from "../../../../formatter";
 import Helper from "../../../../helper";
-import { API } from "../../../../settings";
 import routes from "../../../routes";
 import "./subtitles.scss";
+
+const { API_URL } = await import("../../../../settings");
 
 const Subtitles = ({
   acronym,
@@ -99,7 +100,7 @@ const Subtitles = ({
                   <a
                     className="button is-small is-fullwidth"
                     title="Download subtitle"
-                    href={`${API}${url}`}
+                    href={`${API_URL}${url}`}
                   >
                     <Icon path={mdiDownload} size={1} />
                   </a>
@@ -131,7 +132,7 @@ const Subtitles = ({
                         animeSlug,
                         episode.toString(),
                       )}
-                      state={{ subtitleUrl: `${API}${url}`, format }}
+                      state={{ subtitleUrl: `${API_URL}${url}`, format }}
                     >
                       <Icon path={mdiImageText} size={1} />
                     </Link>
@@ -184,7 +185,7 @@ const Subtitles = ({
                 <a
                   className="button is-small is-fullwidth"
                   title="Download subtitle"
-                  href={`${API}${url}`}
+                  href={`${API_URL}${url}`}
                 >
                   <Icon path={mdiDownload} size={1} />
                 </a>

@@ -8,13 +8,13 @@
   },
   "scripts": {
     "postinstall": "node ./copy-dep.js",
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "test": "vitest run --coverage",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && stylelint '**/*.scss'",
     "prettier:check": "prettier --check src/",
     "prettier:write": "prettier --write src/",
-    "preview": "vite preview",
+    "preview": "vite preview --host",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

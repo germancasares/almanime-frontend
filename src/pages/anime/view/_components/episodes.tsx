@@ -1,10 +1,11 @@
 import { Duration } from "luxon";
 import Formatter from "../../../../formatter";
 import Helper from "../../../../helper";
-import { API } from "../../../../settings";
 import { Episode } from "../../../../types/episode";
 import { AnimeSubtitles, EpisodeSubtitle } from "../../../../types/subtitle";
 import "./episodes.scss";
+
+const { API_URL } = await import("../../../../settings");
 
 type Props = {
   episodes: Episode[];
@@ -41,7 +42,7 @@ const Row = ({
     <td>{Formatter.DateFull(aired)}</td>
     <td>
       {episodeSubtitles?.map(({ acronym, url, language }) => (
-        <a href={`${API}${url}`} key={url}>
+        <a href={`${API_URL}${url}`} key={url}>
           {`${acronym} ${Formatter.LanguageFlag(language)}`}
         </a>
       ))}

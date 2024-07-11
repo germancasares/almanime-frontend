@@ -13,7 +13,8 @@ import configureFetch from "./api/index.ts";
 import "./main.scss";
 import routes from "./pages/routes.ts";
 import reportWebVitals from "./reportWebVitals";
-import {
+
+const {
   AUTH0_AUDIENCE,
   AUTH0_CLIENT_ID,
   AUTH0_DOMAIN,
@@ -22,7 +23,7 @@ import {
   RELEASE,
   SENTRY_DSN,
   SHOULD_PERSIST_QUERIES,
-} from "./settings.ts";
+} = await import("./settings");  
 
 Sentry.init({
   enabled: !IS_DEVELOPMENT,

@@ -1,4 +1,4 @@
-import { API } from "../settings";
+const { API_URL } = await import("../settings");
 
 const realFetch = window.fetch;
 
@@ -15,7 +15,7 @@ const fetchAbsolute = async (input: RequestInfo | URL, init?: RequestInit) => {
   ) {
     response = await realFetch(route, init);
   } else {
-    response = await realFetch(`${API}/${route}`, init);
+    response = await realFetch(`${API_URL}/${route}`, init);
   }
 
   if (!response.ok) {
