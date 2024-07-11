@@ -23,7 +23,7 @@ const {
   RELEASE,
   SENTRY_DSN,
   SHOULD_PERSIST_QUERIES,
-} = await import("./settings");  
+} = await import("./settings");
 
 Sentry.init({
   enabled: !IS_DEVELOPMENT,
