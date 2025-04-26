@@ -15,10 +15,10 @@ const files = [
     origin: "node_modules/libass-wasm/dist/js/subtitles-octopus-worker.wasm",
     dest: "public/scripts/subtitles-octopus-worker.wasm",
   },
-  {
-    origin: "node_modules/libass-wasm/dist/js/subtitles-octopus-worker.data",
-    dest: "public/scripts/subtitles-octopus-worker.data",
-  },
+  // {
+  //   origin: "node_modules/libass-wasm/dist/js/subtitles-octopus-worker.data",
+  //   dest: "public/scripts/subtitles-octopus-worker.data",
+  // },
 ];
 
 files.forEach(({ origin, dest }) => {
